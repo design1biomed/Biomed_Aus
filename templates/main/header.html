@@ -1,0 +1,906 @@
+{% load static %}
+
+<!-- Dedicated blur background layer with perfectly smooth mask-image fade -->
+<div id="navbarBlurBg" aria-hidden="true"></div>
+
+<!-- ═══════════════════════════════════════════
+     DESKTOP NAVBAR
+     ═══════════════════════════════════════════ -->
+<nav class="navbar navbar-expand-lg fixed-top pt-4 pb-3 custom-pill-navbar" id="mainNav">
+    <div class="container d-flex align-items-center">
+
+        <!-- Left: Brand -->
+        <a class="navbar-brand d-flex align-items-center gap-2 me-lg-auto ms-lg-3" href="/">
+            <img src="{% static 'images/bmi_logo.webp' %}" alt="Bio Med Ingredients Logo"
+                style="height: 45px !important; width: auto !important; max-width: none !important;">
+            <span class="fs-5 fw-bold nav-brand-text d-none d-sm-inline"
+                style="letter-spacing: -0.5px; white-space: nowrap;">Bio Med Ingredients
+                Australia</span>
+        </a>
+
+        <!-- Mobile Hamburger — opens SIDEBAR -->
+        <button class="sidebar-toggle d-lg-none" id="sidebarToggleBtn" aria-label="Open menu"
+            style="border-color: rgba(0,0,0,0.1);">
+            <div class="ham-lines">
+                <span class="line line-1" style="background:#111827;"></span>
+                <span class="line line-2" style="background:#111827;"></span>
+                <span class="line line-3" style="background:#111827;"></span>
+            </div>
+        </button>
+
+        <!-- Center: Nav Pill (Desktop Only) -->
+        <div class="collapse navbar-collapse justify-content-center order-3 order-lg-2 mt-3 mt-lg-0 d-none d-lg-flex"
+            id="navbarNav">
+            <div class="nav-pill-wrapper bg-dark rounded-pill p-1 d-inline-flex">
+                <ul class="navbar-nav flex-row flex-wrap align-items-center mb-0 px-2 py-1 gap-1 gap-md-2">
+                    <li class="nav-item">
+                        <a class="nav-link nav-pill-link active bg-white text-dark rounded-pill px-3 py-1 d-flex align-items-center gap-2 fw-semibold"
+                            href="#">
+                            <i class="ph ph-house"></i> Home
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link nav-pill-link text-white text-opacity-75 px-3 py-1 fw-semibold dropdown-toggle"
+                            href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            About
+                        </a>
+                        <ul
+                            class="dropdown-menu dropdown-menu-animated mt-2 border-0 shadow-lg rounded-4 overflow-hidden">
+                            <li><a class="dropdown-item py-2 fw-medium" href="{% url 'about' %}">About Company</a></li>
+                            <li><a class="dropdown-item py-2 fw-medium" href="#">Management Team</a></li>
+                            <li><a class="dropdown-item py-2 fw-medium" href="#">Infrastructure &amp; Services</a></li>
+                            <li><a class="dropdown-item py-2 fw-medium" href="#">CSR</a></li>
+                            <li><a class="dropdown-item py-2 fw-medium" href="#">Careers</a></li>
+                            <li><a class="dropdown-item py-2 fw-medium" href="#">News &amp; Events</a></li>
+                            <li><a class="dropdown-item py-2 fw-medium" href="#">Our Accreditations</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link nav-pill-link text-white text-opacity-75 px-3 py-1 fw-semibold dropdown-toggle"
+                            href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Products
+                        </a>
+                        <ul
+                            class="dropdown-menu dropdown-menu-animated mt-2 border-0 shadow-lg rounded-4 overflow-hidden">
+                            <li><a class="dropdown-item py-2 fw-medium" href="#">Product Range</a></li>
+                            <li><a class="dropdown-item py-2 fw-medium" href="#">Herbal Extracts</a></li>
+                            <li><a class="dropdown-item py-2 fw-medium" href="#">Natural Food Colors</a></li>
+                            <li><a class="dropdown-item py-2 fw-medium" href="#">Product Brochures</a></li>
+                            <li><a class="dropdown-item py-2 fw-medium" href="#">Product Documents</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link nav-pill-link text-white text-opacity-75 px-3 py-1 fw-semibold"
+                            href="#">Facility</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link nav-pill-link text-white text-opacity-75 px-3 py-1 fw-semibold"
+                            href="#">Research</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Right: CTAs (Desktop Only) -->
+        <div class="d-none d-lg-flex ms-lg-auto align-items-center gap-4 order-2 order-lg-3">
+            <a href="#contact" class="btn nav-contact-btn rounded-pill px-4 py-2 fw-semibold"
+                style="border-width: 1px;">Contact Us</a>
+        </div>
+
+    </div>
+</nav>
+
+<!-- ═══════════════════════════════════════════
+     OVERLAY
+     ═══════════════════════════════════════════ -->
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+<!-- ═══════════════════════════════════════════
+     PREMIUM MOBILE SIDEBAR
+     ═══════════════════════════════════════════ -->
+<aside class="mobile-sidebar" id="mobileSidebar" role="dialog" aria-modal="true" aria-label="Navigation">
+
+    <!-- ── Top Brand Strip ── -->
+    <div class="sb-brand-strip">
+        <a class="sb-brand" href="#">
+            <img src="{% static 'images/BMI Logo.webp' %}" alt="Logo" class="sb-logo">
+            <div class="sb-brand-text">
+                <span class="sb-title">Bio Med</span>
+                <span class="sb-sub">Ingredients Pvt. Ltd.</span>
+            </div>
+        </a>
+        <button class="sb-close" id="sidebarCloseBtn" aria-label="Close menu">
+            <i class="bi bi-x-lg"></i>
+        </button>
+    </div>
+
+    <!-- ── Decorative divider ── -->
+    <div class="sb-divider">
+        <span class="sb-pill-badge"><i class="bi bi-leaf-fill"></i> Natural · Pure · Trusted</span>
+    </div>
+
+    <!-- ── Navigation ── -->
+    <nav class="sb-nav" role="navigation">
+        <p class="sb-section-label">MENU</p>
+        <ul class="sb-list">
+
+            <li class="sb-item" data-delay="1">
+                <a href="#" class="sb-link" data-path="/">
+                    <div class="sb-icon-wrap"><i class="bi bi-house-fill"></i></div>
+                    <span>Home</span>
+                    <i class="bi bi-chevron-right sb-arr"></i>
+                </a>
+            </li>
+
+            <!-- About Accordion -->
+            <li class="sb-item sb-accordion" data-delay="2">
+                <button class="sb-link sb-acc-btn" data-target="acc-about">
+                    <div class="sb-icon-wrap"><i class="bi bi-building-fill"></i></div>
+                    <span>About</span>
+                    <i class="bi bi-chevron-down sb-chevron"></i>
+                </button>
+                <ul class="sb-submenu" id="acc-about">
+                    <li><a href="{% url 'about' %}"><i class="bi bi-dot"></i>About Company</a></li>
+                    <li><a href="#"><i class="bi bi-dot"></i>Management Team</a></li>
+                    <li><a href="#"><i class="bi bi-dot"></i>Infrastructure &amp;
+                            Services</a></li>
+                    <li><a href="#"><i class="bi bi-dot"></i>CSR</a></li>
+                    <li><a href="#"><i class="bi bi-dot"></i>Careers</a></li>
+                    <li><a href="#"><i class="bi bi-dot"></i>News &amp; Events</a></li>
+                    <li><a href="#"><i class="bi bi-dot"></i>Our Accreditations</a></li>
+                </ul>
+            </li>
+
+            <!-- Products Accordion -->
+            <li class="sb-item sb-accordion" data-delay="3">
+                <button class="sb-link sb-acc-btn" data-target="acc-products">
+                    <div class="sb-icon-wrap"><i class="bi bi-box-seam-fill"></i></div>
+                    <span>Products</span>
+                    <i class="bi bi-chevron-down sb-chevron"></i>
+                </button>
+                <ul class="sb-submenu" id="acc-products">
+                    <li><a href="#"><i class="bi bi-dot"></i>Product Range</a></li>
+                    <li><a href="#"><i class="bi bi-dot"></i>Herbal Extracts</a></li>
+                    <li><a href="#"><i class="bi bi-dot"></i>Natural Food Colors</a></li>
+                    <li><a href="#"><i class="bi bi-dot"></i>Product Brochures</a></li>
+                    <li><a href="#"><i class="bi bi-dot"></i>Product Documents</a></li>
+                </ul>
+            </li>
+
+            <li class="sb-item" data-delay="4">
+                <a href="#" class="sb-link">
+                    <div class="sb-icon-wrap"><i class="bi bi-geo-alt-fill"></i></div>
+                    <span>Facility</span>
+                    <i class="bi bi-chevron-right sb-arr"></i>
+                </a>
+            </li>
+
+            <li class="sb-item" data-delay="5">
+                <a href="#" class="sb-link">
+                    <div class="sb-icon-wrap"><i class="bi bi-patch-check-fill"></i></div>
+                    <span>Trademark</span>
+                    <i class="bi bi-chevron-right sb-arr"></i>
+                </a>
+            </li>
+
+            <li class="sb-item" data-delay="6">
+                <a href="#" class="sb-link">
+                    <div class="sb-icon-wrap"><i class="bi bi-clipboard2-data-fill"></i></div>
+                    <span>Research</span>
+                    <i class="bi bi-chevron-right sb-arr"></i>
+                </a>
+            </li>
+
+        </ul>
+    </nav>
+
+    <!-- ── Footer ── -->
+    <div class="sb-footer">
+        <a href="#" class="sb-cta-btn">
+            <i class="bi bi-telephone-fill"></i> Contact Us
+        </a>
+
+        <div class="sb-contact-row">
+            <a href="mailto:info@biomedingredients.com" class="sb-contact-chip">
+                <i class="bi bi-envelope-fill"></i>
+                <span>info@biomedingredients.com</span>
+            </a>
+            <a href="tel:+918806668458" class="sb-contact-chip">
+                <i class="bi bi-telephone-fill"></i>
+                <span>+91 88066 68458</span>
+            </a>
+        </div>
+
+        <div class="sb-socials">
+            <a href="#" class="sb-social" title="LinkedIn"><i class="bi bi-linkedin"></i></a>
+            <a href="#" class="sb-social" title="Facebook"><i class="bi bi-facebook"></i></a>
+            <a href="#" class="sb-social" title="Instagram"><i class="bi bi-instagram"></i></a>
+            <a href="#" class="sb-social" title="YouTube"><i class="bi bi-youtube"></i></a>
+            <a href="https://wa.me/+918806668458" class="sb-social" title="WhatsApp" target="_blank"><i
+                    class="bi bi-whatsapp"></i></a>
+        </div>
+
+        <p class="sb-copy">&copy; 2026 Bio Med Ingredients. All rights reserved.</p>
+    </div>
+
+</aside>
+
+<!-- ═══════════════════════════════════════════
+     STYLES
+     ═══════════════════════════════════════════ -->
+<style>
+    /* ── Hamburger Button ── */
+    .sidebar-toggle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 44px;
+        height: 44px;
+        padding: 0;
+        background: rgba(255, 255, 255, 0.12);
+        border: 1.5px solid rgba(255, 255, 255, 0.35);
+        border-radius: 12px;
+        cursor: pointer;
+        flex-shrink: 0;
+        transition: background 0.25s;
+    }
+
+    .sidebar-toggle:hover {
+        background: rgba(93, 158, 105, 0.22);
+    }
+
+    .ham-lines {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .line {
+        display: block;
+        width: 22px;
+        height: 2.5px;
+        background: #fff;
+        border-radius: 3px;
+        transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+            opacity 0.25s ease,
+            width 0.3s ease;
+        transform-origin: center;
+    }
+
+    /* Animated to X when open */
+    .sidebar-toggle.is-open .line-1 {
+        transform: translateY(7.5px) rotate(45deg);
+    }
+
+    .sidebar-toggle.is-open .line-2 {
+        opacity: 0;
+        width: 0;
+    }
+
+    .sidebar-toggle.is-open .line-3 {
+        transform: translateY(-7.5px) rotate(-45deg);
+    }
+
+    /* ── Overlay ── */
+    .sidebar-overlay {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.6);
+        z-index: 2998;
+        backdrop-filter: blur(5px);
+        -webkit-backdrop-filter: blur(5px);
+        opacity: 0;
+        transition: opacity 0.35s ease;
+    }
+
+    .sidebar-overlay.active {
+        display: block;
+        opacity: 1;
+    }
+
+    /* ── Sidebar Panel ── */
+    .mobile-sidebar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        max-width: 305px;
+        width: 100%;
+        ;
+        max-width: 88vw;
+        height: 100dvh;
+        z-index: 2999;
+        display: flex;
+        flex-direction: column;
+        transform: translateX(-100%);
+        transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        overflow-y: auto;
+        overflow-x: hidden;
+        /* Dropdown Glassmorphism */
+        background: #2f432f98;
+        backdrop-filter: blur(80px) saturate(180%);
+        -webkit-backdrop-filter: blur(80px) saturate(180%);
+        border-right: 1px solid rgba(255, 255, 255, 0.14);
+        box-shadow: 6px 0 40px rgba(0, 0, 0, 0.5);
+    }
+
+    .mobile-sidebar.active {
+        transform: translateX(0);
+    }
+
+    /* Stagger-in items when sidebar opens */
+    .mobile-sidebar.active .sb-item {
+        animation: sbItemIn 0.42s cubic-bezier(0.22, 1, 0.36, 1) both;
+        animation-delay: calc(var(--delay) * 60ms);
+    }
+
+    .btn-outline-custom {
+        color: #0b5d3f;
+        border: 2px solid #0b5d3f;
+        background-color: transparent;
+    }
+
+    .btn-outline-custom:hover {
+        background-color: #0b5d3f;
+        color: #fff;
+        border-color: #0b5d3f;
+    }
+
+    .btn-outline-custom:focus,
+    .btn-outline-custom:active {
+        background-color: #0b5d3f;
+        color: #fff;
+        border-color: #0b5d3f;
+        box-shadow: 0 0 0 0.25rem rgba(11, 93, 63, 0.25);
+    }
+
+    @keyframes sbItemIn {
+        from {
+            opacity: 0;
+            transform: translateX(-18px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+
+    /* ── Brand Strip ── */
+    .sb-brand-strip {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 18px 16px 14px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        flex-shrink: 0;
+        background: transparent;
+    }
+
+    .sb-brand {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        text-decoration: none;
+    }
+
+    .sb-logo {
+        height: 44px;
+        width: auto;
+        flex-shrink: 0;
+    }
+
+    .sb-brand-text {
+        display: flex;
+        flex-direction: column;
+        line-height: 1.2;
+    }
+
+    .sb-title {
+        font-size: 1rem;
+        font-weight: 800;
+        color: #fff;
+        letter-spacing: 0.3px;
+    }
+
+    .sb-sub {
+        font-size: 0.68rem;
+        color: rgba(240, 255, 245, 0.88);
+        font-weight: 500;
+    }
+
+    .sb-close {
+        width: 36px;
+        height: 36px;
+        border-radius: 10px;
+        background: rgba(255, 255, 255, 0.08);
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.05rem;
+        cursor: pointer;
+        transition: background 0.22s, color 0.22s;
+        flex-shrink: 0;
+    }
+
+    .sb-close:hover {
+        background: rgba(255, 255, 255, 0.18);
+        color: #fff;
+    }
+
+    /* ── Decorative Badge ── */
+    .sb-divider {
+        padding: 10px 16px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        flex-shrink: 0;
+    }
+
+    .sb-pill-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 4px 12px;
+        background: rgba(74, 222, 128, 0.1);
+        border: 1px solid rgba(74, 222, 128, 0.25);
+        border-radius: 999px;
+        color: #4ade80;
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+    }
+
+    /* ── Section Label ── */
+    .sb-section-label {
+        font-size: 0.65rem;
+        font-weight: 800;
+        color: rgba(255, 255, 255, 0.4);
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        margin: 14px 0 6px 16px;
+    }
+
+    /* ── Nav ── */
+    .sb-nav {
+        flex: 1;
+        overflow-y: auto;
+        padding: 0 10px 10px;
+    }
+
+    .sb-list {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 3px;
+    }
+
+    /* ── Each Item (for animation delay) ── */
+    .sb-item {
+        --delay: 0;
+    }
+
+    .sb-item[data-delay="1"] {
+        --delay: 1;
+    }
+
+    .sb-item[data-delay="2"] {
+        --delay: 2;
+    }
+
+    .sb-item[data-delay="3"] {
+        --delay: 3;
+    }
+
+    .sb-item[data-delay="4"] {
+        --delay: 4;
+    }
+
+    .sb-item[data-delay="5"] {
+        --delay: 5;
+    }
+
+    .sb-item[data-delay="6"] {
+        --delay: 6;
+    }
+
+    /* ── Link row ── */
+    .sb-link {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        width: 100%;
+        padding: 11px 12px;
+        border-radius: 12px;
+        color: rgba(240, 255, 245, 0.88);
+        font-size: 0.95rem;
+        font-weight: 600;
+        text-decoration: none;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        transition: background 0.22s, color 0.22s, padding-left 0.22s;
+        text-align: left;
+        position: relative;
+    }
+
+    .sb-link:hover,
+    .sb-link.sb-active {
+        background: rgba(255, 255, 255, 0.18);
+        color: #ffffff;
+        padding-left: 16px;
+    }
+
+    .sb-link.sb-active::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 20%;
+        height: 60%;
+        width: 3px;
+        border-radius: 0 3px 3px 0;
+        background: #fff;
+    }
+
+    /* Icon bubble */
+    .sb-icon-wrap {
+        width: 34px;
+        height: 34px;
+        border-radius: 9px;
+        background: rgba(74, 222, 128, 0.12);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #4ade80;
+        font-size: 0.88rem;
+        flex-shrink: 0;
+        transition: background 0.22s, transform 0.22s;
+    }
+
+    .sb-link:hover .sb-icon-wrap,
+    .sb-link.sb-active .sb-icon-wrap {
+        background: rgba(255, 255, 255, 0.2);
+        transform: scale(1.08);
+    }
+
+    .sb-arr {
+        margin-left: auto;
+        font-size: 0.7rem;
+        color: rgba(255, 255, 255, 0.4);
+        transition: transform 0.22s, color 0.22s;
+    }
+
+    .sb-link:hover .sb-arr {
+        transform: translateX(3px);
+        color: #fff;
+    }
+
+    /* ── Chevron for accordion ── */
+    .sb-chevron {
+        margin-left: auto;
+        font-size: 0.72rem;
+        color: rgba(255, 255, 255, 0.4);
+        transition: transform 0.3s ease, color 0.22s;
+    }
+
+    .sb-acc-btn.open .sb-chevron {
+        transform: rotate(180deg);
+        color: #fff;
+    }
+
+    .sb-acc-btn.open {
+        color: #fff;
+    }
+
+    .sb-acc-btn.open .sb-icon-wrap {
+        background: rgba(255, 255, 255, 0.2);
+    }
+
+    /* ── Submenu ── */
+    .sb-submenu {
+        list-style: none;
+        margin: 4px 0 4px 24px;
+        padding: 0 0 0 14px;
+        border-left: 2px solid rgba(74, 222, 128, 0.2);
+        display: none;
+        flex-direction: column;
+        gap: 1px;
+        overflow: hidden;
+        max-height: 0;
+        transition: max-height 0.38s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .sb-submenu.open {
+        display: flex;
+        max-height: 400px;
+    }
+
+    .sb-submenu li a {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        padding: 8px 8px 8px 4px;
+        color: rgba(240, 255, 245, 0.88);
+        font-size: 0.85rem;
+        font-weight: 500;
+        text-decoration: none;
+        border-radius: 8px;
+        transition: background 0.2s, color 0.2s, padding-left 0.2s;
+    }
+
+    .sb-submenu li a i {
+        font-size: 1rem;
+        color: #fff;
+    }
+
+    .sb-submenu li a:hover {
+        background: rgba(255, 255, 255, 0.18);
+        color: #ffffff;
+        padding-left: 8px;
+    }
+
+    /* ── Footer ── */
+    .sb-footer {
+        padding: 14px 14px 24px;
+        border-top: 1px solid rgba(255, 255, 255, 0.07);
+        flex-shrink: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        background: transparent;
+    }
+
+    /* CTA Button */
+    .sb-cta-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        width: 100%;
+        padding: 13px;
+        background: linear-gradient(135deg, #198754, #15a060);
+        color: #fff;
+        font-weight: 700;
+        font-size: 0.95rem;
+        text-decoration: none;
+        border-radius: 12px;
+        transition: transform 0.22s, box-shadow 0.22s;
+        box-shadow: 0 4px 15px rgba(25, 135, 84, 0.4);
+    }
+
+    .sb-cta-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 24px rgba(25, 135, 84, 0.5);
+        color: #fff;
+    }
+
+    /* Contact Chips */
+    .sb-contact-row {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+    }
+
+    .sb-contact-chip {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 10px;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 10px;
+        text-decoration: none;
+        transition: background 0.2s;
+    }
+
+    .sb-contact-chip i {
+        color: #fff;
+        font-size: 0.85rem;
+        flex-shrink: 0;
+    }
+
+    .sb-contact-chip span {
+        font-size: 0.78rem;
+        color: rgba(240, 255, 245, 0.88);
+        overflow: hidden;
+        text-overflow: ellipsis;
+        text-overflow: ellipsis;
+    }
+
+    .sb-contact-chip:hover {
+        background: rgba(255, 255, 255, 0.1);
+    }
+
+    /* Social Icons */
+    .sb-socials {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+    }
+
+    .sb-social {
+        width: 36px;
+        height: 36px;
+        border-radius: 9px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        color: #fff;
+        font-size: 0.9rem;
+        text-decoration: none;
+        transition: background 0.22s, color 0.22s, transform 0.22s;
+    }
+
+    .sb-social:hover {
+        background: rgba(255, 255, 255, 0.18);
+        color: #fff;
+        border-color: rgba(255, 255, 255, 0.3);
+        transform: translateY(-2px);
+    }
+
+    .sb-copy {
+        font-size: 0.68rem;
+        color: rgba(255, 255, 255, 0.3);
+        text-align: center;
+        margin: 0;
+    }
+
+    /* ── Hide sidebar on desktop ── */
+    @media (min-width: 992px) {
+
+        .mobile-sidebar,
+        .sidebar-overlay,
+        .sidebar-toggle {
+            display: none !important;
+        }
+    }
+
+    /* ── Scrollbar inside sidebar ── */
+    .mobile-sidebar::-webkit-scrollbar {
+        width: 4px;
+    }
+
+    .mobile-sidebar::-webkit-scrollbar-track {
+        background: transparent;
+    }
+
+    .mobile-sidebar::-webkit-scrollbar-thumb {
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: 4px;
+    }
+
+    /* ── Dropdown Animations ── */
+    @media (min-width: 992px) {
+        .dropdown-menu-animated {
+            display: block;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(15px);
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            margin-top: 0;
+            pointer-events: none;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-item.dropdown:hover .dropdown-menu-animated {
+            opacity: 1;
+            transform: translateY(0);
+            visibility: visible;
+            pointer-events: auto;
+        }
+
+        .dropdown-item {
+            transition: all 0.2s ease;
+            color: #4b5563;
+        }
+
+        .dropdown-item:hover {
+            background-color: rgba(11, 93, 63, 0.05);
+            color: #0b5d3f;
+            padding-left: 1.5rem;
+        }
+    }
+
+    .nav-pill-right-link {
+        transition: color 0.3s ease;
+    }
+
+    .nav-pill-right-link:hover {
+        color: #0b5d3f !important;
+    }
+</style>
+
+<!-- ═══════════════════════════════════════════
+     SIDEBAR JAVASCRIPT
+     ═══════════════════════════════════════════ -->
+<script>
+    (function () {
+        const toggleBtn = document.getElementById('sidebarToggleBtn');
+        const closeBtn = document.getElementById('sidebarCloseBtn');
+        const sidebar = document.getElementById('mobileSidebar');
+        const overlay = document.getElementById('sidebarOverlay');
+
+        /* ── Open / Close ── */
+        function openSidebar() {
+            sidebar.classList.add('active');
+            overlay.classList.add('active');
+            toggleBtn.classList.add('is-open');
+            document.body.style.overflow = 'hidden';
+        }
+        function closeSidebar() {
+            sidebar.classList.remove('active');
+            overlay.classList.remove('active');
+            toggleBtn.classList.remove('is-open');
+            document.body.style.overflow = '';
+        }
+
+        if (toggleBtn) toggleBtn.addEventListener('click', openSidebar);
+        if (closeBtn) closeBtn.addEventListener('click', closeSidebar);
+        if (overlay) overlay.addEventListener('click', closeSidebar);
+        document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeSidebar(); });
+
+        /* ── Active page highlight ── */
+        const currentPath = window.location.pathname;
+        document.querySelectorAll('.sb-link[href]').forEach(function (link) {
+            if (link.getAttribute('href') === currentPath) {
+                link.classList.add('sb-active');
+            }
+        });
+
+        /* ── Accordion ── */
+        document.querySelectorAll('.sb-acc-btn').forEach(function (btn) {
+            btn.addEventListener('click', function () {
+                const targetId = this.getAttribute('data-target');
+                const submenu = document.getElementById(targetId);
+                const isOpen = submenu.classList.contains('open');
+
+                // Close others
+                document.querySelectorAll('.sb-submenu.open').forEach(function (m) { m.classList.remove('open'); });
+                document.querySelectorAll('.sb-acc-btn.open').forEach(function (b) { b.classList.remove('open'); });
+
+                if (!isOpen) {
+                    submenu.classList.add('open');
+                    this.classList.add('open');
+                }
+            });
+        });
+
+        /* ── Close when nav link clicked ── */
+        document.querySelectorAll('.sb-link:not(.sb-acc-btn), .sb-submenu a, .sb-footer a').forEach(function (link) {
+            link.addEventListener('click', closeSidebar);
+        });
+
+        /* ── Header Load Animation ── */
+        window.addEventListener("load", function () {
+            if (typeof gsap !== 'undefined') {
+                gsap.fromTo("#mainNav",
+                    { y: -100, opacity: 0 },
+                    { y: 0, opacity: 1, duration: 1.2, ease: "power3.out", clearProps: "transform" }
+                );
+                gsap.fromTo(".navbar-brand",
+                    { opacity: 0, x: -30 },
+                    { opacity: 1, x: 0, duration: 1, delay: 0.3, ease: "power2.out", clearProps: "all" }
+                );
+                gsap.fromTo(".nav-pill-wrapper .nav-item",
+                    { opacity: 0, y: -20 },
+                    { opacity: 1, y: 0, duration: 0.8, stagger: 0.1, delay: 0.4, ease: "power2.out", clearProps: "all" }
+                );
+                gsap.fromTo(".nav-contact-btn",
+                    { opacity: 0, x: 30 },
+                    { opacity: 1, x: 0, duration: 1, delay: 0.5, ease: "power2.out", clearProps: "all" }
+                );
+                gsap.fromTo(".sidebar-toggle",
+                    { opacity: 0, scale: 0.5 },
+                    { opacity: 1, scale: 1, duration: 0.8, delay: 0.5, ease: "back.out(1.5)", clearProps: "all" }
+                );
+            }
+        });
+
+    })();
+</script>

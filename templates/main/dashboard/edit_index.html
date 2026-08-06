@@ -1,0 +1,216 @@
+{% extends "main/dashboard/dashboard_base.html" %}
+
+{% block header_title %}Edit Home Page{% endblock %}
+
+{% block dashboard_content %}
+<div class="card border-0 shadow-sm rounded-4 mb-4">
+    <div class="card-body p-4">
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            
+            {% if form.errors %}
+            <div class="alert alert-danger rounded-3">
+                <h6 class="fw-bold mb-2">Please correct the following errors:</h6>
+                {{ form.errors }}
+            </div>
+            {% endif %}
+
+            <h5 class="fw-bold mb-3 border-bottom pb-2">Hero Section</h5>
+            <div class="mb-3">
+                <label class="form-label text-muted small fw-bold text-uppercase">Hero Title (HTML allowed)</label>
+                {{ form.hero_title }}
+                <div class="form-text">Use &lt;br&gt; for line breaks and &lt;span class="text-accent-gold"&gt; for gold text.</div>
+            </div>
+            <div class="mb-4">
+                <label class="form-label text-muted small fw-bold text-uppercase">Hero Subtitle</label>
+                {{ form.hero_subtitle }}
+            </div>
+            <div class="mb-4">
+                <label class="form-label text-muted small fw-bold text-uppercase">Hero Background Image</label>
+                {{ form.hero_image }}
+            </div>
+
+            <h5 class="fw-bold mb-3 border-bottom pb-2">About Company</h5>
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label class="form-label text-muted small fw-bold text-uppercase">About Title</label>
+                    {{ form.about_title }}
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label class="form-label text-muted small fw-bold text-uppercase">About Subtitle / Badge</label>
+                    {{ form.about_subtitle }}
+                </div>
+            </div>
+            <div class="mb-4">
+                <label class="form-label text-muted small fw-bold text-uppercase">About Text</label>
+                {{ form.about_text }}
+            </div>
+            
+            <h6 class="fw-bold mb-3">About Features</h6>
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <div class="p-3 bg-light rounded-3">
+                        <label class="form-label text-muted small fw-bold text-uppercase">Feature 1 Title</label>
+                        {{ form.about_feature_1_title }}
+                        <label class="form-label text-muted small fw-bold text-uppercase mt-2">Feature 1 Subtitle</label>
+                        {{ form.about_feature_1_subtitle }}
+                    </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <div class="p-3 bg-light rounded-3">
+                        <label class="form-label text-muted small fw-bold text-uppercase">Feature 2 Title</label>
+                        {{ form.about_feature_2_title }}
+                        <label class="form-label text-muted small fw-bold text-uppercase mt-2">Feature 2 Subtitle</label>
+                        {{ form.about_feature_2_subtitle }}
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mt-4">
+                <div class="col-md-6 mb-4">
+                    <label class="form-label text-muted small fw-bold text-uppercase">About Image 1 (Background)</label>
+                    {{ form.about_image_1 }}
+                </div>
+                <div class="col-md-6 mb-4">
+                    <label class="form-label text-muted small fw-bold text-uppercase">About Image 2 (Foreground)</label>
+                    {{ form.about_image_2 }}
+                </div>
+            </div>
+
+            <h5 class="fw-bold mb-3 border-bottom pb-2">Solutions / Offerings Section</h5>
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label class="form-label text-muted small fw-bold text-uppercase">Badge Text</label>
+                    {{ form.solutions_badge }}
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label class="form-label text-muted small fw-bold text-uppercase">Heading (HTML allowed)</label>
+                    {{ form.solutions_heading }}
+                </div>
+            </div>
+            <div class="mb-4">
+                <label class="form-label text-muted small fw-bold text-uppercase">Subheading</label>
+                {{ form.solutions_subheading }}
+            </div>
+            
+            <div class="alert alert-info border-0 rounded-3 my-4">
+                <i class="ph ph-info me-2"></i> To edit the Solution Feature Cards, please go to the <a href="{% url 'manage_solutions' %}" class="fw-bold text-decoration-none">Solutions / Offerings</a> page.
+            </div>
+
+            <h5 class="fw-bold mb-3 border-bottom pb-2">Extract Portfolio</h5>
+            <div class="mb-3">
+                <label class="form-label text-muted small fw-bold text-uppercase">Extracts Title</label>
+                {{ form.extracts_title }}
+            </div>
+            <div class="mb-4">
+                <label class="form-label text-muted small fw-bold text-uppercase">Extracts Subtitle</label>
+                {{ form.extracts_subtitle }}
+            </div>
+
+            <div class="alert alert-info border-0 rounded-3 my-4">
+                <i class="ph ph-info me-2"></i> To edit the Extract Category Cards, please go to the <a href="{% url 'manage_extracts' %}" class="fw-bold text-decoration-none">Extract Categories</a> page.
+            </div>
+
+            <h5 class="fw-bold mb-3 border-bottom pb-2">Quality Overview</h5>
+            <div class="mb-3">
+                <label class="form-label text-muted small fw-bold text-uppercase">Quality Title</label>
+                {{ form.quality_title }}
+            </div>
+            <div class="mb-4">
+                <label class="form-label text-muted small fw-bold text-uppercase">Quality Description</label>
+                {{ form.quality_description }}
+            </div>
+
+            <div class="alert alert-info border-0 rounded-3 my-4">
+                <i class="ph ph-info me-2"></i> To edit the Timeline Cards, please go to the <a href="{% url 'manage_timelines' %}" class="fw-bold text-decoration-none">Quality Timelines</a> page.
+            </div>
+
+            <h5 class="fw-bold mb-3 border-bottom pb-2">Accreditations Section</h5>
+            <div class="mb-3">
+                <label class="form-label text-muted small fw-bold text-uppercase">Accreditation Kicker</label>
+                {{ form.accred_kicker }}
+            </div>
+            <div class="mb-3">
+                <label class="form-label text-muted small fw-bold text-uppercase">Accreditation Title</label>
+                {{ form.accred_title }}
+            </div>
+            <div class="mb-4">
+                <label class="form-label text-muted small fw-bold text-uppercase">Accreditation Description</label>
+                {{ form.accred_description }}
+            </div>
+
+            <div class="alert alert-info border-0 rounded-3 my-4">
+                <i class="ph ph-info me-2"></i> To edit the Accreditation Logos, please go to the <a href="{% url 'manage_accreditations' %}" class="fw-bold text-decoration-none">Accreditations</a> page.
+            </div>
+
+            <h5 class="fw-bold mb-3 border-bottom pb-2">The Bio Med Difference</h5>
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label class="form-label text-muted small fw-bold text-uppercase">Kicker Text</label>
+                    {{ form.difference_kicker }}
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label class="form-label text-muted small fw-bold text-uppercase">Title (HTML allowed)</label>
+                    {{ form.difference_title }}
+                </div>
+            </div>
+            <div class="mb-4">
+                <label class="form-label text-muted small fw-bold text-uppercase">Main Text</label>
+                {{ form.difference_text }}
+            </div>
+            <div class="row mb-4">
+                <div class="col-md-6">
+                    <div class="p-3 bg-light rounded-3">
+                        <label class="form-label text-muted small fw-bold text-uppercase">Stat 1 Number</label>
+                        {{ form.difference_stat1_number }}
+                        <label class="form-label text-muted small fw-bold text-uppercase mt-2">Stat 1 Label</label>
+                        {{ form.difference_stat1_label }}
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="p-3 bg-light rounded-3">
+                        <label class="form-label text-muted small fw-bold text-uppercase">Stat 2 Number</label>
+                        {{ form.difference_stat2_number }}
+                        <label class="form-label text-muted small fw-bold text-uppercase mt-2">Stat 2 Label</label>
+                        {{ form.difference_stat2_label }}
+                    </div>
+                </div>
+            </div>
+            
+            <h5 class="fw-bold mb-3 border-bottom pb-2">Global Map</h5>
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label class="form-label text-muted small fw-bold text-uppercase">Badge Text</label>
+                    {{ form.map_badge }}
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label class="form-label text-muted small fw-bold text-uppercase">Heading</label>
+                    {{ form.map_heading }}
+                </div>
+            </div>
+            <div class="mb-4">
+                <label class="form-label text-muted small fw-bold text-uppercase">Subheading</label>
+                {{ form.map_subheading }}
+            </div>
+            <div class="alert alert-info border-0 rounded-3 my-4">
+                <i class="ph ph-info me-2"></i> To manage office locations on the map, please go to the <a href="{% url 'manage_offices' %}" class="fw-bold text-decoration-none">Office Locations</a> page.
+            </div>
+
+            <h5 class="fw-bold mb-3 border-bottom pb-2">CTA Banner</h5>
+            <div class="mb-3">
+                <label class="form-label text-muted small fw-bold text-uppercase">CTA Title</label>
+                {{ form.cta_title }}
+            </div>
+            <div class="mb-4">
+                <label class="form-label text-muted small fw-bold text-uppercase">CTA Subtitle</label>
+                {{ form.cta_subtitle }}
+            </div>
+
+            <div class="d-flex gap-2">
+                <button type="submit" class="btn btn-success px-4 py-2 fw-semibold rounded-pill">Save Changes</button>
+                <a href="{% url 'custom_dashboard' %}" class="btn btn-light px-4 py-2 fw-semibold rounded-pill">Cancel</a>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

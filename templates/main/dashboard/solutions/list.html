@@ -1,0 +1,56 @@
+{% extends "main/dashboard/dashboard_base.html" %}
+
+{% block dashboard_content %}
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h2 class="h3 mb-0 text-dark fw-bold">Manage Solutions</h2>
+    <a href="{% url 'add_solution' %}" class="btn btn-premium btn-premium-solid">
+        <i class="ph ph-plus me-2"></i> Add Solution
+    </a>
+</div>
+
+<div class="card border-0 shadow-sm rounded-4">
+    <div class="card-body p-0">
+        <div class="table-responsive">
+            <table class="table table-hover align-middle mb-0">
+                <thead class="bg-light">
+                    <tr>
+                        <th class="px-4 py-3 text-uppercase small fw-bold text-muted" style="letter-spacing:1px;">Icon</th>
+                        <th class="py-3 text-uppercase small fw-bold text-muted" style="letter-spacing:1px;">Title</th>
+                        <th class="py-3 text-uppercase small fw-bold text-muted" style="letter-spacing:1px;">Order</th>
+                        <th class="px-4 py-3 text-end text-uppercase small fw-bold text-muted" style="letter-spacing:1px;">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for feature in features %}
+                    <tr>
+                        <td class="px-4 py-3">
+                            <i class="{{ feature.icon_class }} fs-4 text-success"></i>
+                        </td>
+                        <td class="py-3 fw-medium">{{ feature.title }}</td>
+                        <td class="py-3">{{ feature.order }}</td>
+                        <td class="px-4 py-3 text-end">
+                            <a href="{% url 'edit_solution' feature.pk %}" class="btn btn-sm btn-light rounded-circle p-2 me-2" title="Edit">
+                                <i class="ph ph-pencil-simple text-primary"></i>
+                            </a>
+                            <form action="{% url 'delete_solution' feature.pk %}" method="POST" class="d-inline" onsubmit="return confirm('Are you sure you want to delete this solution?');">
+                                {% csrf_token %}
+                                <button type="submit" class="btn btn-sm btn-light rounded-circle p-2" title="Delete">
+                                    <i class="ph ph-trash text-danger"></i>
+                                </button>
+                            </form>
+                        </td>
+                    </tr>
+                    {% empty %}
+                    <tr>
+                        <td colspan="4" class="text-center py-5 text-muted">
+                            <i class="ph ph-folder-open fs-1 mb-3 d-block text-black-50"></i>
+                            No solutions found. Click "Add Solution" to create one.
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}

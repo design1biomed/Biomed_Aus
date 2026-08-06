@@ -1,0 +1,61 @@
+{% extends 'main/dashboard/dashboard_base.html' %}
+
+{% block header_title %}Manage Accreditations{% endblock %}
+
+{% block dashboard_content %}
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h5 class="mb-0">All Accreditations</h5>
+    <a href="{% url 'add_accreditation' %}" class="btn btn-success">
+        <i class="ph ph-plus me-1"></i> Add New
+    </a>
+</div>
+
+<div class="card shadow-sm border-0 rounded-4">
+    <div class="card-body p-0">
+        <div class="table-responsive">
+            <table class="table table-hover align-middle mb-0">
+                <thead class="table-light">
+                    <tr>
+                        <th class="ps-4">Image</th>
+                        <th>Name</th>
+                        <th>Order</th>
+                        <th class="text-end pe-4">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for accred in accreditations %}
+                    <tr>
+                        <td class="ps-4">
+                            {% if accred.image %}
+                                <img src="{{ accred.image.url }}" alt="{{ accred.name }}" class="img-thumbnail" style="height: 50px; width: auto; object-fit: contain;">
+                            {% else %}
+                                <span class="text-muted small">No image</span>
+                            {% endif %}
+                        </td>
+                        <td class="fw-bold">{{ accred.name }}</td>
+                        <td>{{ accred.order }}</td>
+                        <td class="text-end pe-4">
+                            <a href="{% url 'edit_accreditation' accred.pk %}" class="btn btn-sm btn-outline-primary me-2">
+                                <i class="ph ph-pencil-simple"></i> Edit
+                            </a>
+                            <form action="{% url 'delete_accreditation' accred.pk %}" method="post" class="d-inline" onsubmit="return confirm('Are you sure you want to delete this accreditation?');">
+                                {% csrf_token %}
+                                <button type="submit" class="btn btn-sm btn-outline-danger">
+                                    <i class="ph ph-trash"></i> Delete
+                                </button>
+                            </form>
+                        </td>
+                    </tr>
+                    {% empty %}
+                    <tr>
+                        <td colspan="4" class="text-center py-4 text-muted">
+                            No accreditations found. Click "Add New" to upload one.
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}

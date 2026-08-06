@@ -1,0 +1,97 @@
+{% extends "main/base.html" %}
+{% load static %}
+
+{% block content %}
+
+<!-- Spacer for fixed navbar -->
+<div style="height: 90px; background: var(--forest-dark);"></div>
+
+<!-- TOP BANNER -->
+<section class="py-5" style="background: var(--forest-dark); color: white;">
+    <div class="container text-center py-4">
+        <h1 class="display-5 fw-bold mb-3" data-aos="fade-up">{{ content.top_banner_heading }}</h1>
+        <div style="width: 60px; height: 3px; background: var(--gold); margin: 0 auto 1.5rem auto;"></div>
+        <p class="lead mb-0 text-white-50" data-aos="fade-up" data-aos-delay="100">{{ content.top_banner_subheading }}</p>
+    </div>
+</section>
+
+<!-- MAIN SPLIT SECTION -->
+<section class="section-padding bg-white">
+    <div class="container-fluid px-4 px-xl-5 mx-auto" style="max-width:1400px;">
+        <div class="row align-items-center g-5">
+            
+            <!-- LEFT: Image -->
+            <div class="col-lg-6" data-aos="fade-right">
+                <div class="position-relative">
+                    <img src="{% if content.main_image %}{{ content.main_image.url }}{% else %}{% static 'images/about_1.jpg' %}{% endif %}" class="w-100 rounded-4 shadow-lg object-fit-cover" style="height: 600px;" alt="Facility" onerror="this.src='{% static 'images/about_1.jpg' %}'">
+                    <!-- Decorative element -->
+                    <div class="position-absolute top-0 start-0 translate-middle w-100 h-100 border border-success border-opacity-25 rounded-4 ms-3 mt-3 z-n1" style="border-width: 2px !important;"></div>
+                </div>
+            </div>
+
+            <!-- RIGHT: Text -->
+            <div class="col-lg-6 ps-lg-5" data-aos="fade-left">
+                <h2 class="display-editorial mb-4" style="font-size: 3rem;">{{ content.main_heading }}</h2>
+                <div class="text-muted" style="font-size: 1.15rem; line-height: 1.8; white-space: pre-line;">
+                    {{ content.main_text }}
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- MIDDLE TEXT SECTION -->
+<section class="py-5" style="background-color: #f8faf9;">
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-10 text-center" data-aos="fade-up">
+                <i class="ph-fill ph-quotes text-success opacity-25 mb-4" style="font-size: 3rem;"></i>
+                <div class="text-dark" style="font-size: 1.25rem; line-height: 1.9; white-space: pre-line;">
+                    {{ content.middle_text }}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- BOTTOM IMAGE & BOXES SECTION -->
+<section class="position-relative section-padding">
+    <!-- Background Image -->
+    <img src="{% if content.bottom_image %}{{ content.bottom_image.url }}{% else %}{% static 'images/hero_bg.webp' %}{% endif %}" class="position-absolute top-0 start-0 w-100 h-100 object-fit-cover" alt="Background" style="z-index: -2;" onerror="this.src='{% static 'images/hero_bg.webp' %}'">
+    <!-- Overlay -->
+    <div class="position-absolute top-0 start-0 w-100 h-100" style="background: rgba(0, 0, 0, 0.4); z-index: -1;"></div>
+
+    <div class="container">
+        <div class="row g-4 justify-content-center">
+            <!-- Box 1 -->
+            <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                <div class="card h-100 border-0 rounded-0 text-center p-5 text-white" style="background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.2) !important;">
+                    <h3 class="display-4 fw-light mb-4" style="letter-spacing: 2px;">{{ content.box_1_title }}</h3>
+                    <div style="width: 40px; height: 1px; background: var(--gold); margin: 0 auto 1.5rem auto;"></div>
+                    <p class="mb-0 fw-bold small text-uppercase" style="letter-spacing: 1px;">{{ content.box_1_subtitle }}</p>
+                </div>
+            </div>
+            
+            <!-- Box 2 -->
+            <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                <div class="card h-100 border-0 rounded-0 text-center p-5 text-white" style="background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.2) !important;">
+                    <h3 class="display-4 fw-light mb-4" style="letter-spacing: 2px;">{{ content.box_2_title }}</h3>
+                    <div style="width: 40px; height: 1px; background: var(--gold); margin: 0 auto 1.5rem auto;"></div>
+                    <p class="mb-0 fw-bold small text-uppercase" style="letter-spacing: 1px;">{{ content.box_2_subtitle }}</p>
+                </div>
+            </div>
+            
+            <!-- Box 3 -->
+            <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+                <div class="card h-100 border-0 rounded-0 text-center p-5 text-white" style="background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.2) !important;">
+                    <h3 class="display-4 fw-light mb-4" style="letter-spacing: 2px;">{{ content.box_3_title }}</h3>
+                    <div style="width: 40px; height: 1px; background: var(--gold); margin: 0 auto 1.5rem auto;"></div>
+                    <p class="mb-0 fw-bold small text-uppercase" style="letter-spacing: 1px;">{{ content.box_3_subtitle }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

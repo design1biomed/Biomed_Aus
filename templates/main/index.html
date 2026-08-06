@@ -1,0 +1,616 @@
+{% extends "main/base.html" %}
+{% load static %}
+
+{% block content %}
+
+<!-- ═══════════════════════════════════════════════════════════
+     SECTION 1 — HERO
+═══════════════════════════════════════════════════════════════ -->
+<section class="hero-wrapper" id="home">
+    <!-- Parallax Background -->
+    <img src="{% if content.hero_image %}{{ content.hero_image.url }}{% else %}{% static 'images/hero_bg.webp' %}{% endif %}"
+        class="hero-bg-image" alt="Botanical Ingredients" onerror="this.src='{% static 'images/hero_bg.webp' %}'">
+    <div class="hero-overlay"></div>
+    <canvas id="particleCanvas"></canvas>
+    <div class="hero-content w-100">
+        <div class="container-fluid px-4 px-xl-5 mx-auto" style="max-width:1600px;">
+            <div class="row">
+                <div class="col-lg-8 col-xl-7">
+                    <div class="hero-badge mb-4" data-aos="fade-down" data-aos-delay="100">
+                        <span class="hero-badge-dot"></span>
+                        <span class="text-white small fw-bold text-uppercase letter-spacing-2">Premium Botanical
+                            Extracts</span>
+                    </div>
+                    <h1 class="hero-title">{{ content.hero_title|safe }}</h1>
+                    <p class="hero-subtitle">{{ content.hero_subtitle }}</p>
+                    <div class="hero-ctas">
+                        <a href="#extracts" class="btn-premium btn-premium-solid">
+                            Explore Collection <i class="ph ph-arrow-right"></i>
+                        </a>
+                        <a href="#contact" class="btn-premium btn-premium-outline">
+                            Partner With Us
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <a href="#about" class="scroll-indicator">
+        <span>Scroll</span>
+        <div class="scroll-line"></div>
+    </a>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     SECTION 2 — ABOUT (IMMERSIVE STORYTELLING)
+═══════════════════════════════════════════════════════════════ -->
+<section id="about" class="section-padding position-relative overflow-hidden bg-white">
+
+    <!-- Giant Watermark -->
+    <!-- <div class="about-watermark">BMI AUSTRALIA</div> -->
+    
+    <!-- Botanical Drawing Background -->
+    <!-- <img src="{% static 'images/bg/botanical_drawing.png' %}" class="position-absolute" style="top:-20%; right:-10%; width:40vw; min-width:400px; opacity:0.04; mix-blend-mode:multiply; pointer-events:none; z-index:0; transform: rotate(-15deg);" alt=""> -->
+
+    <div class="container-fluid px-4 px-xl-5 mx-auto position-relative" style="max-width:1600px; z-index:1;">
+        <div class="row align-items-center g-5">
+
+            <!-- LEFT: Editorial Text -->
+            <div class="col-lg-6 order-2 order-lg-1" data-aos="fade-right" data-aos-duration="1000">
+
+                <div class="about-kicker">
+                    <div class="about-kicker-line"></div>
+                    <span>{{ content.about_subtitle }}</span>
+                </div>
+
+                <h2 class="display-editorial mb-4">{{ content.about_title }}</h2>
+
+                <p
+                    style="font-size:1.1rem; color:var(--text-muted); font-weight:300; line-height:1.85; margin-bottom:2rem;">
+                    {{ content.about_text }}
+                </p>
+
+                <!-- Feature Grid -->
+                <div class="about-feature-grid">
+                    <div class="about-feature-item" data-aos="fade-up" data-aos-delay="100">
+                        <i class="ph ph-leaf about-feature-icon"></i>
+                        <div class="about-feature-title">{{ content.about_feature_1_title }}</div>
+                        <div class="about-feature-text">{{ content.about_feature_1_subtitle }}</div>
+                    </div>
+                    <div class="about-feature-item" data-aos="fade-up" data-aos-delay="200">
+                        <i class="ph ph-flask about-feature-icon"></i>
+                        <div class="about-feature-title">{{ content.about_feature_2_title }}</div>
+                        <div class="about-feature-text">{{ content.about_feature_2_subtitle }}</div>
+                    </div>
+                    <div class="about-feature-item" data-aos="fade-up" data-aos-delay="300">
+                        <i class="ph ph-certificate about-feature-icon"></i>
+                        <div class="about-feature-title">GMP Certified</div>
+                        <div class="about-feature-text">All facilities and processes adhere to strict Good Manufacturing
+                            Practice standards.</div>
+                    </div>
+                    <div class="about-feature-item" data-aos="fade-up" data-aos-delay="400">
+                        <i class="ph ph-globe-hemisphere-west about-feature-icon"></i>
+                        <div class="about-feature-title">Global Distribution</div>
+                        <div class="about-feature-text">Supplying premium ingredients to partners across 4 continents.
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- RIGHT: Blob Image Collage -->
+            <div class="col-lg-6 order-1 order-lg-2" data-aos="fade-left" data-aos-duration="1100" data-aos-delay="100">
+                <div class="about-blob-wrap position-relative">
+
+                    <!-- Main Blob Image -->
+                    <div class="blob-img-main">
+                        <img src="{% if content.about_image_1 %}{{ content.about_image_1.url }}{% else %}{% static 'images/cosmetic_ingredients.webp' %}{% endif %}"
+                            alt="Botanical Ingredients" onerror="this.src='{% static 'images/hero_modern_bg.webp' %}'">
+                    </div>
+
+                    <!-- Secondary Blob Images -->
+                    <div class="blob-img-secondary">
+                        <img src="{% if content.about_image_2 %}{{ content.about_image_2.url }}{% else %}{% static 'images/fenugreek_bg.webp' %}{% endif %}"
+                            alt="Laboratory Process" onerror="this.src='{% static 'images/hero_bg.webp' %}'">
+                    </div>
+                    <div class="blob-img-secondary">
+                        <img src="{% static 'images/sports_nutrition.webp' %}" alt="Nutraceuticals"
+                            onerror="this.src='{% static 'images/hero_bg.webp' %}'">
+                    </div>
+
+                    <!-- Floating Glass Cards -->
+                    <div class="about-glass-card card-top-right" data-aos="zoom-in" data-aos-delay="400">
+                        <div class="about-stat-num">
+                            <span data-target="10" data-suffix="+">10+</span>
+                        </div>
+                        <div class="about-stat-label">Years of Excellence</div>
+                    </div>
+
+                    <div class="about-glass-card card-bottom-left" data-aos="zoom-in" data-aos-delay="500">
+                        <div class="d-flex align-items-center gap-2 mb-1">
+                            <i class="ph ph-seal-check" style="color:var(--forest); font-size:1.2rem;"></i>
+                            <span
+                                style="font-size:0.75rem; font-weight:700; text-transform:uppercase; letter-spacing:0.1em; color:var(--text-muted);">Quality
+                                Assured</span>
+                        </div>
+                        <div class="about-stat-num" style="font-size:1.5rem;">ISO &amp; GMP</div>
+                        <div class="about-stat-label">Certified Processes</div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     SECTION 4 — PRODUCT CATEGORIES
+═══════════════════════════════════════════════════════════════ -->
+<section id="extracts" class="section-padding" style="background:white;padding-top: 10rem;">
+    <div class="container-fluid px-4 px-xl-5 mx-auto" style="max-width:1600px;">
+
+        <div class="row align-items-end mb-5" data-aos="fade-up">
+            <div class="col-lg-6">
+                <div class="section-kicker">Our Collection</div>
+                <h2 class="display-editorial">{{ content.extracts_title }}</h2>
+            </div>
+            <div class="col-lg-4 ms-auto text-lg-end">
+                <p style="color:var(--text-muted); font-size:1rem; line-height:1.7; white-space: nowrap;">{{ content.extracts_subtitle }}</p>
+            </div>
+        </div>
+    </div> <!-- Close container-fluid early for full-bleed slider -->
+
+    <div class="swiper extract-swiper" style="padding: 5rem;">
+        <div class="swiper-wrapper">
+            {% for extract in extracts %}
+            <div class="swiper-slide product-marquee-item">
+                <div class="category-card h-100">
+                    <img src="{% if extract.image %}{{ extract.image.url }}{% else %}{% static 'images/hero_bg.webp' %}{% endif %}"
+                        alt="{{ extract.title }}" class="category-img"
+                        onerror="this.src='{% static 'images/hero_bg.webp' %}'">
+                    <div class="category-glass"></div>
+                    <div class="category-overlay">
+                        <div class="flex-grow-1 d-flex flex-column justify-content-end">
+                            <span class="category-tag">{{ extract.subtitle }}</span>
+                            <h3 class="category-title">{{ extract.title }}</h3>
+                            {% if extract.description %}
+                            <div class="category-description">{{ extract.description|linebreaksbr }}</div>
+                            {% endif %}
+                        </div>
+                        <div class="category-arrow mt-auto">
+                            <i class="ph ph-arrow-up-right"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <!-- Pagination -->
+        <div class="swiper-pagination"></div>
+    </div>
+
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     SOLUTIONS SECTION
+═══════════════════════════════════════════════════════════════ -->
+<section class="section-padding" id="solutions" style="background-color: #f8faf9;">
+    <div class="container-fluid px-4 px-xl-5 mx-auto" style="max-width:1600px;">
+        <!-- Section Heading -->
+        <div class="text-center mx-auto mb-5" style="max-width: 800px;" data-aos="fade-up">
+            <div class="d-inline-flex align-items-center justify-content-center px-4 py-2 mb-3 rounded-pill" style="background:rgba(82, 183, 136, 0.1); color:var(--forest);">
+                <i class="ph-fill ph-stars me-2"></i>
+                <span class="fw-bold text-uppercase" style="letter-spacing: 1px; font-size: 0.85rem;">{{ content.solutions_badge }}</span>
+            </div>
+            <h2 class="display-editorial mb-4">{{ content.solutions_heading|safe }}</h2>
+            <p style="font-size: 1.1rem; line-height: 1.8; color:var(--text-muted);">{{ content.solutions_subheading|safe }}</p>
+        </div>
+
+        <!-- Cards Grid -->
+        <div class="row g-4">
+            {% for feature in features %}
+            <div class="col-md-6 col-xl-3" data-aos="fade-up" data-aos-delay="{{ forloop.counter0|add:1 }}50">
+                <article class="feature-cd h-100 p-4 p-xl-5 rounded-4 bg-white" style="transition: transform 0.3s ease, box-shadow 0.3s ease; border:1px solid rgba(0,0,0,0.03);">
+                    <div class="icon-wrapper mb-4" style="width:60px; height:60px; border-radius:50%; background:#e7f0e8; display:flex; align-items:center; justify-content:center; color:var(--gold); font-size:1.8rem;">
+                        <i class="{{ feature.icon_class }}"></i>
+                    </div>
+                    <h3 class="h4 fw-bold mb-3" style="color:var(--forest-dark);">{{ feature.title }}</h3>
+                    <p style="color:var(--text-muted); line-height:1.7; font-size:0.95rem; margin-bottom:0;">{{ feature.description }}</p>
+                </article>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     SECTION 5 — QUALITY & SCIENTIFIC TRUST
+═══════════════════════════════════════════════════════════════ -->
+<section id="quality" class="section-padding position-relative overflow-hidden" style="background:var(--white);">
+    
+    <!-- Botanical Drawing Background -->
+    <img src="{% static 'images/bg/botanical_drawing.png' %}" class="position-absolute" style="bottom:-20%; left:-10%; width:50vw; min-width:500px; opacity:0.04; mix-blend-mode:multiply; pointer-events:none; z-index:0; transform: rotate(15deg) scaleX(-1);" alt="">
+    
+    <div class="container-fluid px-4 px-xl-5 mx-auto position-relative" style="max-width:1600px; z-index:1;">
+        <div class="row align-items-center justify-content-between gy-5">
+
+            <!-- LEFT: Timeline -->
+            <div class="col-lg-6 pe-lg-5" data-aos="fade-right">
+                <div class="section-kicker">Quality & Process</div>
+                <h2 class="display-editorial mb-4">{{ content.quality_title }}</h2>
+                <p style="color:var(--text-muted); font-size:1.05rem; line-height:1.8; margin-bottom:3rem;">
+                    {{ content.quality_description }}</p>
+
+                <div class="timeline">
+                    {% for item in timelines %}
+                    <div class="timeline-step">
+                        <div class="timeline-step-num">Step {{ forloop.counter }}</div>
+                        <div class="timeline-step-title">{{ item.title }}</div>
+                        <div class="timeline-step-desc">{{ item.description }}</div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <!-- RIGHT: "Why People Love Us" Card -->
+            <div class="col-lg-5" data-aos="fade-left" data-aos-delay="150">
+                <div class="love-us-card">
+                    <div class="love-us-orb"></div>
+                    <div class="position-relative">
+                        <div class="d-flex align-items-center gap-3 mb-4">
+                            <div
+                                style="width:48px;height:48px;background:rgba(82, 183, 136,0.15);border:1px solid rgba(82, 183, 136,0.2);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--gold);font-size:1.3rem;">
+                                <i class="ph-fill ph-sparkle"></i>
+                            </div>
+                            <span
+                                style="text-transform:uppercase;font-weight:700;letter-spacing:0.2em;font-size:0.75rem;color:rgba(255,255,255,0.6);">The
+                                Bio Med Difference</span>
+                        </div>
+
+                        <h2
+                            style="font-size:clamp(1.8rem,3vw,2.4rem);font-weight:800;color:var(--white);letter-spacing:-0.03em;line-height:1.2;margin-bottom:1.5rem;">
+                            Why People <span style="color:var(--gold);">Love Us!</span>
+                        </h2>
+
+                        <p
+                            style="color:rgba(255,255,255,0.7);line-height:1.9;font-size:1rem;font-weight:300;margin-bottom:2rem;">
+                            Our products are distinguished by exceptional quality, consistency, and proven efficacy. We
+                            carefully select research-based, high-potential ingredients to ensure optimal performance —
+                            enhancing value and market position.
+                        </p>
+
+                        <!-- Mini stats inside card -->
+                        <div class="row g-3">
+                            <div class="col-6">
+                                <div
+                                    style="padding:1rem;border-radius:12px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.08);">
+                                    <div
+                                        style="font-size:1.6rem;font-weight:800;color:var(--gold);letter-spacing:-0.03em;">
+                                        <span data-target="99" data-suffix="%">99%</span>
+                                    </div>
+                                    <div
+                                        style="font-size:0.75rem;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:0.1em;">
+                                        Client Retention</div>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div
+                                    style="padding:1rem;border-radius:12px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.08);">
+                                    <div
+                                        style="font-size:1.6rem;font-weight:800;color:var(--gold);letter-spacing:-0.03em;">
+                                        <span data-target="100" data-suffix="%">100%</span>
+                                    </div>
+                                    <div
+                                        style="font-size:0.75rem;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:0.1em;">
+                                        Quality Tested</div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     SECTION 6 — ACCREDITATIONS MARQUEE
+═══════════════════════════════════════════════════════════════ -->
+<section class="accred-section">
+    <div class="accred-heading">
+        <span class="accred-kicker">{{ content.accred_kicker }}</span>
+        <h2>{{ content.accred_title }}</h2>
+        <p>{{ content.accred_description }}</p>
+    </div>
+
+    <div class="accred-strip">
+        <div class="accred-row">
+            <div class="accred-track">
+                {% for i in '123'|make_list %}
+                {% for accred in accreditations %}
+                <a href="#" class="accred-card d-block">
+                    {% if accred.image %}
+                    <img src="{{ accred.image.url }}" alt="{{ accred.name }}" loading="lazy">
+                    {% else %}
+                    <span>{{ accred.name }}</span>
+                    {% endif %}
+                </a>
+                {% endfor %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     SECTION 7 — GLOBAL PRESENCE MAP
+═══════════════════════════════════════════════════════════════ -->
+<section class="global-map-section">
+
+    <!-- Ambient Glows -->
+    <div class="position-absolute rounded-circle"
+        style="top:-20%;left:-10%;width:600px;height:600px;background:radial-gradient(circle,rgba(82, 183, 136,0.08) 0%,transparent 60%);z-index:0;">
+    </div>
+    <div class="position-absolute rounded-circle"
+        style="bottom:-20%;right:-10%;width:600px;height:600px;background:radial-gradient(circle,rgba(82, 183, 136,0.05) 0%,transparent 60%);z-index:0;">
+    </div>
+
+    <div class="container-fluid px-4 px-xl-5 mx-auto position-relative" style="max-width:1600px; z-index:1;">
+
+        <div class="row align-items-center mb-5 pb-lg-4">
+            <div class="col-lg-6 mb-4 mb-lg-0" data-aos="fade-right">
+                <div class="section-kicker" style="color:var(--gold-light);"><span
+                        style="background:var(--gold-light);"></span>
+                    {{ content.home_map_badge.text_content|default:"Global Reach"|safe }}</div>
+                <h2
+                    style="font-size:clamp(2.2rem,4vw,3.6rem);font-weight:800;color:var(--white);letter-spacing:-0.04em;line-height:1.15;">
+                    {{ content.home_map_heading.text_content|default:"Our Global Presence"|safe }}
+                </h2>
+            </div>
+            <div class="col-lg-5 ms-auto" data-aos="fade-left">
+                <p style="color:rgba(255,255,255,0.65);font-size:1.05rem;line-height:1.8;font-weight:300;">
+                    {{ content.home_map_subheading.text_content|default:"Operating from our headquarters in India, with strategic offices in Australia, Germany, and Jordan to serve you globally."|safe }}
+                </p>
+            </div>
+        </div>
+
+        <div class="overflow-hidden w-100 mx-auto" style="max-width:1600px;" data-aos="zoom-in"
+            data-aos-duration="1400">
+            <div class="map-wrapper position-relative mx-auto"
+                style="width: 104%; margin-left: -2%; margin-bottom: -10%; margin-top: -10%;">
+                <img src="{% static 'images/bg/world-map.svg' %}" alt="World Map" class="img-fluid w-100"
+                    style="opacity:0.12; filter:invert(1) sepia(1) saturate(3) hue-rotate(10deg) brightness(1.6);">
+
+                {% for office in offices %}
+                <div class="map-dot"
+                    style="top:{{ office.top_percentage }}%;left:{{ office.left_percentage }}%;transform:translate(-50%,-50%);"
+                    data-bs-toggle="tooltip" title="{{ office.country }}">
+
+                    <!-- Glass outer ring -->
+                    <div class="map-dot-outer" style="width:28px;height:28px;top:-8px;left:-8px;"></div>
+
+                    <!-- Solid inner dot -->
+                    <div class="map-dot-inner {% if office.is_hq %}bg-gold{% else %}bg-white{% endif %}"
+                        style="width:{% if office.is_hq %}12px{% else %}8px{% endif %};height:{% if office.is_hq %}12px{% else %}8px{% endif %};color:{% if office.is_hq %}var(--gold){% else %}white{% endif %};">
+                    </div>
+
+                    <!-- Ripple ring -->
+                    <div class="map-dot-ring"
+                        style="width:{% if office.is_hq %}12px{% else %}8px{% endif %};height:{% if office.is_hq %}12px{% else %}8px{% endif %};top:{% if office.is_hq %}0{% else %}2px{% endif %};left:{% if office.is_hq %}0{% else %}2px{% endif %};color:{% if office.is_hq %}var(--gold){% else %}rgba(255,255,255,0.5){% endif %};">
+                    </div>
+
+                </div>
+                {% endfor %}
+            </div>
+
+        </div>
+</section>
+
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     SECTION 8 — PARTNER CTA
+═══════════════════════════════════════════════════════════════ -->
+<section class="premium-cta">
+    <div class="premium-cta-bg"></div>
+
+    <!-- Decorative botanical SVG lines -->
+    <svg class="position-absolute"
+        style="top:0;left:0;width:100%;height:100%;opacity:0.025;pointer-events:none;z-index:0;" viewBox="0 0 1440 600"
+        preserveAspectRatio="xMidYMid slice">
+        <path d="M0,300 Q180,100 360,300 T720,300 T1080,300 T1440,300" stroke="#0B5D3F" stroke-width="2" fill="none" />
+        <path d="M0,400 Q240,200 480,400 T960,400 T1440,400" stroke="#52B788" stroke-width="1.5" fill="none" />
+        <circle cx="200" cy="150" r="80" stroke="#0B5D3F" stroke-width="1" fill="none" />
+        <circle cx="1200" cy="450" r="120" stroke="#52B788" stroke-width="1" fill="none" />
+    </svg>
+
+    <div class="container-fluid px-4 px-xl-5 mx-auto position-relative" style="max-width:1600px; z-index:1;">
+        <div class="row align-items-center justify-content-between g-5">
+
+            <!-- LEFT: CTA Text -->
+            <div class="col-lg-5" data-aos="fade-right" data-aos-duration="1000">
+
+                <div class="d-inline-flex align-items-center gap-2 px-4 py-2 rounded-pill mb-4"
+                    style="background:rgba(11,93,63,0.08);border:1px solid rgba(11,93,63,0.12);">
+                    <span class="hero-badge-dot" style="background:var(--gold);width:7px;height:7px;"></span>
+                    <span
+                        style="font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.2em;color:var(--forest);">Partner
+                        With Us</span>
+                </div>
+
+                <h2
+                    style="font-size:clamp(2.4rem,5vw,4rem);font-weight:800;color:var(--forest-dark);letter-spacing:-0.04em;line-height:1.1;margin-bottom:1.5rem;">
+                    {{ content.cta_title }}
+                </h2>
+
+                <div style="width:50px;height:3px;background:var(--gold);border-radius:2px;margin-bottom:1.75rem;">
+                </div>
+
+                <p
+                    style="font-size:1.05rem;color:var(--text-muted);line-height:1.85;font-weight:300;margin-bottom:2.5rem;max-width:500px;">
+                    {{ content.cta_subtitle }}
+                </p>
+
+                <a href="#contact" class="btn-cta-primary">
+                    Get in Touch
+                    <div class="btn-cta-icon"><i class="ph ph-arrow-right"></i></div>
+                </a>
+
+            </div>
+
+            <!-- RIGHT: Core Promises -->
+            <div class="col-lg-6" data-aos="fade-left" data-aos-duration="1200" data-aos-delay="200">
+
+                <h3
+                    style="font-weight:700;color:var(--forest-dark);font-size:1.2rem;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:2rem;">
+                    Our Core Promises
+                </h3>
+
+                <div class="d-flex flex-column gap-3">
+                    <div class="promise-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="d-flex align-items-start gap-4">
+                            <div class="promise-icon flex-shrink-0"><i class="ph ph-truck"></i></div>
+                            <div>
+                                <h5 style="font-weight:700;color:var(--forest-dark);margin-bottom:0.4rem;">Guaranteed
+                                    Supply Chain</h5>
+                                <p style="color:var(--text-muted);font-size:0.9rem;line-height:1.7;margin:0;">Our
+                                    logistics team has a very good network both nationally and internationally, ensuring
+                                    quality is maintained and delivery is always on time.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="promise-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="d-flex align-items-start gap-4">
+                            <div class="promise-icon flex-shrink-0" style="background:var(--gold-pale);"><i
+                                    class="ph ph-currency-circle-dollar" style="color:var(--gold);"></i></div>
+                            <div>
+                                <h5 style="font-weight:700;color:var(--forest-dark);margin-bottom:0.4rem;">Competitive
+                                    Pricing</h5>
+                                <p style="color:var(--text-muted);font-size:0.9rem;line-height:1.7;margin:0;">We adopt a
+                                    market-oriented pricing strategy. Customer satisfaction is our best promotion,
+                                    driving the dynamics of our business model.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<div id="formulation-wrapper" style="overflow: hidden;">
+    <section id="formulation-section" class="section-padding position-relative" style="background: #275a36e6; overflow:hidden;">
+        <!-- Abstract botanical bg -->
+        <svg class="position-absolute" style="top:0;left:0;width:100%;height:100%;opacity:0.06;pointer-events:none;z-index:0;" viewBox="0 0 1440 400" preserveAspectRatio="xMidYMid slice">
+            <circle cx="200" cy="150" r="100" stroke="#52B788" stroke-width="2" fill="none" />
+            <path d="M-200,200 Q400,0 1640,200" stroke="#52B788" stroke-width="1.5" fill="none" />
+            <circle cx="1200" cy="300" r="150" stroke="#52B788" stroke-width="1" fill="none" />
+        </svg>
+
+        <div class="container-fluid px-4 px-xl-5 mx-auto position-relative" style="max-width:1600px; z-index:1;">
+            <div class="row align-items-center justify-content-between">
+                <div class="col-lg-5 mb-5 mb-lg-0">
+                    <div class="section-kicker" style="color:var(--gold);"><span style="background:var(--gold);"></span> Formulation Partners</div>
+                    <h2 class="display-editorial text-white mb-4" style="font-size: clamp(2.5rem, 4vw, 3.5rem);">Let's formulate<br>the future.</h2>
+                    <p class="mb-5" style="color:white; font-size:1.1rem; line-height:1.6;">
+                        Enquire today for detailed product specifications, custom botanical formulations, and bulk-order pricing directly from our specialists.
+                    </p>
+                    <div class="d-flex flex-column gap-3 text-white text-opacity-75">
+                        <div class="d-flex align-items-center gap-3">
+                            <div style="width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,0.1);display:flex;align-items:center;justify-content:center;"><i class="ph ph-envelope text-white"></i></div>
+                            <span>info@bmiaustralia.com.au</span>
+                        </div>
+                        <div class="d-flex align-items-center gap-3">
+                            <div style="width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,0.1);display:flex;align-items:center;justify-content:center;"><i class="ph ph-phone text-white"></i></div>
+                            <span>+61 470 380 027</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6 ms-auto">
+                    {% if messages %}
+                    <div class="mb-4">
+                        {% for message in messages %}
+                        <div class="alert alert-success d-flex align-items-center gap-3 border-0 rounded-4" style="background:rgba(82, 183, 136, 0.15); color:var(--white);">
+                            <i class="ph ph-check-circle fs-4" style="color:#52B788;"></i>
+                            <div class="fw-medium">{{ message }}</div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+                    <form class="enquire-form" method="POST" action="{% url 'submit_enquiry' %}">
+                        {% csrf_token %}
+                        <div class="row g-4">
+                            <div class="col-md-6">
+                                <label class="form-label text-white text-opacity-75 small text-uppercase fw-bold letter-spacing-1">Full Name</label>
+                                <input type="text" name="full_name" class="form-control premium-input" placeholder="John Doe" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label text-white text-opacity-75 small text-uppercase fw-bold letter-spacing-1">Company</label>
+                                <input type="text" name="company" class="form-control premium-input" placeholder="Your Company Ltd.">
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label text-white text-opacity-75 small text-uppercase fw-bold letter-spacing-1">Email Address</label>
+                                <input type="email" name="email" class="form-control premium-input" placeholder="john@company.com" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label text-white text-opacity-75 small text-uppercase fw-bold letter-spacing-1">Product Name</label>
+                                <input type="text" name="product_name" class="form-control premium-input" placeholder="Product name" required>
+                            </div>
+                            <div class="col-12">
+                                <label class="form-label text-white text-opacity-75 small text-uppercase fw-bold letter-spacing-1">Message / Requirements</label>
+                                <textarea name="message" class="form-control premium-input" rows="4" placeholder="How can we help you?" required></textarea>
+                            </div>
+                            <div class="col-12 mt-4">
+                                <button type="submit" class="btn btn-premium btn-premium-solid w-100 py-3 rounded-pill text-decoration-none shadow-lg bg-white" style="border:none; transform: scale(1); transition: transform 0.3s ease;">
+                                    <span class="fw-bold" style="color:var(--forest-dark); font-size:1.1rem; text-transform:uppercase; letter-spacing:1px;">Send Enquiry</span>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+            let tl = gsap.timeline({
+                scrollTrigger: {
+                    trigger: ".premium-cta",
+                    start: "bottom 85%",
+                    toggleActions: "play none none reverse"
+                }
+            });
+
+            // Expand height from 0 to auto and fade in smoothly
+            tl.fromTo("#formulation-wrapper", 
+                { height: 0, opacity: 0 }, 
+                { 
+                    height: "auto", 
+                    opacity: 6, 
+                    duration: 1.2, 
+                    ease: "power2.out" 
+                }
+            );
+        }
+    });
+</script>
+
+{% endblock %}

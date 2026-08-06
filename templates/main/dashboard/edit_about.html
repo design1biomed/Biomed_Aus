@@ -1,0 +1,90 @@
+{% extends "main/dashboard/dashboard_base.html" %}
+
+{% block header_title %}Edit About Page{% endblock %}
+
+{% block dashboard_content %}
+<div class="card border-0 shadow-sm rounded-4 mb-4">
+    <div class="card-body p-4">
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            
+            {% if form.errors %}
+            <div class="alert alert-danger rounded-3">
+                <h6 class="fw-bold mb-2">Please correct the following errors:</h6>
+                {{ form.errors }}
+            </div>
+            {% endif %}
+
+            <h5 class="fw-bold mb-3 border-bottom pb-2">Top Banner</h5>
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label class="form-label text-muted small fw-bold text-uppercase">Banner Heading</label>
+                    {{ form.top_banner_heading }}
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label class="form-label text-muted small fw-bold text-uppercase">Banner Subheading</label>
+                    {{ form.top_banner_subheading }}
+                </div>
+            </div>
+
+            <h5 class="fw-bold mb-3 border-bottom pb-2 mt-4">Main Section</h5>
+            <div class="mb-3">
+                <label class="form-label text-muted small fw-bold text-uppercase">Main Image (Left)</label>
+                {{ form.main_image }}
+            </div>
+            <div class="mb-3">
+                <label class="form-label text-muted small fw-bold text-uppercase">Main Heading</label>
+                {{ form.main_heading }}
+            </div>
+            <div class="mb-3">
+                <label class="form-label text-muted small fw-bold text-uppercase">Main Text (Right)</label>
+                {{ form.main_text }}
+            </div>
+
+            <h5 class="fw-bold mb-3 border-bottom pb-2 mt-4">Middle Text Section</h5>
+            <div class="mb-3">
+                <label class="form-label text-muted small fw-bold text-uppercase">Middle Text (Full Width)</label>
+                {{ form.middle_text }}
+            </div>
+
+            <h5 class="fw-bold mb-3 border-bottom pb-2 mt-4">Bottom Section</h5>
+            <div class="mb-4">
+                <label class="form-label text-muted small fw-bold text-uppercase">Bottom Background Image</label>
+                {{ form.bottom_image }}
+            </div>
+
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="p-3 bg-light rounded-3">
+                        <label class="form-label text-muted small fw-bold text-uppercase">Box 1 Title</label>
+                        {{ form.box_1_title }}
+                        <label class="form-label text-muted small fw-bold text-uppercase mt-2">Box 1 Subtitle</label>
+                        {{ form.box_1_subtitle }}
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="p-3 bg-light rounded-3">
+                        <label class="form-label text-muted small fw-bold text-uppercase">Box 2 Title</label>
+                        {{ form.box_2_title }}
+                        <label class="form-label text-muted small fw-bold text-uppercase mt-2">Box 2 Subtitle</label>
+                        {{ form.box_2_subtitle }}
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="p-3 bg-light rounded-3">
+                        <label class="form-label text-muted small fw-bold text-uppercase">Box 3 Title</label>
+                        {{ form.box_3_title }}
+                        <label class="form-label text-muted small fw-bold text-uppercase mt-2">Box 3 Subtitle</label>
+                        {{ form.box_3_subtitle }}
+                    </div>
+                </div>
+            </div>
+
+            <div class="d-flex gap-2 mt-4">
+                <button type="submit" class="btn btn-success px-4 py-2 fw-semibold rounded-pill">Save Changes</button>
+                <a href="{% url 'custom_dashboard' %}" class="btn btn-light px-4 py-2 fw-semibold rounded-pill">Cancel</a>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

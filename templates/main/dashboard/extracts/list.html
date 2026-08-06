@@ -1,0 +1,65 @@
+{% extends 'main/dashboard/dashboard_base.html' %}
+
+{% block header_title %}Extract Categories{% endblock %}
+
+{% block dashboard_content %}
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h5 class="mb-0">Categories</h5>
+    <a href="{% url 'add_extract' %}" class="btn btn-success">
+        <i class="ph ph-plus me-1"></i> Add New
+    </a>
+</div>
+
+<div class="card shadow-sm border-0 rounded-4">
+    <div class="card-body p-0">
+        <div class="table-responsive">
+            <table class="table table-hover align-middle mb-0">
+                <thead class="table-light">
+                    <tr>
+                        <th class="ps-4">Image</th>
+                        <th>Title</th>
+                        <th>Subtitle</th>
+                        <th>Order</th>
+                        <th class="text-end pe-4">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for extract in extracts %}
+                    <tr>
+                        <td class="ps-4">
+                            {% if extract.image %}
+                            <img src="{{ extract.image.url }}" alt="{{ extract.title }}" class="rounded" style="width: 50px; height: 50px; object-fit: cover;">
+                            {% else %}
+                            <div class="bg-light rounded d-flex align-items-center justify-content-center text-muted" style="width: 50px; height: 50px;">
+                                <i class="ph ph-image"></i>
+                            </div>
+                            {% endif %}
+                        </td>
+                        <td class="fw-bold">{{ extract.title }}</td>
+                        <td class="text-muted">{{ extract.subtitle }}</td>
+                        <td>{{ extract.order }}</td>
+                        <td class="text-end pe-4">
+                            <a href="{% url 'edit_extract' extract.pk %}" class="btn btn-sm btn-outline-primary me-2">
+                                <i class="ph ph-pencil-simple"></i> Edit
+                            </a>
+                            <form action="{% url 'delete_extract' extract.pk %}" method="post" class="d-inline" onsubmit="return confirm('Are you sure you want to delete this extract?');">
+                                {% csrf_token %}
+                                <button type="submit" class="btn btn-sm btn-outline-danger">
+                                    <i class="ph ph-trash"></i> Delete
+                                </button>
+                            </form>
+                        </td>
+                    </tr>
+                    {% empty %}
+                    <tr>
+                        <td colspan="5" class="text-center py-4 text-muted">
+                            No extracts found. Click "Add New" to add one.
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}
