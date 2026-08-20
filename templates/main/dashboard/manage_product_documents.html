@@ -1,0 +1,81 @@
+{% extends "main/dashboard/dashboard_base.html" %}
+
+{% block title %}Manage Product Documents{% endblock %}
+
+{% block dashboard_content %}
+<div class="row">
+    <div class="col-12 mb-5">
+        <div class="d-flex justify-content-between align-items-center mb-3 mb-md-4 mt-5">
+            <h2 class="fw-bold text-dark mb-0">Product Documents</h2>
+            <a href="{% url 'dashboard_add_product_document' %}" class="btn btn-success rounded-pill px-3 px-md-4 fw-semibold shadow-sm">
+                <i class="ph ph-plus me-2"></i>Add Document
+            </a>
+        </div>
+
+        <div class="card shadow-sm border-0 rounded-4">
+            <div class="card-body p-0">
+                <div class="table-responsive">
+                    <table class="table table-hover align-middle mb-0">
+                        <thead class="bg-light">
+                            <tr>
+                                <th class="ps-4">Document Name</th>
+                                <th>Category</th>
+                                <th>Image</th>
+                                <th>PDFs Uploaded</th>
+                                <th class="text-end pe-4">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for doc in documents %}
+                            <tr>
+                                <td class="ps-4 fw-medium text-dark">
+                                    {{ doc.name }}
+                                </td>
+                                <td>
+                                    {% if doc.category %}
+                                        <span class="badge bg-primary bg-opacity-10 text-primary rounded-pill px-2 py-1">{{ doc.category.name }}</span>
+                                    {% else %}
+                                        <span class="text-muted">-</span>
+                                    {% endif %}
+                                </td>
+                                <td>
+                                    {% if doc.image %}
+                                        <span class="badge bg-success bg-opacity-10 text-success rounded-pill px-2 py-1"><i class="ph ph-check me-1"></i>Yes</span>
+                                    {% else %}
+                                        <span class="text-muted">-</span>
+                                    {% endif %}
+                                </td>
+                                <td>
+                                    {% if doc.pdfs %}
+                                        <span class="badge bg-success bg-opacity-10 text-success rounded-pill px-2 py-1"><i class="ph ph-files me-1"></i>Yes</span>
+                                    {% else %}
+                                        <span class="text-muted">-</span>
+                                    {% endif %}
+                                </td>
+                                <td class="text-end pe-4">
+                                    <div class="btn-group btn-group-sm">
+                                        <a href="{% url 'dashboard_edit_product_document' doc.pk %}" class="btn btn-outline-primary" title="Edit">
+                                            <i class="ph ph-pencil-simple"></i>
+                                        </a>
+                                        <a href="{% url 'dashboard_delete_product_document' doc.pk %}" class="btn btn-outline-danger" title="Delete">
+                                            <i class="ph ph-trash"></i>
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
+                            {% empty %}
+                            <tr>
+                                <td colspan="5" class="text-center py-4 text-muted">
+                                    <i class="ph ph-files mb-2" style="font-size: 2rem;"></i><br>
+                                    No documents found. Click "Add Document" to create one.
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

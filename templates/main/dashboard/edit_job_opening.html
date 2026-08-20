@@ -1,0 +1,90 @@
+{% extends "main/dashboard/dashboard_base.html" %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block dashboard_content %}
+<div class="row justify-content-center">
+    <div class="col-12 col-xl-10 mb-5">
+        <div class="d-flex justify-content-between align-items-center mb-4 mt-5">
+            <h2 class="fw-bold text-dark mb-0">{{ title }}</h2>
+            <a href="{% url 'dashboard_manage_job_openings' %}" class="btn btn-outline-secondary rounded-pill px-3">
+                <i class="ph ph-arrow-left me-2"></i>Back to Jobs
+            </a>
+        </div>
+
+        <div class="card shadow-sm border-0 rounded-4">
+            <div class="card-body p-4 p-md-5">
+                <form method="post">
+                    {% csrf_token %}
+                    
+                    <div class="row g-4">
+                        <div class="col-md-6">
+                            <label class="form-label fw-semibold text-dark">Job Title *</label>
+                            {{ form.title }}
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label fw-semibold text-dark">Category/Department *</label>
+                            {{ form.category }}
+                        </div>
+                        <div class="col-12">
+                            <label class="form-label fw-semibold text-dark">Short Description *</label>
+                            {{ form.description }}
+                        </div>
+
+                        <div class="col-md-6">
+                            <label class="form-label fw-semibold text-dark">Icon</label>
+                            {{ form.icon }}
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label fw-semibold text-dark">Color Theme</label>
+                            {{ form.color_theme }}
+                        </div>
+
+                        <div class="col-12">
+                            <label class="form-label fw-semibold text-dark">Core Responsibilities</label>
+                            {{ form.core_responsibilities }}
+                            <div class="form-text">Put each responsibility on a new line to render as bullet points.</div>
+                        </div>
+
+                        <div class="col-12">
+                            <label class="form-label fw-semibold text-dark">Academic Excellence</label>
+                            {{ form.academic_excellence }}
+                        </div>
+                        <div class="col-12">
+                            <label class="form-label fw-semibold text-dark">Professional Expertise</label>
+                            {{ form.professional_expertise }}
+                        </div>
+                        <div class="col-12">
+                            <label class="form-label fw-semibold text-dark">Core Competencies</label>
+                            {{ form.core_competencies }}
+                        </div>
+                        <div class="col-12">
+                            <label class="form-label fw-semibold text-dark">Professional Edge</label>
+                            {{ form.professional_edge }}
+                        </div>
+                        <div class="col-12">
+                            <label class="form-label fw-semibold text-dark">Commitment Statement</label>
+                            {{ form.commitment_statement }}
+                        </div>
+
+                        <div class="col-md-6">
+                            <label class="form-label fw-semibold text-dark">Apply Link</label>
+                            {{ form.link }}
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label fw-semibold text-dark">Order</label>
+                            {{ form.order }}
+                            <div class="form-text">Lower numbers appear first.</div>
+                        </div>
+                    </div>
+
+                    <div class="d-flex gap-3 mt-5 pt-4 border-top justify-content-end">
+                        <a href="{% url 'dashboard_manage_job_openings' %}" class="btn btn-light rounded-pill px-4 fw-semibold text-muted shadow-sm">Cancel</a>
+                        <button type="submit" class="btn btn-success rounded-pill px-5 fw-bold shadow-sm">Save Job</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

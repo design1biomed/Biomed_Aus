@@ -1,0 +1,168 @@
+{% extends 'main/dashboard/dashboard_base.html' %}
+
+{% block header_title %}Manage Research Page{% endblock %}
+
+{% block dashboard_content %}
+<div class="row">
+    <!-- Research Areas Section -->
+    <div class="col-12 mb-5">
+        <div class="d-flex justify-content-between align-items-center mb-3 mb-md-4">
+            <h2 class="fw-bold text-dark mb-0">Research Areas</h2>
+            <a href="{% url 'add_research_area' %}" class="btn btn-success rounded-pill px-3 px-md-4 fw-semibold shadow-sm">
+                <i class="bi bi-plus-lg me-2"></i>Add Area
+            </a>
+        </div>
+
+        <div class="card shadow-sm border-0 rounded-4">
+            <div class="card-body p-0">
+                <div class="table-responsive">
+                    <table class="table table-hover align-middle mb-0">
+                        <thead class="bg-light">
+                            <tr>
+                                <th class="ps-4">Image</th>
+                                <th>Title</th>
+                                <th>Order</th>
+                                <th class="text-end pe-4">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for area in areas %}
+                            <tr>
+                                <td class="ps-4">
+                                    {% if area.image_upload %}
+                                        <img src="{{ area.image_upload.url }}" alt="{{ area.title }}" class="rounded shadow-sm object-fit-cover" style="height: 60px; width: 60px;">
+                                    {% elif area.image_path %}
+                                        <span class="text-muted small">{{ area.image_path }}</span>
+                                    {% else %}
+                                        <span class="text-muted small">No image</span>
+                                    {% endif %}
+                                </td>
+                                <td class="fw-bold">{{ area.title }}</td>
+                                <td>{{ area.order }}</td>
+                                <td class="text-end pe-4">
+                                    <a href="{% url 'edit_research_area' area.pk %}" class="btn btn-sm btn-outline-primary rounded-circle"><i class="bi bi-pencil"></i></a>
+                                    <form action="{% url 'delete_research_area' area.pk %}" method="post" class="d-inline" onsubmit="return confirm('Delete this area?');">
+                                        {% csrf_token %}
+                                        <button type="submit" class="btn btn-sm btn-outline-danger rounded-circle"><i class="bi bi-trash"></i></button>
+                                    </form>
+                                </td>
+                            </tr>
+                            {% empty %}
+                            <tr>
+                                <td colspan="4" class="text-center py-4 text-muted">
+                                    No research areas found. Click "Add Research Area" to create one.
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Core Area Links Section -->
+    <div class="col-12 mb-5">
+        <div class="d-flex justify-content-between align-items-center mb-3 mb-md-4 mt-5">
+            <h2 class="fw-bold text-dark mb-0">Core Areas</h2>
+            <a href="{% url 'add_core_link' %}" class="btn btn-success rounded-pill px-3 px-md-4 fw-semibold shadow-sm">
+                <i class="bi bi-plus-lg me-2"></i>Add Core Link
+            </a>
+        </div>
+
+        <div class="card shadow-sm border-0 rounded-4">
+            <div class="card-body p-0">
+                <div class="table-responsive">
+                    <table class="table table-hover align-middle mb-0">
+                        <thead class="bg-light">
+                            <tr>
+                                <th class="ps-4">Title</th>
+                                <th>Target URL</th>
+                                <th>Order</th>
+                                <th class="text-end pe-4">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for link in core_links %}
+                            <tr>
+                                <td class="ps-4 fw-bold">{{ link.title }}</td>
+                                <td><code>{{ link.target_url }}</code></td>
+                                <td>{{ link.order }}</td>
+                                <td class="text-end pe-4">
+                                    <a href="{% url 'edit_core_link' link.pk %}" class="btn btn-sm btn-outline-primary rounded-circle"><i class="bi bi-pencil"></i></a>
+                                    <form action="{% url 'delete_core_link' link.pk %}" method="post" class="d-inline" onsubmit="return confirm('Delete this core link?');">
+                                        {% csrf_token %}
+                                        <button type="submit" class="btn btn-sm btn-outline-danger rounded-circle"><i class="bi bi-trash"></i></button>
+                                    </form>
+                                </td>
+                            </tr>
+                            {% empty %}
+                            <tr>
+                                <td colspan="4" class="text-center py-4 text-muted">
+                                    No core area links found. Click "Add Core Link" to create one.
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Gallery Images Section -->
+    <div class="col-12">
+        <div class="d-flex justify-content-between align-items-center mb-3 mb-md-4 mt-5">
+            <h2 class="fw-bold text-dark mb-0">Gallery Images</h2>
+            <a href="{% url 'add_gallery_image' %}" class="btn btn-success rounded-pill px-3 px-md-4 fw-semibold shadow-sm">
+                <i class="bi bi-plus-lg me-2"></i>Add Gallery Image
+            </a>
+        </div>
+
+        <div class="card shadow-sm border-0 rounded-4">
+            <div class="card-body p-0">
+                <div class="table-responsive">
+                    <table class="table table-hover align-middle mb-0">
+                        <thead class="bg-light">
+                            <tr>
+                                <th class="ps-4">Image</th>
+                                <th>Title</th>
+                                <th>Order</th>
+                                <th class="text-end pe-4">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for img in gallery %}
+                            <tr>
+                                <td class="ps-4">
+                                    {% if img.image_upload %}
+                                        <img src="{{ img.image_upload.url }}" alt="{{ img.title }}" class="rounded shadow-sm object-fit-cover" style="height: 60px; width: 60px;">
+                                    {% else %}
+                                        <span class="text-muted small">No image</span>
+                                    {% endif %}
+                                </td>
+                                <td class="fw-bold">{{ img.title|default:"N/A" }}</td>
+                                <td>{{ img.order }}</td>
+                                <td class="text-end pe-4">
+                                    <a href="{% url 'edit_gallery_image' img.pk %}" class="btn btn-sm btn-outline-primary rounded-circle"><i class="bi bi-pencil"></i></a>
+                                    <form action="{% url 'delete_gallery_image' img.pk %}" method="post" class="d-inline" onsubmit="return confirm('Delete this gallery image?');">
+                                        {% csrf_token %}
+                                        <button type="submit" class="btn btn-sm btn-outline-danger rounded-circle"><i class="bi bi-trash"></i></button>
+                                    </form>
+                                </td>
+                            </tr>
+                            {% empty %}
+                            <tr>
+                                <td colspan="4" class="text-center py-4 text-muted">
+                                    No gallery images found. Click "Add Gallery Image" to upload one.
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

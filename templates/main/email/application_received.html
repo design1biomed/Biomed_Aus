@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Application Received</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+        }
+        .email-container {
+            max-width: 600px;
+            margin: 40px auto;
+            background-color: #ffffff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border: 1px solid #eaeaea;
+        }
+        .header {
+            background: linear-gradient(135deg, #124c30 0%, #198754 100%);
+            padding: 30px 20px;
+            text-align: center;
+        }
+        .header h1 {
+            color: #ffffff;
+            margin: 0;
+            font-size: 24px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+        .content {
+            padding: 40px 30px;
+            color: #4a4a4a;
+            line-height: 1.6;
+        }
+        .content h2 {
+            color: #124c30;
+            font-size: 20px;
+            margin-top: 0;
+        }
+        .job-details {
+            background-color: #f1f8f5;
+            border-left: 4px solid #198754;
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        .job-details p {
+            margin: 5px 0;
+            font-size: 15px;
+        }
+        .footer {
+            background-color: #f8f9fa;
+            padding: 20px;
+            text-align: center;
+            font-size: 13px;
+            color: #8c8c8c;
+            border-top: 1px solid #eaeaea;
+        }
+        .footer a {
+            color: #198754;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="email-container">
+        <div class="header">
+            <h1>Bio Med Ingredients</h1>
+        </div>
+        <div class="content">
+            <h2>Application Received</h2>
+            <p>Dear {{ application.name }},</p>
+            <p>Thank you for expressing your interest in joining the team at Bio Med Ingredients. We are writing to confirm that we have successfully received your application.</p>
+            
+            <div class="job-details">
+                <p><strong>Position:</strong> {{ job.title }}</p>
+                <p><strong>Reference ID:</strong> #{{ job.id }}</p>
+            </div>
+
+            <p>Our talent acquisition team will review your qualifications and experience. If your profile matches our current requirements for the role, we will be in touch with you to discuss the next steps in our recruitment process.</p>
+            <p>Due to the high volume of applications we receive, we are only able to contact shortlisted candidates. We appreciate your understanding.</p>
+            <br>
+            <p>Best regards,<br><strong>Talent Acquisition Team</strong><br>Bio Med Ingredients Australia</p>
+        </div>
+        <div class="footer">
+            <p>&copy; {% now "Y" %} Bio Med Ingredients. All rights reserved.</p>
+            <p><a href="https://biomedingredients.com">Visit our Website</a></p>
+        </div>
+    </div>
+</body>
+</html>

@@ -215,7 +215,7 @@
         <!-- Cards Grid -->
         <div class="row g-4">
             {% for feature in features %}
-            <div class="col-md-6 col-xl-3" data-aos="fade-up" data-aos-delay="{{ forloop.counter0|add:1 }}50">
+            <div class="col-md-6 col-xl-3" data-aos="fade-up" data-aos-delay="{{ forloop.counter }}50">
                 <article class="feature-cd h-100 p-4 p-xl-5 rounded-4 bg-white" style="transition: transform 0.3s ease, box-shadow 0.3s ease; border:1px solid rgba(0,0,0,0.03);">
                     <div class="icon-wrapper mb-4" style="width:60px; height:60px; border-radius:50%; background:#e7f0e8; display:flex; align-items:center; justify-content:center; color:var(--gold); font-size:1.8rem;">
                         <i class="{{ feature.icon_class }}"></i>
@@ -593,20 +593,22 @@
         if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
             let tl = gsap.timeline({
                 scrollTrigger: {
-                    trigger: ".premium-cta",
-                    start: "bottom 85%",
+                    trigger: "#formulation-wrapper",
+                    start: "top 90%", // Triggers right when the user scrolls to it
                     toggleActions: "play none none reverse"
                 }
             });
 
-            // Expand height from 0 to auto and fade in smoothly
+            // Smooth accordion reveal (hardware accelerated)
+            gsap.set("#formulation-wrapper", { willChange: "height, opacity" });
             tl.fromTo("#formulation-wrapper", 
                 { height: 0, opacity: 0 }, 
                 { 
                     height: "auto", 
-                    opacity: 6, 
-                    duration: 1.2, 
-                    ease: "power2.out" 
+                    opacity: 1, 
+                    duration: 2, 
+                    ease: "power2.out",
+                    onComplete: () => gsap.set("#formulation-wrapper", { willChange: "auto" })
                 }
             );
         }
@@ -614,3 +616,6 @@
 </script>
 
 {% endblock %}
+
+
+

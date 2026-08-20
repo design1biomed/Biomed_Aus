@@ -54,11 +54,90 @@
                     <i class="ph ph-map-pin me-2"></i> Global Offices
                 </a>
             </div>
+            <a href="{% url 'manage_team' %}" class="{% if 'team' in request.resolver_match.url_name %}active{% endif %}">
+                <i class="ph ph-users me-2"></i> Manage Team Page
+            </a>
             <a href="{% url 'edit_about_page' %}" class="{% if request.resolver_match.url_name == 'edit_about_page' %}active{% endif %}">
                 <i class="ph ph-info me-2"></i> About Page Content
             </a>
+            <a href="{% url 'edit_csr_page' %}" class="{% if request.resolver_match.url_name == 'edit_csr_page' %}active{% endif %}">
+                <i class="ph ph-globe me-2"></i> CSR Page Content
+            </a>
+            <a href="{% url 'edit_infrastructure_page' %}" class="{% if request.resolver_match.url_name == 'edit_infrastructure_page' %}active{% endif %}">
+                <i class="ph ph-buildings me-2"></i> Infrastructure Page
+            </a>
+            <a href="{% url 'manage_research' %}" class="{% if 'research' in request.resolver_match.url_name %}active{% endif %}">
+                <i class="ph ph-flask me-2"></i> Manage Research Page
+            </a>
+            <a href="{% url 'dashboard_manage_brands' %}" class="{% if 'brand' in request.resolver_match.url_name %}active{% endif %}">
+                <i class="ph ph-tag me-2"></i> Manage Brands / TM
+            </a>
+            <a href="{% url 'dashboard_manage_product_range' %}" class="{% if 'product_range' in request.resolver_match.url_name %}active{% endif %}">
+                <i class="ph ph-package me-2"></i> Manage Product Range
+            </a>
+            
+            <a href="#productsMenu" data-bs-toggle="collapse" class="d-flex align-items-center justify-content-between {% if 'product' in request.resolver_match.url_name and 'product_range' not in request.resolver_match.url_name and 'brochure' not in request.resolver_match.url_name and 'document' not in request.resolver_match.url_name %}active{% endif %}">
+                <span><i class="ph ph-plant me-2"></i> Manage Products</span>
+                <i class="ph ph-caret-down"></i>
+            </a>
+            <div class="collapse {% if 'product' in request.resolver_match.url_name and 'product_range' not in request.resolver_match.url_name and 'brochure' not in request.resolver_match.url_name and 'document' not in request.resolver_match.url_name %}show{% endif %}" id="productsMenu">
+                <a href="{% url 'dashboard_manage_products' %}?category=herbal_extracts" class="ps-4 {% if request.GET.category == 'herbal_extracts' %}text-white fw-bold{% endif %}" style="font-size: 0.9em;">
+                    <i class="ph ph-leaf me-2"></i> Herbal Extracts
+                </a>
+                <a href="{% url 'dashboard_manage_products' %}?category=nutritional_fine_chemicals" class="ps-4 {% if request.GET.category == 'nutritional_fine_chemicals' %}text-white fw-bold{% endif %}" style="font-size: 0.9em;">
+                    <i class="ph ph-flask me-2"></i> Nutritional Fine Chemicals
+                </a>
+                <a href="{% url 'dashboard_manage_products' %}?category=spices_and_oleoresins" class="ps-4 {% if request.GET.category == 'spices_and_oleoresins' %}text-white fw-bold{% endif %}" style="font-size: 0.9em;">
+                    <i class="ph ph-fire me-2"></i> Spices & Oleoresins
+                </a>
+                <a href="{% url 'dashboard_manage_products' %}?category=raw_herbal_powders" class="ps-4 {% if request.GET.category == 'raw_herbal_powders' %}text-white fw-bold{% endif %}" style="font-size: 0.9em;">
+                    <i class="ph ph-plant me-2"></i> Raw Herbal Powders
+                </a>
+                <a href="{% url 'dashboard_manage_products' %}?category=organic_product_list" class="ps-4 {% if request.GET.category == 'organic_product_list' %}text-white fw-bold{% endif %}" style="font-size: 0.9em;">
+                    <i class="ph ph-check-circle me-2"></i> Organic Product List
+                </a>
+                <a href="{% url 'dashboard_manage_products' %}" class="ps-4 {% if not request.GET.category and 'product' in request.resolver_match.url_name and 'product_range' not in request.resolver_match.url_name and 'brochure' not in request.resolver_match.url_name and 'document' not in request.resolver_match.url_name %}text-white fw-bold{% endif %}" style="font-size: 0.9em;">
+                    <i class="ph ph-list me-2"></i> View All Products
+                </a>
+            </div>
+            <a href="{% url 'dashboard_manage_natural_food_colors' %}" class="{% if 'natural_food_color' in request.resolver_match.url_name %}active{% endif %}">
+                <i class="ph ph-palette me-2"></i> Manage Food Colors
+            </a>
+            <a href="{% url 'dashboard_manage_natural_flavours' %}" class="{% if 'natural_flavour' in request.resolver_match.url_name %}active{% endif %}">
+                <i class="ph ph-brand-apple me-2"></i> Manage Flavours
+            </a>
+            <a href="{% url 'dashboard_manage_product_brochures' %}" class="{% if 'product_brochure' in request.resolver_match.url_name %}active{% endif %}">
+                <i class="ph ph-file-pdf me-2"></i> Manage Brochures
+            </a>
+            <a href="{% url 'dashboard_manage_product_document_categories' %}" class="{% if 'product_document_categor' in request.resolver_match.url_name %}active{% endif %}">
+                <i class="ph ph-folders me-2"></i> Document Categories
+            </a>
+            <a href="{% url 'dashboard_manage_product_documents' %}" class="{% if 'product_document' in request.resolver_match.url_name and 'categor' not in request.resolver_match.url_name %}active{% endif %}">
+                <i class="ph ph-files me-2"></i> Manage Documents
+            </a>
+            <a href="{% url 'dashboard_manage_exhibition_events' %}" class="{% if 'exhibition_event' in request.resolver_match.url_name %}active{% endif %}">
+                <i class="ph ph-ticket me-2"></i> Manage Exhibitions
+            </a>
+            <a href="{% url 'dashboard_manage_instagram_posts' %}" class="{% if 'instagram_post' in request.resolver_match.url_name %}active{% endif %}">
+                <i class="ph ph-instagram-logo me-2"></i> Instagram Posts
+            </a>
+            <a href="{% url 'dashboard_manage_subscribers' %}" class="{% if 'subscriber' in request.resolver_match.url_name %}active{% endif %}">
+                <i class="ph ph-envelope-simple me-2"></i> Subscribers & News
+            </a>
+            <a href="{% url 'dashboard_manage_job_openings' %}" class="{% if 'job_opening' in request.resolver_match.url_name %}active{% endif %}">
+                <i class="ph ph-briefcase me-2"></i> Manage Job Openings
+            </a>
+            <a href="{% url 'dashboard_manage_job_applications' %}" class="{% if 'job_application' in request.resolver_match.url_name %}active{% endif %}">
+                <i class="ph ph-file-text me-2"></i> Job Applications
+            </a>
             <a href="{% url 'manage_enquiries' %}" class="{% if 'enquir' in request.resolver_match.url_name %}active{% endif %}">
-                <i class="ph ph-envelope-open me-2"></i> Enquiries
+                <i class="ph ph-envelope-simple-open me-2"></i> Manage Enquiries
+            </a>
+            <a href="{% url 'dashboard_manage_contact_messages' %}" class="{% if 'contact_message' in request.resolver_match.url_name %}active{% endif %}">
+                <i class="ph ph-envelope me-2"></i> Contact Messages
+            </a>
+            <a href="{% url 'dashboard_email_configuration' %}" class="{% if request.resolver_match.url_name == 'dashboard_email_configuration' %}active{% endif %}">
+                <i class="ph ph-gear me-2"></i> Email Configuration
             </a>
             <a href="{% url 'index' %}" target="_blank" class="mt-auto text-white-50">
                 <i class="ph ph-arrow-square-out me-2"></i> View Live Site
@@ -92,5 +171,6 @@
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    {% block extra_scripts %}{% endblock %}
 </body>
 </html>

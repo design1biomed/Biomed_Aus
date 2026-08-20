@@ -1,0 +1,203 @@
+{% extends "main/base.html" %}
+{% load static %}
+
+{% block content %}
+
+<section class="hero-wrapper" style="height: 40vh; min-height: 400px; display: flex; align-items: center;">
+    <!-- Parallax Background -->
+    <img src="/media/hero/hero.jpg" class="hero-bg-image" alt="Our Team"
+        onerror="this.src='{% static 'images/hero_bg.webp' %}'">
+    <div class="hero-overlay"></div>
+    <div class="hero-content w-100 d-flex align-items-center" style="padding-top: 60px; position: relative;">
+        <div class="container position-relative z-1 text-center text-md-start">
+            <div class="hero-badge justify-content-center justify-content-md-start mb-3 mx-auto mx-md-0"
+                style="padding: 0.4rem 1rem; display: inline-flex; width: fit-content;">
+                <span class="hero-badge-dot"></span>
+                <span class="text-white fw-bold text-uppercase letter-spacing-2" style="font-size: 0.75rem;">Meet The Team</span>
+            </div>
+            <h1 class="hero-title mb-3" style="font-size: clamp(2rem, 4vw, 3.5rem);">
+                Our Team</h1>
+            <p class="hero-subtitle mb-4 mx-auto mx-md-0"
+                style="max-width: 700px; font-size: clamp(1rem, 1.5vw, 1.15rem);">
+                Driven by passion and guided by purpose.
+            </p>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb justify-content-center justify-content-md-start mb-0">
+                    <li class="breadcrumb-item"><a href="{% url 'index' %}"
+                            class="text-white-50 text-decoration-none">Home</a></li>
+                    <li class="breadcrumb-item active text-white" aria-current="page">Our Team</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+</section>
+
+<section class="magazine-team-section py-4 py-md-5">
+    <div class="container-fluid px-lg-5">
+        <div class="row mb-4 mb-md-5">
+            <div class="col-12" data-aos="fade-up">
+                <h2 class="magazine-section-title">Core Team</h2>
+            </div>
+        </div>
+
+        {% for member in team_members %}
+        {% if member.alignment == 'left' %}
+        <!-- Team Member (Left Aligned) -->
+        <div class="row g-0 magazine-team-row" data-aos="fade-up" data-aos-delay="100">
+            <div class="col-md-1 vertical-designation-wrapper">
+                <div class="vertical-designation" style="color: #c0c0c0;">
+                    {{ member.secondary_designation|linebreaksbr }}
+                </div>
+            </div>
+            <div class="col-md-3">
+                <img src="{% if member.image_upload %}{{ member.image_upload.url }}{% else %}{% static member.image_path %}{% endif %}"
+                    class="team-portrait-bw" alt="{{ member.name }}">
+            </div>
+            <div class="col-md-3">
+                <div class="team-name-block">
+                    <h3>{{ member.name }}</h3>
+                    <span class="designation">{{ member.primary_designation }}</span>
+                </div>
+            </div>
+            <div class="col-md-5">
+                <div class="cross-accent-box cross-accent-left text-md-end">
+                    <p>{{ member.bio }}</p>
+                </div>
+            </div>
+        </div>
+        {% else %}
+        <!-- Team Member (Right Aligned) -->
+        <div class="row g-0 magazine-team-row justify-content-end" data-aos="fade-up" data-aos-delay="100">
+            <div class="col-md-5 order-3 order-md-1">
+                <div class="cross-accent-box cross-accent-right text-md-start">
+                    <p>{{ member.bio }}</p>
+                </div>
+            </div>
+            <div class="col-md-3 order-2 order-md-2">
+                <div class="team-name-block text-md-end text-start align-items-md-end align-items-start">
+                    <h3>{{ member.name }}</h3>
+                    <span class="designation">{{ member.primary_designation }}</span>
+                </div>
+            </div>
+            <div class="col-md-3 order-1 order-md-3">
+                <img src="{% if member.image_upload %}{{ member.image_upload.url }}{% else %}{% static member.image_path %}{% endif %}"
+                    class="team-portrait-bw" alt="{{ member.name }}" style="object-position:center 80%;">
+            </div>
+            <div class="col-md-1 vertical-designation-wrapper order-first order-md-4">
+                <div class="vertical-designations" style="color: #c0c0c0;">
+                    {{ member.secondary_designation|linebreaksbr }}
+                </div>
+            </div>
+        </div>
+        {% endif %}
+        {% endfor %}
+
+    </div>
+</section>
+
+<section class="magazine-team-section py-4 py-md-5 bg-white">
+    <div class="container-fluid px-lg-5">
+        <div class="row mb-4 mb-md-5 mt-3 mt-md-4">
+            <div class="col-12" data-aos="fade-up">
+                <h2 class="magazine-section-title">Operation Team</h2>
+            </div>
+        </div>
+
+        {% for member in operation_members %}
+        {% if member.alignment == 'left' %}
+        <!-- Operation Team Member (Left Aligned) -->
+        <div class="row g-0 magazine-team-row" data-aos="fade-up" data-aos-delay="100">
+            <div class="col-md-1 vertical-designation-wrapper">
+                <div class="vertical-designation" style="color: #c0c0c0;">
+                    {{ member.secondary_designation|linebreaksbr }}
+                </div>
+            </div>
+            <div class="col-md-3">
+                <img src="{% if member.image_upload %}{{ member.image_upload.url }}{% else %}{% static member.image_path %}{% endif %}"
+                    class="team-portrait-bw" alt="{{ member.name }}">
+            </div>
+            <div class="col-md-3">
+                <div class="team-name-block">
+                    <h3>{{ member.name }}</h3>
+                    <span class="designation">{{ member.primary_designation }}</span>
+                </div>
+            </div>
+            <div class="col-md-5">
+                <div class="cross-accent-box cross-accent-left text-md-end">
+                    <p>{{ member.bio }}</p>
+                </div>
+            </div>
+        </div>
+        {% else %}
+        <!-- Operation Team Member (Right Aligned) -->
+        <div class="row g-0 magazine-team-row justify-content-end" data-aos="fade-up" data-aos-delay="100">
+            <div class="col-md-5 order-3 order-md-1">
+                <div class="cross-accent-box cross-accent-right text-md-start">
+                    <p>{{ member.bio }}</p>
+                </div>
+            </div>
+            <div class="col-md-3 order-2 order-md-2">
+                <div class="team-name-block text-md-end text-start align-items-md-end align-items-start">
+                    <h3>{{ member.name }}</h3>
+                    <span class="designation">{{ member.primary_designation }}</span>
+                </div>
+            </div>
+            <div class="col-md-3 order-1 order-md-3">
+                <img src="{% if member.image_upload %}{{ member.image_upload.url }}{% else %}{% static member.image_path %}{% endif %}"
+                    class="team-portrait-bw" alt="{{ member.name }}">
+            </div>
+            <div class="col-md-1 vertical-designation-wrapper order-first order-md-4">
+                <div class="vertical-designations" style="color: #c0c0c0;">
+                    {{ member.secondary_designation|linebreaksbr }}
+                </div>
+            </div>
+        </div>
+        {% endif %}
+        {% empty %}
+        <div class="row">
+            <div class="col-12 text-center py-4 py-md-5 text-muted">
+                <i class="bi bi-people fs-1 d-block mb-3"></i>
+                <p>Operation team members will appear here once added via the dashboard.</p>
+            </div>
+        </div>
+        {% endfor %}
+
+    </div>
+</section>
+
+
+<section class="team-summary py-4 py-md-5 mt-4 mt-md-5 bg-light border-top">
+    <div class="container-fluid px-3 px-md-4 px-xl-5">
+        <div class="row gx-4 gx-xl-5">
+            <div class="col-md-12 col-xl-12 mb-3 mb-md-4 mb-xl-0" data-aos="fade-up" data-aos-delay="100">
+                <p class="text-muted" style="line-height: 1.8; text-align: justify;">
+                    Our journey began with a clear vision to bring the purest and finest natural ingredients
+                    to the global market. Bio Med Ingredients was established in 2015 with a deep commitment to offer
+                    products that are entirely natural and of exceptional quality, supporting health, wellness and
+                    sustainable
+                    living across the world.
+
+                    From the very beginning, our purpose has been to create lasting value through
+                    authenticity, innovation and trust. What started as a vision has grown into a name that stands for
+                    excellence. We
+                    take pride in being recognised in the field of natural extracts, oleoresins, plant and herbal
+                    extracts, organic products and health supplements.
+
+                    Our strength flows from our close connection with farmers and communities. Every
+                    ingredient is carefully sourced and processed in facilities that meet the highest global standards,
+                    ensuring
+                    purity and consistency at every step. Our dedicated team is the heartbeat of this journey, driven
+                    by passion and guided by purpose.
+
+                    We believe that true growth is built on trust, quality and enduring relationships. As we
+                    continue to move forward, our focus remains on nurturing meaningful partnerships and delivering
+                    excellence that inspires confidence and creates lasting impact.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
+
+

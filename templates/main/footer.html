@@ -3,152 +3,131 @@
 <!-- ═══════════════════════════════════════════════════
      DESKTOP FOOTER  (hidden on mobile via d-none d-lg-block)
      ═══════════════════════════════════════════════════ -->
-<footer class="bg-dark text-white pt-5 overflow-hidden position-relative" style="background-color: #0b2214 !important;">
-    <div class="container pt-4">
-        <div class="row g-4">
+<footer class="d-none d-lg-block" style="background-color: white; padding-top: 20px; padding-bottom: 20px;">
+    <div class="container-fluid px-2 px-md-3">
+        <!-- Rounded Dark Box -->
+        <div style="background-color: #111111; border-radius: 40px; padding: 60px 0 40px 0;">
+            <div class="container">
+                <div class="row g-4 mb-5">
 
-            <!-- Company -->
-            <div class="col-lg-3 col-md-6 pe-lg-3">
-                <div class="d-flex align-items-center mb-4">
-                    <i class="bi bi-leaf text-success fs-3 me-2"></i>
-                    <h3 class="fw-bold text-white mb-0" style="letter-spacing: 1px;"></h3>
+                    <!-- Column 1: Logo -->
+                    <div class="col-lg-3">
+                        <div class="d-flex align-items-center mb-4">
+                            <i class="bi bi-water me-2" style="color: #f7b731; font-size: 1.8rem;"></i>
+                            <span class="text-white"
+                                style="font-weight: 500; font-size: 1.1rem; letter-spacing: 0.5px;">BIOMED</span>
+                        </div>
+                        
+                        <div class="mt-4 pt-2">
+                            <h6 class="mb-3 text-uppercase" style="font-size: 0.75rem; letter-spacing: 1px; color: #a0a0a0; font-weight: 600;">Connect with us</h6>
+                            <div class="d-flex gap-3">
+                                <a href="https://www.linkedin.com/company/bio-med-ingredients-pvt-ltd/" target="_blank" class="footer-social-circle bg-white text-dark rounded-circle shadow-sm d-flex align-items-center justify-content-center text-decoration-none">
+                                    <i class="ph ph-linkedin-logo"></i>
+                                </a>
+                                <a href="#" target="_blank" class="footer-social-circle bg-white text-dark rounded-circle shadow-sm d-flex align-items-center justify-content-center text-decoration-none">
+                                    <i class="ph ph-twitter-logo"></i>
+                                </a>
+                                <a href="https://www.facebook.com/BioMedIngredients" target="_blank" class="footer-social-circle bg-white text-dark rounded-circle shadow-sm d-flex align-items-center justify-content-center text-decoration-none">
+                                    <i class="ph ph-facebook-logo"></i>
+                                </a>
+                                <a href="https://www.instagram.com/biomedingredients_" target="_blank" class="footer-social-circle bg-white text-dark rounded-circle shadow-sm d-flex align-items-center justify-content-center text-decoration-none">
+                                    <i class="ph ph-instagram-logo"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Column 2: NAVIGATION -->
+                    <div class="col-lg-3">
+                        <h6 class="mb-4 text-uppercase"
+                            style="font-size: 0.75rem; letter-spacing: 1px; color: #a0a0a0; font-weight: 500;">
+                            Navigation</h6>
+                        <ul class="list-unstyled d-flex flex-column gap-3 mb-0">
+                            <li><a href="/" class="text-decoration-none"
+                                    style="color: #d1d1d1; font-size: 0.85rem; transition: color 0.3s;"
+                                    onmouseover="this.style.color='#fff'"
+                                    onmouseout="this.style.color='#d1d1d1'">Home</a></li>
+                            <li><a href="{% url 'about' %}" class="text-decoration-none"
+                                    style="color: #d1d1d1; font-size: 0.85rem; transition: color 0.3s;"
+                                    onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#d1d1d1'">About
+                                    company</a></li>
+                            <li><a href="{% url 'infrastructure' %}" class="text-decoration-none"
+                                    style="color: #d1d1d1; font-size: 0.85rem; transition: color 0.3s;"
+                                    onmouseover="this.style.color='#fff'"
+                                    onmouseout="this.style.color='#d1d1d1'">Infrastructure & Services</a></li>
+                            <li><a href="{% url 'news_events' %}" class="text-decoration-none"
+                                    style="color: #d1d1d1; font-size: 0.85rem; transition: color 0.3s;"
+                                    onmouseover="this.style.color='#fff'"
+                                    onmouseout="this.style.color='#d1d1d1'">News & Events</a></li>
+                            <li><a href="{% url 'contact' %}" class="text-decoration-none"
+                                    style="color: #d1d1d1; font-size: 0.85rem; transition: color 0.3s;"
+                                    onmouseover="this.style.color='#fff'"
+                                    onmouseout="this.style.color='#d1d1d1'">Contact</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Column 3: INFORMATION -->
+                    <div class="col-lg-3">
+                        <h6 class="mb-4 text-uppercase"
+                            style="font-size: 0.75rem; letter-spacing: 1px; color: #a0a0a0; font-weight: 500;">
+                            Information</h6>
+                        <ul class="list-unstyled d-flex flex-column gap-3 mb-0">
+                            <li><a href="{% url 'product_range' %}" class="text-decoration-none"
+                                    style="color: #d1d1d1; font-size: 0.85rem; transition: color 0.3s;"
+                                    onmouseover="this.style.color='#fff'"
+                                    onmouseout="this.style.color='#d1d1d1'">Product Range</a></li>
+                            <li><a href="{% url 'herbal_extracts' %}" class="text-decoration-none"
+                                    style="color: #d1d1d1; font-size: 0.85rem; transition: color 0.3s;"
+                                    onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#d1d1d1'">Herbal
+                                    Extracts</a></li>
+                            <li><a href="{% url 'product_brochures' %}" class="text-decoration-none"
+                                    style="color: #d1d1d1; font-size: 0.85rem; transition: color 0.3s;"
+                                    onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#d1d1d1'">Product Brochures</a></li>
+                            <li><a href="{% url 'natural_food_colors' %}" class="text-decoration-none"
+                                    style="color: #d1d1d1; font-size: 0.85rem; transition: color 0.3s;"
+                                    onmouseover="this.style.color='#fff'"
+                                    onmouseout="this.style.color='#d1d1d1'">Natural Food Colors & Flavours</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Column 4: CONTACTS -->
+                    <div class="col-lg-3">
+                        <h6 class="mb-4 text-uppercase"
+                            style="font-size: 0.75rem; letter-spacing: 1px; color: #a0a0a0; font-weight: 500;">Contacts
+                        </h6>
+                        <ul class="list-unstyled d-flex flex-column gap-3 mb-0">
+                            <li style="color: #d1d1d1; font-size: 0.85rem; line-height: 1.6;">Plot No. SC-1/48, Phase 1,
+                                Verna Industrial Estate, Goa - 403722, INDIA</li>
+                            <li><a href="mailto:info@biomedingredients.com" class="text-decoration-none"
+                                    style="color: #d1d1d1; font-size: 0.85rem; transition: color 0.3s;"
+                                    onmouseover="this.style.color='#fff'"
+                                    onmouseout="this.style.color='#d1d1d1'">info@biomedingredients.com</a></li>
+                            <li style="color: #d1d1d1; font-size: 0.85rem;">+91 88066 68458</li>
+                        </ul>
+                    </div>
+
                 </div>
-                <p class="text-white-50 mb-4" style="line-height: 1.8;">
-                    We are just a message away. Contact our team for any assistance or to learn more about our premium
-                    botanical extracts and solutions.
-                </p>
-            </div>
 
-            <!-- Quick Links -->
-            <div class="col-lg-2 col-md-6">
-                <h5 class="fw-bold mb-4 text-white">Quick Links</h5>
-                <ul class="list-unstyled d-flex flex-column gap-3 mb-0">
-                    <li><a href="/" class="text-white-50 text-decoration-none footer-link"><i
-                                class="bi bi-chevron-right small me-2 text-success"></i>Home</a></li>
-                    <li><a href="#" class="text-white-50 text-decoration-none footer-link"><i
-                                class="bi bi-chevron-right small me-2 text-success"></i>About Us</a></li>
-                    <li><a href="#" class="text-white-50 text-decoration-none footer-link"><i
-                                class="bi bi-chevron-right small me-2 text-success"></i>Facility</a></li>
-                    <li><a href="#" class="text-white-50 text-decoration-none footer-link"><i
-                                class="bi bi-chevron-right small me-2 text-success"></i>Brands</a></li>
-                    <li><a href="#" class="text-white-50 text-decoration-none footer-link"><i
-                                class="bi bi-chevron-right small me-2 text-success"></i>Certifications</a></li>
-                    <li><a href="/contact/" class="text-white-50 text-decoration-none footer-link"><i
-                                class="bi bi-chevron-right small me-2 text-success"></i>Contact</a></li>
-                </ul>
-            </div>
+                <!-- Divider -->
+                <hr style="border-color: rgba(255,255,255,0.1); margin: 40px 0 20px 0;">
 
-            <!-- Products -->
-            <div class="col-lg-2 col-md-6">
-                <h5 class="fw-bold mb-4 text-white">Our Products</h5>
-                <ul class="list-unstyled d-flex flex-column gap-3 mb-0">
-                    <li><a href="#" class="text-white-50 text-decoration-none footer-link"><i
-                                class="bi bi-chevron-right small me-2 text-success"></i>Product Range</a></li>
-                    <li><a href="#" class="text-white-50 text-decoration-none footer-link"><i
-                                class="bi bi-chevron-right small me-2 text-success"></i>Herbal Extracts</a></li>
-                    <li><a href="#" class="text-white-50 text-decoration-none footer-link"><i
-                                class="bi bi-chevron-right small me-2 text-success"></i>Raw Herbal Powders</a></li>
-                    <li><a href="#" class="text-white-50 text-decoration-none footer-link"><i
-                                class="bi bi-chevron-right small me-2 text-success"></i>Nutritional Chemicals</a></li>
-                    <li><a href="#" class="text-white-50 text-decoration-none footer-link"><i
-                                class="bi bi-chevron-right small me-2 text-success"></i>Spices &amp; Oleoresins</a></li>
-                    <li><a href="#" class="text-white-50 text-decoration-none footer-link"><i
-                                class="bi bi-chevron-right small me-2 text-success"></i>Natural Food Colors</a></li>
-                    <li><a href="#" class="text-white-50 text-decoration-none footer-link"><i
-                                class="bi bi-chevron-right small me-2 text-success"></i>Organic Products</a></li>
-                    <li><a href="#" class="text-white-50 text-decoration-none footer-link"><i
-                                class="bi bi-chevron-right small me-2 text-success"></i>Product Documents</a></li>
-                </ul>
-            </div>
-
-            <!-- Working Hours -->
-            <div class="col-lg-2 col-md-6">
-                <h5 class="fw-bold mb-4 text-white">Working Hours</h5>
-                <ul class="list-unstyled d-flex flex-column gap-3 mb-0 text-white-50">
-                    <li>
-                        <span class="d-block text-white mb-1"><i class="bi bi-clock me-2 text-success"></i>Week
-                            Days</span>
-                        <span class="ms-4">9:00 - 18:00 IST</span>
-                    </li>
-                    <li>
-                        <span class="d-block text-white mb-1"><i
-                                class="bi bi-calendar-x me-2 text-success"></i>Sunday</span>
-                        <span class="ms-4">Day off</span>
-                    </li>
-                </ul>
-                <div class="mt-4 ms-4">
-                    <a href="/contact/" class="btn btn-outline-success rounded-pill btn-sm px-4 py-2">
-                        Book Visit <i class="bi bi-arrow-right ms-1"></i>
-                    </a>
-                </div>
-            </div>
-
-            <!-- Contact Info -->
-            <div class="col-lg-3 col-md-6 position-relative">
-                <div class="position-absolute w-100 h-100 world-map-bg" style="top: 0; left: 0;"></div>
-                <div class="position-relative" style="z-index: 1;">
-                    <h5 class="fw-bold mb-4 text-white">Get in Touch</h5>
-                    <ul class="list-unstyled d-flex flex-column gap-3 mb-0">
-                        <li class="d-flex text-white-50">
-                            <i class="bi bi-geo-alt-fill text-success fs-5 me-3 mt-1"></i>
-                            <span style="line-height: 1.6;">Plot No. SC-1/48, Phase 1, Verna Industrial Estate, Verna.
-                                Goa - 403722, INDIA</span>
-                        </li>
-                        <li class="d-flex text-white-50 align-items-center">
-                            <i class="bi bi-envelope-fill text-success fs-5 me-3"></i>
-                            <a href="mailto:info@biomedingredients.com"
-                                class="text-white-50 text-decoration-none footer-link">info@biomedingredients.com</a>
-                        </li>
-                        <li class="d-flex text-white-50 align-items-center">
-                            <i class="bi bi-telephone-fill text-success fs-5 me-3"></i>
-                            <span>+91 88066 68458</span>
-                        </li>
-                    </ul>
+                <!-- Bottom Row -->
+                <div class="row align-items-center">
+                    <div class="col-md-4 text-start">
+                        <span style="color: #888; font-size: 0.75rem;">&copy; 2026 Biomed. All rights reserved.</span>
+                    </div>
+                    <div class="col-md-4 text-center">
+                        <a href="#" class="text-decoration-none"
+                            style="color: #888; font-size: 0.75rem; transition: color 0.3s;"
+                            onmouseover="this.style.color='#d1d1d1'" onmouseout="this.style.color='#888'">Privacy
+                            Policy</a>
+                    </div>
+                    <div class="col-md-4 text-end">
+                        <!-- Socials moved to Column 1 -->
+                    </div>
                 </div>
             </div>
         </div>
-
-        <hr class="border-secondary my-5 opacity-25">
-        <div class="d-flex flex-wrap gap-2 mt-4 mb-5 justify-content-center justify-content-md-start">
-            <a href="https://www.linkedin.com/company/bio-med-ingredients-pvt-ltd/"
-                class="btn rounded-pill footer-social-btn" target="_blank">LINKEDIN</a>
-            <a href="https://www.facebook.com/BioMedIngredients" class="btn rounded-pill footer-social-btn"
-                target="_blank">FACEBOOK</a>
-            <a href="https://www.instagram.com/biomedingredients_" class="btn rounded-pill footer-social-btn"
-                target="_blank">INSTAGRAM</a>
-            <a href="https://www.youtube.com/@bio-medingredients" class="btn rounded-pill footer-social-btn"
-                target="_blank">YOUTUBE</a>
-        </div>
-        <div class="row align-items-center">
-            <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                <span class="text-white-50 small">&copy; 2026 Bio Med Ingredients. All Rights Reserved.</span>
-            </div>
-            <div class="col-md-6 text-center text-md-end">
-                <span class="text-white-50 small">
-                    <a href="#" class="text-white-50 text-decoration-none footer-link me-3">Privacy Policy</a>
-                    <a href="#" class="text-white-50 text-decoration-none footer-link">Terms of Service</a>
-                </span>
-            </div>
-        </div>
-    </div>
-
-    <!-- Massive Background Text -->
-    <!-- Desktop View -->
-    <div class="container-fluid px-0 mt-5 pt-3 d-none d-md-flex justify-content-center align-items-end"
-        style="height: clamp(80px, 12vw, 250px); pointer-events: none;">
-        <h1 class="fw-bold mb-0 text-center"
-            style="font-size: clamp(30px, 9.5vw, 260px); line-height: 0.75; transform: translateY(22%); background: linear-gradient(to bottom, #1a4f2e); -webkit-background-clip: text; -webkit-text-fill-color: transparent; letter-spacing: -2px;">
-            Bio Med Ingredients
-        </h1>
-    </div>
-
-    <!-- Mobile View -->
-    <div class="container-fluid px-0 mt-4 pt-2 d-flex d-md-none justify-content-center align-items-end"
-        style="height: 100px; pointer-events: none;">
-        <h1 class="fw-bold mb-0 text-center"
-            style="font-size: clamp(20px, 9vw, 70px); line-height: 0.9; transform: translateY(15%); background: linear-gradient(to bottom, #1a4f2e); -webkit-background-clip: text; -webkit-text-fill-color: transparent; letter-spacing: -1px;">
-            Bio Med Ingredients
-        </h1>
     </div>
 </footer>
 
@@ -326,6 +305,22 @@
      ═══════════════════════════════════════════ -->
 <style>
     /* ── Desktop footer styles ── */
+    .footer-social-circle {
+        width: 45px;
+        height: 45px;
+        font-size: 1.2rem;
+        transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        border: 1px solid rgba(255,255,255,0.05);
+    }
+    
+    .footer-social-circle:hover {
+        background: #198754 !important;
+        color: white !important;
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(25, 135, 84, 0.3) !important;
+        border-color: #198754 !important;
+    }
+
     .footer-link {
         transition: all 0.3s ease;
     }
@@ -766,63 +761,6 @@
         });
     })();
 </script>
-
-<!-- Bootstrap JS -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
-<!-- Custom Cursor Elements -->
-<div class="custom-cursor-dot">
-    <img src="{% static 'images/Cursor.svg' %}" alt="Cursor">
-</div>
-
-<style>
-    @media (pointer: fine) {
-
-        *,
-        *::before,
-        *::after,
-        *:hover,
-        *:active,
-        *:focus,
-        a:hover,
-        a:active,
-        button:hover,
-        button:active,
-        [role="button"]:hover,
-        [role="button"]:active {
-            cursor: none !important;
-        }
-    }
-
-    @media (pointer: coarse) {
-        .custom-cursor-dot {
-            display: none !important;
-        }
-    }
-
-    .custom-cursor-dot {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 20px;
-        height: 20px;
-        z-index: 10000;
-        pointer-events: none;
-        transform: translate3d(var(--x, -2px), var(--y, -2px), 0);
-        transition: transform 0.1s ease-out;
-    }
-
-    .custom-cursor-dot img {
-        width: 100%;
-        height: 100%;
-        object-fit: contain;
-        filter: drop-shadow(2px 4px 6px rgba(0, 0, 0, 0.3));
-    }
-
-    .custom-cursor-dot.clicking {
-        transform: translate3d(var(--x, -2px), var(--y, -2px), 0) scale(0.85);
-    }
-</style>
 
 <!-- Floating Action Buttons (desktop only) -->
 <div class="floating-actions d-none d-lg-flex flex-column gap-3 position-fixed"

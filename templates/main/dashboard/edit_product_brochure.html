@@ -1,0 +1,108 @@
+{% extends "main/dashboard/dashboard_base.html" %}
+{% load static %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block dashboard_content %}
+<div class="row justify-content-center">
+    <div class="col-12 col-xl-10 mb-5">
+        <div class="d-flex justify-content-between align-items-center mb-4 mt-5">
+            <h2 class="fw-bold text-dark mb-0">{{ title }}</h2>
+            <a href="{% url 'dashboard_manage_product_brochures' %}" class="btn btn-outline-secondary rounded-pill px-3">
+                <i class="ph ph-arrow-left me-2"></i>Back to Brochures
+            </a>
+        </div>
+
+        <div class="card shadow-sm border-0 rounded-4">
+            <div class="card-body p-4 p-md-5">
+                <form method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    
+                    <div class="row g-4">
+                        <div class="col-md-8">
+                            <label class="form-label fw-semibold text-dark">Brochure Title *</label>
+                            {{ form.title }}
+                            {% if form.title.errors %}
+                            <div class="text-danger small mt-1">{{ form.title.errors }}</div>
+                            {% endif %}
+                        </div>
+
+                        <div class="col-md-4">
+                            <label class="form-label fw-semibold text-dark">Display Order</label>
+                            {{ form.order }}
+                            {% if form.order.errors %}
+                            <div class="text-danger small mt-1">{{ form.order.errors }}</div>
+                            {% endif %}
+                            <div class="form-text">Lower numbers appear first.</div>
+                        </div>
+
+                        <div class="col-12 mt-4 pt-3 border-top">
+                            <h5 class="fw-bold text-dark mb-3"><i class="ph ph-image me-2 text-success"></i>Cover Image</h5>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label class="form-label fw-semibold text-dark">Image Upload</label>
+                            {{ form.image_upload }}
+                            {% if form.image_upload.errors %}
+                            <div class="text-danger small mt-1">{{ form.image_upload.errors }}</div>
+                            {% endif %}
+                            <div class="form-text">Upload a high-quality cover image for the brochure.</div>
+                            
+                            {% if brochure and brochure.image_upload %}
+                            <div class="mt-2">
+                                <span class="badge bg-success bg-opacity-10 text-success">Current Image:</span>
+                                <a href="{{ brochure.image_upload.url }}" target="_blank" class="ms-2 small">{{ brochure.image_upload.name }}</a>
+                            </div>
+                            {% endif %}
+                        </div>
+
+                        <div class="col-md-6">
+                            <label class="form-label fw-semibold text-dark">Image Path (Fallback)</label>
+                            {{ form.image_path }}
+                            {% if form.image_path.errors %}
+                            <div class="text-danger small mt-1">{{ form.image_path.errors }}</div>
+                            {% endif %}
+                            <div class="form-text">Or provide a static path e.g. <code>images/brochures/cover.jpg</code></div>
+                        </div>
+
+                        <div class="col-12 mt-4 pt-3 border-top">
+                            <h5 class="fw-bold text-dark mb-3"><i class="ph ph-file-pdf me-2 text-success"></i>PDF Document</h5>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label class="form-label fw-semibold text-dark">PDF Upload</label>
+                            {{ form.pdf_upload }}
+                            {% if form.pdf_upload.errors %}
+                            <div class="text-danger small mt-1">{{ form.pdf_upload.errors }}</div>
+                            {% endif %}
+                            <div class="form-text">Upload the actual PDF brochure document.</div>
+                            
+                            {% if brochure and brochure.pdf_upload %}
+                            <div class="mt-2">
+                                <span class="badge bg-success bg-opacity-10 text-success">Current PDF:</span>
+                                <a href="{{ brochure.pdf_upload.url }}" target="_blank" class="ms-2 small">{{ brochure.pdf_upload.name }}</a>
+                            </div>
+                            {% endif %}
+                        </div>
+
+                        <div class="col-md-6">
+                            <label class="form-label fw-semibold text-dark">PDF Path (Fallback)</label>
+                            {{ form.pdf_path }}
+                            {% if form.pdf_path.errors %}
+                            <div class="text-danger small mt-1">{{ form.pdf_path.errors }}</div>
+                            {% endif %}
+                            <div class="form-text">Or provide a static path to the PDF document.</div>
+                        </div>
+
+                    </div>
+
+                    <div class="d-flex gap-3 mt-5 pt-4 border-top justify-content-end">
+                        <a href="{% url 'dashboard_manage_product_brochures' %}" class="btn btn-light rounded-pill px-4 fw-semibold text-muted shadow-sm">Cancel</a>
+                        <button type="submit" class="btn btn-success rounded-pill px-5 fw-bold shadow-sm">Save Brochure</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

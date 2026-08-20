@@ -1,0 +1,75 @@
+{% extends 'main/dashboard/dashboard_base.html' %}
+{% load static %}
+
+{% block dashboard_content %}
+<div class="d-flex justify-content-between align-items-center mb-3 mb-md-4">
+    <div>
+        <a href="{% url 'manage_research' %}" class="text-muted text-decoration-none mb-2 d-inline-block"><i class="bi bi-arrow-left me-1"></i> Back to List</a>
+        <h2 class="fw-bold text-dark mb-0">{{ title }}</h2>
+    </div>
+</div>
+<div class="card border-0 shadow-sm rounded-4">
+    <div class="card-body p-4 p-md-5">
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            
+            {% if form.non_field_errors %}
+            <div class="alert alert-danger rounded-3">
+                {{ form.non_field_errors }}
+            </div>
+            {% endif %}
+
+            <div class="row">
+                <div class="col-md-6 mb-3 mb-md-4">
+                    <label class="form-label fw-bold text-dark">Title <span class="text-danger">*</span></label>
+                    {{ form.title }}
+                    {% if form.title.errors %}<div class="text-danger small mt-1">{{ form.title.errors }}</div>{% endif %}
+                </div>
+                <div class="col-md-6 mb-3 mb-md-4">
+                    <label class="form-label fw-bold text-dark">Slug (URL)</label>
+                    {{ form.slug }}
+                    {% if form.slug.errors %}<div class="text-danger small mt-1">{{ form.slug.errors }}</div>{% endif %}
+                    <div class="form-text">Leave blank to auto-generate from title.</div>
+                </div>
+            </div>
+
+            <div class="mb-3 mb-md-4">
+                <label class="form-label fw-bold text-dark">Description</label>
+                {{ form.description }}
+                {% if form.description.errors %}<div class="text-danger small mt-1">{{ form.description.errors }}</div>{% endif %}
+            </div>
+
+            <div class="row">
+                <div class="col-md-6 mb-3 mb-md-4">
+                    <label class="form-label fw-bold text-dark">Image Upload</label>
+                    {{ form.image_upload }}
+                    {% if form.image_upload.errors %}<div class="text-danger small mt-1">{{ form.image_upload.errors }}</div>{% endif %}
+                </div>
+                <div class="col-md-6 mb-3 mb-md-4">
+                    <label class="form-label fw-bold text-dark">Image Path (Fallback)</label>
+                    {{ form.image_path }}
+                    {% if form.image_path.errors %}<div class="text-danger small mt-1">{{ form.image_path.errors }}</div>{% endif %}
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6 mb-3 mb-md-4">
+                    <label class="form-label fw-bold text-dark">PDF Upload</label>
+                    {{ form.pdf_upload }}
+                    {% if form.pdf_upload.errors %}<div class="text-danger small mt-1">{{ form.pdf_upload.errors }}</div>{% endif %}
+                </div>
+                <div class="col-md-6 mb-3 mb-md-4">
+                    <label class="form-label fw-bold text-dark">Display Order</label>
+                    {{ form.order }}
+                    {% if form.order.errors %}<div class="text-danger small mt-1">{{ form.order.errors }}</div>{% endif %}
+                </div>
+            </div>
+
+            <div class="d-flex gap-3 mt-4">
+                <button type="submit" class="btn btn-success px-4 rounded-pill fw-semibold shadow-sm">Save Changes</button>
+                <button type="button" class="btn btn-outline-secondary px-4 rounded-pill fw-semibold" onclick="history.back()">Cancel</button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

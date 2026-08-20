@@ -35,47 +35,58 @@
                 <ul class="navbar-nav flex-row flex-wrap align-items-center mb-0 px-2 py-1 gap-1 gap-md-2">
                     <li class="nav-item">
                         <a class="nav-link nav-pill-link active bg-white text-dark rounded-pill px-3 py-1 d-flex align-items-center gap-2 fw-semibold"
-                            href="#">
+                            href="{% url 'index' %}">
                             <i class="ph ph-house"></i> Home
                         </a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link nav-pill-link text-white text-opacity-75 px-3 py-1 fw-semibold dropdown-toggle"
-                            href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            href="{% url 'about' %}" id="navbarDropdownAbout" role="button">
                             About
                         </a>
-                        <ul
-                            class="dropdown-menu dropdown-menu-animated mt-2 border-0 shadow-lg rounded-4 overflow-hidden">
+                        <ul class="dropdown-menu dropdown-menu-animated p-2 mt-2 border-0 shadow-lg rounded-4"
+                            aria-labelledby="navbarDropdownAbout">
                             <li><a class="dropdown-item py-2 fw-medium" href="{% url 'about' %}">About Company</a></li>
-                            <li><a class="dropdown-item py-2 fw-medium" href="#">Management Team</a></li>
-                            <li><a class="dropdown-item py-2 fw-medium" href="#">Infrastructure &amp; Services</a></li>
-                            <li><a class="dropdown-item py-2 fw-medium" href="#">CSR</a></li>
-                            <li><a class="dropdown-item py-2 fw-medium" href="#">Careers</a></li>
-                            <li><a class="dropdown-item py-2 fw-medium" href="#">News &amp; Events</a></li>
-                            <li><a class="dropdown-item py-2 fw-medium" href="#">Our Accreditations</a></li>
+                            <li><a class="dropdown-item py-2 fw-medium" href="{% url 'team' %}">Management Team</a></li>
+                            <li><a class="dropdown-item py-2 fw-medium" href="{% url 'infrastructure' %}">Infrastructure
+                                    &amp; Services</a></li>
+                            <li><a class="dropdown-item py-2 fw-medium" href="{% url 'csr' %}">CSR</a></li>
+                            <li><a class="dropdown-item py-2 fw-medium" href="{% url 'career' %}">Careers</a></li>
+                            <li><a class="dropdown-item py-2 fw-medium" href="{% url 'news_events' %}">News &amp; Events</a></li>
+                            <li><a class="dropdown-item py-2 fw-medium" href="{% url 'accreditations' %}">Our
+                                    Accreditations</a></li>
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link nav-pill-link text-white text-opacity-75 px-3 py-1 fw-semibold dropdown-toggle"
-                            href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            href="{% url 'product_range' %}" id="navbarDropdownProducts" role="button">
                             Products
                         </a>
-                        <ul
-                            class="dropdown-menu dropdown-menu-animated mt-2 border-0 shadow-lg rounded-4 overflow-hidden">
-                            <li><a class="dropdown-item py-2 fw-medium" href="#">Product Range</a></li>
-                            <li><a class="dropdown-item py-2 fw-medium" href="#">Herbal Extracts</a></li>
-                            <li><a class="dropdown-item py-2 fw-medium" href="#">Natural Food Colors</a></li>
-                            <li><a class="dropdown-item py-2 fw-medium" href="#">Product Brochures</a></li>
-                            <li><a class="dropdown-item py-2 fw-medium" href="#">Product Documents</a></li>
+                        <ul class="dropdown-menu dropdown-menu-animated p-2 mt-2 border-0 shadow-lg rounded-4"
+                            aria-labelledby="navbarDropdownProducts">
+                            <li><a class="dropdown-item py-2 fw-medium" href="{% url 'product_range' %}">Product Range</a></li>
+                            <li><a class="dropdown-item py-2 fw-medium" href="{% url 'herbal_extracts' %}">Herbal Extracts</a></li>
+                            <li><a class="dropdown-item py-2 fw-medium" href="{% url 'natural_food_colors' %}">Natural Food Colors</a></li>
+                            <li><a class="dropdown-item py-2 fw-medium" href="{% url 'nutritional_fine_chemicals' %}">Nutritional Fine Chemicals</a></li>
+                            <li><a class="dropdown-item py-2 fw-medium" href="{% url 'spices_and_oleoresins' %}">Spices & Oleoresins</a></li>
+                            <li><a class="dropdown-item py-2 fw-medium" href="{% url 'raw_herbal_powders' %}">Raw Herbal Powders</a></li>
+                            <li><a class="dropdown-item py-2 fw-medium" href="{% url 'organic_product_list' %}">Organic Products</a></li>
+                            <li><a class="dropdown-item py-2 fw-medium" href="{% url 'natural_food_colors' %}?tab=flavours">Natural Flavours</a></li>
+                            <li><a class="dropdown-item py-2 fw-medium" href="{% url 'product_brochures' %}">Product Brochures</a></li>
+                            <li><a class="dropdown-item py-2 fw-medium" href="{% url 'product_documents' %}">Product Documents</a></li>
                         </ul>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link nav-pill-link text-white text-opacity-75 px-3 py-1 fw-semibold"
-                            href="#">Facility</a>
+                            href="{% url 'facility' %}">Facility</a>
                     </li>
+                    <!-- <li class="nav-item">
+                        <a class="nav-link nav-pill-link text-white text-opacity-75 px-3 py-1 fw-semibold"
+                            href="{% url 'brands_list' %}">Trademark</a>
+                    </li> -->
                     <li class="nav-item">
                         <a class="nav-link nav-pill-link text-white text-opacity-75 px-3 py-1 fw-semibold"
-                            href="#">Research</a>
+                            href="{% url 'research' %}">Research</a>
                     </li>
                 </ul>
             </div>
@@ -83,7 +94,7 @@
 
         <!-- Right: CTAs (Desktop Only) -->
         <div class="d-none d-lg-flex ms-lg-auto align-items-center gap-4 order-2 order-lg-3">
-            <a href="#contact" class="btn nav-contact-btn rounded-pill px-4 py-2 fw-semibold"
+            <a href="{% url 'contact' %}" class="btn nav-contact-btn rounded-pill px-4 py-2 fw-semibold"
                 style="border-width: 1px;">Contact Us</a>
         </div>
 
@@ -102,8 +113,8 @@
 
     <!-- ── Top Brand Strip ── -->
     <div class="sb-brand-strip">
-        <a class="sb-brand" href="#">
-            <img src="{% static 'images/BMI Logo.webp' %}" alt="Logo" class="sb-logo">
+        <a class="sb-brand" href="/">
+            <img src="{% static 'images/bmi_logo.webp' %}" alt="Logo" class="sb-logo">
             <div class="sb-brand-text">
                 <span class="sb-title">Bio Med</span>
                 <span class="sb-sub">Ingredients Pvt. Ltd.</span>
@@ -142,12 +153,12 @@
                 <ul class="sb-submenu" id="acc-about">
                     <li><a href="{% url 'about' %}"><i class="bi bi-dot"></i>About Company</a></li>
                     <li><a href="#"><i class="bi bi-dot"></i>Management Team</a></li>
-                    <li><a href="#"><i class="bi bi-dot"></i>Infrastructure &amp;
+                    <li><a href="{% url 'infrastructure' %}"><i class="bi bi-dot"></i>Infrastructure &amp;
                             Services</a></li>
-                    <li><a href="#"><i class="bi bi-dot"></i>CSR</a></li>
-                    <li><a href="#"><i class="bi bi-dot"></i>Careers</a></li>
-                    <li><a href="#"><i class="bi bi-dot"></i>News &amp; Events</a></li>
-                    <li><a href="#"><i class="bi bi-dot"></i>Our Accreditations</a></li>
+                    <li><a href="{% url 'csr' %}"><i class="bi bi-dot"></i>CSR</a></li>
+                    <li><a href="{% url 'career' %}"><i class="bi bi-dot"></i>Careers</a></li>
+                    <li><a href="{% url 'news_events' %}"><i class="bi bi-dot"></i>News &amp; Events</a></li>
+                    <li><a href="{% url 'accreditations' %}"><i class="bi bi-dot"></i>Our Accreditations</a></li>
                 </ul>
             </li>
 
@@ -159,32 +170,37 @@
                     <i class="bi bi-chevron-down sb-chevron"></i>
                 </button>
                 <ul class="sb-submenu" id="acc-products">
-                    <li><a href="#"><i class="bi bi-dot"></i>Product Range</a></li>
-                    <li><a href="#"><i class="bi bi-dot"></i>Herbal Extracts</a></li>
-                    <li><a href="#"><i class="bi bi-dot"></i>Natural Food Colors</a></li>
-                    <li><a href="#"><i class="bi bi-dot"></i>Product Brochures</a></li>
-                    <li><a href="#"><i class="bi bi-dot"></i>Product Documents</a></li>
+                    <li><a href="{% url 'product_range' %}"><i class="bi bi-dot"></i>Product Range</a></li>
+                    <li><a href="{% url 'herbal_extracts' %}"><i class="bi bi-dot"></i>Herbal Extracts</a></li>
+                    <li><a href="{% url 'natural_food_colors' %}"><i class="bi bi-dot"></i>Natural Food Colors</a></li>
+                    <li><a href="{% url 'nutritional_fine_chemicals' %}"><i class="bi bi-dot"></i>Nutritional Fine Chemicals</a></li>
+                    <li><a href="{% url 'spices_and_oleoresins' %}"><i class="bi bi-dot"></i>Spices & Oleoresins</a></li>
+                    <li><a href="{% url 'raw_herbal_powders' %}"><i class="bi bi-dot"></i>Raw Herbal Powders</a></li>
+                    <li><a href="{% url 'organic_product_list' %}"><i class="bi bi-dot"></i>Organic Products</a></li>
+                    <li><a href="{% url 'natural_food_colors' %}?tab=flavours"><i class="bi bi-dot"></i>Natural Flavours</a></li>
+                    <li><a href="{% url 'product_brochures' %}"><i class="bi bi-dot"></i>Product Brochures</a></li>
+                    <li><a href="{% url 'product_documents' %}"><i class="bi bi-dot"></i>Product Documents</a></li>
                 </ul>
             </li>
 
             <li class="sb-item" data-delay="4">
-                <a href="#" class="sb-link">
+                <a href="{% url 'facility' %}" class="sb-link">
                     <div class="sb-icon-wrap"><i class="bi bi-geo-alt-fill"></i></div>
                     <span>Facility</span>
                     <i class="bi bi-chevron-right sb-arr"></i>
                 </a>
             </li>
 
-            <li class="sb-item" data-delay="5">
-                <a href="#" class="sb-link">
+            <!-- <li class="sb-item" data-delay="5">
+                <a href="{% url 'brands_list' %}" class="sb-link">
                     <div class="sb-icon-wrap"><i class="bi bi-patch-check-fill"></i></div>
-                    <span>Trademark</span>
+                    <span>Brands</span>
                     <i class="bi bi-chevron-right sb-arr"></i>
                 </a>
-            </li>
+            </li> -->
 
             <li class="sb-item" data-delay="6">
-                <a href="#" class="sb-link">
+                <a href="{% url 'research' %}" class="sb-link">
                     <div class="sb-icon-wrap"><i class="bi bi-clipboard2-data-fill"></i></div>
                     <span>Research</span>
                     <i class="bi bi-chevron-right sb-arr"></i>
@@ -196,7 +212,7 @@
 
     <!-- ── Footer ── -->
     <div class="sb-footer">
-        <a href="#" class="sb-cta-btn">
+        <a href="{% url 'contact' %}" class="sb-cta-btn">
             <i class="bi bi-telephone-fill"></i> Contact Us
         </a>
 
@@ -780,30 +796,60 @@
             display: block;
             opacity: 0;
             visibility: hidden;
-            transform: translateY(15px);
-            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-            margin-top: 0;
+            transform: translateY(15px) scale(0.98);
+            transform-origin: top center;
+            transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
+                        transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
+                        visibility 0.3s;
+            margin-top: 10px !important;
             pointer-events: none;
-            background: rgba(255, 255, 255, 0.98);
-            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.96);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255,255,255,0.4) !important;
+            box-shadow: 0 12px 40px rgba(0,0,0,0.12) !important;
+            min-width: 220px;
+        }
+        
+        /* Invisible bridge to prevent hover loss when crossing the gap */
+        .dropdown-menu-animated::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            left: 0;
+            right: 0;
+            height: 20px;
+            background: transparent;
         }
 
         .nav-item.dropdown:hover .dropdown-menu-animated {
             opacity: 1;
-            transform: translateY(0);
+            transform: translateY(0) scale(1);
             visibility: visible;
             pointer-events: auto;
         }
 
         .dropdown-item {
-            transition: all 0.2s ease;
+            transition: all 0.25s ease;
             color: #4b5563;
+            border-radius: 8px;
+            margin-bottom: 2px;
+        }
+        
+        .dropdown-item:last-child {
+            margin-bottom: 0;
         }
 
         .dropdown-item:hover {
-            background-color: rgba(11, 93, 63, 0.05);
-            color: #0b5d3f;
+            background-color: rgba(25, 135, 84, 0.08);
+            color: #198754;
             padding-left: 1.5rem;
+            transform: translateX(3px);
+        }
+        
+        .nav-item.dropdown:hover > .nav-link {
+            color: #fff !important;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50rem;
         }
     }
 

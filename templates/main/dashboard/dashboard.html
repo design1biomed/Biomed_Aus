@@ -5,12 +5,23 @@
 {% block dashboard_content %}
 <div class="row">
     <div class="col-md-4">
-        <div class="card border-0 shadow-sm rounded-4">
+        <div class="card border-0 shadow-sm rounded-4 h-100">
             <div class="card-body p-4 text-center">
                 <div class="display-4 text-success mb-3"><i class="ph ph-browser"></i></div>
                 <h5 class="card-title fw-bold">Home Page Content</h5>
                 <p class="text-muted">Edit the text content of your main landing page.</p>
                 <a href="{% url 'edit_index_page' %}" class="btn btn-dark rounded-pill px-4">Edit Content</a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-4">
+        <div class="card border-0 shadow-sm rounded-4 h-100">
+            <div class="card-body p-4 text-center">
+                <div class="display-4 text-success mb-3"><i class="ph ph-info"></i></div>
+                <h5 class="card-title fw-bold">About Page Content</h5>
+                <p class="text-muted">Edit the text and images of your about page.</p>
+                <a href="{% url 'edit_about_page' %}" class="btn btn-dark rounded-pill px-4">Edit About</a>
             </div>
         </div>
     </div>
@@ -43,6 +54,16 @@
                 <h5 class="card-title fw-bold">Enquiries</h5>
                 <p class="text-muted">View all customer enquiries from the website.</p>
                 <a href="{% url 'manage_enquiries' %}" class="btn btn-dark rounded-pill px-4">View Enquiries</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 mt-4">
+        <div class="card border-0 shadow-sm rounded-4 h-100">
+            <div class="card-body p-4 text-center">
+                <div class="display-4 text-success mb-3"><i class="ph ph-gear"></i></div>
+                <h5 class="card-title fw-bold">Email Configuration</h5>
+                <p class="text-muted">Manage system email recipients for notifications.</p>
+                <a href="{% url 'dashboard_email_configuration' %}" class="btn btn-dark rounded-pill px-4">Manage Emails</a>
             </div>
         </div>
     </div>

@@ -1,0 +1,72 @@
+{% extends "main/dashboard/dashboard_base.html" %}
+
+{% block title %}View Job Application{% endblock %}
+
+{% block dashboard_content %}
+<div class="row justify-content-center">
+    <div class="col-12 col-xl-10 mb-5">
+        <div class="d-flex justify-content-between align-items-center mb-4 mt-5">
+            <h2 class="fw-bold text-dark mb-0">Application Details</h2>
+            <a href="{% url 'dashboard_manage_job_applications' %}" class="btn btn-outline-secondary rounded-pill px-3">
+                <i class="ph ph-arrow-left me-2"></i>Back to Applications
+            </a>
+        </div>
+
+        <div class="card shadow-sm border-0 rounded-4">
+            <div class="card-body p-4 p-md-5">
+                <div class="row g-4">
+                    <div class="col-12 border-bottom pb-4 mb-2">
+                        <span class="badge bg-primary bg-opacity-10 text-primary px-3 py-2 rounded-pill mb-3">Applied for: {{ application.job.title }}</span>
+                        <h3 class="fw-bold text-dark mb-1">{{ application.name }}</h3>
+                        <p class="text-muted mb-0"><i class="ph ph-calendar me-2"></i>Applied on {{ application.applied_at|date:"F j, Y, g:i a" }}</p>
+                    </div>
+
+                    <div class="col-md-6">
+                        <h6 class="text-muted fw-semibold text-uppercase fs-7 mb-2">Contact Information</h6>
+                        <ul class="list-unstyled mb-0">
+                            <li class="mb-2"><i class="ph ph-envelope-simple text-primary me-2"></i> <a href="mailto:{{ application.email }}" class="text-dark text-decoration-none">{{ application.email }}</a></li>
+                            <li class="mb-2"><i class="ph ph-phone text-success me-2"></i> <a href="tel:{{ application.phone }}" class="text-dark text-decoration-none">{{ application.phone }}</a></li>
+                            <li><i class="ph ph-map-pin text-danger me-2"></i> {{ application.address }}</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="col-md-6">
+                        <h6 class="text-muted fw-semibold text-uppercase fs-7 mb-2">Professional Details</h6>
+                        <ul class="list-unstyled mb-0">
+                            <li class="mb-2"><i class="ph ph-briefcase text-info me-2"></i> {{ application.experience }} Years of Experience</li>
+                            {% if application.resume %}
+                            <li>
+                                <i class="ph ph-file-pdf text-danger me-2"></i> 
+                                <a href="{{ application.resume.url }}" target="_blank" class="btn btn-sm btn-outline-primary rounded-pill mt-2">
+                                    <i class="ph ph-download-simple me-1"></i> Download Resume
+                                </a>
+                            </li>
+                            {% else %}
+                            <li><i class="ph ph-file-x text-muted me-2"></i> No Resume Provided</li>
+                            {% endif %}
+                        </ul>
+                    </div>
+
+                    {% if application.details %}
+                    <div class="col-12 mt-4 pt-4 border-top">
+                        <h6 class="text-muted fw-semibold text-uppercase fs-7 mb-3">Cover Letter / Additional Details</h6>
+                        <div class="bg-light p-4 rounded-4 text-dark" style="white-space: pre-line;">
+                            {{ application.details }}
+                        </div>
+                    </div>
+                    {% endif %}
+                </div>
+                
+                <div class="d-flex gap-3 mt-5 pt-4 border-top justify-content-between align-items-center">
+                    <a href="mailto:{{ application.email }}?subject=Regarding your application for {{ application.job.title }} at Bio Med Ingredients" class="btn btn-primary rounded-pill px-4 fw-bold shadow-sm">
+                        <i class="ph ph-paper-plane-tilt me-2"></i>Email Applicant
+                    </a>
+                    <a href="{% url 'dashboard_delete_job_application' application.pk %}" class="btn btn-outline-danger rounded-pill px-4 fw-semibold shadow-sm">
+                        <i class="ph ph-trash me-2"></i>Delete Application
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
