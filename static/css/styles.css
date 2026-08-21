@@ -7,7 +7,7 @@
 /* ── DESIGN TOKENS ─────────────────────────────────────────── */
 :root {
     --ivory: #FDFCF8;
-    --ivory-dark: #F5F3EC;
+    --ivory-dark: #f8f9fa;
     --forest: #0B5D3F;
     --forest-dark: #275a36e6;
     --forest-mid: #1a7a54;
@@ -403,14 +403,16 @@ img {
 }
 
 /* Overlap the section immediately following the hero for a rounded inset look */
-.hero-wrapper + section {
+.hero-wrapper+section {
     position: relative;
     z-index: 10;
     margin-top: -80px;
     border-top-left-radius: 60px;
     border-top-right-radius: 60px;
-    padding-top: 5rem !important; /* Add extra padding to account for the overlap */
-    background-color: #ffffff; /* Default background, overridden if section has bg-light */
+    padding-top: 5rem !important;
+    /* Add extra padding to account for the overlap */
+    background-color: #ffffff;
+    /* Default background, overridden if section has bg-light */
 }
 
 
@@ -1015,7 +1017,6 @@ img {
 
 .category-card:hover {
     transform: translateY(-12px) scale(1.02);
-    C
 }
 
 .category-img {
@@ -1031,7 +1032,10 @@ img {
 
 .category-glass {
     position: absolute;
-    inset: 1rem;
+    top: 75%;
+    bottom: 1rem;
+    left: 1rem;
+    right: 1rem;
     border-radius: var(--radius-md);
     border: 1px solid rgba(255, 255, 255, 0.18);
     background: rgba(255, 255, 255, 0.04);
@@ -1057,7 +1061,7 @@ img {
 }
 
 .category-card:hover .category-overlay {
-    background: linear-gradient(to top, rgba(5, 35, 20, 0.95) 0%, rgba(5, 59, 39, 0.7) 60%, transparent 100%);
+    background: linear-gradient(to top, rgba(5, 35, 20, 0.95) 0%, rgba(5, 59, 39, 0.7) 20%, transparent 100%);
 }
 
 .category-tag {
@@ -1084,8 +1088,8 @@ img {
 }
 
 .category-arrow {
-    width: 46px;
-    height: 46px;
+    width: 30px;
+    height: 30px;
     background: rgba(255, 255, 255, 0.12);
     backdrop-filter: blur(10px);
     border-radius: 50%;
@@ -1094,7 +1098,7 @@ img {
     justify-content: center;
     color: var(--white);
     font-size: 1.2rem;
-    margin-top: 1rem;
+    margin-top: 0.5rem;
     opacity: 0;
     transform: translateY(16px) rotate(-45deg);
     transition: opacity 0.4s ease 0.15s, transform 0.4s ease 0.15s, background 0.3s;
@@ -2548,7 +2552,7 @@ img {
 .wireframe-icon {
     font-size: 2.5rem;
     color: var(--success);
-    }
+}
 }
 
 /* 4. Interactive Dark Features Grid */
@@ -2787,10 +2791,11 @@ img {
 .infra-capability-chip:hover i {
     transform: scale(1.2);
 }
+
 /* Office Card Hover Effects */
 .office-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 12px 28px rgba(0,0,0,0.08) !important;
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08) !important;
 }
 
 .office-card:hover .office-details {
@@ -2827,7 +2832,7 @@ img {
     align-items: center;
     justify-content: center;
     font-size: 1.5rem;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
     cursor: pointer;
     z-index: 999;
     opacity: 0;
@@ -2841,7 +2846,7 @@ img {
     background: var(--forest-dark);
     color: var(--gold);
     transform: translateY(-5px);
-    box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
 }
 
 .scroll-to-top.show {
@@ -2851,9 +2856,17 @@ img {
 }
 
 @keyframes float-bounce {
-    0% { transform: translateY(0); }
-    50% { transform: translateY(-4px); }
-    100% { transform: translateY(0); }
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-4px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
 }
 
 .scroll-to-top.show i {
@@ -2868,14 +2881,31 @@ img {
 
 
 @keyframes jelly {
-    0% { transform: scale3d(1, 1, 1); }
-    30% { transform: scale3d(1.15, 0.85, 1); }
-    40% { transform: scale3d(0.85, 1.15, 1); }
-    50% { transform: scale3d(1.05, 0.95, 1); }
-    65% { transform: scale3d(0.95, 1.05, 1); }
-    75% { transform: scale3d(1.02, 0.98, 1); }
-    100% { transform: scale3d(1, 1, 1); }
+    0% {
+        transform: scale3d(1, 1, 1);
+    }
+
+    30% {
+        transform: scale3d(1.15, 0.85, 1);
+    }
+
+    40% {
+        transform: scale3d(0.85, 1.15, 1);
+    }
+
+    50% {
+        transform: scale3d(1.05, 0.95, 1);
+    }
+
+    65% {
+        transform: scale3d(0.95, 1.05, 1);
+    }
+
+    75% {
+        transform: scale3d(1.02, 0.98, 1);
+    }
+
+    100% {
+        transform: scale3d(1, 1, 1);
+    }
 }
-
-
-

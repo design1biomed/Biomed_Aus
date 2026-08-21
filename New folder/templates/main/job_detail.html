@@ -1,0 +1,337 @@
+{% extends "main/base.html" %}
+{% load static %}
+
+{% block title %}{{ job.title }} | Bio Med Ingredients{% endblock %}
+
+{% block content %}
+
+<!-- Hero Section -->
+<section class="hero-wrapper" style="height: 40vh; min-height: 400px; display: flex; align-items: center;">
+    <img src="/media/hero/hero.jpg" class="hero-bg-image" alt="Job Details"
+        onerror="this.src='{% static 'images/bg/bg.webp' %}'">
+    <div class="hero-overlay"></div>
+    <div class="hero-content w-100 d-flex align-items-center" style="padding-top: 60px; position: relative;">
+        <div class="container position-relative z-1 text-center text-md-start">
+            <div class="hero-badge justify-content-center justify-content-md-start mb-3 mx-auto mx-md-0"
+                style="padding: 0.4rem 1rem; display: inline-flex; width: fit-content;">
+                <span class="hero-badge-dot"></span>
+                <span class="text-white fw-bold text-uppercase letter-spacing-2" style="font-size: 0.75rem;">JOB DETAILS</span>
+            </div>
+            <h1 class="hero-title mb-3" style="font-size: clamp(2rem, 4vw, 3.5rem);">
+                {{ job.title }}
+            </h1>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb justify-content-center justify-content-md-start mb-0">
+                    <li class="breadcrumb-item"><a href="{% url 'index' %}"
+                            class="text-white-50 text-decoration-none">Home</a></li>
+                    <li class="breadcrumb-item"><a href="{% url 'career' %}" class="text-white-50 text-decoration-none">Careers</a></li>
+                    <li class="breadcrumb-item active text-white" aria-current="page">{{ job.title }}</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+</section>
+
+<!-- Job Details Section -->
+<style>
+    :root {
+        --job-primary: #124c30; /* Dark green text */
+        --job-accent: #198754; /* Green accent */
+        --job-bg: #f8f9fa; /* Light grey background */
+    }
+    body {
+        background-color: var(--job-bg);
+    }
+    .job-title {
+        color: var(--job-primary);
+        font-weight: 700;
+        font-size: 2.2rem;
+        margin-bottom: 0.5rem;
+    }
+    .job-category-badge {
+        display: inline-flex;
+        align-items: center;
+        background-color: #e8f5e9;
+        color: var(--job-accent);
+        padding: 0.4rem 1rem;
+        border-radius: 50px;
+        font-size: 0.85rem;
+        font-weight: 600;
+        border: 1px solid #c8e6c9;
+        margin-bottom: 2rem;
+    }
+    .job-category-badge i {
+        margin-right: 0.5rem;
+    }
+    .job-quote-desc {
+        border-left: 2px solid var(--job-accent);
+        padding-left: 1.5rem;
+        margin-left: 0.5rem;
+        margin-bottom: 3rem;
+        color: #6c757d;
+        font-size: 1.05rem;
+        line-height: 1.6;
+        border-top-left-radius: 10px;
+        border-bottom-left-radius: 10px;
+    }
+    .job-section-title {
+        color: var(--job-primary);
+        font-weight: 700;
+        font-size: 1.25rem;
+        margin-bottom: 1rem;
+        display: flex;
+        align-items: center;
+    }
+    .job-section-title i {
+        margin-right: 0.75rem;
+        font-size: 1.3rem;
+        color: var(--job-accent);
+    }
+    .job-section-text {
+        color: #6c757d;
+        font-size: 0.95rem;
+        line-height: 1.7;
+        margin-bottom: 2.5rem;
+    }
+    .job-ul {
+        padding-left: 1.2rem;
+    }
+    .job-ul li {
+        color: #6c757d;
+        font-size: 0.95rem;
+        line-height: 1.7;
+        margin-bottom: 0.5rem;
+    }
+    .job-quote-box {
+        background-color: var(--job-accent);
+        border-radius: 12px;
+        padding: 2.5rem 2rem;
+        color: white;
+        text-align: center;
+        margin-top: 3rem;
+        position: relative;
+    }
+    .job-quote-box i {
+        font-size: 2rem;
+        opacity: 0.5;
+        margin-bottom: 1rem;
+        display: block;
+    }
+    .job-quote-box p {
+        font-size: 1.1rem;
+        font-style: italic;
+        margin: 0;
+        font-weight: 500;
+    }
+    .sticky-apply-card {
+        background: white;
+        border-radius: 20px;
+        padding: 3rem 2rem;
+        text-align: center;
+        box-shadow: 0 10px 40px rgba(0,0,0,0.05);
+        position: sticky;
+        top: 100px;
+    }
+    .sticky-apply-card .apply-icon {
+        background: #e8f5e9;
+        color: var(--job-accent);
+        width: 60px;
+        height: 60px;
+        border-radius: 12px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.8rem;
+        margin-bottom: 1.5rem;
+    }
+    .sticky-apply-card h4 {
+        color: var(--job-primary);
+        font-weight: 700;
+        margin-bottom: 1rem;
+    }
+    .sticky-apply-card p {
+        color: #6c757d;
+        font-size: 0.9rem;
+        margin-bottom: 2rem;
+        line-height: 1.6;
+    }
+    .apply-btn {
+        background-color: var(--job-accent);
+        color: white;
+        border: none;
+        padding: 0.8rem 2rem;
+        border-radius: 50px;
+        font-weight: 600;
+        width: 100%;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s;
+    }
+    .apply-btn i {
+        margin-left: 0.5rem;
+        transition: transform 0.3s;
+    }
+    .apply-btn:hover {
+        background-color: var(--job-primary);
+        color: white;
+    }
+    .apply-btn:hover i {
+        transform: translateX(5px);
+    }
+    .form-section {
+        background: white;
+        border-radius: 20px;
+        padding: 3rem;
+        box-shadow: 0 10px 40px rgba(0,0,0,0.03);
+        margin-top: 4rem;
+    }
+</style>
+
+<section class="py-5">
+    <div class="container py-4">
+        
+        {% if messages %}
+        <div class="row justify-content-center mb-4">
+            <div class="col-lg-12">
+                {% for message in messages %}
+                <div class="alert alert-{{ message.tags }} alert-dismissible fade show rounded-4 shadow-sm" role="alert">
+                    <i class="bi bi-check-circle-fill me-2"></i> {{ message }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}
+
+        <div class="row g-5">
+            <!-- Left Column: Job Details -->
+            <div class="col-lg-8">
+                <h1 class="job-title">{{ job.title }}</h1>
+                <div class="job-category-badge">
+                    <i class="ph ph-tag"></i> {{ job.category }}
+                </div>
+
+                <div class="job-quote-desc">
+                    {{ job.description }}
+                </div>
+
+                {% if job.academic_excellence %}
+                <h3 class="job-section-title">
+                    <i class="ph ph-graduation-cap"></i> Academic Excellence
+                </h3>
+                <p class="job-section-text">
+                    {{ job.academic_excellence }}
+                </p>
+                {% endif %}
+
+                {% if job.professional_expertise %}
+                <h3 class="job-section-title">
+                    <i class="ph ph-briefcase"></i> Professional Expertise
+                </h3>
+                <p class="job-section-text">
+                    {{ job.professional_expertise }}
+                </p>
+                {% endif %}
+
+                {% if job.core_responsibilities %}
+                <h3 class="job-section-title">
+                    <i class="ph ph-gear"></i> Core Responsibilities
+                </h3>
+                <ul class="job-ul">
+                    {% for item in job.core_responsibilities_list %}
+                    <li>{{ item }}</li>
+                    {% endfor %}
+                </ul>
+                <div class="mb-5"></div>
+                {% endif %}
+
+                <div class="job-quote-box">
+                    <i class="ph ph-quotes"></i>
+                    <p>Committed to delivering consistent quality, operational excellence, and high-performance manufacturing in the nutraceutical industry.</p>
+                </div>
+            </div>
+
+            <!-- Right Column: Sticky Apply Card -->
+            <div class="col-lg-4">
+                <div class="sticky-apply-card">
+                    <div class="apply-icon">
+                        <i class="ph ph-file-text"></i>
+                    </div>
+                    <h4>Ready to join us?</h4>
+                    <p>Submit your application and resume to be considered for this position.</p>
+                    <button type="button" data-bs-toggle="modal" data-bs-target="#applyModal" class="apply-btn text-decoration-none">
+                        Apply Now <i class="ph ph-arrow-right"></i>
+                    </button>
+                </div>
+    </div>
+</section>
+
+{% endblock %}
+
+{% block modals %}
+<!-- Application Form Modal -->
+<div class="modal fade" id="applyModal" aria-labelledby="applyModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable">
+        <div class="modal-content rounded-4 border-0 shadow-lg">
+            <div class="modal-header bg-light border-bottom-0 p-4">
+                <div class="d-flex align-items-center">
+                    <div class="icon-wrapper text-{{ job.color_theme }} bg-{{ job.color_theme }} bg-opacity-10 rounded-circle d-flex align-items-center justify-content-center me-3" style="width: 50px; height: 50px;">
+                        <i class="fas {{ job.icon }} fs-4"></i>
+                    </div>
+                    <div>
+                        <h4 class="modal-title fw-bold mb-1" id="applyModalLabel">Apply for {{ job.title }}</h4>
+                        <span class="badge bg-white text-secondary border">{{ job.category }}</span>
+                    </div>
+                </div>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            
+            <div class="modal-body p-4 p-md-5">
+                <form method="post" action="{% url 'job_detail' job.id %}" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <input type="hidden" name="job_id" value="{{ job.id }}">
+                    
+                    <div class="row g-4">
+                        <div class="col-md-6">
+                            <label class="form-label fw-medium text-dark small">Full Name *</label>
+                            {{ form.name }}
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label fw-medium text-dark small">Email Address *</label>
+                            {{ form.email }}
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label fw-medium text-dark small">Phone Number *</label>
+                            {{ form.phone }}
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label fw-medium text-dark small">Years of Experience *</label>
+                            {{ form.experience }}
+                        </div>
+                        <div class="col-12">
+                            <label class="form-label fw-medium text-dark small">Current Address *</label>
+                            {{ form.address }}
+                        </div>
+                        <div class="col-12">
+                            <label class="form-label fw-medium text-dark small">Upload Resume (PDF/DOC) *</label>
+                            {{ form.resume }}
+                        </div>
+                        <div class="col-12">
+                            <label class="form-label fw-medium text-dark small">Additional Details (Optional)</label>
+                            {{ form.details }}
+                        </div>
+                        
+                        <div class="col-12 mt-4 text-end">
+                            <button type="button" class="btn btn-light rounded-pill px-4 me-2" data-bs-dismiss="modal">Cancel</button>
+                            <button type="submit" class="btn btn-success rounded-pill px-4 fw-bold shadow-sm" style="background-color: var(--job-accent); border-color: var(--job-accent);">Submit Application</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+

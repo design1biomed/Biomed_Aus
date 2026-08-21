@@ -63,7 +63,7 @@
                 </div>
 
                 <!-- CTA -->
-                <a href="{% url 'product_range' %}" class="abt-cta">
+                <a href="{{ content.product_line_6_url }}" class="abt-cta">
                     {{ content.story_cta_label|default:"Learn More" }} <i class="ph ph-arrow-right abt-cta-arrow"></i>
                 </a>
 
@@ -73,20 +73,20 @@
                         <i class="ph ph-leaf abt-stat-icon"></i>
                         <span class="abt-stat-num">{{ content.stat_1_number|default:"10+" }}</span>
                         <span class="abt-stat-label">{{ content.stat_1_label|default:"Years of Experience" }}</span>
+                        </div>
                         <div class="abt-stat-divider"></div>
-                    </div>
                     <div class="abt-stat">
                         <i class="ph ph-user-circle abt-stat-icon"></i>
                         <span class="abt-stat-num">{{ content.stat_2_number|default:"50+" }}</span>
                         <span class="abt-stat-label">{{ content.stat_2_label|default:"Happy Clients" }}</span>
+                        </div>
                         <div class="abt-stat-divider"></div>
-                    </div>
                     <div class="abt-stat">
                         <i class="ph ph-flower abt-stat-icon"></i>
                         <span class="abt-stat-num">{{ content.stat_3_number|default:"100+" }}</span>
                         <span class="abt-stat-label">{{ content.stat_3_label|default:"Natural Ingredients" }}</span>
+                        </div>
                         <div class="abt-stat-divider"></div>
-                    </div>
                     <div class="abt-stat">
                         <i class="ph ph-globe-hemisphere-west abt-stat-icon"></i>
                         <span class="abt-stat-num">{{ content.stat_4_number|default:"30+" }}</span>
@@ -291,12 +291,11 @@
     font-weight: 500;
 }
 .abt-stat-divider {
-    position: absolute;
-    right: 0;
-    top: 5%;
-    bottom: 5%;
     width: 1px;
-    background: rgba(0,0,0,0.08);
+    align-self: stretch;
+    background: rgba(0,0,0,0.1);
+    margin: 0 8px;
+    flex-shrink: 0;
 }
 
 /* ===================== RIGHT VISUAL ===================== */
@@ -526,7 +525,13 @@
         gap: 28px 16px;
     }
     .abt-stat { padding-right: 0; }
-    .abt-stat-divider { display: none; }
+    .abt-stat-divider {
+    width: 1px;
+    align-self: stretch;
+    background: rgba(0,0,0,0.1);
+    margin: 0 8px;
+    flex-shrink: 0;
+}
     .abt-visual { height: 360px; max-width: 380px; }
     .abt-main-img { width: 210px; height: 210px; left: 52%; }
     .abt-orbit   { width: 226px; height: 226px; left: 52%; }
@@ -642,40 +647,28 @@
                 <!-- Product Line Grid -->
                 <div class="row g-3 justify-content-center mb-5" data-aos="fade-up" data-aos-delay="100">
                     <div class="col-sm-6 col-md-4 text-start">
-                        <div
-                            class="p-3 border rounded-3 bg-light fw-medium d-flex align-items-center shadow-sm product-line-card">
-                            <i class="ph-fill ph-leaf text-success me-3 fs-4"></i> {{ content.product_line_1 }}
-                        </div>
+                        <a href="{{ content.product_line_1_url }}" class="p-3 border rounded-3 bg-light fw-medium d-flex align-items-center shadow-sm product-line-card text-decoration-none text-dark" style="transition: transform 0.2s; cursor:pointer;" onmouseover="this.style.transform='translateY(-3px)'" onmouseout="this.style.transform='translateY(0)'">
+                            <i class="ph-fill ph-leaf text-success me-3 fs-4"></i> {{ content.product_line_1 }}</a>
                     </div>
                     <div class="col-sm-6 col-md-4 text-start">
-                        <div
-                            class="p-3 border rounded-3 bg-light fw-medium d-flex align-items-center shadow-sm product-line-card">
-                            <i class="ph-fill ph-plant text-success me-3 fs-4"></i> {{ content.product_line_2 }}
-                        </div>
+                        <a href="{{ content.product_line_2_url }}" class="p-3 border rounded-3 bg-light fw-medium d-flex align-items-center shadow-sm product-line-card text-decoration-none text-dark" style="transition: transform 0.2s; cursor:pointer;" onmouseover="this.style.transform='translateY(-3px)'" onmouseout="this.style.transform='translateY(0)'">
+                            <i class="ph-fill ph-plant text-success me-3 fs-4"></i> {{ content.product_line_2 }}</a>
                     </div>
                     <div class="col-sm-6 col-md-4 text-start">
-                        <div
-                            class="p-3 border rounded-3 bg-light fw-medium d-flex align-items-center shadow-sm product-line-card">
-                            <i class="ph-fill ph-drop text-success me-3 fs-4"></i> {{ content.product_line_3 }}
-                        </div>
+                        <a href="{{ content.product_line_3_url }}" class="p-3 border rounded-3 bg-light fw-medium d-flex align-items-center shadow-sm product-line-card text-decoration-none text-dark" style="transition: transform 0.2s; cursor:pointer;" onmouseover="this.style.transform='translateY(-3px)'" onmouseout="this.style.transform='translateY(0)'">
+                            <i class="ph-fill ph-drop text-success me-3 fs-4"></i> {{ content.product_line_3 }}</a>
                     </div>
                     <div class="col-sm-6 col-md-4 text-start">
-                        <div
-                            class="p-3 border rounded-3 bg-light fw-medium d-flex align-items-center shadow-sm product-line-card">
-                            <i class="ph-fill ph-sparkle text-success me-3 fs-4"></i> {{ content.product_line_4 }}
-                        </div>
+                        <a href="{{ content.product_line_4_url }}" class="p-3 border rounded-3 bg-light fw-medium d-flex align-items-center shadow-sm product-line-card text-decoration-none text-dark" style="transition: transform 0.2s; cursor:pointer;" onmouseover="this.style.transform='translateY(-3px)'" onmouseout="this.style.transform='translateY(0)'">
+                            <i class="ph-fill ph-sparkle text-success me-3 fs-4"></i> {{ content.product_line_4 }}</a>
                     </div>
                     <div class="col-sm-6 col-md-4 text-start">
-                        <div
-                            class="p-3 border rounded-3 bg-light fw-medium d-flex align-items-center shadow-sm product-line-card">
-                            <i class="ph-fill ph-palette text-success me-3 fs-4"></i> {{ content.product_line_5 }}
-                        </div>
+                        <a href="{{ content.product_line_5_url }}" class="p-3 border rounded-3 bg-light fw-medium d-flex align-items-center shadow-sm product-line-card text-decoration-none text-dark" style="transition: transform 0.2s; cursor:pointer;" onmouseover="this.style.transform='translateY(-3px)'" onmouseout="this.style.transform='translateY(0)'">
+                            <i class="ph-fill ph-palette text-success me-3 fs-4"></i> {{ content.product_line_5 }}</a>
                     </div>
                     <div class="col-sm-6 col-md-4 text-start">
-                        <div
-                            class="p-3 border rounded-3 bg-light fw-medium d-flex align-items-center shadow-sm product-line-card">
-                            <i class="ph-fill ph-pill text-success me-3 fs-4"></i> {{ content.product_line_6 }}
-                        </div>
+                        <a href="{{ content.product_line_6_url }}" class="p-3 border rounded-3 bg-light fw-medium d-flex align-items-center shadow-sm product-line-card text-decoration-none text-dark" style="transition: transform 0.2s; cursor:pointer;" onmouseover="this.style.transform='translateY(-3px)'" onmouseout="this.style.transform='translateY(0)'">
+                            <i class="ph-fill ph-pill text-success me-3 fs-4"></i> {{ content.product_line_6 }}</a>
                     </div>
                 </div>
 
@@ -761,5 +754,9 @@
 </section>
 
 {% endblock %}
+
+
+
+
 
 

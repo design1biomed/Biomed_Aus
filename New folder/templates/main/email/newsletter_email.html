@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ subject }}</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #f8faf9;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            color: #333333;
+            -webkit-font-smoothing: antialiased;
+        }
+        .email-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+        .header {
+            background-color: #0b5d3f; /* --forest-dark */
+            padding: 30px 20px;
+            text-align: center;
+        }
+        .header h1 {
+            color: #ffffff;
+            margin: 0;
+            font-size: 24px;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+        .header h1 span {
+            color: #b78a48; /* --gold */
+        }
+        .content {
+            padding: 40px 30px;
+            line-height: 1.6;
+            font-size: 16px;
+            color: #4b5563;
+        }
+        .content h2 {
+            color: #0b5d3f;
+            margin-top: 0;
+        }
+        .content a {
+            color: #52b788;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .footer {
+            background-color: #f4f4f5;
+            padding: 20px 30px;
+            text-align: center;
+            font-size: 12px;
+            color: #9ca3af;
+            border-top: 1px solid #e5e7eb;
+        }
+        .footer a {
+            color: #6b7280;
+            text-decoration: underline;
+        }
+        .social-icons {
+            margin-top: 15px;
+            margin-bottom: 10px;
+        }
+        .social-icons a {
+            margin: 0 10px;
+            color: #0b5d3f;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color: #f8faf9; width: 100%;">
+        <tr>
+            <td align="center">
+                <table class="email-container" width="100%" cellpadding="0" cellspacing="0" border="0">
+                    <!-- Header -->
+                    <tr>
+                        <td class="header">
+                            <h1>Bio Med <span>Ingredients</span></h1>
+                        </td>
+                    </tr>
+                    
+                    <!-- Content -->
+                    <tr>
+                        <td class="content">
+                            <h2>A New Event Has Been Announced!</h2>
+                            <p>We are excited to share that Bio Med Ingredients will be participating in an upcoming event:</p>
+                            
+                            <div style="background-color: #f4f4f5; padding: 20px; border-radius: 8px; margin: 20px 0;">
+                                <h3 style="margin-top: 0; color: #0b5d3f;">{{ event.tag }}</h3>
+                                {% if event.event_date and event.event_end_date %}
+                                    <p style="margin: 5px 0;"><strong>Date:</strong> {{ event.event_date|date:"F d, Y" }} - {{ event.event_end_date|date:"F d, Y" }}</p>
+                                {% elif event.event_date %}
+                                    <p style="margin: 5px 0;"><strong>Date:</strong> {{ event.event_date|date:"F d, Y" }}</p>
+                                {% endif %}
+                                
+                                {% if event.booth_number %}
+                                    <p style="margin: 5px 0;"><strong>Location/Booth:</strong> {{ event.booth_number }}</p>
+                                {% endif %}
+                                
+                                {% if event.description %}
+                                    <p style="margin-top: 15px; margin-bottom: 0;">{{ event.description }}</p>
+                                {% endif %}
+                            </div>
+                            
+                            <p>We hope to see you there!</p>
+                            <br>
+                            <p style="margin-bottom: 0;">Warm regards,<br><strong>The Bio Med Ingredients Team</strong></p>
+                        </td>
+                    </tr>
+                    
+                    <!-- Footer -->
+                    <tr>
+                        <td class="footer">
+                            <p style="margin: 0 0 10px 0;">You are receiving this email because you subscribed to updates at Bio Med Ingredients.</p>
+                            
+                            <div class="social-icons">
+                                <a href="https://biomedingredients.com">Website</a> &bull;
+                                <a href="mailto:info@biomedingredients.com">Contact Us</a>
+                            </div>
+                            
+                            <p style="margin: 0;">&copy; {% now "Y" %} Bio Med Ingredients. All rights reserved.</p>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

@@ -1,0 +1,140 @@
+{% extends "main/dashboard/dashboard_base.html" %}
+{% load static %}
+
+{% block header_title %}Email Configuration{% endblock %}
+
+{% block dashboard_content %}
+<div class="container-fluid py-3 py-md-4">
+    <!-- Header Section -->
+    <div class="d-flex justify-content-between align-items-center mb-3 mb-md-4">
+        <div>
+            <h2 class="h3 mb-0 text-gray-800">Email Configuration</h2>
+            <p class="text-muted mt-1">Update the system email addresses for notifications.</p>
+        </div>
+        <a href="{% url 'custom_dashboard' %}" class="btn btn-outline-secondary">
+            <i class="bi bi-arrow-left me-2"></i>Back to Dashboard
+        </a>
+    </div>
+
+    <!-- Form Section -->
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+            <div class="glass-card p-4 bg-white rounded shadow-sm">
+                <form method="post" enctype="multipart/form-data" id="emailConfigForm">
+                    {% csrf_token %}
+
+                    <style>
+                        .email-group { margin-bottom: 0.75rem; box-shadow: 0 2px 4px rgba(0,0,0,0.02); }
+                        .dynamic-inputs-container { margin-top: 0.5rem; }
+                        .dynamic-inputs-container .btn { border-top-left-radius: 0; border-bottom-left-radius: 0; }
+                    </style>
+
+                    {% for field in form %}
+                    <div class="mb-4 pb-2 border-bottom">
+                        <label class="form-label fw-bold text-primary">{{ field.label }}</label>
+                        
+                        <!-- Hidden original field -->
+                        <div class="d-none">
+                            {{ field }}
+                        </div>
+                        
+                        <!-- Container for dynamic inputs -->
+                        <div class="dynamic-inputs-container" id="container_{{ field.id_for_label }}">
+                            <!-- JavaScript will inject inputs here -->
+                        </div>
+
+                        <div class="form-text text-muted mt-2"><i class="bi bi-info-circle me-1"></i> {{ field.help_text|safe }}</div>
+                        {% if field.errors %}
+                            <div class="text-danger small mt-1">{{ field.errors }}</div>
+                        {% endif %}
+                    </div>
+                    {% endfor %}
+
+                    <div class="text-end mt-4">
+                        <a href="{% url 'custom_dashboard' %}" class="btn btn-outline-secondary me-2 px-4">Cancel</a>
+                        <button type="submit" class="btn btn-primary px-4">
+                            <i class="bi bi-save me-2"></i>Save Configuration
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    function setupDynamicEmails(hiddenInputId, containerId) {
+        const hiddenInput = document.getElementById(hiddenInputId);
+        const container = document.getElementById(containerId);
+        
+        if (!hiddenInput || !container) return;
+
+        let emails = hiddenInput.value.split(',').map(e => e.trim()).filter(e => e.length > 0);
+        if (emails.length === 0) emails = [""];
+
+        function render() {
+            container.innerHTML = '';
+            emails.forEach((email, index) => {
+                const row = document.createElement('div');
+                row.className = 'input-group email-group';
+                
+                const input = document.createElement('input');
+                input.type = 'email';
+                input.className = 'form-control';
+                input.value = email;
+                input.placeholder = 'email@example.com';
+                input.required = true;
+                input.oninput = (e) => {
+                    emails[index] = e.target.value;
+                    updateHidden();
+                };
+
+                const btn = document.createElement('button');
+                btn.type = 'button';
+                
+                if (index === emails.length - 1) {
+                    btn.className = 'btn btn-success px-3';
+                    btn.innerHTML = '<i class="bi bi-plus-lg"></i> Add';
+                    btn.onclick = () => {
+                        if (emails[index].trim() !== '') {
+                            emails.push("");
+                            render();
+                            updateHidden();
+                            // Focus on the new input
+                            setTimeout(() => {
+                                container.lastElementChild.querySelector('input').focus();
+                            }, 50);
+                        }
+                    };
+                } else {
+                    btn.className = 'btn btn-outline-danger px-3';
+                    btn.innerHTML = '<i class="bi bi-trash"></i> Remove';
+                    btn.onclick = () => {
+                        emails.splice(index, 1);
+                        render();
+                        updateHidden();
+                    };
+                }
+
+                row.appendChild(input);
+                row.appendChild(btn);
+                container.appendChild(row);
+            });
+        }
+
+        function updateHidden() {
+            hiddenInput.value = emails.map(e => e.trim()).filter(e => e.length > 0).join(', ');
+        }
+
+        render();
+    }
+
+    // Django assigns IDs based on field names with 'id_' prefix
+    setupDynamicEmails("id_enquiry_email", "container_id_enquiry_email");
+    setupDynamicEmails("id_booking_email", "container_id_booking_email");
+    setupDynamicEmails("id_career_email", "container_id_career_email");
+    setupDynamicEmails("id_subscription_email", "container_id_subscription_email");
+});
+</script>
+{% endblock %}

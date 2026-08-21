@@ -1,0 +1,296 @@
+{% extends "main/dashboard/dashboard_base.html" %}
+
+{% block header_title %}Edit About Page{% endblock %}
+
+{% block dashboard_content %}
+<div class="card border-0 shadow-sm rounded-4 mb-4">
+    <div class="card-body p-4">
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            
+            {% if form.errors %}
+            <div class="alert alert-danger rounded-3">
+                <h6 class="fw-bold mb-2">Please correct the following errors:</h6>
+                {{ form.errors }}
+            </div>
+            {% endif %}
+
+            <!-- ══════════════════════════════════════════════
+                 OUR STORY SECTION (Premium About Us)
+            ══════════════════════════════════════════════ -->
+            <div class="d-flex align-items-center gap-2 mb-3">
+                <div style="width:4px;height:28px;background:linear-gradient(180deg,#2f8a42,#4caf50);border-radius:2px;"></div>
+                <h5 class="fw-bold mb-0" style="color:#1a3d22;">🌿 Our Story Section</h5>
+            </div>
+            <p class="text-muted small mb-4">Controls the premium <strong>About Us</strong> hero area — the two-column section with circular botanical images at the top of the About page.</p>
+
+            <div class="row g-3 mb-3">
+                <div class="col-md-4">
+                    <label class="form-label text-muted small fw-bold text-uppercase">Eyebrow Label</label>
+                    {{ form.story_eyebrow }}
+                    <div class="form-text">Small uppercase text above heading (e.g. "OUR STORY")</div>
+                </div>
+                <div class="col-md-5">
+                    <label class="form-label text-muted small fw-bold text-uppercase">Main Heading</label>
+                    {{ form.story_heading }}
+                </div>
+                <div class="col-md-3">
+                    <label class="form-label text-muted small fw-bold text-uppercase">CTA Button Label</label>
+                    {{ form.story_cta_label }}
+                </div>
+            </div>
+            <div class="row g-3 mb-4">
+                <div class="col-md-6">
+                    <label class="form-label text-muted small fw-bold text-uppercase">First Paragraph</label>
+                    {{ form.story_paragraph_1 }}
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label text-muted small fw-bold text-uppercase">Second Paragraph</label>
+                    {{ form.story_paragraph_2 }}
+                </div>
+            </div>
+
+            <!-- Stats -->
+            <h6 class="fw-bold mb-3 text-uppercase small text-muted border-bottom pb-2">📊 Statistics</h6>
+            <div class="row g-3 mb-4">
+                <div class="col-md-3">
+                    <div class="p-3 rounded-3" style="background:#f8faf8;border:1px solid #d9ead3;">
+                        <label class="form-label text-muted small fw-bold text-uppercase">Stat 1 — Number</label>
+                        {{ form.stat_1_number }}
+                        <label class="form-label text-muted small fw-bold text-uppercase mt-2">Label</label>
+                        {{ form.stat_1_label }}
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="p-3 rounded-3" style="background:#f8faf8;border:1px solid #d9ead3;">
+                        <label class="form-label text-muted small fw-bold text-uppercase">Stat 2 — Number</label>
+                        {{ form.stat_2_number }}
+                        <label class="form-label text-muted small fw-bold text-uppercase mt-2">Label</label>
+                        {{ form.stat_2_label }}
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="p-3 rounded-3" style="background:#f8faf8;border:1px solid #d9ead3;">
+                        <label class="form-label text-muted small fw-bold text-uppercase">Stat 3 — Number</label>
+                        {{ form.stat_3_number }}
+                        <label class="form-label text-muted small fw-bold text-uppercase mt-2">Label</label>
+                        {{ form.stat_3_label }}
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="p-3 rounded-3" style="background:#f8faf8;border:1px solid #d9ead3;">
+                        <label class="form-label text-muted small fw-bold text-uppercase">Stat 4 — Number</label>
+                        {{ form.stat_4_number }}
+                        <label class="form-label text-muted small fw-bold text-uppercase mt-2">Label</label>
+                        {{ form.stat_4_label }}
+                    </div>
+                </div>
+            </div>
+
+            <!-- Visual Composition Images -->
+            <h6 class="fw-bold mb-3 text-uppercase small text-muted border-bottom pb-2">🖼️ Circular Images (Right Side Composition)</h6>
+            <div class="row g-3 mb-5">
+                <div class="col-md-3">
+                    <div class="p-3 rounded-3" style="background:#f8faf8;border:1px solid #d9ead3;">
+                        <label class="form-label text-muted small fw-bold text-uppercase">Main Circle (Large Centre)</label>
+                        {% if form.instance.story_main_image %}
+                            <div class="mb-2">
+                                <img src="{{ form.instance.story_main_image.url }}" class="rounded-circle border" style="width:80px;height:80px;object-fit:cover;">
+                            </div>
+                        {% endif %}
+                        {{ form.story_main_image }}
+                        <div class="form-text">Centre large botanical image</div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="p-3 rounded-3" style="background:#f8faf8;border:1px solid #d9ead3;">
+                        <label class="form-label text-muted small fw-bold text-uppercase">Field Circle (Top-Left)</label>
+                        {% if form.instance.story_field_image %}
+                            <div class="mb-2">
+                                <img src="{{ form.instance.story_field_image.url }}" class="rounded-circle border" style="width:80px;height:80px;object-fit:cover;">
+                            </div>
+                        {% endif %}
+                        {{ form.story_field_image }}
+                        <div class="form-text">Agricultural / field image</div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="p-3 rounded-3" style="background:#f8faf8;border:1px solid #d9ead3;">
+                        <label class="form-label text-muted small fw-bold text-uppercase">Facility Circle (Bottom-Left)</label>
+                        {% if form.instance.story_facility_image %}
+                            <div class="mb-2">
+                                <img src="{{ form.instance.story_facility_image.url }}" class="rounded-circle border" style="width:80px;height:80px;object-fit:cover;">
+                            </div>
+                        {% endif %}
+                        {{ form.story_facility_image }}
+                        <div class="form-text">Facility / plant building</div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="p-3 rounded-3" style="background:#f8faf8;border:1px solid #d9ead3;">
+                        <label class="form-label text-muted small fw-bold text-uppercase">Lab Circle (Bottom-Right)</label>
+                        {% if form.instance.story_lab_image %}
+                            <div class="mb-2">
+                                <img src="{{ form.instance.story_lab_image.url }}" class="rounded-circle border" style="width:80px;height:80px;object-fit:cover;">
+                            </div>
+                        {% endif %}
+                        {{ form.story_lab_image }}
+                        <div class="form-text">Lab / scientific image</div>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="my-4">
+
+            <!-- ══════════════════════════════════════════════
+                 LEGACY PAGE FIELDS
+            ══════════════════════════════════════════════ -->
+            <h5 class="fw-bold mb-3 border-bottom pb-2">Top Banner</h5>
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label class="form-label text-muted small fw-bold text-uppercase">Banner Heading</label>
+                    {{ form.top_banner_heading }}
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label class="form-label text-muted small fw-bold text-uppercase">Banner Subheading</label>
+                    {{ form.top_banner_subheading }}
+                </div>
+            </div>
+
+            <h5 class="fw-bold mb-3 border-bottom pb-2 mt-4">Main Section</h5>
+            <div class="mb-3">
+                <label class="form-label text-muted small fw-bold text-uppercase">Main Image (Left)</label>
+                {{ form.main_image }}
+            </div>
+            <div class="mb-3">
+                <label class="form-label text-muted small fw-bold text-uppercase">Main Heading</label>
+                {{ form.main_heading }}
+            </div>
+            <div class="mb-3">
+                <label class="form-label text-muted small fw-bold text-uppercase">Main Text (Right)</label>
+                {{ form.main_text }}
+            </div>
+
+            <h5 class="fw-bold mb-3 border-bottom pb-2 mt-4">Core Philosophy Section</h5>
+            <div class="row g-3 mb-3">
+                <div class="col-md-4">
+                    <label class="form-label text-muted small fw-bold text-uppercase">Our Mission Text</label>
+                    {{ form.mission_text }}
+                </div>
+                <div class="col-md-4">
+                    <label class="form-label text-muted small fw-bold text-uppercase">Our Vision Text</label>
+                    {{ form.vision_text }}
+                </div>
+                <div class="col-md-4">
+                    <label class="form-label text-muted small fw-bold text-uppercase">Our Values Text</label>
+                    {{ form.values_text }}
+                </div>
+            </div>
+            <div class="mb-3">
+                <label class="form-label text-muted small fw-bold text-uppercase">Middle Text (Full Width Quote/Philosophy)</label>
+                {{ form.middle_text }}
+            </div>
+
+            <h5 class="fw-bold mb-3 border-bottom pb-2 mt-4">Bottom Section</h5>
+            <div class="mb-4">
+                <label class="form-label text-muted small fw-bold text-uppercase">Bottom Background Image</label>
+                {{ form.bottom_image }}
+            </div>
+
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="p-3 bg-light rounded-3">
+                        <label class="form-label text-muted small fw-bold text-uppercase">Box 1 Title</label>
+                        {{ form.box_1_title }}
+                        <label class="form-label text-muted small fw-bold text-uppercase mt-2">Box 1 Subtitle</label>
+                        {{ form.box_1_subtitle }}
+                        <label class="form-label text-muted small fw-bold text-uppercase mt-2">Box 1 Link</label>
+                        {{ form.box_1_link }}
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="p-3 bg-light rounded-3">
+                        <label class="form-label text-muted small fw-bold text-uppercase">Box 2 Title</label>
+                        {{ form.box_2_title }}
+                        <label class="form-label text-muted small fw-bold text-uppercase mt-2">Box 2 Subtitle</label>
+                        {{ form.box_2_subtitle }}
+                        <label class="form-label text-muted small fw-bold text-uppercase mt-2">Box 2 Link</label>
+                        {{ form.box_2_link }}
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="p-3 bg-light rounded-3">
+                        <label class="form-label text-muted small fw-bold text-uppercase">Box 3 Title</label>
+                        {{ form.box_3_title }}
+                        <label class="form-label text-muted small fw-bold text-uppercase mt-2">Box 3 Subtitle</label>
+                        {{ form.box_3_subtitle }}
+                        <label class="form-label text-muted small fw-bold text-uppercase mt-2">Box 3 Link</label>
+                        {{ form.box_3_link }}
+                    </div>
+                </div>
+            </div>
+
+            <h5 class="fw-bold mb-3 border-bottom pb-2 mt-5">Product Lines &amp; Belief</h5>
+            <div class="mb-3">
+                <label class="form-label text-muted small fw-bold text-uppercase">Product Lines Intro</label>
+                {{ form.product_lines_intro }}
+            </div>
+            <div class="row g-3 mb-4">
+                <div class="col-md-4">
+                    <label class="form-label text-muted small fw-bold text-uppercase">Line 1 Text</label>
+                    {{ form.product_line_1 }}
+                    <label class="form-label text-muted small fw-bold text-uppercase mt-2">Line 1 URL</label>
+                    {{ form.product_line_1_url }}
+                </div>
+                <div class="col-md-4">
+                    <label class="form-label text-muted small fw-bold text-uppercase">Line 2 Text</label>
+                    {{ form.product_line_2 }}
+                    <label class="form-label text-muted small fw-bold text-uppercase mt-2">Line 2 URL</label>
+                    {{ form.product_line_2_url }}
+                </div>
+                <div class="col-md-4">
+                    <label class="form-label text-muted small fw-bold text-uppercase">Line 3 Text</label>
+                    {{ form.product_line_3 }}
+                    <label class="form-label text-muted small fw-bold text-uppercase mt-2">Line 3 URL</label>
+                    {{ form.product_line_3_url }}
+                </div>
+                <div class="col-md-4">
+                    <label class="form-label text-muted small fw-bold text-uppercase">Line 4 Text</label>
+                    {{ form.product_line_4 }}
+                    <label class="form-label text-muted small fw-bold text-uppercase mt-2">Line 4 URL</label>
+                    {{ form.product_line_4_url }}
+                </div>
+                <div class="col-md-4">
+                    <label class="form-label text-muted small fw-bold text-uppercase">Line 5 Text</label>
+                    {{ form.product_line_5 }}
+                    <label class="form-label text-muted small fw-bold text-uppercase mt-2">Line 5 URL</label>
+                    {{ form.product_line_5_url }}
+                </div>
+                <div class="col-md-4">
+                    <label class="form-label text-muted small fw-bold text-uppercase">Line 6 Text</label>
+                    {{ form.product_line_6 }}
+                    <label class="form-label text-muted small fw-bold text-uppercase mt-2">Line 6 URL</label>
+                    {{ form.product_line_6_url }}
+                </div>
+            </div>
+
+            <div class="row g-3">
+                <div class="col-md-6 mb-3">
+                    <label class="form-label text-muted small fw-bold text-uppercase">Belief Quote Prefix</label>
+                    {{ form.belief_quote_prefix }}
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label class="form-label text-muted small fw-bold text-uppercase">Belief Quote</label>
+                    {{ form.belief_quote }}
+                </div>
+            </div>
+
+            <div class="d-flex gap-2 mt-4">
+                <button type="submit" class="btn btn-success px-4 py-2 fw-semibold rounded-pill">💾 Save Changes</button>
+                <a href="{% url 'custom_dashboard' %}" class="btn btn-light px-4 py-2 fw-semibold rounded-pill">Cancel</a>
+                <a href="{% url 'about' %}" target="_blank" class="btn btn-outline-secondary px-4 py-2 fw-semibold rounded-pill ms-auto">👁️ Preview Page</a>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

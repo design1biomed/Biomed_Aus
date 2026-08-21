@@ -1,0 +1,43 @@
+{% extends "main/dashboard/dashboard_base.html" %}
+
+{% block dashboard_content %}
+<div class="mb-4">
+    <a href="{% url 'manage_solutions' %}" class="text-decoration-none text-muted mb-2 d-inline-block">
+        <i class="ph ph-arrow-left me-1"></i> Back to Solutions
+    </a>
+    <h2 class="h3 text-dark fw-bold">{{ title }}</h2>
+</div>
+
+<div class="card border-0 shadow-sm rounded-4" style="max-width: 800px;">
+    <div class="card-body p-4 p-md-5">
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            
+            <div class="row g-4">
+                {% for field in form %}
+                <div class="col-12">
+                    <label class="form-label text-uppercase small fw-bold text-muted" style="letter-spacing:1px;">
+                        {{ field.label }}
+                    </label>
+                    {{ field }}
+                    {% if field.help_text %}
+                    <div class="form-text mt-2"><i class="ph ph-info me-1"></i>{{ field.help_text }}</div>
+                    {% endif %}
+                    {% if field.errors %}
+                    <div class="text-danger small mt-1">
+                        {{ field.errors|join:", " }}
+                    </div>
+                    {% endif %}
+                </div>
+                {% endfor %}
+            </div>
+
+            <div class="mt-5 pt-3 border-top">
+                <button type="submit" class="btn btn-premium btn-premium-solid px-5">
+                    Save Solution
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

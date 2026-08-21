@@ -1,0 +1,63 @@
+{% extends "main/dashboard/dashboard_base.html" %}
+
+{% block title %}Manage Product Range{% endblock %}
+
+{% block dashboard_content %}
+<div class="row">
+    <div class="col-12 mb-5">
+        <div class="d-flex justify-content-between align-items-center mb-3 mb-md-4 mt-5">
+            <h2 class="fw-bold text-dark mb-0">Product Range Slides</h2>
+            <a href="{% url 'dashboard_add_product_range' %}" class="btn btn-success rounded-pill px-3 px-md-4 fw-semibold shadow-sm">
+                <i class="bi bi-plus-lg me-2"></i>Add Slide
+            </a>
+        </div>
+
+        <div class="card shadow-sm border-0 rounded-4">
+            <div class="card-body p-0">
+                <div class="table-responsive">
+                    <table class="table table-hover align-middle mb-0">
+                        <thead class="bg-light">
+                            <tr>
+                                <th class="ps-4">Image</th>
+                                <th>Title</th>
+                                <th>Order</th>
+                                <th class="text-end pe-4">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for slide in slides %}
+                            <tr>
+                                <td class="ps-4">
+                                    {% if slide.image_upload %}
+                                        <img src="{{ slide.image_upload.url }}" alt="{{ slide.title }}" class="rounded shadow-sm object-fit-contain p-1 bg-white" style="height: 60px; width: 60px;">
+                                    {% elif slide.image_path %}
+                                        <span class="text-muted small">{{ slide.image_path }}</span>
+                                    {% else %}
+                                        <span class="text-muted small">No image</span>
+                                    {% endif %}
+                                </td>
+                                <td class="fw-bold">{{ slide.title }}</td>
+                                <td>{{ slide.order }}</td>
+                                <td class="text-end pe-4">
+                                    <a href="{% url 'dashboard_edit_product_range' slide.pk %}" class="btn btn-sm btn-outline-primary rounded-circle"><i class="bi bi-pencil"></i></a>
+                                    <form action="{% url 'dashboard_delete_product_range' slide.pk %}" method="post" class="d-inline" onsubmit="return confirm('Delete this slide?');">
+                                        {% csrf_token %}
+                                        <button type="submit" class="btn btn-sm btn-outline-danger rounded-circle"><i class="bi bi-trash"></i></button>
+                                    </form>
+                                </td>
+                            </tr>
+                            {% empty %}
+                            <tr>
+                                <td colspan="4" class="text-center py-4 text-muted">
+                                    No product range slides found. Click "Add Slide" to create one.
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

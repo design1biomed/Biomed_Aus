@@ -1,0 +1,42 @@
+{% extends 'main/dashboard/dashboard_base.html' %}
+
+{% block header_title %}{{ title }}{% endblock %}
+
+{% block dashboard_content %}
+<div class="card shadow-sm border-0 rounded-4">
+    <div class="card-body p-4 p-md-5">
+        <form method="post">
+            {% csrf_token %}
+            <div class="mb-3">
+                <label for="{{ form.title.id_for_label }}" class="form-label text-muted small fw-bold text-uppercase">Title</label>
+                {{ form.title }}
+                {% if form.title.errors %}
+                <div class="text-danger small mt-1">{{ form.title.errors }}</div>
+                {% endif %}
+            </div>
+
+            <div class="mb-3">
+                <label for="{{ form.description.id_for_label }}" class="form-label text-muted small fw-bold text-uppercase">Description</label>
+                {{ form.description }}
+                {% if form.description.errors %}
+                <div class="text-danger small mt-1">{{ form.description.errors }}</div>
+                {% endif %}
+            </div>
+
+            <div class="mb-4">
+                <label for="{{ form.order.id_for_label }}" class="form-label text-muted small fw-bold text-uppercase">Order</label>
+                {{ form.order }}
+                {% if form.order.errors %}
+                <div class="text-danger small mt-1">{{ form.order.errors }}</div>
+                {% endif %}
+                <div class="form-text">Lower numbers appear first.</div>
+            </div>
+
+            <div class="d-flex gap-3">
+                <button type="submit" class="btn btn-success px-4">Save</button>
+                <a href="{% url 'manage_timelines' %}" class="btn btn-outline-secondary px-4">Cancel</a>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

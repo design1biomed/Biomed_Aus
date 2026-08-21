@@ -1,0 +1,391 @@
+{% extends "main/base.html" %}
+{% load static %}
+
+{% block page_title %}Product Range - Bio Med Ingredients{% endblock %}
+
+{% block content %}
+<style>
+    body {
+        overflow-x: hidden;
+    }
+
+    .pr-wrapper {
+        position: relative;
+        width: 100%;
+        background-color: #f8faf9;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+    }
+
+    /* Cinematic Card */
+    .pr-card {
+        width: 96%;
+        height: 85vh;
+        background: #000;
+        border-radius: 40px;
+        box-shadow: 0 30px 60px rgba(0, 0, 0, 0.06);
+        border: 1px solid rgba(0, 0, 0, 0.04);
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        position: relative;
+    }
+
+    /* Background Layer: Images */
+    .pr-img-layer {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 1;
+        overflow: hidden;
+    }
+
+    .pr-img-container {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        opacity: 0;
+        z-index: 1;
+        transition: opacity 0.8s ease, transform 1.2s ease;
+        transform: scale(1.05);
+    }
+
+    .pr-img-container.active {
+        opacity: 1;
+        z-index: 2;
+        transform: scale(1);
+    }
+
+    .pr-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .pr-img-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        /* Dark gradient on the right side for text readability */
+        background: linear-gradient(90deg, rgba(1, 45, 2, 0) 0%, rgba(1, 45, 2, 0.85) 100%);
+        z-index: 10;
+        pointer-events: none;
+    }
+
+    /* Foreground Layer: Text Track */
+    .pr-text-layer {
+        position: relative;
+        z-index: 5;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        /* Hide the vertical track overflow */
+    }
+
+    .pr-text-track {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .pr-text-panel {
+        height: 85vh;
+        /* Each panel matches card height */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 50px;
+        position: relative;
+        max-width: 1200px;
+        /* Keep text readable */
+        margin-left: auto;
+        /* Push text block to the right side */
+    }
+
+    @media (min-width: 992px) {
+        .pr-text-panel {
+            padding: 80px 100px;
+        }
+    }
+
+    .pr-title {
+        font-family: 'Manrope', sans-serif;
+        font-weight: 900;
+        font-size: clamp(2.5rem, 4vw, 4.5rem);
+        line-height: 1.1;
+        margin-bottom: 25px;
+        color: #ffffff;
+    }
+
+    .pr-desc {
+        font-size: 1.2rem;
+        color: rgba(255, 255, 255, 0.9);
+        line-height: 1.8;
+        margin-bottom: 30px;
+    }
+
+    .pr-extra {
+        display: inline-block;
+        background: rgba(255, 255, 255, 0.15);
+        backdrop-filter: blur(10px);
+        padding: 10px 25px;
+        border-radius: 50px;
+        color: #ffffff;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+        margin-bottom: 40px;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .btn-pr-explore {
+        background: #198754;
+        color: white;
+        border: none;
+        padding: 16px 40px;
+        border-radius: 50px;
+        font-weight: 800;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        text-decoration: none;
+        width: fit-content;
+        transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+        box-shadow: 0 10px 25px rgba(25, 135, 84, 0.4);
+    }
+
+    .btn-pr-explore:hover {
+        background: #146c43;
+        color: white;
+        transform: translateY(-4px);
+        box-shadow: 0 15px 35px rgba(20, 108, 67, 0.5);
+    }
+
+    .pr-scroll-indicator {
+        box-sizing: border-box;
+        width: 149px;
+        height: min-content;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        padding: 0px 0px 100px 0px;
+        overflow: hidden;
+        align-content: flex-start;
+        flex-wrap: nowrap;
+        gap: 0px;
+        position: absolute;
+        border-radius: 0px 0px 0px 0px;
+        bottom: 0;
+        left: 100px;
+        color: rgba(255, 255, 255, 0.8);
+    }
+
+    /* Mobile overrides */
+    @media (max-width: 991px) {
+        .pr-wrapper {
+            height: auto;
+            padding: 40px 0;
+        }
+
+        .pr-card {
+            height: 70vh;
+            border-radius: 20px;
+            width: 90%;
+            margin: 0 auto;
+        }
+
+        .pr-text-panel {
+            height: 70vh;
+            padding: 40px 30px;
+        }
+
+        .pr-scroll-indicator {
+            display: none !important;
+        }
+    }
+</style>
+
+<!-- HERO SECTION -->
+<section class="hero-wrapper" style="height: 40vh; min-height: 400px; display: flex; align-items: center;">
+    <img src="/media/hero/hero.jpg" class="hero-bg-image" alt="Product Range"
+        onerror="this.src='{% static 'images/hero_bg.webp' %}'">
+    <div class="hero-overlay"></div>
+    <div class="hero-content w-100 d-flex align-items-center" style="padding-top: 60px; position: relative;">
+        <div class="container position-relative z-1 text-center text-md-start">
+            <div class="hero-badge justify-content-center justify-content-md-start mb-3 mx-auto mx-md-0"
+                style="padding: 0.4rem 1rem; display: inline-flex; width: fit-content;">
+                <span class="hero-badge-dot"></span>
+                <span class="text-white fw-bold text-uppercase letter-spacing-2" style="font-size: 0.75rem;">PRODUCT
+                    RANGE</span>
+            </div>
+            <h1 class="hero-title mb-3" style="font-size: clamp(2rem, 4vw, 3.5rem);">
+                Our Product Range
+            </h1>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb justify-content-center justify-content-md-start mb-0">
+                    <li class="breadcrumb-item"><a href="{% url 'index' %}"
+                            class="text-white-50 text-decoration-none">Home</a></li>
+                    <li class="breadcrumb-item active text-white" aria-current="page">Product Range</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+</section>
+
+<!-- CARD VERTICAL SCROLL SECTION -->
+<section class="pr-wrapper" id="pr-scroll-section" style="margin-top: -40px; position: relative; z-index: 5;">
+    {% if slides %}
+
+    <div class="pr-card">
+        <!-- Background Layer: Crossfading Images -->
+        <div class="pr-img-layer">
+            {% for slide in slides %}
+            <div class="pr-img-container" id="pr-img-{{ forloop.counter0 }}">
+                {% if slide.image_upload %}
+                <img src="{{ slide.image_upload.url }}" alt="{{ slide.title }}" class="pr-img">
+                {% elif slide.image_path %}
+                <img src="{% static slide.image_path %}" alt="{{ slide.title }}" class="pr-img">
+                {% else %}
+                <div
+                    style="width: 100%; height: 100%; background: #222; display: flex; align-items: center; justify-content: center;">
+                    <i class="ph-fill ph-image text-white-50" style="font-size: 5rem;"></i>
+                </div>
+                {% endif %}
+            </div>
+            {% endfor %}
+            <div class="pr-img-overlay"></div>
+        </div>
+
+        <!-- Foreground Layer: Scrolling Text Track -->
+        <div class="pr-text-layer">
+            <div class="pr-text-track" id="pr-text-track">
+                {% for slide in slides %}
+                <div class="pr-text-panel pr-panel-slide">
+
+                    <div class="pr-text-content">
+                        <h2 class="pr-title">{{ slide.title }}</h2>
+                        <p class="pr-desc">{{ slide.description|linebreaksbr }}</p>
+
+                        {% if slide.extra_text %}
+                        <div class="pr-extra">{{ slide.extra_text }}</div>
+                        {% endif %}
+
+                        {% if slide.button_url and slide.button_url != "#" %}
+                        <div class="mt-2">
+                            <a href="{{ slide.button_url }}" class="btn-pr-explore">
+                                Explore Collection <i class="ph-bold ph-arrow-right"></i>
+                            </a>
+                        </div>
+                        {% endif %}
+                    </div>
+
+                    {% if forloop.first %}
+                    <div class="pr-scroll-indicator d-none d-lg-flex" style="animation: pulse 2s infinite;">
+                        <i class="ph-bold ph-mouse" style="font-size: 1.5rem; margin-bottom: 8px;"></i>
+                        <span class="fw-semibold" style="line-height: 1.2;">Scroll Down to Explore</span>
+                    </div>
+                    {% endif %}
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+    {% else %}
+    <div class="container text-center py-5 my-5">
+        <h3 class="text-muted">No product range slides added yet.</h3>
+    </div>
+    {% endif %}
+</section>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        gsap.registerPlugin(ScrollTrigger);
+
+        const track = document.getElementById("pr-text-track");
+        const panels = gsap.utils.toArray(".pr-panel-slide");
+        const imgContainers = gsap.utils.toArray(".pr-img-container");
+
+        if (panels.length === 0) return;
+
+        // Init first image
+        if (imgContainers.length > 0) {
+            imgContainers[0].classList.add("active");
+        }
+
+        let tl;
+
+        function initVerticalCardScroll() {
+            if (panels.length > 1) {
+                // To move N-1 panels vertically up
+                let movePercent = -((panels.length - 1) / panels.length) * 100;
+
+                // Get the height of the card on the current device
+                let cardHeightStr = window.innerWidth < 992 ? "70vh" : "85vh";
+
+                gsap.set(track, { height: (panels.length * parseInt(cardHeightStr)) + "vh" });
+
+                tl = gsap.to(track, {
+                    yPercent: movePercent,
+                    ease: "none",
+                    scrollTrigger: {
+                        trigger: "#pr-scroll-section",
+                        start: "center center",
+                        pin: true,
+                        scrub: 1,
+                        snap: 1 / (panels.length - 1),
+                        // The duration of the pin scroll
+                        end: () => "+=" + (window.innerHeight * (panels.length - 1)),
+                        onUpdate: (self) => {
+                            // Calculate current slide index based on progress
+                            let index = Math.round(self.progress * (panels.length - 1));
+                            activateImage(index);
+                        }
+                    }
+                });
+            }
+        }
+
+        function activateImage(index) {
+            imgContainers.forEach((img, i) => {
+                if (i === index) {
+                    img.classList.add("active");
+                } else {
+                    img.classList.remove("active");
+                }
+            });
+        }
+
+        initVerticalCardScroll();
+
+        // Handle resize gracefully
+        let currentWidth = window.innerWidth;
+        window.addEventListener('resize', () => {
+            if (Math.abs(window.innerWidth - currentWidth) > 50) {
+                currentWidth = window.innerWidth;
+                ScrollTrigger.getAll().forEach(t => t.kill());
+                gsap.set(panels, { clearProps: "all" });
+                gsap.set(track, { clearProps: "all" });
+                initVerticalCardScroll();
+            }
+        });
+    });
+</script>
+
+{% endblock %}
+
+

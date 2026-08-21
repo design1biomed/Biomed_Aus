@@ -50,7 +50,7 @@
 
     <!-- Giant Watermark -->
     <!-- <div class="about-watermark">BMI AUSTRALIA</div> -->
-    
+
     <!-- Botanical Drawing Background -->
     <!-- <img src="{% static 'images/bg/botanical_drawing.png' %}" class="position-absolute" style="top:-20%; right:-10%; width:40vw; min-width:400px; opacity:0.04; mix-blend-mode:multiply; pointer-events:none; z-index:0; transform: rotate(-15deg);" alt=""> -->
 
@@ -160,7 +160,8 @@
                 <h2 class="display-editorial">{{ content.extracts_title }}</h2>
             </div>
             <div class="col-lg-4 ms-auto text-lg-end">
-                <p style="color:var(--text-muted); font-size:1rem; line-height:1.7; white-space: nowrap;">{{ content.extracts_subtitle }}</p>
+                <p style="color:var(--text-muted); font-size:1rem; line-height:1.7; white-space: nowrap;">
+                    {{ content.extracts_subtitle }}</p>
             </div>
         </div>
     </div> <!-- Close container-fluid early for full-bleed slider -->
@@ -177,13 +178,15 @@
                     <div class="category-overlay">
                         <div class="flex-grow-1 d-flex flex-column justify-content-end">
                             <span class="category-tag">{{ extract.subtitle }}</span>
-                            <h3 class="category-title">{{ extract.title }}</h3>
+                            <div class="d-flex align-items-center gap-3">
+                                <h3 class="category-title mb-0">{{ extract.title }}</h3>
+                                <div class="category-arrow flex-shrink-0">
+                                    <i class="ph ph-arrow-up-right"></i>
+                                </div>
+                            </div>
                             {% if extract.description %}
                             <div class="category-description">{{ extract.description|linebreaksbr }}</div>
                             {% endif %}
-                        </div>
-                        <div class="category-arrow mt-auto">
-                            <i class="ph ph-arrow-up-right"></i>
                         </div>
                     </div>
                 </div>
@@ -204,24 +207,30 @@
     <div class="container-fluid px-4 px-xl-5 mx-auto" style="max-width:1600px;">
         <!-- Section Heading -->
         <div class="text-center mx-auto mb-5" style="max-width: 800px;" data-aos="fade-up">
-            <div class="d-inline-flex align-items-center justify-content-center px-4 py-2 mb-3 rounded-pill" style="background:rgba(82, 183, 136, 0.1); color:var(--forest);">
+            <div class="d-inline-flex align-items-center justify-content-center px-4 py-2 mb-3 rounded-pill"
+                style="background:rgba(82, 183, 136, 0.1); color:var(--forest);">
                 <i class="ph-fill ph-stars me-2"></i>
-                <span class="fw-bold text-uppercase" style="letter-spacing: 1px; font-size: 0.85rem;">{{ content.solutions_badge }}</span>
+                <span class="fw-bold text-uppercase" style="letter-spacing: 1px; font-size: 0.85rem;">
+                    {{ content.solutions_badge }}</span>
             </div>
             <h2 class="display-editorial mb-4">{{ content.solutions_heading|safe }}</h2>
-            <p style="font-size: 1.1rem; line-height: 1.8; color:var(--text-muted);">{{ content.solutions_subheading|safe }}</p>
+            <p style="font-size: 1.1rem; line-height: 1.8; color:var(--text-muted);">
+                {{ content.solutions_subheading|safe }}</p>
         </div>
 
         <!-- Cards Grid -->
         <div class="row g-4">
             {% for feature in features %}
             <div class="col-md-6 col-xl-3" data-aos="fade-up" data-aos-delay="{{ forloop.counter }}50">
-                <article class="feature-cd h-100 p-4 p-xl-5 rounded-4 bg-white" style="transition: transform 0.3s ease, box-shadow 0.3s ease; border:1px solid rgba(0,0,0,0.03);">
-                    <div class="icon-wrapper mb-4" style="width:60px; height:60px; border-radius:50%; background:#e7f0e8; display:flex; align-items:center; justify-content:center; color:var(--gold); font-size:1.8rem;">
+                <article class="feature-cd h-100 p-4 p-xl-5 rounded-4 bg-white"
+                    style="transition: transform 0.3s ease, box-shadow 0.3s ease; border:1px solid rgba(0,0,0,0.03);">
+                    <div class="icon-wrapper mb-4"
+                        style="width:60px; height:60px; border-radius:50%; background:#e7f0e8; display:flex; align-items:center; justify-content:center; color:var(--gold); font-size:1.8rem;">
                         <i class="{{ feature.icon_class }}"></i>
                     </div>
                     <h3 class="h4 fw-bold mb-3" style="color:var(--forest-dark);">{{ feature.title }}</h3>
-                    <p style="color:var(--text-muted); line-height:1.7; font-size:0.95rem; margin-bottom:0;">{{ feature.description }}</p>
+                    <p style="color:var(--text-muted); line-height:1.7; font-size:0.95rem; margin-bottom:0;">
+                        {{ feature.description }}</p>
                 </article>
             </div>
             {% endfor %}
@@ -234,10 +243,12 @@
      SECTION 5 — QUALITY & SCIENTIFIC TRUST
 ═══════════════════════════════════════════════════════════════ -->
 <section id="quality" class="section-padding position-relative overflow-hidden" style="background:var(--white);">
-    
+
     <!-- Botanical Drawing Background -->
-    <img src="{% static 'images/bg/botanical_drawing.png' %}" class="position-absolute" style="bottom:-20%; left:-10%; width:50vw; min-width:500px; opacity:0.04; mix-blend-mode:multiply; pointer-events:none; z-index:0; transform: rotate(15deg) scaleX(-1);" alt="">
-    
+    <img src="{% static 'images/bg/botanical_drawing.png' %}" class="position-absolute"
+        style="bottom:-20%; left:-10%; width:50vw; min-width:500px; opacity:0.04; mix-blend-mode:multiply; pointer-events:none; z-index:0; transform: rotate(15deg) scaleX(-1);"
+        alt="">
+
     <div class="container-fluid px-4 px-xl-5 mx-auto position-relative" style="max-width:1600px; z-index:1;">
         <div class="row align-items-center justify-content-between gy-5">
 
@@ -380,7 +391,8 @@
             </div>
             <div class="col-lg-5 ms-auto" data-aos="fade-left">
                 <p style="color:rgba(255,255,255,0.65);font-size:1.05rem;line-height:1.8;font-weight:300;">
-                    {{ content.home_map_subheading.text_content|default:"Operating from our headquarters in India, with strategic offices in Australia, Germany, and Jordan to serve you globally."|safe }}
+                    {{ content.home_map_subheading.text_content|default:"Operating from our headquarters in India, with
+                    strategic offices in Australia, Germany, and Jordan to serve you globally."|safe }}
                 </p>
             </div>
         </div>
@@ -513,9 +525,12 @@
 </section>
 
 <div id="formulation-wrapper" style="overflow: hidden;">
-    <section id="formulation-section" class="section-padding position-relative" style="background: #275a36e6; overflow:hidden;">
+    <section id="formulation-section" class="section-padding position-relative"
+        style="background: #275a36e6; overflow:hidden;">
         <!-- Abstract botanical bg -->
-        <svg class="position-absolute" style="top:0;left:0;width:100%;height:100%;opacity:0.06;pointer-events:none;z-index:0;" viewBox="0 0 1440 400" preserveAspectRatio="xMidYMid slice">
+        <svg class="position-absolute"
+            style="top:0;left:0;width:100%;height:100%;opacity:0.06;pointer-events:none;z-index:0;"
+            viewBox="0 0 1440 400" preserveAspectRatio="xMidYMid slice">
             <circle cx="200" cy="150" r="100" stroke="#52B788" stroke-width="2" fill="none" />
             <path d="M-200,200 Q400,0 1640,200" stroke="#52B788" stroke-width="1.5" fill="none" />
             <circle cx="1200" cy="300" r="150" stroke="#52B788" stroke-width="1" fill="none" />
@@ -524,28 +539,38 @@
         <div class="container-fluid px-4 px-xl-5 mx-auto position-relative" style="max-width:1600px; z-index:1;">
             <div class="row align-items-center justify-content-between">
                 <div class="col-lg-5 mb-5 mb-lg-0">
-                    <div class="section-kicker" style="color:var(--gold);"><span style="background:var(--gold);"></span> Formulation Partners</div>
-                    <h2 class="display-editorial text-white mb-4" style="font-size: clamp(2.5rem, 4vw, 3.5rem);">Let's formulate<br>the future.</h2>
+                    <div class="section-kicker" style="color:var(--gold);"><span style="background:var(--gold);"></span>
+                        Formulation Partners</div>
+                    <h2 class="display-editorial text-white mb-4" style="font-size: clamp(2.5rem, 4vw, 3.5rem);">Let's
+                        formulate<br>the future.</h2>
                     <p class="mb-5" style="color:white; font-size:1.1rem; line-height:1.6;">
-                        Enquire today for detailed product specifications, custom botanical formulations, and bulk-order pricing directly from our specialists.
+                        Enquire today for detailed product specifications, custom botanical formulations, and bulk-order
+                        pricing directly from our specialists.
                     </p>
                     <div class="d-flex flex-column gap-3 text-white text-opacity-75">
                         <div class="d-flex align-items-center gap-3">
-                            <div style="width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,0.1);display:flex;align-items:center;justify-content:center;"><i class="ph ph-envelope text-white"></i></div>
+                            <div
+                                style="width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,0.1);display:flex;align-items:center;justify-content:center;">
+                                <i class="ph ph-envelope text-white"></i>
+                            </div>
                             <span>info@bmiaustralia.com.au</span>
                         </div>
                         <div class="d-flex align-items-center gap-3">
-                            <div style="width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,0.1);display:flex;align-items:center;justify-content:center;"><i class="ph ph-phone text-white"></i></div>
+                            <div
+                                style="width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,0.1);display:flex;align-items:center;justify-content:center;">
+                                <i class="ph ph-phone text-white"></i>
+                            </div>
                             <span>+61 470 380 027</span>
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="col-lg-6 ms-auto">
                     {% if messages %}
                     <div class="mb-4">
                         {% for message in messages %}
-                        <div class="alert alert-success d-flex align-items-center gap-3 border-0 rounded-4" style="background:rgba(82, 183, 136, 0.15); color:var(--white);">
+                        <div class="alert alert-success d-flex align-items-center gap-3 border-0 rounded-4"
+                            style="background:rgba(82, 183, 136, 0.15); color:var(--white);">
                             <i class="ph ph-check-circle fs-4" style="color:#52B788;"></i>
                             <div class="fw-medium">{{ message }}</div>
                         </div>
@@ -556,28 +581,46 @@
                         {% csrf_token %}
                         <div class="row g-4">
                             <div class="col-md-6">
-                                <label class="form-label text-white text-opacity-75 small text-uppercase fw-bold letter-spacing-1">Full Name</label>
-                                <input type="text" name="full_name" class="form-control premium-input" placeholder="John Doe" required>
+                                <label
+                                    class="form-label text-white text-opacity-75 small text-uppercase fw-bold letter-spacing-1">Full
+                                    Name</label>
+                                <input type="text" name="full_name" class="form-control premium-input"
+                                    placeholder="John Doe" required>
                             </div>
                             <div class="col-md-6">
-                                <label class="form-label text-white text-opacity-75 small text-uppercase fw-bold letter-spacing-1">Company</label>
-                                <input type="text" name="company" class="form-control premium-input" placeholder="Your Company Ltd.">
+                                <label
+                                    class="form-label text-white text-opacity-75 small text-uppercase fw-bold letter-spacing-1">Company</label>
+                                <input type="text" name="company" class="form-control premium-input"
+                                    placeholder="Your Company Ltd.">
                             </div>
                             <div class="col-md-6">
-                                <label class="form-label text-white text-opacity-75 small text-uppercase fw-bold letter-spacing-1">Email Address</label>
-                                <input type="email" name="email" class="form-control premium-input" placeholder="john@company.com" required>
+                                <label
+                                    class="form-label text-white text-opacity-75 small text-uppercase fw-bold letter-spacing-1">Email
+                                    Address</label>
+                                <input type="email" name="email" class="form-control premium-input"
+                                    placeholder="john@company.com" required>
                             </div>
                             <div class="col-md-6">
-                                <label class="form-label text-white text-opacity-75 small text-uppercase fw-bold letter-spacing-1">Product Name</label>
-                                <input type="text" name="product_name" class="form-control premium-input" placeholder="Product name" required>
+                                <label
+                                    class="form-label text-white text-opacity-75 small text-uppercase fw-bold letter-spacing-1">Product
+                                    Name</label>
+                                <input type="text" name="product_name" class="form-control premium-input"
+                                    placeholder="Product name" required>
                             </div>
                             <div class="col-12">
-                                <label class="form-label text-white text-opacity-75 small text-uppercase fw-bold letter-spacing-1">Message / Requirements</label>
-                                <textarea name="message" class="form-control premium-input" rows="4" placeholder="How can we help you?" required></textarea>
+                                <label
+                                    class="form-label text-white text-opacity-75 small text-uppercase fw-bold letter-spacing-1">Message
+                                    / Requirements</label>
+                                <textarea name="message" class="form-control premium-input" rows="4"
+                                    placeholder="How can we help you?" required></textarea>
                             </div>
                             <div class="col-12 mt-4">
-                                <button type="submit" class="btn btn-premium btn-premium-solid w-100 py-3 rounded-pill text-decoration-none shadow-lg bg-white" style="border:none; transform: scale(1); transition: transform 0.3s ease;">
-                                    <span class="fw-bold" style="color:var(--forest-dark); font-size:1.1rem; text-transform:uppercase; letter-spacing:1px;">Send Enquiry</span>
+                                <button type="submit"
+                                    class="btn btn-premium btn-premium-solid w-100 py-3 rounded-pill text-decoration-none shadow-lg bg-white"
+                                    style="border:none; transform: scale(1); transition: transform 0.3s ease;">
+                                    <span class="fw-bold"
+                                        style="color:var(--forest-dark); font-size:1.1rem; text-transform:uppercase; letter-spacing:1px;">Send
+                                        Enquiry</span>
                                 </button>
                             </div>
                         </div>
@@ -589,7 +632,7 @@
 </div>
 
 <script>
-    document.addEventListener("DOMContentLoaded", function() {
+    document.addEventListener("DOMContentLoaded", function () {
         if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
             let tl = gsap.timeline({
                 scrollTrigger: {
@@ -601,12 +644,12 @@
 
             // Smooth accordion reveal (hardware accelerated)
             gsap.set("#formulation-wrapper", { willChange: "height, opacity" });
-            tl.fromTo("#formulation-wrapper", 
-                { height: 0, opacity: 0 }, 
-                { 
-                    height: "auto", 
-                    opacity: 1, 
-                    duration: 2, 
+            tl.fromTo("#formulation-wrapper",
+                { height: 0, opacity: 0 },
+                {
+                    height: "auto",
+                    opacity: 1,
+                    duration: 2,
                     ease: "power2.out",
                     onComplete: () => gsap.set("#formulation-wrapper", { willChange: "auto" })
                 }
@@ -616,6 +659,3 @@
 </script>
 
 {% endblock %}
-
-
-

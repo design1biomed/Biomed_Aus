@@ -1,0 +1,9 @@
+
+ffmpeg.zip
+ffmpeg_extracted/
+ffmpeg-master-latest-win64-gpl/
+*.mp4
+overall_*.jpg
+frame_*.jpg
+scratch_video.mp4
+notify_video.mp4

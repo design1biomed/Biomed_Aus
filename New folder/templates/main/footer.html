@@ -1,0 +1,822 @@
+{% load static %}
+
+<!-- ═══════════════════════════════════════════════════
+     DESKTOP FOOTER  (hidden on mobile via d-none d-lg-block)
+     ═══════════════════════════════════════════════════ -->
+<footer class="d-none d-lg-block" style="background-color: white; padding-top: 20px; padding-bottom: 20px;">
+    <div class="container-fluid px-2 px-md-3">
+        <!-- Rounded Dark Box -->
+        <div style="background-color: #111111; border-radius: 40px; padding: 60px 0 40px 0;">
+            <div class="container">
+                <div class="row g-4 mb-5">
+
+                    <!-- Column 1: Logo -->
+                    <div class="col-lg-3">
+                        <div class="d-flex align-items-center mb-4">
+                            <i class="bi bi-water me-2" style="color: #f7b731; font-size: 1.8rem;"></i>
+                            <span class="text-white"
+                                style="font-weight: 500; font-size: 1.1rem; letter-spacing: 0.5px;">BIOMED</span>
+                        </div>
+                        
+                        <div class="mt-4 pt-2">
+                            <h6 class="mb-3 text-uppercase" style="font-size: 0.75rem; letter-spacing: 1px; color: #a0a0a0; font-weight: 600;">Connect with us</h6>
+                            <div class="d-flex gap-3">
+                                <a href="https://www.linkedin.com/company/bio-med-ingredients-pvt-ltd/" target="_blank" class="footer-social-circle bg-white text-dark rounded-circle shadow-sm d-flex align-items-center justify-content-center text-decoration-none">
+                                    <i class="ph ph-linkedin-logo"></i>
+                                </a>
+                                <a href="#" target="_blank" class="footer-social-circle bg-white text-dark rounded-circle shadow-sm d-flex align-items-center justify-content-center text-decoration-none">
+                                    <i class="ph ph-twitter-logo"></i>
+                                </a>
+                                <a href="https://www.facebook.com/BioMedIngredients" target="_blank" class="footer-social-circle bg-white text-dark rounded-circle shadow-sm d-flex align-items-center justify-content-center text-decoration-none">
+                                    <i class="ph ph-facebook-logo"></i>
+                                </a>
+                                <a href="https://www.instagram.com/biomedingredients_" target="_blank" class="footer-social-circle bg-white text-dark rounded-circle shadow-sm d-flex align-items-center justify-content-center text-decoration-none">
+                                    <i class="ph ph-instagram-logo"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Column 2: NAVIGATION -->
+                    <div class="col-lg-3">
+                        <h6 class="mb-4 text-uppercase"
+                            style="font-size: 0.75rem; letter-spacing: 1px; color: #a0a0a0; font-weight: 500;">
+                            Navigation</h6>
+                        <ul class="list-unstyled d-flex flex-column gap-3 mb-0">
+                            <li><a href="/" class="text-decoration-none"
+                                    style="color: #d1d1d1; font-size: 0.85rem; transition: color 0.3s;"
+                                    onmouseover="this.style.color='#fff'"
+                                    onmouseout="this.style.color='#d1d1d1'">Home</a></li>
+                            <li><a href="{% url 'about' %}" class="text-decoration-none"
+                                    style="color: #d1d1d1; font-size: 0.85rem; transition: color 0.3s;"
+                                    onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#d1d1d1'">About
+                                    company</a></li>
+                            <li><a href="{% url 'infrastructure' %}" class="text-decoration-none"
+                                    style="color: #d1d1d1; font-size: 0.85rem; transition: color 0.3s;"
+                                    onmouseover="this.style.color='#fff'"
+                                    onmouseout="this.style.color='#d1d1d1'">Infrastructure & Services</a></li>
+                            <li><a href="{% url 'news_events' %}" class="text-decoration-none"
+                                    style="color: #d1d1d1; font-size: 0.85rem; transition: color 0.3s;"
+                                    onmouseover="this.style.color='#fff'"
+                                    onmouseout="this.style.color='#d1d1d1'">News & Events</a></li>
+                            <li><a href="{% url 'contact' %}" class="text-decoration-none"
+                                    style="color: #d1d1d1; font-size: 0.85rem; transition: color 0.3s;"
+                                    onmouseover="this.style.color='#fff'"
+                                    onmouseout="this.style.color='#d1d1d1'">Contact</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Column 3: INFORMATION -->
+                    <div class="col-lg-3">
+                        <h6 class="mb-4 text-uppercase"
+                            style="font-size: 0.75rem; letter-spacing: 1px; color: #a0a0a0; font-weight: 500;">
+                            Information</h6>
+                        <ul class="list-unstyled d-flex flex-column gap-3 mb-0">
+                            <li><a href="{% url 'product_range' %}" class="text-decoration-none"
+                                    style="color: #d1d1d1; font-size: 0.85rem; transition: color 0.3s;"
+                                    onmouseover="this.style.color='#fff'"
+                                    onmouseout="this.style.color='#d1d1d1'">Product Range</a></li>
+                            <li><a href="{% url 'herbal_extracts' %}" class="text-decoration-none"
+                                    style="color: #d1d1d1; font-size: 0.85rem; transition: color 0.3s;"
+                                    onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#d1d1d1'">Herbal
+                                    Extracts</a></li>
+                            <li><a href="{% url 'product_brochures' %}" class="text-decoration-none"
+                                    style="color: #d1d1d1; font-size: 0.85rem; transition: color 0.3s;"
+                                    onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#d1d1d1'">Product Brochures</a></li>
+                            <li><a href="{% url 'natural_food_colors' %}" class="text-decoration-none"
+                                    style="color: #d1d1d1; font-size: 0.85rem; transition: color 0.3s;"
+                                    onmouseover="this.style.color='#fff'"
+                                    onmouseout="this.style.color='#d1d1d1'">Natural Food Colors & Flavours</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Column 4: CONTACTS -->
+                    <div class="col-lg-3">
+                        <h6 class="mb-4 text-uppercase"
+                            style="font-size: 0.75rem; letter-spacing: 1px; color: #a0a0a0; font-weight: 500;">Contacts
+                        </h6>
+                        <ul class="list-unstyled d-flex flex-column gap-3 mb-0">
+                            <li style="color: #d1d1d1; font-size: 0.85rem; line-height: 1.6;">Plot No. SC-1/48, Phase 1,
+                                Verna Industrial Estate, Goa - 403722, INDIA</li>
+                            <li><a href="mailto:info@biomedingredients.com" class="text-decoration-none"
+                                    style="color: #d1d1d1; font-size: 0.85rem; transition: color 0.3s;"
+                                    onmouseover="this.style.color='#fff'"
+                                    onmouseout="this.style.color='#d1d1d1'">info@biomedingredients.com</a></li>
+                            <li style="color: #d1d1d1; font-size: 0.85rem;">+91 88066 68458</li>
+                        </ul>
+                    </div>
+
+                </div>
+
+                <!-- Divider -->
+                <hr style="border-color: rgba(255,255,255,0.1); margin: 40px 0 20px 0;">
+
+                <!-- Bottom Row -->
+                <div class="row align-items-center">
+                    <div class="col-md-4 text-start">
+                        <span style="color: #888; font-size: 0.75rem;">&copy; 2026 Biomed. All rights reserved.</span>
+                    </div>
+                    <div class="col-md-4 text-center">
+                        <a href="#" class="text-decoration-none"
+                            style="color: #888; font-size: 0.75rem; transition: color 0.3s;"
+                            onmouseover="this.style.color='#d1d1d1'" onmouseout="this.style.color='#888'">Privacy
+                            Policy</a>
+                    </div>
+                    <div class="col-md-4 text-end">
+                        <!-- Socials moved to Column 1 -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+<!-- ═══════════════════════════════════════════════════
+     MOBILE: Sticky Bottom Navigation Bar + Sheet
+     (hidden on desktop)
+     ═══════════════════════════════════════════════════ -->
+
+<!-- Bottom Nav Bar -->
+<nav class="mobile-bottom-nav d-lg-none" role="navigation" aria-label="Bottom Navigation">
+    <a href="/" class="mbn-item" id="mbn-home">
+        <i class="bi bi-house-fill"></i>
+        <span>Home</span>
+    </a>
+    <a href="#" class="mbn-item" id="mbn-products">
+        <i class="bi bi-box-seam-fill"></i>
+        <span>Products</span>
+    </a>
+    <a href="#" class="mbn-item mbn-cta" id="mbn-contact">
+        <i class="bi bi-telephone-fill"></i>
+        <span>Contact</span>
+    </a>
+    <a href="#" class="mbn-item" id="mbn-about">
+        <i class="bi bi-building-fill"></i>
+        <span>About</span>
+    </a>
+    <button class="mbn-item" id="mbnMoreBtn" aria-label="More">
+        <i class="bi bi-grid-fill"></i>
+        <span>More</span>
+    </button>
+</nav>
+
+<!-- Sheet Overlay -->
+<div class="mbs-overlay" id="mbsOverlay"></div>
+
+<!-- Bottom Sheet -->
+<aside class="mobile-bottom-sheet" id="mobileBottomSheet" role="dialog" aria-modal="true" aria-label="More Links">
+
+    <!-- Handle -->
+    <div class="mbs-handle-wrap" id="mbsHandleArea">
+        <div class="mbs-handle"></div>
+    </div>
+
+    <!-- Sheet Header -->
+    <div class="mbs-header">
+        <div class="mbs-brand">
+            <i class="bi bi-leaf-fill text-success me-2"></i>
+            <span>Bio Med Ingredients</span>
+        </div>
+        <button class="mbs-close" id="mbsCloseBtn" aria-label="Close"><i class="bi bi-x-lg"></i></button>
+    </div>
+
+    <div class="mbs-body">
+
+        <!-- Quick Links Grid -->
+        <p class="mbs-section-label">QUICK LINKS</p>
+        <div class="mbs-grid">
+            <a href="/" class="mbs-grid-item">
+                <div class="mbs-grid-icon"><i class="bi bi-house-fill"></i></div>
+                <span>Home</span>
+            </a>
+            <a href="#" class="mbs-grid-item">
+                <div class="mbs-grid-icon"><i class="bi bi-building-fill"></i></div>
+                <span>About</span>
+            </a>
+            <a href="#" class="mbs-grid-item">
+                <div class="mbs-grid-icon"><i class="bi bi-box-seam-fill"></i></div>
+                <span>Products</span>
+            </a>
+            <a href="#" class="mbs-grid-item">
+                <div class="mbs-grid-icon"><i class="bi bi-geo-alt-fill"></i></div>
+                <span>Facility</span>
+            </a>
+            <a href="#" class="mbs-grid-item">
+                <div class="mbs-grid-icon"><i class="bi bi-flask-fill"></i></div>
+                <span>Research</span>
+            </a>
+            <a href="#" class="mbs-grid-item">
+                <div class="mbs-grid-icon"><i class="bi bi-patch-check-fill"></i></div>
+                <span>Certs</span>
+            </a>
+            <a href="#" class="mbs-grid-item">
+                <div class="mbs-grid-icon"><i class="bi bi-briefcase-fill"></i></div>
+                <span>Careers</span>
+            </a>
+            <a href="#" class="mbs-grid-item">
+                <div class="mbs-grid-icon"><i class="bi bi-newspaper"></i></div>
+                <span>News</span>
+            </a>
+            <a href="#" class="mbs-grid-item">
+                <div class="mbs-grid-icon"><i class="bi bi-envelope-fill"></i></div>
+                <span>Contact</span>
+            </a>
+        </div>
+
+        <!-- Our Products List -->
+        <p class="mbs-section-label mt-4">OUR PRODUCTS</p>
+        <div class="mbs-contact-chips" style="display: flex; flex-direction: column; gap: 8px;">
+            <a href="#" class="mbs-chip justify-content-start"><i
+                    class="bi bi-chevron-right text-success"></i><span>Product Range</span></a>
+            <a href="#" class="mbs-chip justify-content-start"><i
+                    class="bi bi-chevron-right text-success"></i><span>Herbal Extracts</span></a>
+            <a href="#" class="mbs-chip justify-content-start"><i class="bi bi-chevron-right text-success"></i><span>Raw
+                    Herbal Powders</span></a>
+            <a href="#" class="mbs-chip justify-content-start"><i
+                    class="bi bi-chevron-right text-success"></i><span>Nutritional Fine Chemicals</span></a>
+            <a href="#" class="mbs-chip justify-content-start"><i
+                    class="bi bi-chevron-right text-success"></i><span>Spices &amp; Oleoresins</span></a>
+            <a href="#" class="mbs-chip justify-content-start"><i
+                    class="bi bi-chevron-right text-success"></i><span>Natural Food Colors</span></a>
+            <a href="#" class="mbs-chip justify-content-start"><i
+                    class="bi bi-chevron-right text-success"></i><span>Organic Products</span></a>
+        </div>
+
+        <!-- Working Hours -->
+        <p class="mbs-section-label mt-4">WORKING HOURS</p>
+        <div class="mbs-contact-chips" style="display: flex; flex-direction: column; gap: 8px;">
+            <div class="mbs-chip justify-content-start bg-transparent border-0 px-0">
+                <i class="bi bi-clock text-success"></i><span>Week Days: 9:00 - 18:00 IST</span>
+            </div>
+            <div class="mbs-chip justify-content-start bg-transparent border-0 px-0">
+                <i class="bi bi-calendar-x text-success"></i><span>Sunday: Day off</span>
+            </div>
+        </div>
+
+        <!-- Contact Chips -->
+        <p class="mbs-section-label mt-4">GET IN TOUCH</p>
+        <div class="mbs-contact-chips">
+            <a href="mailto:info@biomedingredients.com" class="mbs-chip">
+                <i class="bi bi-envelope-fill"></i>
+                <span>info@biomedingredients.com</span>
+            </a>
+            <a href="tel:+918806668458" class="mbs-chip">
+                <i class="bi bi-telephone-fill"></i>
+                <span>+91 88066 68458</span>
+            </a>
+            <a href="https://maps.google.com" class="mbs-chip" target="_blank">
+                <i class="bi bi-geo-alt-fill"></i>
+                <span>Verna Industrial Estate, Goa</span>
+            </a>
+        </div>
+
+        <!-- Socials -->
+        <p class="mbs-section-label mt-4">FOLLOW US</p>
+        <div class="mbs-socials">
+            <a href="https://www.linkedin.com/company/bio-med-ingredients-pvt-ltd/" class="mbs-social"
+                target="_blank"><i class="bi bi-linkedin"></i></a>
+            <a href="https://www.facebook.com/BioMedIngredients" class="mbs-social" target="_blank"><i
+                    class="bi bi-facebook"></i></a>
+            <a href="https://www.instagram.com/biomedingredients_" class="mbs-social"><i
+                    class="bi bi-instagram"></i></a>
+            <a href="https://www.youtube.com/@bio-medingredients" class="mbs-social" target="_blank"><i
+                    class="bi bi-youtube"></i></a>
+            <a href="https://wa.me/+918806668458" class="mbs-social" target="_blank" target="_blank"><i
+                    class="bi bi-whatsapp"></i></a>
+        </div>
+
+    </div>
+
+    <!-- Sheet Footer -->
+    <div class="mbs-footer">
+        <span>&copy; 2026 Bio Med Ingredients. All Rights Reserved.</span>
+        <div>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms</a>
+        </div>
+    </div>
+
+</aside>
+
+
+<!-- ═══════════════════════════════════════════
+     SHARED STYLES (footer + mobile sheet)
+     ═══════════════════════════════════════════ -->
+<style>
+    /* ── Desktop footer styles ── */
+    .footer-social-circle {
+        width: 45px;
+        height: 45px;
+        font-size: 1.2rem;
+        transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        border: 1px solid rgba(255,255,255,0.05);
+    }
+    
+    .footer-social-circle:hover {
+        background: #198754 !important;
+        color: white !important;
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(25, 135, 84, 0.3) !important;
+        border-color: #198754 !important;
+    }
+
+    .footer-link {
+        transition: all 0.3s ease;
+    }
+
+    .footer-link:hover {
+        color: #198754 !important;
+        transform: translateX(3px);
+        display: inline-block;
+    }
+
+    footer .btn-outline-light:hover {
+        background-color: #198754 !important;
+        border-color: #198754 !important;
+    }
+
+    .footer-social-btn {
+        font-size: 0.8rem;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+        padding: 0.35rem 1rem;
+        background-color: transparent;
+        color: rgba(255, 255, 255, 0.7) !important;
+        border: 1px solid rgba(255, 255, 255, 0.3) !important;
+        transition: all 0.3s ease;
+    }
+
+    .footer-social-btn:hover {
+        background-color: rgba(255, 255, 255, 0.1) !important;
+        color: #fff !important;
+        border-color: rgba(255, 255, 255, 0.8) !important;
+        transform: translateY(-2px);
+    }
+
+    .world-map-bg {
+        background-image: url('{% static "images/bg/world-map.svg" %}');
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        margin-left: -10px;
+        margin-bottom: -90px;
+        opacity: 0.15;
+        pointer-events: none;
+        z-index: 0;
+    }
+
+    /* ══════════════════════════════════════════
+   MOBILE BOTTOM NAV BAR
+   ══════════════════════════════════════════ */
+    .mobile-bottom-nav {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 64px;
+        background: #2f432f98;
+        backdrop-filter: blur(80px) saturate(180%);
+        -webkit-backdrop-filter: blur(80px) saturate(180%);
+        border-top: 1px solid rgba(255, 255, 255, 0.14);
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        z-index: 1990;
+        box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.3);
+        padding-bottom: env(safe-area-inset-bottom, 0px);
+        /* iPhone notch */
+    }
+
+    .mbn-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 3px;
+        flex: 1;
+        height: 100%;
+        color: rgba(240, 255, 245, 0.88);
+        font-size: 0.62rem;
+        font-weight: 600;
+        letter-spacing: 0.3px;
+        text-decoration: none;
+        background: none;
+        border: none;
+        cursor: pointer;
+        transition: color 0.22s, transform 0.22s;
+        padding: 0;
+    }
+
+    .mbn-item i {
+        font-size: 1.2rem;
+        line-height: 1;
+    }
+
+    .mbn-item:hover,
+    .mbn-item.active {
+        color: #fff;
+    }
+
+    .mbn-item:hover {
+        transform: translateY(-2px);
+    }
+
+    /* CTA centre button */
+    .mbn-cta {
+        background: linear-gradient(135deg, #198754, #15a060);
+        border-radius: 14px;
+        color: #fff !important;
+        padding: 6px 14px;
+        margin: 8px 4px;
+        height: auto;
+        flex: none;
+        min-width: 70px;
+        box-shadow: 0 4px 12px rgba(25, 135, 84, 0.4);
+    }
+
+    /* ══════════════════════════════════════════
+   OVERLAY
+   ══════════════════════════════════════════ */
+    .mbs-overlay {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.6);
+        z-index: 2990;
+        backdrop-filter: blur(4px);
+        -webkit-backdrop-filter: blur(4px);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+
+    .mbs-overlay.active {
+        display: block;
+        opacity: 1;
+    }
+
+    /* ══════════════════════════════════════════
+   BOTTOM SHEET
+   ══════════════════════════════════════════ */
+    .mobile-bottom-sheet {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        max-height: 88vh;
+        background: #2f432f98;
+        backdrop-filter: blur(80px) saturate(180%);
+        -webkit-backdrop-filter: blur(80px) saturate(180%);
+        border-top: 1px solid rgba(255, 255, 255, 0.14);
+        border-radius: 24px 24px 0 0;
+        z-index: 2999;
+        display: flex;
+        flex-direction: column;
+        transform: translateY(100%);
+        transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        overflow: hidden;
+        box-shadow: 0 -8px 40px rgba(0, 0, 0, 0.5);
+    }
+
+    .mobile-bottom-sheet.active {
+        transform: translateY(0);
+    }
+
+    /* Handle */
+    .mbs-handle-wrap {
+        display: flex;
+        justify-content: center;
+        padding: 12px 0 4px;
+        cursor: grab;
+        flex-shrink: 0;
+    }
+
+    .mbs-handle {
+        width: 36px;
+        height: 4px;
+        background: rgba(255, 255, 255, 0.25);
+        border-radius: 2px;
+    }
+
+    /* Sheet Header */
+    .mbs-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 8px 20px 14px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        flex-shrink: 0;
+    }
+
+    .mbs-brand {
+        display: flex;
+        align-items: center;
+        font-size: 1rem;
+        ` font-weight: 700;
+        color: #fff;
+    }
+
+    .mbs-close {
+        width: 34px;
+        height: 34px;
+        border-radius: 9px;
+        background: rgba(255, 255, 255, 0.08);
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        color: rgba(255, 255, 255, 0.8);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: background 0.2s;
+    }
+
+    .mbs-close:hover {
+        background: rgba(255, 255, 255, 0.18);
+        color: #fff;
+    }
+
+    /* Body */
+    .mbs-body {
+        flex: 1;
+        overflow-y: auto;
+        padding: 16px 18px;
+    }
+
+    .mbs-body::-webkit-scrollbar {
+        width: 3px;
+    }
+
+    .mbs-body::-webkit-scrollbar-thumb {
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: 3px;
+    }
+
+    .mbs-section-label {
+        font-size: 0.62rem;
+        font-weight: 800;
+        color: rgba(255, 255, 255, 0.4);
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        margin: 0 0 10px;
+    }
+
+    /* App-icon grid */
+    .mbs-grid {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 10px;
+    }
+
+    .mbs-grid-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 5px;
+        text-decoration: none;
+        color: rgba(240, 255, 245, 0.88);
+        font-size: 0.65rem;
+        font-weight: 600;
+        text-align: center;
+        transition: transform 0.22s, color 0.22s;
+    }
+
+    .mbs-grid-item:hover {
+        transform: translateY(-3px);
+        color: #fff;
+    }
+
+    .mbs-grid-icon {
+        width: 48px;
+        height: 48px;
+        border-radius: 14px;
+        background: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.1rem;
+        color: #fff;
+        transition: background 0.22s, transform 0.22s;
+    }
+
+    .mbs-grid-item:hover .mbs-grid-icon {
+        background: rgba(255, 255, 255, 0.2);
+        transform: scale(1.08);
+    }
+
+    /* Contact chips */
+    .mbs-contact-chips {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .mbs-chip {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 10px 12px;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 12px;
+        text-decoration: none;
+        transition: background 0.2s;
+        overflow: hidden;
+    }
+
+    .mbs-chip i {
+        color: #fff;
+        font-size: 0.9rem;
+        flex-shrink: 0;
+    }
+
+    .mbs-chip span {
+        font-size: 0.8rem;
+        color: rgba(240, 255, 245, 0.88);
+        text-transform: none;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .mbs-chip:hover {
+        background: rgba(255, 255, 255, 0.1);
+    }
+
+    /* Socials */
+    .mbs-socials {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+    }
+
+    .mbs-social {
+        width: 40px;
+        height: 40px;
+        border-radius: 11px;
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1rem;
+        text-decoration: none;
+        transition: background 0.22s, color 0.22s, transform 0.22s;
+    }
+
+    .mbs-social:hover {
+        background: rgba(255, 255, 255, 0.18);
+        color: #fff;
+        border-color: rgba(255, 255, 255, 0.3);
+        transform: translateY(-2px);
+    }
+
+    /* Sheet Footer */
+    .mbs-footer {
+        padding: 12px 18px 20px;
+        border-top: 1px solid rgba(255, 255, 255, 0.07);
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 6px;
+    }
+
+    .mbs-footer span {
+        font-size: 0.68rem;
+        color: rgba(255, 255, 255, 0.3);
+    }
+
+    .mbs-footer a {
+        font-size: 0.68rem;
+        color: rgba(255, 255, 255, 0.4);
+        text-decoration: none;
+        margin-left: 10px;
+    }
+
+    .mbs-footer a:hover {
+        color: #fff;
+    }
+
+    /* Push page content up so it's not hidden behind bottom nav */
+    @media (max-width: 991.98px) {
+        body {
+            padding-bottom: 64px;
+        }
+    }
+
+    /* Hide on desktop */
+    @media (min-width: 992px) {
+
+        .mobile-bottom-nav,
+        .mbs-overlay,
+        .mobile-bottom-sheet {
+            display: none !important;
+        }
+    }
+</style>
+
+
+<!-- ═══════════════════════════════════════════
+     SHARED SCRIPTS
+     ═══════════════════════════════════════════ -->
+<script>
+    (function () {
+        var sheet = document.getElementById('mobileBottomSheet');
+        var overlay = document.getElementById('mbsOverlay');
+        var moreBtn = document.getElementById('mbnMoreBtn');
+        var closeBtn = document.getElementById('mbsCloseBtn');
+
+        function openSheet() {
+            sheet.classList.add('active');
+            overlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        function closeSheet() {
+            sheet.classList.remove('active');
+            overlay.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        if (moreBtn) moreBtn.addEventListener('click', openSheet);
+        if (closeBtn) closeBtn.addEventListener('click', closeSheet);
+        if (overlay) overlay.addEventListener('click', closeSheet);
+        document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeSheet(); });
+
+        // Close sheet when any link inside is clicked
+        if (sheet) {
+            sheet.querySelectorAll('a, button:not(#mbsCloseBtn)').forEach(function (el) {
+                el.addEventListener('click', closeSheet);
+            });
+        }
+
+        // Highlight active bottom nav item based on URL
+        var path = window.location.pathname;
+        document.querySelectorAll('.mbn-item[href]').forEach(function (a) {
+            if (a.getAttribute('href') === path || (path !== '/' && a.getAttribute('href') !== '/' && path.startsWith(a.getAttribute('href')))) {
+                a.classList.add('active');
+            }
+        });
+    })();
+</script>
+
+<!-- Floating Action Buttons (desktop only) -->
+<div class="floating-actions d-none d-lg-flex flex-column gap-3 position-fixed"
+    style="bottom: 30px; left: 30px; z-index: 1000;">
+    <a href="https://wa.me/+918806668458"
+        class="btn btn-success rounded-circle shadow-lg d-flex align-items-center justify-content-center"
+        style="width: 60px; height: 60px; transition: transform 0.3s;" onmouseover="this.style.transform='scale(1.1)'"
+        onmouseout="this.style.transform='scale(1)'" target="_blank">
+        <i class="bi bi-whatsapp fs-3"></i>
+    </a>
+    <a href="tel:+918322782011"
+        class="btn btn-primary rounded-circle shadow-lg d-flex align-items-center justify-content-center"
+        style="width: 60px; height: 60px; transition: transform 0.3s;" onmouseover="this.style.transform='scale(1.1)'"
+        onmouseout="this.style.transform='scale(1)'">
+        <i class="bi bi-telephone-fill fs-3"></i>
+    </a>
+</div>
+
+<!-- Scroll to Top Button -->
+<button id="scrollToTopBtn" class="shadow-lg d-flex align-items-center justify-content-center" title="Go to top">
+    <i class="bi bi-chevron-up fs-4"></i>
+</button>
+
+<script>
+    // Scroll to Top Logic
+    document.addEventListener('DOMContentLoaded', () => {
+        const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+        if (scrollToTopBtn) {
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 300) {
+                    scrollToTopBtn.classList.add('visible-btn');
+                } else {
+                    scrollToTopBtn.classList.remove('visible-btn');
+                }
+            });
+
+            scrollToTopBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                document.body.scrollTo({ top: 0, behavior: 'smooth' });
+                document.documentElement.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        }
+    });
+</script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        if (window.matchMedia("(pointer: coarse)").matches) return;
+        const dot = document.querySelector('.custom-cursor-dot');
+        window.addEventListener('mousemove', (e) => {
+            // Using CSS variables on transform prevents CPU layout thrashing
+            dot.style.setProperty('--x', (e.clientX - 2) + 'px');
+            dot.style.setProperty('--y', (e.clientY - 2) + 'px');
+        });
+        window.addEventListener('mousedown', () => dot.classList.add('clicking'));
+        window.addEventListener('mouseup', () => dot.classList.remove('clicking'));
+    });
+</script>

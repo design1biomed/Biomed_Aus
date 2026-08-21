@@ -1,0 +1,166 @@
+{% extends "main/base.html" %}
+{% load static %}
+
+{% block title %}Raw Herbal Powders - BioMed Ingredients{% endblock %}
+
+{% block content %}
+
+<!-- Hero Section -->
+<section class="hero-wrapper" style="height: 40vh; min-height: 400px; display: flex; align-items: center;">
+    <img src="/media/hero/hero.jpg" class="hero-bg-image" alt="Raw Herbal Powders"
+        onerror="this.src='{% static 'images/hero_bg.webp' %}'">
+    <div class="hero-overlay"></div>
+    <div class="hero-content w-100 d-flex align-items-center" style="padding-top: 60px; position: relative;">
+        <div class="container position-relative z-1 text-center text-md-start">
+            <div class="hero-badge justify-content-center justify-content-md-start mb-3 mx-auto mx-md-0"
+                style="padding: 0.4rem 1rem; display: inline-flex; width: fit-content;">
+                <span class="hero-badge-dot"></span>
+                <span class="text-white fw-bold text-uppercase letter-spacing-2" style="font-size: 0.75rem;">NATURAL INGREDIENTS</span>
+            </div>
+            <h1 class="hero-title mb-3" style="font-size: clamp(2rem, 4vw, 3.5rem);">
+                Raw Herbal Powders
+            </h1>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb justify-content-center justify-content-md-start mb-0">
+                    <li class="breadcrumb-item"><a href="{% url 'index' %}" class="text-white-50 text-decoration-none">Home</a></li>
+                    <li class="breadcrumb-item active text-white" aria-current="page">Raw Herbal Powders</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+</section>
+
+<!-- Main Content Area -->
+<section class="pb-5 bg-light position-relative">
+    <div class="container">
+        
+        <!-- Search and Filters -->
+        <div class="mb-3 mb-md-4">
+            <div class="d-flex flex-column flex-md-row gap-3 mb-3">
+                <div class="position-relative flex-grow-1">
+                    <i class="ph ph-magnifying-glass position-absolute top-50 start-0 translate-middle-y ms-3 text-muted fs-5"></i>
+                    <input type="text" id="herbSearch" class="form-control form-control-lg border-0 shadow-sm ps-5 rounded-pill w-100" placeholder="Search for a raw herbal powder..." style="background-color: white;">
+                </div>
+            </div>
+
+            <!-- Quick Filters -->
+            <div class="d-flex flex-wrap gap-2 justify-content-center justify-content-md-start" id="filterPills">
+                <button class="btn btn-sm btn-success rounded-pill px-3 filter-btn active" data-filter="all">All</button>
+                {% regroup products by get_sub_category_display as categorized_products %}
+                {% for category in categorized_products %}
+                <button class="btn btn-sm btn-outline-success rounded-pill px-3 filter-btn" data-filter="{{ category.grouper|default:'other'|slugify }}">{{ category.grouper|default:"Other" }}</button>
+                {% endfor %}
+            </div>
+        </div>
+
+        <div class="card border-0 shadow-sm rounded-4 overflow-hidden bg-white mb-5" data-aos="fade-up">
+            <div class="table-responsive">
+                <table class="table table-hover align-middle mb-0" id="herbTable">
+                    <thead style="background-color: #eaf3e6;">
+                        <tr>
+                            <th scope="col" class="py-3 py-md-4 ps-4 border-0 text-success fw-bold" style="width: 40%;">Product Name</th>
+                            <th scope="col" class="py-3 py-md-4 ps-4 border-0 text-success fw-bold" style="width: 40%;">Category</th>
+                            <th scope="col" class="py-3 py-md-4 pe-4 border-0 text-end text-success fw-bold" style="width: 20%;">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody class="border-top-0">
+                        {% for category in categorized_products %}
+                            {% for item in category.list %}
+                            <tr class="border-bottom herb-row" data-category="{{ category.grouper|default:'other'|slugify }}" style="border-color: #f8f9fa !important; transition: all 0.2s;">
+                                <td class="py-3 ps-4 fw-bold text-dark d-flex align-items-center">
+                                    <span style="display:inline-block; width:12px; height:12px; border-radius:50%; background-color:#81c784; margin-right:8px; border:1px solid rgba(0,0,0,0.1);"></span>
+                                    {{ item.name }}
+                                </td>
+                                <td class="py-3 ps-4 text-muted">{{ category.grouper|default:"Other" }}</td>
+                                <td class="py-3 pe-4 text-end">
+                                    <a href="{% url 'submit_enquiry' %}?product={{ item.name|urlencode }}" class="btn btn-sm btn-outline-success rounded-pill px-3">Enquire</a>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        {% empty %}
+                        <tr>
+                            <td colspan="3" class="py-4 py-md-5 text-center text-muted">No raw herbal powders found.</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+{% block extra_scripts %}
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const searchInput = document.getElementById("herbSearch");
+        const filterBtns = document.querySelectorAll(".filter-btn");
+        const table = document.getElementById("herbTable");
+        const tbody = table ? table.getElementsByTagName("tbody")[0] : null;
+        const allRows = tbody ? Array.from(tbody.getElementsByTagName("tr")) : [];
+
+        let activeFilter = "all";
+        let searchTerm = "";
+
+        function updateTable() {
+            allRows.forEach(row => {
+                if (row.children.length <= 1) return; // empty state row
+
+                const firstCell = row.getElementsByTagName("td")[0];
+                if (!firstCell) return;
+                const productName = firstCell.textContent.toLowerCase();
+                const rowCategory = row.getAttribute("data-category");
+
+                // Text Search
+                const matchesSearch = productName.includes(searchTerm);
+
+                // Category Filter
+                const matchesFilter = (activeFilter === "all" || activeFilter === rowCategory);
+
+                if (matchesSearch && matchesFilter) {
+                    row.style.display = "";
+                } else {
+                    row.style.display = "none";
+                }
+            });
+        }
+
+        if (searchInput) {
+            searchInput.addEventListener("keyup", function () {
+                searchTerm = searchInput.value.toLowerCase();
+                updateTable();
+            });
+        }
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener("click", function () {
+                filterBtns.forEach(b => {
+                    b.classList.remove("btn-success");
+                    b.classList.add("btn-outline-success");
+                });
+                this.classList.remove("btn-outline-success");
+                this.classList.add("btn-success");
+
+                activeFilter = this.getAttribute("data-filter");
+                updateTable();
+            });
+        });
+    });
+</script>
+{% endblock %}
+
+<style>
+    .product-pill {
+        border-color: rgba(0,0,0,0.05) !important;
+        cursor: default;
+    }
+    .product-pill:hover {
+        border-color: rgba(46, 139, 87, 0.4) !important;
+        box-shadow: 0 8px 25px rgba(46, 139, 87, 0.15) !important;
+        transform: translateY(-3px);
+    }
+</style>
+
+{% endblock %}
+
+

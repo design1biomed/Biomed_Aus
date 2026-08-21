@@ -1,0 +1,145 @@
+{% extends "main/dashboard/dashboard_base.html" %}
+
+{% block header_title %}Edit Infrastructure & Services Page{% endblock %}
+
+{% block dashboard_content %}
+<div class="card border-0 shadow-sm rounded-4 mb-4">
+    <div class="card-body p-4">
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            
+            {% if form.errors %}
+            <div class="alert alert-danger rounded-3">
+                <h6 class="fw-bold mb-2">Please correct the following errors:</h6>
+                {{ form.errors }}
+            </div>
+            {% endif %}
+
+            <h5 class="fw-bold mb-3 border-bottom pb-2">Hero Section</h5>
+            <div class="mb-4">
+                <label class="form-label text-muted small fw-bold text-uppercase">Hero Heading</label>
+                {{ form.main_heading }}
+            </div>
+
+            <h5 class="fw-bold mb-3 border-bottom pb-2 mt-4">Farming Section (Vertical Integration)</h5>
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label class="form-label text-muted small fw-bold text-uppercase">Badge Text</label>
+                    {{ form.farming_badge }}
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label class="form-label text-muted small fw-bold text-uppercase">Heading</label>
+                    {{ form.farming_heading }}
+                </div>
+            </div>
+            <div class="mb-3">
+                <label class="form-label text-muted small fw-bold text-uppercase">Paragraph 1</label>
+                {{ form.farming_text_1 }}
+            </div>
+            <div class="mb-3">
+                <label class="form-label text-muted small fw-bold text-uppercase">Paragraph 2 (Highlighted)</label>
+                {{ form.farming_text_2 }}
+            </div>
+            <div class="mb-3">
+                <label class="form-label text-muted small fw-bold text-uppercase">Paragraph 3</label>
+                {{ form.farming_text_3 }}
+            </div>
+            <div class="mb-4">
+                <label class="form-label text-muted small fw-bold text-uppercase">Farming Image</label>
+                {{ form.farming_img_upload }}
+            </div>
+
+            <h5 class="fw-bold mb-3 border-bottom pb-2 mt-4">Services Section (Our Services)</h5>
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label class="form-label text-muted small fw-bold text-uppercase">Badge Text</label>
+                    {{ form.services_badge }}
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label class="form-label text-muted small fw-bold text-uppercase">Heading</label>
+                    {{ form.services_heading }}
+                </div>
+            </div>
+            <div class="mb-3">
+                <label class="form-label text-muted small fw-bold text-uppercase">Paragraph 1</label>
+                {{ form.services_text_1 }}
+            </div>
+            <div class="mb-3">
+                <label class="form-label text-muted small fw-bold text-uppercase">Paragraph 2 (Highlighted)</label>
+                {{ form.services_text_2 }}
+            </div>
+            <div class="mb-3">
+                <label class="form-label text-muted small fw-bold text-uppercase">Paragraph 3</label>
+                {{ form.services_text_3 }}
+            </div>
+            <div class="mb-4">
+                <label class="form-label text-muted small fw-bold text-uppercase">Services Image</label>
+                {{ form.services_img_upload }}
+            </div>
+
+            <h5 class="fw-bold mb-3 border-bottom pb-2 mt-4">Quality Section (Quality Assurance)</h5>
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label class="form-label text-muted small fw-bold text-uppercase">Badge Text</label>
+                    {{ form.quality_badge }}
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label class="form-label text-muted small fw-bold text-uppercase">Heading</label>
+                    {{ form.quality_heading }}
+                </div>
+            </div>
+            <div class="mb-3">
+                <label class="form-label text-muted small fw-bold text-uppercase">Paragraph 1</label>
+                {{ form.quality_text_1 }}
+            </div>
+            <div class="mb-3">
+                <label class="form-label text-muted small fw-bold text-uppercase">Paragraph 2</label>
+                {{ form.quality_text_2 }}
+            </div>
+            <div class="mb-3">
+                <label class="form-label text-muted small fw-bold text-uppercase">Paragraph 3</label>
+                {{ form.quality_text_3 }}
+            </div>
+            <div class="mb-3">
+                <label class="form-label text-muted small fw-bold text-uppercase">Highlighted Text Block</label>
+                {{ form.quality_text_highlight }}
+            </div>
+            <div class="mb-3">
+                <label class="form-label text-muted small fw-bold text-uppercase">Paragraph 4</label>
+                {{ form.quality_text_4 }}
+            </div>
+            <div class="mb-3">
+                <label class="form-label text-muted small fw-bold text-uppercase">Paragraph 5</label>
+                {{ form.quality_text_5 }}
+            </div>
+            <div class="mb-4">
+                <label class="form-label text-muted small fw-bold text-uppercase">Quality Image</label>
+                {{ form.quality_img_upload }}
+            </div>
+
+            <h5 class="fw-bold mb-3 border-bottom pb-2 mt-4">Standards Section (International Standards)</h5>
+            <div class="mb-3">
+                <label class="form-label text-muted small fw-bold text-uppercase">Heading</label>
+                {{ form.standards_heading }}
+            </div>
+            <div class="mb-3">
+                <label class="form-label text-muted small fw-bold text-uppercase">Paragraph 1</label>
+                {{ form.standards_text_1 }}
+            </div>
+            <div class="mb-3">
+                <label class="form-label text-muted small fw-bold text-uppercase">Paragraph 2</label>
+                {{ form.standards_text_2 }}
+            </div>
+            <div class="mb-4">
+                <label class="form-label text-muted small fw-bold text-uppercase">Standards Image</label>
+                {{ form.standards_img_upload }}
+            </div>
+
+            <div class="d-flex gap-2 mt-4">
+                <button type="submit" class="btn btn-success px-4 py-2 fw-semibold rounded-pill">Save Changes</button>
+                <a href="{% url 'custom_dashboard' %}" class="btn btn-light px-4 py-2 fw-semibold rounded-pill">Cancel</a>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

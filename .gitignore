@@ -7,3 +7,8 @@ overall_*.jpg
 frame_*.jpg
 scratch_video.mp4
 notify_video.mp4
+
+New folder.zip
+*.zip
+__pycache__/
+*.pyc

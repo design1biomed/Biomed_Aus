@@ -52,11 +52,17 @@ class AboutPageForm(forms.ModelForm):
             'box_3_link':           forms.Select(choices=PAGE_CHOICES, attrs={'class': 'form-select'}),
             'product_lines_intro':  forms.TextInput(attrs={'class': 'form-control'}),
             'product_line_1':       forms.TextInput(attrs={'class': 'form-control'}),
+            'product_line_1_url':   forms.Select(choices=PAGE_CHOICES, attrs={'class': 'form-select'}),
             'product_line_2':       forms.TextInput(attrs={'class': 'form-control'}),
+            'product_line_2_url':   forms.Select(choices=PAGE_CHOICES, attrs={'class': 'form-select'}),
             'product_line_3':       forms.TextInput(attrs={'class': 'form-control'}),
+            'product_line_3_url':   forms.Select(choices=PAGE_CHOICES, attrs={'class': 'form-select'}),
             'product_line_4':       forms.TextInput(attrs={'class': 'form-control'}),
+            'product_line_4_url':   forms.Select(choices=PAGE_CHOICES, attrs={'class': 'form-select'}),
             'product_line_5':       forms.TextInput(attrs={'class': 'form-control'}),
+            'product_line_5_url':   forms.Select(choices=PAGE_CHOICES, attrs={'class': 'form-select'}),
             'product_line_6':       forms.TextInput(attrs={'class': 'form-control'}),
+            'product_line_6_url':   forms.Select(choices=PAGE_CHOICES, attrs={'class': 'form-select'}),
             'belief_quote_prefix':  forms.TextInput(attrs={'class': 'form-control'}),
             'belief_quote':         forms.TextInput(attrs={'class': 'form-control'}),
             # Story Section
@@ -772,5 +778,6 @@ class EmailConfigurationForm(forms.ModelForm):
             'career_email': forms.TextInput(attrs={'class': 'form-control'}),
             'subscription_email': forms.TextInput(attrs={'class': 'form-control'}),
         }
+
 
 

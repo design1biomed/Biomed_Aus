@@ -268,14 +268,20 @@ class AboutPageContent(models.Model):
     box_3_subtitle = models.CharField(max_length=255, default="CORPORATE SOCIAL RESPONSIBILITIES")
     box_3_link = models.CharField(max_length=255, blank=True, null=True, help_text="Link for Box 3")
 
-    # Product Lines Section
+        # Product Lines Section
     product_lines_intro = models.CharField(max_length=255, default="We have an array of organically and naturally developed products. Our product lines are:")
     product_line_1 = models.CharField(max_length=100, default="Herbal & Spice Extract")
+    product_line_1_url = models.CharField(max_length=255, default="/herbal-extracts/", blank=True)
     product_line_2 = models.CharField(max_length=100, default="Plant Extract")
+    product_line_2_url = models.CharField(max_length=255, default="/nutritional-fine-chemicals/", blank=True)
     product_line_3 = models.CharField(max_length=100, default="Oleoresin")
+    product_line_3_url = models.CharField(max_length=255, default="/spices-and-oleoresins/", blank=True)
     product_line_4 = models.CharField(max_length=100, default="Herbal Powder")
+    product_line_4_url = models.CharField(max_length=255, default="/raw-herbal-powders/", blank=True)
     product_line_5 = models.CharField(max_length=100, default="Food Color")
+    product_line_5_url = models.CharField(max_length=255, default="/natural-food-colors/", blank=True)
     product_line_6 = models.CharField(max_length=100, default="Health Supplement")
+    product_line_6_url = models.CharField(max_length=255, default="/product-range/", blank=True)
     
     # ── Story Section (Premium About Us) ──────────────────────────
     story_eyebrow        = models.CharField(max_length=100, default="OUR STORY")
@@ -913,4 +919,5 @@ class EmailConfiguration(models.Model):
 
     def __str__(self):
         return "Global Email Configuration"
+
 
