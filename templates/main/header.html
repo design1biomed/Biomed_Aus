@@ -10,7 +10,7 @@
     <div class="container d-flex align-items-center">
 
         <!-- Left: Brand -->
-        <a class="navbar-brand d-flex align-items-center gap-2 me-lg-auto ms-lg-3" href="/">
+        <a class="navbar-brand d-flex align-items-center gap-2 me-auto ms-lg-3" href="/">
             <img src="{% static 'images/bmi_logo.webp' %}" alt="Bio Med Ingredients Logo"
                 style="height: 45px !important; width: auto !important; max-width: none !important;">
             <span class="fs-5 fw-bold nav-brand-text d-none d-sm-inline"
@@ -121,13 +121,13 @@
             </div>
         </a>
         <button class="sb-close" id="sidebarCloseBtn" aria-label="Close menu">
-            <i class="bi bi-x-lg"></i>
+            <i class="ph ph-x"></i>
         </button>
     </div>
 
     <!-- ── Decorative divider ── -->
     <div class="sb-divider">
-        <span class="sb-pill-badge"><i class="bi bi-leaf-fill"></i> Natural · Pure · Trusted</span>
+        <span class="sb-pill-badge"><i class="ph-fill ph-leaf"></i> Natural · Pure · Trusted</span>
     </div>
 
     <!-- ── Navigation ── -->
@@ -137,73 +137,73 @@
 
             <li class="sb-item" data-delay="1">
                 <a href="#" class="sb-link" data-path="/">
-                    <div class="sb-icon-wrap"><i class="bi bi-house-fill"></i></div>
+                    <div class="sb-icon-wrap"><i class="ph-fill ph-house"></i></div>
                     <span>Home</span>
-                    <i class="bi bi-chevron-right sb-arr"></i>
+                    <i class="ph-bold ph-caret-right sb-arr"></i>
                 </a>
             </li>
 
             <!-- About Accordion -->
             <li class="sb-item sb-accordion" data-delay="2">
-                <button class="sb-link sb-acc-btn" data-target="acc-about">
-                    <div class="sb-icon-wrap"><i class="bi bi-building-fill"></i></div>
+                <button class="sb-link sb-acc-btn" data-acc-target="acc-about">
+                    <div class="sb-icon-wrap"><i class="ph-fill ph-buildings"></i></div>
                     <span>About</span>
-                    <i class="bi bi-chevron-down sb-chevron"></i>
+                    <i class="ph-bold ph-caret-down sb-chevron"></i>
                 </button>
                 <ul class="sb-submenu" id="acc-about">
-                    <li><a href="{% url 'about' %}"><i class="bi bi-dot"></i>About Company</a></li>
-                    <li><a href="#"><i class="bi bi-dot"></i>Management Team</a></li>
-                    <li><a href="{% url 'infrastructure' %}"><i class="bi bi-dot"></i>Infrastructure &amp;
+                    <li><a href="{% url 'about' %}"><i class="ph-bold ph-dot"></i>About Company</a></li>
+                    <li><a href="#"><i class="ph-bold ph-dot"></i>Management Team</a></li>
+                    <li><a href="{% url 'infrastructure' %}"><i class="ph-bold ph-dot"></i>Infrastructure &amp;
                             Services</a></li>
-                    <li><a href="{% url 'csr' %}"><i class="bi bi-dot"></i>CSR</a></li>
-                    <li><a href="{% url 'career' %}"><i class="bi bi-dot"></i>Careers</a></li>
-                    <li><a href="{% url 'news_events' %}"><i class="bi bi-dot"></i>News &amp; Events</a></li>
-                    <li><a href="{% url 'accreditations' %}"><i class="bi bi-dot"></i>Our Accreditations</a></li>
+                    <li><a href="{% url 'csr' %}"><i class="ph-bold ph-dot"></i>CSR</a></li>
+                    <li><a href="{% url 'career' %}"><i class="ph-bold ph-dot"></i>Careers</a></li>
+                    <li><a href="{% url 'news_events' %}"><i class="ph-bold ph-dot"></i>News &amp; Events</a></li>
+                    <li><a href="{% url 'accreditations' %}"><i class="ph-bold ph-dot"></i>Our Accreditations</a></li>
                 </ul>
             </li>
 
             <!-- Products Accordion -->
             <li class="sb-item sb-accordion" data-delay="3">
-                <button class="sb-link sb-acc-btn" data-target="acc-products">
-                    <div class="sb-icon-wrap"><i class="bi bi-box-seam-fill"></i></div>
+                <button class="sb-link sb-acc-btn" data-acc-target="acc-products">
+                    <div class="sb-icon-wrap"><i class="ph-fill ph-package"></i></div>
                     <span>Products</span>
-                    <i class="bi bi-chevron-down sb-chevron"></i>
+                    <i class="ph-bold ph-caret-down sb-chevron"></i>
                 </button>
                 <ul class="sb-submenu" id="acc-products">
-                    <li><a href="{% url 'product_range' %}"><i class="bi bi-dot"></i>Product Range</a></li>
-                    <li><a href="{% url 'herbal_extracts' %}"><i class="bi bi-dot"></i>Herbal Extracts</a></li>
-                    <li><a href="{% url 'natural_food_colors' %}"><i class="bi bi-dot"></i>Natural Food Colors</a></li>
-                    <li><a href="{% url 'nutritional_fine_chemicals' %}"><i class="bi bi-dot"></i>Nutritional Fine Chemicals</a></li>
-                    <li><a href="{% url 'spices_and_oleoresins' %}"><i class="bi bi-dot"></i>Spices & Oleoresins</a></li>
-                    <li><a href="{% url 'raw_herbal_powders' %}"><i class="bi bi-dot"></i>Raw Herbal Powders</a></li>
-                    <li><a href="{% url 'organic_product_list' %}"><i class="bi bi-dot"></i>Organic Products</a></li>
-                    <li><a href="{% url 'natural_food_colors' %}?tab=flavours"><i class="bi bi-dot"></i>Natural Flavours</a></li>
-                    <li><a href="{% url 'product_brochures' %}"><i class="bi bi-dot"></i>Product Brochures</a></li>
-                    <li><a href="{% url 'product_documents' %}"><i class="bi bi-dot"></i>Product Documents</a></li>
+                    <li><a href="{% url 'product_range' %}"><i class="ph-bold ph-dot"></i>Product Range</a></li>
+                    <li><a href="{% url 'herbal_extracts' %}"><i class="ph-bold ph-dot"></i>Herbal Extracts</a></li>
+                    <li><a href="{% url 'natural_food_colors' %}"><i class="ph-bold ph-dot"></i>Natural Food Colors</a></li>
+                    <li><a href="{% url 'nutritional_fine_chemicals' %}"><i class="ph-bold ph-dot"></i>Nutritional Fine Chemicals</a></li>
+                    <li><a href="{% url 'spices_and_oleoresins' %}"><i class="ph-bold ph-dot"></i>Spices & Oleoresins</a></li>
+                    <li><a href="{% url 'raw_herbal_powders' %}"><i class="ph-bold ph-dot"></i>Raw Herbal Powders</a></li>
+                    <li><a href="{% url 'organic_product_list' %}"><i class="ph-bold ph-dot"></i>Organic Products</a></li>
+                    <li><a href="{% url 'natural_food_colors' %}?tab=flavours"><i class="ph-bold ph-dot"></i>Natural Flavours</a></li>
+                    <li><a href="{% url 'product_brochures' %}"><i class="ph-bold ph-dot"></i>Product Brochures</a></li>
+                    <li><a href="{% url 'product_documents' %}"><i class="ph-bold ph-dot"></i>Product Documents</a></li>
                 </ul>
             </li>
 
             <li class="sb-item" data-delay="4">
                 <a href="{% url 'facility' %}" class="sb-link">
-                    <div class="sb-icon-wrap"><i class="bi bi-geo-alt-fill"></i></div>
+                    <div class="sb-icon-wrap"><i class="ph-fill ph-map-pin"></i></div>
                     <span>Facility</span>
-                    <i class="bi bi-chevron-right sb-arr"></i>
+                    <i class="ph-bold ph-caret-right sb-arr"></i>
                 </a>
             </li>
 
             <!-- <li class="sb-item" data-delay="5">
                 <a href="{% url 'brands_list' %}" class="sb-link">
-                    <div class="sb-icon-wrap"><i class="bi bi-patch-check-fill"></i></div>
+                    <div class="sb-icon-wrap"><i class="ph-fill ph-seal-check"></i></div>
                     <span>Brands</span>
-                    <i class="bi bi-chevron-right sb-arr"></i>
+                    <i class="ph-bold ph-caret-right sb-arr"></i>
                 </a>
             </li> -->
 
             <li class="sb-item" data-delay="6">
                 <a href="{% url 'research' %}" class="sb-link">
-                    <div class="sb-icon-wrap"><i class="bi bi-clipboard2-data-fill"></i></div>
+                    <div class="sb-icon-wrap"><i class="ph-fill ph-clipboard-text"></i></div>
                     <span>Research</span>
-                    <i class="bi bi-chevron-right sb-arr"></i>
+                    <i class="ph-bold ph-caret-right sb-arr"></i>
                 </a>
             </li>
 
@@ -213,27 +213,27 @@
     <!-- ── Footer ── -->
     <div class="sb-footer">
         <a href="{% url 'contact' %}" class="sb-cta-btn">
-            <i class="bi bi-telephone-fill"></i> Contact Us
+            <i class="ph-fill ph-phone"></i> Contact Us
         </a>
 
         <div class="sb-contact-row">
             <a href="mailto:info@biomedingredients.com" class="sb-contact-chip">
-                <i class="bi bi-envelope-fill"></i>
+                <i class="ph-fill ph-envelope"></i>
                 <span>info@biomedingredients.com</span>
             </a>
             <a href="tel:+918806668458" class="sb-contact-chip">
-                <i class="bi bi-telephone-fill"></i>
+                <i class="ph-fill ph-phone"></i>
                 <span>+91 88066 68458</span>
             </a>
         </div>
 
         <div class="sb-socials">
-            <a href="#" class="sb-social" title="LinkedIn"><i class="bi bi-linkedin"></i></a>
-            <a href="#" class="sb-social" title="Facebook"><i class="bi bi-facebook"></i></a>
-            <a href="#" class="sb-social" title="Instagram"><i class="bi bi-instagram"></i></a>
-            <a href="#" class="sb-social" title="YouTube"><i class="bi bi-youtube"></i></a>
+            <a href="#" class="sb-social" title="LinkedIn"><i class="ph-fill ph-linkedin-logo"></i></a>
+            <a href="#" class="sb-social" title="Facebook"><i class="ph-fill ph-facebook-logo"></i></a>
+            <a href="#" class="sb-social" title="Instagram"><i class="ph-fill ph-instagram-logo"></i></a>
+            <a href="#" class="sb-social" title="YouTube"><i class="ph-fill ph-youtube-logo"></i></a>
             <a href="https://wa.me/+918806668458" class="sb-social" title="WhatsApp" target="_blank"><i
-                    class="bi bi-whatsapp"></i></a>
+                    class="ph-fill ph-whatsapp-logo"></i></a>
         </div>
 
         <p class="sb-copy">&copy; 2026 Bio Med Ingredients. All rights reserved.</p>
@@ -402,7 +402,7 @@
 
     .sb-logo {
         height: 44px;
-        width: auto;
+        width: 44px; object-fit: contain;
         flex-shrink: 0;
     }
 
@@ -902,7 +902,7 @@
         /* ── Accordion ── */
         document.querySelectorAll('.sb-acc-btn').forEach(function (btn) {
             btn.addEventListener('click', function () {
-                const targetId = this.getAttribute('data-target');
+                const targetId = this.getAttribute('data-acc-target');
                 const submenu = document.getElementById(targetId);
                 const isOpen = submenu.classList.contains('open');
 

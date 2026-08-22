@@ -60,12 +60,14 @@
             <!-- LEFT: Editorial Text -->
             <div class="col-lg-6 order-2 order-lg-1" data-aos="fade-right" data-aos-duration="1000">
 
-                <div class="about-kicker">
-                    <div class="about-kicker-line"></div>
-                    <span>{{ content.about_subtitle }}</span>
-                </div>
+                <div class="d-none d-lg-block">
+                    <div class="about-kicker">
+                        <div class="about-kicker-line"></div>
+                        <span>{{ content.about_subtitle }}</span>
+                    </div>
 
-                <h2 class="display-editorial mb-4">{{ content.about_title }}</h2>
+                    <h2 class="display-editorial mb-4">{{ content.about_title }}</h2>
+                </div>
 
                 <p
                     style="font-size:1.1rem; color:var(--text-muted); font-weight:300; line-height:1.85; margin-bottom:2rem;">
@@ -102,6 +104,15 @@
 
             <!-- RIGHT: Blob Image Collage -->
             <div class="col-lg-6 order-1 order-lg-2" data-aos="fade-left" data-aos-duration="1100" data-aos-delay="100">
+                
+                <div class="d-block d-lg-none mb-4">
+                    <div class="about-kicker">
+                        <div class="about-kicker-line"></div>
+                        <span>{{ content.about_subtitle }}</span>
+                    </div>
+                    <h2 class="display-editorial">{{ content.about_title }}</h2>
+                </div>
+
                 <div class="about-blob-wrap position-relative">
 
                     <!-- Main Blob Image -->
@@ -160,8 +171,7 @@
                 <h2 class="display-editorial">{{ content.extracts_title }}</h2>
             </div>
             <div class="col-lg-4 ms-auto text-lg-end">
-                <p style="color:var(--text-muted); font-size:1rem; line-height:1.7; white-space: nowrap;">
-                    {{ content.extracts_subtitle }}</p>
+                <p style="color:var(--text-muted); font-size:1rem; line-height:1.7; white-space: nowrap;">{{ content.extracts_subtitle }}</p>
             </div>
         </div>
     </div> <!-- Close container-fluid early for full-bleed slider -->
@@ -170,7 +180,7 @@
         <div class="swiper-wrapper">
             {% for extract in extracts %}
             <div class="swiper-slide product-marquee-item">
-                <div class="category-card h-100">
+                <div class="category-card">
                     <img src="{% if extract.image %}{{ extract.image.url }}{% else %}{% static 'images/hero_bg.webp' %}{% endif %}"
                         alt="{{ extract.title }}" class="category-img"
                         onerror="this.src='{% static 'images/hero_bg.webp' %}'">
@@ -391,8 +401,7 @@
             </div>
             <div class="col-lg-5 ms-auto" data-aos="fade-left">
                 <p style="color:rgba(255,255,255,0.65);font-size:1.05rem;line-height:1.8;font-weight:300;">
-                    {{ content.home_map_subheading.text_content|default:"Operating from our headquarters in India, with
-                    strategic offices in Australia, Germany, and Jordan to serve you globally."|safe }}
+                    {{ content.home_map_subheading.text_content|default:"Operating from our headquarters in India, with strategic offices in Australia, Germany, and Jordan to serve you globally."|safe }}
                 </p>
             </div>
         </div>
@@ -400,7 +409,7 @@
         <div class="overflow-hidden w-100 mx-auto" style="max-width:1600px;" data-aos="zoom-in"
             data-aos-duration="1400">
             <div class="map-wrapper position-relative mx-auto"
-                style="width: 104%; margin-left: -2%; margin-bottom: -10%; margin-top: -10%;">
+                style="width: 115%; left: 50%; transform: translateX(-50%); margin-top: -5%;">
                 <img src="{% static 'images/bg/world-map.svg' %}" alt="World Map" class="img-fluid w-100"
                     style="opacity:0.12; filter:invert(1) sepia(1) saturate(3) hue-rotate(10deg) brightness(1.6);">
 

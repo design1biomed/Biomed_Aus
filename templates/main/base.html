@@ -25,7 +25,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
     <!-- Custom Styles -->
-    <link rel="stylesheet" href="{% static 'css/styles.css' %}?v=1.6">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}?v=3.2">
 </head>
 
 <body>
@@ -274,23 +274,35 @@
         }
         // -- Swiper Init --
         const extractSwiper = new Swiper('.extract-swiper', {
-            slidesPerView: 'auto',
+            slidesPerView: 1,
             spaceBetween: 24,
             loop: true,
             grabCursor: true,
+            speed: 600,
             autoplay: {
-                delay: 3000,
+                delay: 2500,
                 disableOnInteraction: false,
-            pauseOnMouseEnter: true,
             },
             pagination: {
                 el: '.swiper-pagination',
                 clickable: true,
             },
             breakpoints: {
-                320: { spaceBetween: 16 },
-                768: { spaceBetween: 24 }
+                320: { slidesPerView: 1.5, spaceBetween: 16, centeredSlides: true },
+                768: { slidesPerView: 2.2, spaceBetween: 24, centeredSlides: false },
+                1024: { slidesPerView: 2.8, spaceBetween: 24, centeredSlides: false },
+                1400: { slidesPerView: 3.2, spaceBetween: 24, centeredSlides: false }
             }
+        });
+
+        // Pause Swiper ONLY when hovering actual cards, not the container padding
+        document.querySelectorAll('.category-card').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                extractSwiper.autoplay.stop();
+            });
+            card.addEventListener('mouseleave', () => {
+                extractSwiper.autoplay.start();
+            });
         });
 
         // -- Vanilla Tilt Init --
