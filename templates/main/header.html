@@ -34,46 +34,46 @@
             <div class="nav-pill-wrapper bg-dark rounded-pill p-1 d-inline-flex">
                 <ul class="navbar-nav flex-row flex-wrap align-items-center mb-0 px-2 py-1 gap-1 gap-md-2">
                     <li class="nav-item">
-                        <a class="nav-link nav-pill-link active bg-white text-dark rounded-pill px-3 py-1 d-flex align-items-center gap-2 fw-semibold"
+                        <a class="nav-link nav-pill-link {% if request.resolver_match.url_name == 'index' or request.path == '/' %}active{% endif %} rounded-pill px-3 py-1 d-flex align-items-center gap-2 fw-semibold"
                             href="{% url 'index' %}">
                             <i class="ph ph-house"></i> Home
                         </a>
                     </li>
 
                     <li class="nav-item dropdown">
-                        <a class="nav-link nav-pill-link text-white text-opacity-75 px-3 py-1 fw-semibold dropdown-toggle"
+                        <a class="nav-link nav-pill-link {% if request.resolver_match.url_name in 'product_range herbal_extracts natural_food_colors nutritional_fine_chemicals spices_and_oleoresins raw_herbal_powders organic_product_list product_brochures product_documents' or '/product' in request.path or '/herbal-extracts' in request.path or '/natural-food-colors' in request.path or '/nutritional-fine-chemicals' in request.path or '/spices-and-oleoresins' in request.path or '/raw-herbal-powders' in request.path %}active{% endif %} rounded-pill px-3 py-1 fw-semibold dropdown-toggle"
                             href="{% url 'product_range' %}" id="navbarDropdownProducts" role="button">
                             Products
                         </a>
                         <ul class="dropdown-menu dropdown-menu-animated p-2 mt-2 border-0 shadow-lg rounded-4"
                             aria-labelledby="navbarDropdownProducts">
-                            <li><a class="dropdown-item py-2 fw-medium" href="{% url 'product_range' %}">Product
+                            <li><a class="dropdown-item py-2 fw-medium {% if request.resolver_match.url_name == 'product_range' %}active-dropdown-item{% endif %}" href="{% url 'product_range' %}">Product
                                     Range</a></li>
-                            <li><a class="dropdown-item py-2 fw-medium" href="{% url 'herbal_extracts' %}">Herbal
+                            <li><a class="dropdown-item py-2 fw-medium {% if request.resolver_match.url_name == 'herbal_extracts' %}active-dropdown-item{% endif %}" href="{% url 'herbal_extracts' %}">Herbal
                                     Extracts</a></li>
-                            <li><a class="dropdown-item py-2 fw-medium" href="{% url 'natural_food_colors' %}">Natural
+                            <li><a class="dropdown-item py-2 fw-medium {% if request.resolver_match.url_name == 'natural_food_colors' %}active-dropdown-item{% endif %}" href="{% url 'natural_food_colors' %}">Natural
                                     Food Colors & Flavours</a></li>
-                            <li><a class="dropdown-item py-2 fw-medium"
+                            <li><a class="dropdown-item py-2 fw-medium {% if request.resolver_match.url_name == 'nutritional_fine_chemicals' %}active-dropdown-item{% endif %}"
                                     href="{% url 'nutritional_fine_chemicals' %}">Nutritional Fine Chemicals</a></li>
-                            <li><a class="dropdown-item py-2 fw-medium" href="{% url 'spices_and_oleoresins' %}">Spices
+                            <li><a class="dropdown-item py-2 fw-medium {% if request.resolver_match.url_name == 'spices_and_oleoresins' %}active-dropdown-item{% endif %}" href="{% url 'spices_and_oleoresins' %}">Spices
                                     & Oleoresins</a></li>
-                            <li><a class="dropdown-item py-2 fw-medium" href="{% url 'raw_herbal_powders' %}">Raw Herbal
+                            <li><a class="dropdown-item py-2 fw-medium {% if request.resolver_match.url_name == 'raw_herbal_powders' %}active-dropdown-item{% endif %}" href="{% url 'raw_herbal_powders' %}">Raw Herbal
                                     Powders</a></li>
                             <!-- <li><a class="dropdown-item py-2 fw-medium" href="{% url 'organic_product_list' %}">Organic Products</a></li> -->
                             <!-- <li><a class="dropdown-item py-2 fw-medium" href="{% url 'natural_food_colors' %}?tab=flavours">Natural Flavours</a></li> -->
-                            <li><a class="dropdown-item py-2 fw-medium" href="{% url 'product_brochures' %}">Product
+                            <li><a class="dropdown-item py-2 fw-medium {% if request.resolver_match.url_name == 'product_brochures' %}active-dropdown-item{% endif %}" href="{% url 'product_brochures' %}">Product
                                     Brochures</a></li>
-                            <li><a class="dropdown-item py-2 fw-medium" href="{% url 'product_documents' %}">Product
+                            <li><a class="dropdown-item py-2 fw-medium {% if request.resolver_match.url_name == 'product_documents' %}active-dropdown-item{% endif %}" href="{% url 'product_documents' %}">Product
                                     Documents</a></li>
                         </ul>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link nav-pill-link text-white text-opacity-75 px-3 py-1 fw-semibold"
+                        <a class="nav-link nav-pill-link {% if request.resolver_match.url_name == 'accreditations' or request.path == '/accreditations/' %}active{% endif %} rounded-pill px-3 py-1 fw-semibold"
                             href="{% url 'accreditations' %}">Our Accreditations</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link nav-pill-link text-white text-opacity-75 px-3 py-1 fw-semibold"
+                        <a class="nav-link nav-pill-link {% if request.resolver_match.url_name == 'facility' or request.path == '/facility/' %}active{% endif %} rounded-pill px-3 py-1 fw-semibold"
                             href="{% url 'facility' %}">Facility</a>
                     </li>
                     <!-- <li class="nav-item">
@@ -81,28 +81,28 @@
                             href="{% url 'brands_list' %}">Trademark</a>
                     </li> -->
                     <li class="nav-item">
-                        <a class="nav-link nav-pill-link text-white text-opacity-75 px-3 py-1 fw-semibold"
+                        <a class="nav-link nav-pill-link {% if 'research' in request.resolver_match.url_name or '/research' in request.path %}active{% endif %} rounded-pill px-3 py-1 fw-semibold"
                             href="{% url 'research' %}">Research</a>
                     </li>
 
                     <li class="nav-item dropdown">
-                        <a class="nav-link nav-pill-link text-white text-opacity-75 px-3 py-1 fw-semibold dropdown-toggle"
+                        <a class="nav-link nav-pill-link {% if request.resolver_match.url_name in 'about team infrastructure csr career job_detail news_events book_expo_meeting gallery' or '/about' in request.path or '/team' in request.path or '/infrastructure' in request.path or '/csr' in request.path or '/career' in request.path or '/news-events' in request.path or '/gallery' in request.path %}active{% endif %} rounded-pill px-3 py-1 fw-semibold dropdown-toggle"
                             href="{% url 'about' %}" id="navbarDropdownAbout" role="button">
                             About
                         </a>
                         <ul class="dropdown-menu dropdown-menu-animated p-2 mt-2 border-0 shadow-lg rounded-4"
                             aria-labelledby="navbarDropdownAbout">
-                            <li><a class="dropdown-item py-2 fw-medium" href="{% url 'about' %}">About Company</a></li>
-                            <li><a class="dropdown-item py-2 fw-medium" href="{% url 'team' %}">Management Team</a></li>
-                            <li><a class="dropdown-item py-2 fw-medium" href="{% url 'infrastructure' %}">Infrastructure
+                            <li><a class="dropdown-item py-2 fw-medium {% if request.resolver_match.url_name == 'about' %}active-dropdown-item{% endif %}" href="{% url 'about' %}">About Company</a></li>
+                            <li><a class="dropdown-item py-2 fw-medium {% if request.resolver_match.url_name == 'team' %}active-dropdown-item{% endif %}" href="{% url 'team' %}">Management Team</a></li>
+                            <li><a class="dropdown-item py-2 fw-medium {% if request.resolver_match.url_name == 'infrastructure' %}active-dropdown-item{% endif %}" href="{% url 'infrastructure' %}">Infrastructure
                                     &amp; Services</a></li>
-                            <li><a class="dropdown-item py-2 fw-medium" href="{% url 'csr' %}">CSR</a></li>
-                            <li><a class="dropdown-item py-2 fw-medium" href="{% url 'career' %}">Careers</a></li>
-                            <li><a class="dropdown-item py-2 fw-medium" href="{% url 'news_events' %}">News &amp;
+                            <li><a class="dropdown-item py-2 fw-medium {% if request.resolver_match.url_name == 'csr' %}active-dropdown-item{% endif %}" href="{% url 'csr' %}">CSR</a></li>
+                            <li><a class="dropdown-item py-2 fw-medium {% if request.resolver_match.url_name == 'career' %}active-dropdown-item{% endif %}" href="{% url 'career' %}">Careers</a></li>
+                            <li><a class="dropdown-item py-2 fw-medium {% if request.resolver_match.url_name == 'news_events' %}active-dropdown-item{% endif %}" href="{% url 'news_events' %}">News &amp;
                                     Events</a></li>
-                            <li><a class="dropdown-item py-2 fw-medium" href="{% url 'book_expo_meeting' %}">Book Expo Meeting</a></li>
-                            <li><a class="dropdown-item py-2 fw-medium" href="{% url 'gallery' %}">Gallery</a></li>
-                            <li><a class="dropdown-item py-2 fw-medium" href="{% url 'accreditations' %}">Our
+                            <li><a class="dropdown-item py-2 fw-medium {% if request.resolver_match.url_name == 'book_expo_meeting' %}active-dropdown-item{% endif %}" href="{% url 'book_expo_meeting' %}">Book Expo Meeting</a></li>
+                            <li><a class="dropdown-item py-2 fw-medium {% if request.resolver_match.url_name == 'gallery' %}active-dropdown-item{% endif %}" href="{% url 'gallery' %}">Gallery</a></li>
+                            <li><a class="dropdown-item py-2 fw-medium {% if request.resolver_match.url_name == 'accreditations' %}active-dropdown-item{% endif %}" href="{% url 'accreditations' %}">Our
                                     Accreditations</a></li>
                         </ul>
                     </li>
@@ -113,7 +113,7 @@
 
         <!-- Right: CTAs (Desktop Only) -->
         <div class="d-none d-lg-flex ms-lg-auto align-items-center gap-4 order-2 order-lg-3">
-            <a href="{% url 'contact' %}" class="btn nav-contact-btn rounded-pill px-4 py-2 fw-semibold"
+            <a href="{% url 'contact' %}" class="btn nav-contact-btn rounded-pill px-4 py-2 fw-semibold {% if request.resolver_match.url_name == 'contact' or request.path == '/contact/' %}active{% endif %}"
                 style="border-width: 1px;">Contact Us</a>
         </div>
 
@@ -927,6 +927,36 @@
                 link.classList.add('sb-active');
             }
         });
+
+        // Desktop nav active pill validation
+        const navPillLinks = document.querySelectorAll('.nav-pill-wrapper .nav-pill-link');
+        let desktopActiveFound = false;
+        document.querySelectorAll('.nav-pill-wrapper .dropdown-menu .dropdown-item').forEach(function (item) {
+            const href = item.getAttribute('href');
+            if (href && href !== '#' && (currentPath === href || (href !== '/' && currentPath.startsWith(href.split('?')[0])))) {
+                item.classList.add('active-dropdown-item');
+                const parentToggle = item.closest('.nav-item.dropdown');
+                if (parentToggle) {
+                    const toggleLink = parentToggle.querySelector('.nav-pill-link');
+                    if (toggleLink) {
+                        navPillLinks.forEach(function (l) { l.classList.remove('active'); });
+                        toggleLink.classList.add('active');
+                        desktopActiveFound = true;
+                    }
+                }
+            }
+        });
+
+        if (!desktopActiveFound && currentPath !== '/') {
+            navPillLinks.forEach(function (link) {
+                const href = link.getAttribute('href');
+                if (href && href !== '/' && href !== '#' && currentPath.startsWith(href)) {
+                    navPillLinks.forEach(function (l) { l.classList.remove('active'); });
+                    link.classList.add('active');
+                    desktopActiveFound = true;
+                }
+            });
+        }
 
         /* ── Accordion ── */
         document.querySelectorAll('.sb-acc-btn').forEach(function (btn) {
