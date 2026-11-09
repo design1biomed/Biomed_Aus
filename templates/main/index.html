@@ -6,28 +6,28 @@
 <!-- ═══════════════════════════════════════════════════════════
      SECTION 1 — HERO
 ═══════════════════════════════════════════════════════════════ -->
-<section class="hero-wrapper" id="home">
+<section class="hero-wrapper" id="home" style="z-index: 0;">
     <!-- Parallax Background -->
     <img src="{% if content.hero_image %}{{ content.hero_image.url }}{% else %}{% static 'images/hero_bg.webp' %}{% endif %}"
         class="hero-bg-image" alt="Botanical Ingredients" onerror="this.src='{% static 'images/hero_bg.webp' %}'">
     <div class="hero-overlay"></div>
-    <canvas id="particleCanvas"></canvas>
+
     <div class="hero-content w-100">
         <div class="container-fluid px-4 px-xl-5 mx-auto" style="max-width:1600px;">
             <div class="row">
                 <div class="col-lg-8 col-xl-7">
-                    <div class="hero-badge mb-4" data-aos="fade-down" data-aos-delay="100">
+                    <div class="hero-badge mb-4 gsap-reveal-down" style="opacity:0; transform:translateY(-20px);">
                         <span class="hero-badge-dot"></span>
                         <span class="text-white small fw-bold text-uppercase letter-spacing-2">Premium Botanical
                             Extracts</span>
                     </div>
-                    <h1 class="hero-title">{{ content.hero_title|safe }}</h1>
-                    <p class="hero-subtitle">{{ content.hero_subtitle }}</p>
-                    <div class="hero-ctas">
-                        <a href="#extracts" class="btn-premium btn-premium-solid">
+                    <h1 class="hero-title gsap-reveal-up" style="opacity:0; transform:translateY(40px);">{{ content.hero_title|safe }}</h1>
+                    <p class="hero-subtitle gsap-reveal-up" style="opacity:0; transform:translateY(40px);">{{ content.hero_subtitle }}</p>
+                    <div class="hero-ctas gsap-reveal-up" style="opacity:0; transform:translateY(30px);">
+                        <a href="#extracts" class="btn-premium btn-premium-solid magnetic-btn">
                             Explore Collection <i class="ph ph-arrow-right"></i>
                         </a>
-                        <a href="#contact" class="btn-premium btn-premium-outline">
+                        <a href="#contact" class="btn-premium btn-premium-outline magnetic-btn">
                             Partner With Us
                         </a>
                     </div>
@@ -46,7 +46,7 @@
 <!-- ═══════════════════════════════════════════════════════════
      SECTION 2 — ABOUT (IMMERSIVE STORYTELLING)
 ═══════════════════════════════════════════════════════════════ -->
-<section id="about" class="section-padding position-relative overflow-hidden bg-white">
+<section id="about" class="section-padding position-relative overflow-hidden bg-white" style="z-index: 1;">
 
     <!-- Giant Watermark -->
     <!-- <div class="about-watermark">BMI AUSTRALIA</div> -->
@@ -58,7 +58,7 @@
         <div class="row align-items-center g-5">
 
             <!-- LEFT: Editorial Text -->
-            <div class="col-lg-6 order-2 order-lg-1" data-aos="fade-right" data-aos-duration="1000">
+            <div class="col-lg-6 order-2 order-lg-1 about-text-col" style="opacity:0; transform:translateX(-50px);">
 
                 <div class="d-none d-lg-block">
                     <div class="about-kicker">
@@ -69,30 +69,30 @@
                     <h2 class="display-editorial mb-4">{{ content.about_title }}</h2>
                 </div>
 
-                <p
-                    style="font-size:1.1rem; color:var(--text-muted); font-weight:300; line-height:1.85; margin-bottom:2rem;">
+                <p class="about-lead-text"
+                    style="font-size:1.1rem; color:var(--text-muted); font-weight:300; line-height:1.85; margin-bottom:2rem; text-align: justify;">
                     {{ content.about_text }}
                 </p>
 
                 <!-- Feature Grid -->
                 <div class="about-feature-grid">
-                    <div class="about-feature-item" data-aos="fade-up" data-aos-delay="100">
+                    <div class="about-feature-item gsap-feature-item" style="opacity:0; transform:translateY(30px);">
                         <i class="ph ph-leaf about-feature-icon"></i>
                         <div class="about-feature-title">{{ content.about_feature_1_title }}</div>
                         <div class="about-feature-text">{{ content.about_feature_1_subtitle }}</div>
                     </div>
-                    <div class="about-feature-item" data-aos="fade-up" data-aos-delay="200">
+                    <div class="about-feature-item gsap-feature-item" style="opacity:0; transform:translateY(30px);">
                         <i class="ph ph-flask about-feature-icon"></i>
                         <div class="about-feature-title">{{ content.about_feature_2_title }}</div>
                         <div class="about-feature-text">{{ content.about_feature_2_subtitle }}</div>
                     </div>
-                    <div class="about-feature-item" data-aos="fade-up" data-aos-delay="300">
+                    <div class="about-feature-item gsap-feature-item" style="opacity:0; transform:translateY(30px);">
                         <i class="ph ph-certificate about-feature-icon"></i>
                         <div class="about-feature-title">GMP Certified</div>
                         <div class="about-feature-text">All facilities and processes adhere to strict Good Manufacturing
                             Practice standards.</div>
                     </div>
-                    <div class="about-feature-item" data-aos="fade-up" data-aos-delay="400">
+                    <div class="about-feature-item gsap-feature-item" style="opacity:0; transform:translateY(30px);">
                         <i class="ph ph-globe-hemisphere-west about-feature-icon"></i>
                         <div class="about-feature-title">Global Distribution</div>
                         <div class="about-feature-text">Supplying premium ingredients to partners across 4 continents.
@@ -103,8 +103,8 @@
             </div>
 
             <!-- RIGHT: Blob Image Collage -->
-            <div class="col-lg-6 order-1 order-lg-2" data-aos="fade-left" data-aos-duration="1100" data-aos-delay="100">
-                
+            <div class="col-lg-6 order-1 order-lg-2 about-img-col" style="opacity:0; transform:translateX(50px);">
+
                 <div class="d-block d-lg-none mb-4">
                     <div class="about-kicker">
                         <div class="about-kicker-line"></div>
@@ -122,11 +122,11 @@
                     </div>
 
                     <!-- Secondary Blob Images -->
-                    <div class="blob-img-secondary">
+                    <div class="blob-img-secondary blob-float">
                         <img src="{% if content.about_image_2 %}{{ content.about_image_2.url }}{% else %}{% static 'images/fenugreek_bg.webp' %}{% endif %}"
                             alt="Laboratory Process" onerror="this.src='{% static 'images/hero_bg.webp' %}'">
                     </div>
-                    <div class="blob-img-secondary">
+                    <div class="blob-img-secondary blob-float">
                         <img src="{% static 'images/sports_nutrition.webp' %}" alt="Nutraceuticals"
                             onerror="this.src='{% static 'images/hero_bg.webp' %}'">
                     </div>
@@ -139,16 +139,6 @@
                         <div class="about-stat-label">Years of Excellence</div>
                     </div>
 
-                    <div class="about-glass-card card-bottom-left" data-aos="zoom-in" data-aos-delay="500">
-                        <div class="d-flex align-items-center gap-2 mb-1">
-                            <i class="ph ph-seal-check" style="color:var(--forest); font-size:1.2rem;"></i>
-                            <span
-                                style="font-size:0.75rem; font-weight:700; text-transform:uppercase; letter-spacing:0.1em; color:var(--text-muted);">Quality
-                                Assured</span>
-                        </div>
-                        <div class="about-stat-num" style="font-size:1.5rem;">ISO &amp; GMP</div>
-                        <div class="about-stat-label">Certified Processes</div>
-                    </div>
 
                 </div>
             </div>
@@ -158,11 +148,40 @@
 </section>
 
 
+<!-- ═══════════════════════════════════════════════════════════
+     SECTION 3 — ACCREDITATIONS MARQUEE
+═══════════════════════════════════════════════════════════════ -->
+<section class="accred-section">
+    <div class="accred-heading">
+        <span class="accred-kicker">{{ content.accred_kicker }}</span>
+        <h2>{{ content.accred_title }}</h2>
+        <p>{{ content.accred_description }}</p>
+    </div>
+
+    <div class="accred-strip">
+        <div class="accred-row">
+            <div class="accred-track">
+                {% for i in '123'|make_list %}
+                {% for accred in accreditations %}
+                <a href="#" class="accred-card d-block">
+                    {% if accred.image %}
+                    <img src="{{ accred.image.url }}" alt="{{ accred.name }}" loading="lazy">
+                    {% else %}
+                    <span>{{ accred.name }}</span>
+                    {% endif %}
+                </a>
+                {% endfor %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+
 
 <!-- ═══════════════════════════════════════════════════════════
      SECTION 4 — PRODUCT CATEGORIES
 ═══════════════════════════════════════════════════════════════ -->
-<section id="extracts" class="section-padding" style="background:white;padding-top: 10rem;">
+<section id="extracts" class="section-padding extracts-section" style="background:white;">
     <div class="container-fluid px-4 px-xl-5 mx-auto" style="max-width:1600px;">
 
         <div class="row align-items-end mb-5" data-aos="fade-up">
@@ -171,12 +190,13 @@
                 <h2 class="display-editorial">{{ content.extracts_title }}</h2>
             </div>
             <div class="col-lg-4 ms-auto text-lg-end">
-                <p style="color:var(--text-muted); font-size:1rem; line-height:1.7; white-space: nowrap;">{{ content.extracts_subtitle }}</p>
+                <p style="color:var(--text-muted); font-size:1rem; line-height:1.7;; ">{{ content.extracts_subtitle }}
+                </p>
             </div>
         </div>
     </div> <!-- Close container-fluid early for full-bleed slider -->
 
-    <div class="swiper extract-swiper" style="padding: 5rem;">
+    <div class="swiper extract-swiper py-4 py-md-5">
         <div class="swiper-wrapper">
             {% for extract in extracts %}
             <div class="swiper-slide product-marquee-item">
@@ -186,18 +206,62 @@
                         onerror="this.src='{% static 'images/hero_bg.webp' %}'">
                     <div class="category-glass"></div>
                     <div class="category-overlay">
-                        <div class="flex-grow-1 d-flex flex-column justify-content-end">
-                            <span class="category-tag">{{ extract.subtitle }}</span>
-                            <div class="d-flex align-items-center gap-3">
-                                <h3 class="category-title mb-0">{{ extract.title }}</h3>
-                                <div class="category-arrow flex-shrink-0">
-                                    <i class="ph ph-arrow-up-right"></i>
-                                </div>
+                        <span class="category-tag">{{ extract.subtitle }}</span>
+                        <div class="d-flex align-items-end gap-2 mb-2">
+                            <h3 class="category-title mb-0">{{ extract.title }}</h3>
+                            <div class="category-arrow" style="margin-bottom: -2px;">
+                                <i class="ph ph-arrow-up-right"></i>
                             </div>
-                            {% if extract.description %}
-                            <div class="category-description">{{ extract.description|linebreaksbr }}</div>
-                            {% endif %}
                         </div>
+                        {% if extract.description %}
+                        <div class="category-description">{{ extract.description|linebreaksbr }}</div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+            <!-- DUPLICATE FOR INFINITE LOOP FIX -->
+            {% for extract in extracts %}
+            <div class="swiper-slide product-marquee-item">
+                <div class="category-card">
+                    <img src="{% if extract.image %}{{ extract.image.url }}{% else %}{% static 'images/hero_bg.webp' %}{% endif %}"
+                        alt="{{ extract.title }}" class="category-img"
+                        onerror="this.src='{% static 'images/hero_bg.webp' %}'">
+                    <div class="category-glass"></div>
+                    <div class="category-overlay">
+                        <span class="category-tag">{{ extract.subtitle }}</span>
+                        <div class="d-flex align-items-end gap-2 mb-2">
+                            <h3 class="category-title mb-0">{{ extract.title }}</h3>
+                            <div class="category-arrow" style="margin-bottom: -2px;">
+                                <i class="ph ph-arrow-up-right"></i>
+                            </div>
+                        </div>
+                        {% if extract.description %}
+                        <div class="category-description">{{ extract.description|linebreaksbr }}</div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+            <!-- SECOND DUPLICATE TO ENSURE NO LOOP WARNINGS -->
+            {% for extract in extracts %}
+            <div class="swiper-slide product-marquee-item">
+                <div class="category-card">
+                    <img src="{% if extract.image %}{{ extract.image.url }}{% else %}{% static 'images/hero_bg.webp' %}{% endif %}"
+                        alt="{{ extract.title }}" class="category-img"
+                        onerror="this.src='{% static 'images/hero_bg.webp' %}'">
+                    <div class="category-glass"></div>
+                    <div class="category-overlay">
+                        <span class="category-tag">{{ extract.subtitle }}</span>
+                        <div class="d-flex align-items-end gap-2 mb-2">
+                            <h3 class="category-title mb-0">{{ extract.title }}</h3>
+                            <div class="category-arrow" style="margin-bottom: -2px;">
+                                <i class="ph ph-arrow-up-right"></i>
+                            </div>
+                        </div>
+                        {% if extract.description %}
+                        <div class="category-description">{{ extract.description|linebreaksbr }}</div>
+                        {% endif %}
                     </div>
                 </div>
             </div>
@@ -211,12 +275,13 @@
 
 
 <!-- ═══════════════════════════════════════════════════════════
-     SOLUTIONS SECTION
+  SECTION 5 - SOLUTIONS SECTION
 ═══════════════════════════════════════════════════════════════ -->
 <section class="section-padding" id="solutions" style="background-color: #f8faf9;">
     <div class="container-fluid px-4 px-xl-5 mx-auto" style="max-width:1600px;">
         <!-- Section Heading -->
-        <div class="text-center mx-auto mb-5" style="max-width: 800px;" data-aos="fade-up">
+        <div class="text-center mx-auto mb-5 gsap-solution-header"
+            style="max-width: 800px; opacity:0; transform:translateY(30px);">
             <div class="d-inline-flex align-items-center justify-content-center px-4 py-2 mb-3 rounded-pill"
                 style="background:rgba(82, 183, 136, 0.1); color:var(--forest);">
                 <i class="ph-fill ph-stars me-2"></i>
@@ -224,14 +289,14 @@
                     {{ content.solutions_badge }}</span>
             </div>
             <h2 class="display-editorial mb-4">{{ content.solutions_heading|safe }}</h2>
-            <p style="font-size: 1.1rem; line-height: 1.8; color:var(--text-muted);">
+            <p style="font-size: 1.1rem; line-height: 1.8; color:var(--text-muted);; ">
                 {{ content.solutions_subheading|safe }}</p>
         </div>
 
         <!-- Cards Grid -->
         <div class="row g-4">
             {% for feature in features %}
-            <div class="col-md-6 col-xl-3" data-aos="fade-up" data-aos-delay="{{ forloop.counter }}50">
+            <div class="col-md-6 col-xl-3 gsap-solution-card" style="opacity:0; transform:translateY(60px);">
                 <article class="feature-cd h-100 p-4 p-xl-5 rounded-4 bg-white"
                     style="transition: transform 0.3s ease, box-shadow 0.3s ease; border:1px solid rgba(0,0,0,0.03);">
                     <div class="icon-wrapper mb-4"
@@ -239,7 +304,7 @@
                         <i class="{{ feature.icon_class }}"></i>
                     </div>
                     <h3 class="h4 fw-bold mb-3" style="color:var(--forest-dark);">{{ feature.title }}</h3>
-                    <p style="color:var(--text-muted); line-height:1.7; font-size:0.95rem; margin-bottom:0;">
+                    <p style="color:var(--text-muted); line-height:1.7; font-size:0.95rem; margin-bottom:0;; ">
                         {{ feature.description }}</p>
                 </article>
             </div>
@@ -250,23 +315,23 @@
 
 
 <!-- ═══════════════════════════════════════════════════════════
-     SECTION 5 — QUALITY & SCIENTIFIC TRUST
+     SECTION 6 — QUALITY & SCIENTIFIC TRUST
 ═══════════════════════════════════════════════════════════════ -->
 <section id="quality" class="section-padding position-relative overflow-hidden" style="background:var(--white);">
 
     <!-- Botanical Drawing Background -->
     <img src="{% static 'images/bg/botanical_drawing.png' %}" class="position-absolute"
-        style="bottom:-20%; left:-10%; width:50vw; min-width:500px; opacity:0.04; mix-blend-mode:multiply; pointer-events:none; z-index:0; transform: rotate(15deg) scaleX(-1);"
+        style="bottom:-20%; left:-10%; width:50vw; min-width:500px; opacity:0.04; pointer-events:none; z-index:0; transform: rotate(15deg) scaleX(-1) translateZ(0); will-change: transform;"
         alt="">
 
     <div class="container-fluid px-4 px-xl-5 mx-auto position-relative" style="max-width:1600px; z-index:1;">
         <div class="row align-items-center justify-content-between gy-5">
 
             <!-- LEFT: Timeline -->
-            <div class="col-lg-6 pe-lg-5" data-aos="fade-right">
+            <div class="col-lg-6 pe-lg-5 gsap-quality-left" style="opacity:0; transform:translateX(-40px);">
                 <div class="section-kicker">Quality & Process</div>
                 <h2 class="display-editorial mb-4">{{ content.quality_title }}</h2>
-                <p style="color:var(--text-muted); font-size:1.05rem; line-height:1.8; margin-bottom:3rem;">
+                <p style="color:var(--text-muted); font-size:1.05rem; line-height:1.8; margin-bottom:3rem;; ">
                     {{ content.quality_description }}</p>
 
                 <div class="timeline">
@@ -281,8 +346,8 @@
             </div>
 
             <!-- RIGHT: "Why People Love Us" Card -->
-            <div class="col-lg-5" data-aos="fade-left" data-aos-delay="150">
-                <div class="love-us-card">
+            <div class="col-lg-5 love-us-card-wrap">
+                <div class="love-us-card" style="opacity:0; transform:translateY(40px) scale(0.95);">
                     <div class="love-us-orb"></div>
                     <div class="position-relative">
                         <div class="d-flex align-items-center gap-3 mb-4">
@@ -296,12 +361,12 @@
                         </div>
 
                         <h2
-                            style="font-size:clamp(1.8rem,3vw,2.4rem);font-weight:800;color:var(--white);letter-spacing:-0.03em;line-height:1.2;margin-bottom:1.5rem;">
+                            style="font-size:clamp(1.8rem,3vw,2.4rem);font-weight:800;color:var(--white);letter-spacing:-0.03em;line-height:1.2;margin-bottom:1.5rem;white-space:nowrap;">
                             Why People <span style="color:var(--gold);">Love Us!</span>
                         </h2>
 
                         <p
-                            style="color:rgba(255,255,255,0.7);line-height:1.9;font-size:1rem;font-weight:300;margin-bottom:2rem;">
+                            style="color:rgba(255,255,255,0.7);line-height:1.9;font-size:1rem;font-weight:300;margin-bottom:2rem;; ">
                             Our products are distinguished by exceptional quality, consistency, and proven efficacy. We
                             carefully select research-based, high-potential ingredients to ensure optimal performance —
                             enhancing value and market position.
@@ -344,34 +409,6 @@
 </section>
 
 
-<!-- ═══════════════════════════════════════════════════════════
-     SECTION 6 — ACCREDITATIONS MARQUEE
-═══════════════════════════════════════════════════════════════ -->
-<section class="accred-section">
-    <div class="accred-heading">
-        <span class="accred-kicker">{{ content.accred_kicker }}</span>
-        <h2>{{ content.accred_title }}</h2>
-        <p>{{ content.accred_description }}</p>
-    </div>
-
-    <div class="accred-strip">
-        <div class="accred-row">
-            <div class="accred-track">
-                {% for i in '123'|make_list %}
-                {% for accred in accreditations %}
-                <a href="#" class="accred-card d-block">
-                    {% if accred.image %}
-                    <img src="{{ accred.image.url }}" alt="{{ accred.name }}" loading="lazy">
-                    {% else %}
-                    <span>{{ accred.name }}</span>
-                    {% endif %}
-                </a>
-                {% endfor %}
-                {% endfor %}
-            </div>
-        </div>
-    </div>
-</section>
 
 
 <!-- ═══════════════════════════════════════════════════════════
@@ -393,15 +430,15 @@
             <div class="col-lg-6 mb-4 mb-lg-0" data-aos="fade-right">
                 <div class="section-kicker" style="color:var(--gold-light);"><span
                         style="background:var(--gold-light);"></span>
-                    {{ content.home_map_badge.text_content|default:"Global Reach"|safe }}</div>
+                    {{ content.map_badge|default:"Global Reach"|safe }}</div>
                 <h2
                     style="font-size:clamp(2.2rem,4vw,3.6rem);font-weight:800;color:var(--white);letter-spacing:-0.04em;line-height:1.15;">
-                    {{ content.home_map_heading.text_content|default:"Our Global Presence"|safe }}
+                    {{ content.map_heading|default:"Our Global Presence"|safe }}
                 </h2>
             </div>
             <div class="col-lg-5 ms-auto" data-aos="fade-left">
-                <p style="color:rgba(255,255,255,0.65);font-size:1.05rem;line-height:1.8;font-weight:300;">
-                    {{ content.home_map_subheading.text_content|default:"Operating from our headquarters in India, with strategic offices in Australia, Germany, and Jordan to serve you globally."|safe }}
+                <p style="color:rgba(255,255,255,0.65);font-size:1.05rem;line-height:1.8;font-weight:300;; ">
+                    {{ content.map_subheading|default:"Operating from our headquarters in India, with strategic offices in Australia, Germany, and Jordan to serve you globally."|safe }}
                 </p>
             </div>
         </div>
@@ -411,12 +448,15 @@
             <div class="map-wrapper position-relative mx-auto"
                 style="width: 115%; left: 50%; transform: translateX(-50%); margin-top: -5%;">
                 <img src="{% static 'images/bg/world-map.svg' %}" alt="World Map" class="img-fluid w-100"
-                    style="opacity:0.12; filter:invert(1) sepia(1) saturate(3) hue-rotate(10deg) brightness(1.6);">
+                    style="opacity:0.12; filter:invert(1) sepia(1) saturate(3) hue-rotate(10deg) brightness(1.6); transform: translateZ(0); will-change: transform, filter, opacity; backface-visibility: hidden;">
 
                 {% for office in offices %}
                 <div class="map-dot"
                     style="top:{{ office.top_percentage }}%;left:{{ office.left_percentage }}%;transform:translate(-50%,-50%);"
-                    data-bs-toggle="tooltip" title="{{ office.country }}">
+                    tabindex="0">
+
+                    <!-- Hover-only country tooltip -->
+                    <span class="map-hover-tooltip {% if office.is_hq %}is-hq{% endif %}">{{ office.country }}</span>
 
                     <!-- Glass outer ring -->
                     <div class="map-dot-outer" style="width:28px;height:28px;top:-8px;left:-8px;"></div>
@@ -471,7 +511,7 @@
                 </div>
 
                 <h2
-                    style="font-size:clamp(2.4rem,5vw,4rem);font-weight:800;color:var(--forest-dark);letter-spacing:-0.04em;line-height:1.1;margin-bottom:1.5rem;">
+                    style="font-size:clamp(2.4rem,5vw,4rem);font-weight:800;color:var(--forest-dark);letter-spacing:-0.04em;line-height:1.1;margin-bottom:1.5rem;white-space:nowrap;">
                     {{ content.cta_title }}
                 </h2>
 
@@ -479,7 +519,7 @@
                 </div>
 
                 <p
-                    style="font-size:1.05rem;color:var(--text-muted);line-height:1.85;font-weight:300;margin-bottom:2.5rem;max-width:500px;">
+                    style="font-size:1.05rem;color:var(--text-muted);line-height:1.85;font-weight:300;margin-bottom:2.5rem;max-width:500px; text-align: justify;">
                     {{ content.cta_subtitle }}
                 </p>
 
@@ -494,7 +534,7 @@
             <div class="col-lg-6" data-aos="fade-left" data-aos-duration="1200" data-aos-delay="200">
 
                 <h3
-                    style="font-weight:700;color:var(--forest-dark);font-size:1.2rem;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:2rem;">
+                    style="font-weight:700;color:var(--forest-dark);font-size:1.2rem;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:2rem;white-space:nowrap;">
                     Our Core Promises
                 </h3>
 
@@ -505,7 +545,7 @@
                             <div>
                                 <h5 style="font-weight:700;color:var(--forest-dark);margin-bottom:0.4rem;">Guaranteed
                                     Supply Chain</h5>
-                                <p style="color:var(--text-muted);font-size:0.9rem;line-height:1.7;margin:0;">Our
+                                <p style="color:var(--text-muted);font-size:0.9rem;line-height:1.7;margin:0;; ">Our
                                     logistics team has a very good network both nationally and internationally, ensuring
                                     quality is maintained and delivery is always on time.</p>
                             </div>
@@ -519,7 +559,8 @@
                             <div>
                                 <h5 style="font-weight:700;color:var(--forest-dark);margin-bottom:0.4rem;">Competitive
                                     Pricing</h5>
-                                <p style="color:var(--text-muted);font-size:0.9rem;line-height:1.7;margin:0;">We adopt a
+                                <p style="color:var(--text-muted);font-size:0.9rem;line-height:1.7;margin:0;; ">We adopt
+                                    a
                                     market-oriented pricing strategy. Customer satisfaction is our best promotion,
                                     driving the dynamics of our business model.</p>
                             </div>
@@ -533,12 +574,43 @@
     </div>
 </section>
 
-<div id="formulation-wrapper" style="overflow: hidden;">
+<style>
+    /* Custom GPU Accelerated Accordion */
+    #formulation-wrapper {
+        display: grid;
+        grid-template-rows: 0fr;
+        will-change: grid-template-rows;
+        transform: translateZ(0);
+        /* Force GPU composite layer */
+        backface-visibility: hidden;
+    }
+
+    #formulation-wrapper.is-open {
+        grid-template-rows: 1fr;
+        transition: grid-template-rows 4s cubic-bezier(0.25, 1, 0.5, 1);
+        /* Perfect exact-height curve */
+    }
+
+    #formulation-wrapper>section {
+        overflow: hidden;
+        min-height: 0;
+        opacity: 0;
+        transform: translateY(60px) translateZ(0);
+        will-change: opacity, transform;
+    }
+
+    #formulation-wrapper.is-open>section {
+        opacity: 1;
+        transform: translateY(0) translateZ(0);
+        transition: opacity 2.5s cubic-bezier(0.22, 1, 0.36, 1) 0.6s, transform 2.5s cubic-bezier(0.22, 1, 0.36, 1) 0.6s;
+    }
+</style>
+<div id="formulation-wrapper">
     <section id="formulation-section" class="section-padding position-relative"
         style="background: #275a36e6; overflow:hidden;">
         <!-- Abstract botanical bg -->
         <svg class="position-absolute"
-            style="top:0;left:0;width:100%;height:100%;opacity:0.06;pointer-events:none;z-index:0;"
+            style="top:50%;left:0;width:100%;height:1200px;transform:translateY(-50%) translateZ(0);opacity:0.06;pointer-events:none;z-index:0;will-change:transform;"
             viewBox="0 0 1440 400" preserveAspectRatio="xMidYMid slice">
             <circle cx="200" cy="150" r="100" stroke="#52B788" stroke-width="2" fill="none" />
             <path d="M-200,200 Q400,0 1640,200" stroke="#52B788" stroke-width="1.5" fill="none" />
@@ -552,7 +624,7 @@
                         Formulation Partners</div>
                     <h2 class="display-editorial text-white mb-4" style="font-size: clamp(2.5rem, 4vw, 3.5rem);">Let's
                         formulate<br>the future.</h2>
-                    <p class="mb-5" style="color:white; font-size:1.1rem; line-height:1.6;">
+                    <p class="mb-5" style="color:white; font-size:1.1rem; line-height:1.6;; ">
                         Enquire today for detailed product specifications, custom botanical formulations, and bulk-order
                         pricing directly from our specialists.
                     </p>
@@ -642,28 +714,303 @@
 
 <script>
     document.addEventListener("DOMContentLoaded", function () {
-        if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
-            let tl = gsap.timeline({
+        const wrapper = document.getElementById("formulation-wrapper");
+        if (!wrapper) return;
+
+        let openTimeout;
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // Wait slightly longer before triggering the ultra slow CSS accordion
+                    openTimeout = setTimeout(() => {
+                        wrapper.classList.add("is-open");
+
+                        // Force Lenis to recalculate page height continuously during the 4-second expansion
+                        // so the user is allowed to scroll down into the newly created space!
+                        if (window.lenis) {
+                            let startTime = Date.now();
+                            let resizeInterval = setInterval(() => {
+                                window.lenis.resize();
+                                if (Date.now() - startTime > 3200) clearInterval(resizeInterval);
+                            }, 100);
+                        }
+                    }, 600);
+                } else {
+                    // If it goes off-screen, check if it went off the BOTTOM of the screen (user scrolled up)
+                    // If they scrolled up, reset it back to the closed state.
+                    if (entry.boundingClientRect.top > 0) {
+                        clearTimeout(openTimeout);
+                        wrapper.classList.remove("is-open");
+                    }
+                }
+            });
+        }, {
+            threshold: 0, /* Triggers exactly when the 0-height element hits the viewport */
+            rootMargin: "0px"
+        });
+
+        observer.observe(wrapper);
+    });
+</script>
+
+<script>
+    // ── Premium 3D Mouse Tilt Animation ──
+    document.addEventListener("DOMContentLoaded", function () {
+        const tiltCards = document.querySelectorAll('.feature-cd, .premium-card');
+
+        tiltCards.forEach(card => {
+            // Ensure smooth transition when mouse leaves
+            card.style.transition = "transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.4s ease";
+            card.style.transformStyle = "preserve-3d";
+
+            card.addEventListener('mousemove', e => {
+                let rect = card.getBoundingClientRect();
+                let x = e.clientX - rect.left; // x position within the element
+                let y = e.clientY - rect.top;  // y position within the element
+                let centerX = rect.width / 2;
+                let centerY = rect.height / 2;
+
+                // Calculate rotation (max 12 degrees)
+                let rotateX = ((y - centerY) / centerY) * -12;
+                let rotateY = ((x - centerX) / centerX) * 12;
+
+                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+                card.style.boxShadow = `${-rotateY}px ${rotateX}px 30px rgba(0, 0, 0, 0.1)`;
+            });
+
+            card.addEventListener('mouseleave', () => {
+                // Snap back to 0
+                card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`;
+                card.style.boxShadow = `0px 10px 30px rgba(0, 0, 0, 0.03)`;
+            });
+        });
+    });
+</script>
+
+<style>
+    /* Continuous Ken Burns */
+    .hero-bg-image {
+        animation: kenBurns 25s ease-out forwards;
+        transform-origin: center center;
+    }
+
+    @keyframes kenBurns {
+        0% {
+            transform: scale(1.1);
+        }
+
+        100% {
+            transform: scale(1.0);
+        }
+    }
+
+    /* Blob Float */
+    .blob-float {
+        animation: floatOrganic 8s ease-in-out infinite;
+    }
+
+    .blob-float:nth-child(2) {
+        animation-delay: -3s;
+        animation-duration: 11s;
+    }
+
+    @keyframes floatOrganic {
+
+        0%,
+        100% {
+            transform: translate(0, 0) rotate(0deg);
+        }
+
+        33% {
+            transform: translate(15px, -15px) rotate(2deg);
+        }
+
+        66% {
+            transform: translate(-10px, 15px) rotate(-1deg);
+        }
+    }
+
+    /* Timeline Line */
+    .timeline {
+        position: relative;
+    }
+
+    .timeline::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 20px;
+        width: 2px;
+        transform: translateX(-50%);
+        background: rgba(82, 183, 136, 0.22);
+        z-index: 0;
+    }
+
+    .timeline-progress-line {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 20px;
+        width: 2px;
+        transform: translateX(-50%);
+        background: var(--forest);
+        z-index: 1;
+        transform-origin: top;
+        transform: scaleY(0);
+    }
+
+    /* Orb Pulse */
+    .love-us-orb {
+        animation: orbPulse 6s ease-in-out infinite alternate !important;
+    }
+
+    @keyframes orbPulse {
+        0% {
+            transform: scale(1);
+            filter: brightness(1) blur(60px);
+        }
+
+        100% {
+            transform: scale(1.15);
+            filter: brightness(1.2) blur(70px);
+        }
+    }
+</style>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
+        gsap.registerPlugin(ScrollTrigger);
+
+        // 1. Hero Reveal Animation
+        const heroTl = gsap.timeline({ defaults: { ease: "power3.out" } });
+        heroTl.to(".gsap-reveal-down", { opacity: 1, y: 0, duration: 1 }, 0.5)
+            .to(".gsap-reveal-up", { opacity: 1, y: 0, duration: 1.2, stagger: 0.15 }, 0.7);
+
+        // 2. About Section Parallax & Reveal
+        const aboutTl = gsap.timeline({
+            scrollTrigger: {
+                trigger: "#about",
+                start: "top 70%",
+            }
+        });
+
+        // Reveal text col
+        aboutTl.fromTo(".about-text-col",
+            { opacity: 0, x: -50 },
+            { opacity: 1, x: 0, duration: 1.2, ease: "power3.out" }, 0
+        );
+        // Reveal img col
+        aboutTl.fromTo(".about-img-col",
+            { opacity: 0, x: 50 },
+            { opacity: 1, x: 0, duration: 1.2, ease: "power3.out" }, 0.2
+        );
+        // Stagger feature items
+        aboutTl.to(".gsap-feature-item", { opacity: 1, y: 0, duration: 0.8, stagger: 0.1, ease: "power2.out" }, 0.4);
+
+        // Parallax on blobs while scrolling through About
+        gsap.to(".blob-img-main", {
+            yPercent: 15,
+            ease: "none",
+            scrollTrigger: {
+                trigger: "#about",
+                start: "top bottom",
+                end: "bottom top",
+                scrub: true
+            }
+        });
+        gsap.to(".blob-float", {
+            yPercent: -20,
+            ease: "none",
+            scrollTrigger: {
+                trigger: "#about",
+                start: "top bottom",
+                end: "bottom top",
+                scrub: true
+            }
+        });
+
+        // 3. Solutions Cards Cascade
+        gsap.fromTo(".gsap-solution-header",
+            { opacity: 0, y: 30 },
+            {
+                opacity: 1, y: 0, duration: 1, ease: "power3.out",
                 scrollTrigger: {
-                    trigger: "#formulation-wrapper",
-                    start: "top 90%", // Triggers right when the user scrolls to it
-                    toggleActions: "play none none reverse"
+                    trigger: "#solutions",
+                    start: "top 75%"
+                }
+            }
+        );
+        gsap.fromTo(".gsap-solution-card",
+            { opacity: 0, y: 60 },
+            {
+                opacity: 1, y: 0, duration: 0.8, stagger: 0.15, ease: "back.out(1.2)",
+                scrollTrigger: {
+                    trigger: "#solutions",
+                    start: "top 65%"
+                }
+            }
+        );
+
+        // 4. Quality Section & Timeline
+        gsap.fromTo(".gsap-quality-left",
+            { opacity: 0, x: -40 },
+            {
+                opacity: 1, x: 0, duration: 1.2, ease: "power3.out",
+                scrollTrigger: {
+                    trigger: "#quality",
+                    start: "top 70%"
+                }
+            }
+        );
+
+        // Inject progress line div
+        const timelineEl = document.querySelector('.timeline');
+        if (timelineEl) {
+            const progressLine = document.createElement('div');
+            progressLine.className = 'timeline-progress-line';
+            timelineEl.insertBefore(progressLine, timelineEl.firstChild);
+
+            gsap.to(progressLine, {
+                scaleY: 1,
+                ease: "none",
+                scrollTrigger: {
+                    trigger: ".timeline",
+                    start: "top 60%",
+                    end: "bottom 60%",
+                    scrub: true
                 }
             });
 
-            // Smooth accordion reveal (hardware accelerated)
-            gsap.set("#formulation-wrapper", { willChange: "height, opacity" });
-            tl.fromTo("#formulation-wrapper",
-                { height: 0, opacity: 0 },
-                {
-                    height: "auto",
-                    opacity: 1,
-                    duration: 2,
-                    ease: "power2.out",
-                    onComplete: () => gsap.set("#formulation-wrapper", { willChange: "auto" })
-                }
-            );
+            // Highlight steps as line passes
+            const steps = gsap.utils.toArray('.timeline-step');
+            steps.forEach((step, i) => {
+                gsap.fromTo(step,
+                    { opacity: 0.4, y: 15 },
+                    {
+                        opacity: 1, y: 0, duration: 0.5,
+                        scrollTrigger: {
+                            trigger: step,
+                            start: "top 60%",
+                            toggleActions: "play none none reverse"
+                        }
+                    }
+                );
+            });
         }
+
+        // 5. Why People Love Us Card
+        gsap.fromTo(".love-us-card",
+            { opacity: 0, scale: 0.95, y: 40 },
+            {
+                opacity: 1, scale: 1, y: 0, duration: 1.2, ease: "power3.out",
+                scrollTrigger: {
+                    trigger: ".love-us-card-wrap",
+                    start: "top 80%"
+                }
+            }
+        );
     });
 </script>
 

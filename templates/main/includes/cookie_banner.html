@@ -1,0 +1,469 @@
+<!-- Bio Med Ingredients Australia - GDPR / ePrivacy Cookie Consent Module -->
+<div id="bmi-cookie-banner" class="bmi-cb-wrap" aria-hidden="true" role="dialog" aria-labelledby="bmi-cb-title" aria-describedby="bmi-cb-desc">
+    <div class="bmi-cb-card shadow-lg">
+        <!-- Main Banner View -->
+        <div id="bmi-cb-main-view">
+            <div class="bmi-cb-header">
+                <div class="bmi-cb-badge">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-success">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                    </svg>
+                    <span id="bmi-cb-title" class="bmi-cb-title">We Value Your Privacy</span>
+                </div>
+                <button type="button" class="bmi-cb-close-btn" id="bmi-cb-close" aria-label="Close banner without saving">&times;</button>
+            </div>
+            <p id="bmi-cb-desc" class="bmi-cb-text">
+                Bio Med Ingredients Australia uses strictly necessary cookies to ensure our website functions securely. With your consent, we also use analytics and preference cookies to evaluate traffic and improve our botanical formulation catalog. You can customize your preferences or read our <a href="{% url 'privacy_policy' %}" target="_blank" rel="noopener">Privacy Policy</a>.
+            </p>
+            <div class="bmi-cb-actions">
+                <button type="button" class="bmi-cb-btn bmi-cb-btn-secondary" id="bmi-cb-reject-btn">Reject Non-Essential</button>
+                <button type="button" class="bmi-cb-btn bmi-cb-btn-outline" id="bmi-cb-prefs-btn">Manage Preferences</button>
+                <button type="button" class="bmi-cb-btn bmi-cb-btn-primary" id="bmi-cb-accept-btn">Accept All</button>
+            </div>
+        </div>
+
+        <!-- Granular Preferences View (Collapsible) -->
+        <div id="bmi-cb-prefs-view" class="bmi-cb-prefs d-none">
+            <div class="bmi-cb-prefs-header">
+                <h5 class="fw-bold mb-1 text-white">Cookie Preferences</h5>
+                <p class="small text-white-50 mb-3">Choose which cookie categories you want to allow. Essential cookies cannot be disabled.</p>
+            </div>
+
+            <div class="bmi-cb-category-list">
+                <!-- 1. Essential -->
+                <div class="bmi-cb-category">
+                    <div class="bmi-cb-category-info">
+                        <div class="d-flex align-items-center gap-2">
+                            <strong class="text-white">Strictly Necessary Cookies</strong>
+                            <span class="bmi-cb-tag">Always Active</span>
+                        </div>
+                        <p class="small text-white-50 mb-0">Required for website security, session persistence, and anti-spam verification.</p>
+                    </div>
+                    <div class="bmi-cb-switch-wrap">
+                        <input type="checkbox" id="bmi-cook-essential" class="bmi-cb-switch" checked disabled>
+                        <label for="bmi-cook-essential" class="bmi-cb-slider disabled"></label>
+                    </div>
+                </div>
+
+                <!-- 2. Analytics -->
+                <div class="bmi-cb-category">
+                    <div class="bmi-cb-category-info">
+                        <strong class="text-white">Analytics &amp; Performance</strong>
+                        <p class="small text-white-50 mb-0">Helps us anonymously analyze site traffic, page popularity, and botanical tool usage.</p>
+                    </div>
+                    <div class="bmi-cb-switch-wrap">
+                        <input type="checkbox" id="bmi-cook-analytics" class="bmi-cb-switch" checked>
+                        <label for="bmi-cook-analytics" class="bmi-cb-slider"></label>
+                    </div>
+                </div>
+
+                <!-- 3. Preferences -->
+                <div class="bmi-cb-category">
+                    <div class="bmi-cb-category-info">
+                        <strong class="text-white">Functional Preferences</strong>
+                        <p class="small text-white-50 mb-0">Remembers your user interface preferences, filter states, and display choices.</p>
+                    </div>
+                    <div class="bmi-cb-switch-wrap">
+                        <input type="checkbox" id="bmi-cook-preferences" class="bmi-cb-switch" checked>
+                        <label for="bmi-cook-preferences" class="bmi-cb-slider"></label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bmi-cb-actions mt-3">
+                <button type="button" class="bmi-cb-btn bmi-cb-btn-outline" id="bmi-cb-back-btn">Back</button>
+                <button type="button" class="bmi-cb-btn bmi-cb-btn-primary" id="bmi-cb-save-prefs-btn">Save Preferences</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    /* Cookie Consent Banner Styling */
+    .bmi-cb-wrap {
+        position: fixed;
+        bottom: 24px;
+        left: 50%;
+        transform: translate(-50%, 150%);
+        width: calc(100% - 32px);
+        max-width: 760px;
+        z-index: 99999;
+        opacity: 0;
+        pointer-events: none;
+        transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
+    }
+
+    .bmi-cb-wrap.bmi-cb-show {
+        transform: translate(-50%, 0);
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    .bmi-cb-card {
+        background: rgba(14, 38, 25, 0.96);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        border: 1px solid rgba(25, 135, 84, 0.35);
+        border-radius: 16px;
+        padding: 24px;
+        color: #e6f4ea;
+        box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(255, 255, 255, 0.05);
+    }
+
+    .bmi-cb-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 12px;
+    }
+
+    .bmi-cb-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .bmi-cb-title {
+        font-size: 1.1rem;
+        font-weight: 700;
+        color: #ffffff;
+        letter-spacing: -0.2px;
+    }
+
+    .bmi-cb-close-btn {
+        background: transparent;
+        border: none;
+        color: rgba(255, 255, 255, 0.6);
+        font-size: 1.5rem;
+        line-height: 1;
+        cursor: pointer;
+        padding: 0 4px;
+        transition: color 0.2s ease;
+    }
+
+    .bmi-cb-close-btn:hover {
+        color: #ffffff;
+    }
+
+    .bmi-cb-text {
+        font-size: 0.9rem;
+        line-height: 1.55;
+        color: rgba(230, 244, 234, 0.85);
+        margin-bottom: 18px;
+    }
+
+    .bmi-cb-text a {
+        color: #4ade80;
+        text-decoration: underline;
+        font-weight: 500;
+    }
+
+    .bmi-cb-text a:hover {
+        color: #86efac;
+    }
+
+    .bmi-cb-actions {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 10px;
+    }
+
+    .bmi-cb-btn {
+        padding: 9px 18px;
+        font-size: 0.88rem;
+        font-weight: 600;
+        border-radius: 9999px;
+        border: 1px solid transparent;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        white-space: nowrap;
+    }
+
+    .bmi-cb-btn-primary {
+        background-color: #198754;
+        color: #ffffff;
+        border-color: #198754;
+    }
+
+    .bmi-cb-btn-primary:hover {
+        background-color: #157347;
+        border-color: #146c43;
+        transform: translateY(-1px);
+        box-shadow: 0 4px 12px rgba(25, 135, 84, 0.4);
+    }
+
+    .bmi-cb-btn-secondary {
+        background-color: rgba(255, 255, 255, 0.1);
+        color: #ffffff;
+        border-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .bmi-cb-btn-secondary:hover {
+        background-color: rgba(255, 255, 255, 0.18);
+        color: #ffffff;
+    }
+
+    .bmi-cb-btn-outline {
+        background-color: transparent;
+        color: rgba(255, 255, 255, 0.8);
+        border-color: rgba(255, 255, 255, 0.25);
+    }
+
+    .bmi-cb-btn-outline:hover {
+        background-color: rgba(255, 255, 255, 0.08);
+        color: #ffffff;
+        border-color: rgba(255, 255, 255, 0.4);
+    }
+
+    /* Category item inside preferences view */
+    .bmi-cb-category-list {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        margin: 16px 0;
+    }
+
+    .bmi-cb-category {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        padding: 12px 14px;
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 10px;
+    }
+
+    .bmi-cb-category-info {
+        flex: 1;
+    }
+
+    .bmi-cb-tag {
+        font-size: 0.72rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        background: rgba(25, 135, 84, 0.35);
+        color: #86efac;
+        padding: 2px 8px;
+        border-radius: 6px;
+    }
+
+    /* Custom CSS Toggle Switch */
+    .bmi-cb-switch-wrap {
+        position: relative;
+        width: 44px;
+        height: 24px;
+    }
+
+    .bmi-cb-switch {
+        opacity: 0;
+        width: 0;
+        height: 0;
+        position: absolute;
+    }
+
+    .bmi-cb-slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(255, 255, 255, 0.2);
+        transition: 0.3s;
+        border-radius: 24px;
+    }
+
+    .bmi-cb-slider:before {
+        position: absolute;
+        content: "";
+        height: 18px;
+        width: 18px;
+        left: 3px;
+        bottom: 3px;
+        background-color: white;
+        transition: 0.3s;
+        border-radius: 50%;
+    }
+
+    .bmi-cb-switch:checked+.bmi-cb-slider {
+        background-color: #198754;
+    }
+
+    .bmi-cb-switch:checked+.bmi-cb-slider:before {
+        transform: translateX(20px);
+    }
+
+    .bmi-cb-slider.disabled {
+        cursor: not-allowed;
+        opacity: 0.65;
+    }
+
+    @media (max-width: 600px) {
+        .bmi-cb-wrap {
+            bottom: 12px;
+            width: calc(100% - 16px);
+        }
+
+        .bmi-cb-card {
+            padding: 18px 16px;
+        }
+
+        .bmi-cb-actions {
+            flex-direction: column-reverse;
+            width: 100%;
+        }
+
+        .bmi-cb-btn {
+            width: 100%;
+            text-align: center;
+        }
+    }
+</style>
+
+<script>
+    (function () {
+        const STORAGE_KEY = 'bmi_cookie_consent_v1';
+        const banner = document.getElementById('bmi-cookie-banner');
+        const mainView = document.getElementById('bmi-cb-main-view');
+        const prefsView = document.getElementById('bmi-cb-prefs-view');
+
+        const acceptBtn = document.getElementById('bmi-cb-accept-btn');
+        const rejectBtn = document.getElementById('bmi-cb-reject-btn');
+        const prefsBtn = document.getElementById('bmi-cb-prefs-btn');
+        const backBtn = document.getElementById('bmi-cb-back-btn');
+        const savePrefsBtn = document.getElementById('bmi-cb-save-prefs-btn');
+        const closeBtn = document.getElementById('bmi-cb-close');
+        const analyticsCheckbox = document.getElementById('bmi-cook-analytics');
+        const preferencesCheckbox = document.getElementById('bmi-cook-preferences');
+
+        function getConsent() {
+            try {
+                const raw = localStorage.getItem(STORAGE_KEY);
+                return raw ? JSON.parse(raw) : null;
+            } catch (e) {
+                return null;
+            }
+        }
+
+        function saveConsent(prefs) {
+            const payload = {
+                consentGiven: true,
+                timestamp: new Date().toISOString(),
+                essential: true,
+                analytics: !!prefs.analytics,
+                preferences: !!prefs.preferences
+            };
+            try {
+                localStorage.setItem(STORAGE_KEY, JSON.stringify(payload));
+            } catch (e) { }
+
+            // Dispatch global event so third-party scripts or analytics can subscribe
+            window.dispatchEvent(new CustomEvent('bmi_cookie_consent_updated', {
+                detail: payload
+            }));
+            hideBanner();
+        }
+
+        function showBanner(openDirectlyToPrefs = false) {
+            if (!banner) return;
+            if (openDirectlyToPrefs) {
+                mainView.classList.add('d-none');
+                prefsView.classList.remove('d-none');
+            } else {
+                mainView.classList.remove('d-none');
+                prefsView.classList.add('d-none');
+            }
+
+            const existing = getConsent();
+            if (existing) {
+                if (analyticsCheckbox) analyticsCheckbox.checked = !!existing.analytics;
+                if (preferencesCheckbox) preferencesCheckbox.checked = !!existing.preferences;
+            }
+
+            banner.setAttribute('aria-hidden', 'false');
+            banner.classList.add('bmi-cb-show');
+        }
+
+        function hideBanner() {
+            if (!banner) return;
+            banner.classList.remove('bmi-cb-show');
+            banner.setAttribute('aria-hidden', 'true');
+        }
+
+        // Expose programmatic open function to window for footer triggers
+        window.openCookiePreferences = function () {
+            showBanner(true);
+        };
+
+        // Attach listeners
+        if (acceptBtn) {
+            acceptBtn.addEventListener('click', function () {
+                saveConsent({
+                    analytics: true,
+                    preferences: true
+                });
+            });
+        }
+
+        if (rejectBtn) {
+            rejectBtn.addEventListener('click', function () {
+                saveConsent({
+                    analytics: false,
+                    preferences: false
+                });
+            });
+        }
+
+        if (prefsBtn) {
+            prefsBtn.addEventListener('click', function () {
+                mainView.classList.add('d-none');
+                prefsView.classList.remove('d-none');
+            });
+        }
+
+        if (backBtn) {
+            backBtn.addEventListener('click', function () {
+                prefsView.classList.add('d-none');
+                mainView.classList.remove('d-none');
+            });
+        }
+
+        if (savePrefsBtn) {
+            savePrefsBtn.addEventListener('click', function () {
+                saveConsent({
+                    analytics: analyticsCheckbox ? analyticsCheckbox.checked : false,
+                    preferences: preferencesCheckbox ? preferencesCheckbox.checked : false
+                });
+            });
+        }
+
+        if (closeBtn) {
+            closeBtn.addEventListener('click', function () {
+                hideBanner();
+            });
+        }
+
+        // Bind any element with class or id for opening cookie preferences
+        document.addEventListener('click', function (e) {
+            if (e.target.closest('#openCookiePreferencesBtn') || e.target.closest('.open-cookie-preferences')) {
+                e.preventDefault();
+                window.openCookiePreferences();
+            }
+        });
+
+        // Check if consent has already been recorded
+        document.addEventListener('DOMContentLoaded', function () {
+            const existing = getConsent();
+            if (!existing) {
+                setTimeout(function () {
+                    showBanner(false);
+                }, 1200);
+            }
+        });
+    })();
+</script>
+

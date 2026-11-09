@@ -39,24 +39,7 @@
                             <i class="ph ph-house"></i> Home
                         </a>
                     </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link nav-pill-link text-white text-opacity-75 px-3 py-1 fw-semibold dropdown-toggle"
-                            href="{% url 'about' %}" id="navbarDropdownAbout" role="button">
-                            About
-                        </a>
-                        <ul class="dropdown-menu dropdown-menu-animated p-2 mt-2 border-0 shadow-lg rounded-4"
-                            aria-labelledby="navbarDropdownAbout">
-                            <li><a class="dropdown-item py-2 fw-medium" href="{% url 'about' %}">About Company</a></li>
-                            <li><a class="dropdown-item py-2 fw-medium" href="{% url 'team' %}">Management Team</a></li>
-                            <li><a class="dropdown-item py-2 fw-medium" href="{% url 'infrastructure' %}">Infrastructure
-                                    &amp; Services</a></li>
-                            <li><a class="dropdown-item py-2 fw-medium" href="{% url 'csr' %}">CSR</a></li>
-                            <li><a class="dropdown-item py-2 fw-medium" href="{% url 'career' %}">Careers</a></li>
-                            <li><a class="dropdown-item py-2 fw-medium" href="{% url 'news_events' %}">News &amp; Events</a></li>
-                            <li><a class="dropdown-item py-2 fw-medium" href="{% url 'accreditations' %}">Our
-                                    Accreditations</a></li>
-                        </ul>
-                    </li>
+
                     <li class="nav-item dropdown">
                         <a class="nav-link nav-pill-link text-white text-opacity-75 px-3 py-1 fw-semibold dropdown-toggle"
                             href="{% url 'product_range' %}" id="navbarDropdownProducts" role="button">
@@ -64,17 +47,30 @@
                         </a>
                         <ul class="dropdown-menu dropdown-menu-animated p-2 mt-2 border-0 shadow-lg rounded-4"
                             aria-labelledby="navbarDropdownProducts">
-                            <li><a class="dropdown-item py-2 fw-medium" href="{% url 'product_range' %}">Product Range</a></li>
-                            <li><a class="dropdown-item py-2 fw-medium" href="{% url 'herbal_extracts' %}">Herbal Extracts</a></li>
-                            <li><a class="dropdown-item py-2 fw-medium" href="{% url 'natural_food_colors' %}">Natural Food Colors</a></li>
-                            <li><a class="dropdown-item py-2 fw-medium" href="{% url 'nutritional_fine_chemicals' %}">Nutritional Fine Chemicals</a></li>
-                            <li><a class="dropdown-item py-2 fw-medium" href="{% url 'spices_and_oleoresins' %}">Spices & Oleoresins</a></li>
-                            <li><a class="dropdown-item py-2 fw-medium" href="{% url 'raw_herbal_powders' %}">Raw Herbal Powders</a></li>
+                            <li><a class="dropdown-item py-2 fw-medium" href="{% url 'product_range' %}">Product
+                                    Range</a></li>
+                            <li><a class="dropdown-item py-2 fw-medium" href="{% url 'herbal_extracts' %}">Herbal
+                                    Extracts</a></li>
+                            <li><a class="dropdown-item py-2 fw-medium" href="{% url 'natural_food_colors' %}">Natural
+                                    Food Colors & Flavours</a></li>
+                            <li><a class="dropdown-item py-2 fw-medium"
+                                    href="{% url 'nutritional_fine_chemicals' %}">Nutritional Fine Chemicals</a></li>
+                            <li><a class="dropdown-item py-2 fw-medium" href="{% url 'spices_and_oleoresins' %}">Spices
+                                    & Oleoresins</a></li>
+                            <li><a class="dropdown-item py-2 fw-medium" href="{% url 'raw_herbal_powders' %}">Raw Herbal
+                                    Powders</a></li>
                             <!-- <li><a class="dropdown-item py-2 fw-medium" href="{% url 'organic_product_list' %}">Organic Products</a></li> -->
-                            <li><a class="dropdown-item py-2 fw-medium" href="{% url 'natural_food_colors' %}?tab=flavours">Natural Flavours</a></li>
-                            <li><a class="dropdown-item py-2 fw-medium" href="{% url 'product_brochures' %}">Product Brochures</a></li>
-                            <li><a class="dropdown-item py-2 fw-medium" href="{% url 'product_documents' %}">Product Documents</a></li>
+                            <!-- <li><a class="dropdown-item py-2 fw-medium" href="{% url 'natural_food_colors' %}?tab=flavours">Natural Flavours</a></li> -->
+                            <li><a class="dropdown-item py-2 fw-medium" href="{% url 'product_brochures' %}">Product
+                                    Brochures</a></li>
+                            <li><a class="dropdown-item py-2 fw-medium" href="{% url 'product_documents' %}">Product
+                                    Documents</a></li>
                         </ul>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link nav-pill-link text-white text-opacity-75 px-3 py-1 fw-semibold"
+                            href="{% url 'accreditations' %}">Our Accreditations</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link nav-pill-link text-white text-opacity-75 px-3 py-1 fw-semibold"
@@ -88,6 +84,29 @@
                         <a class="nav-link nav-pill-link text-white text-opacity-75 px-3 py-1 fw-semibold"
                             href="{% url 'research' %}">Research</a>
                     </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link nav-pill-link text-white text-opacity-75 px-3 py-1 fw-semibold dropdown-toggle"
+                            href="{% url 'about' %}" id="navbarDropdownAbout" role="button">
+                            About
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-animated p-2 mt-2 border-0 shadow-lg rounded-4"
+                            aria-labelledby="navbarDropdownAbout">
+                            <li><a class="dropdown-item py-2 fw-medium" href="{% url 'about' %}">About Company</a></li>
+                            <li><a class="dropdown-item py-2 fw-medium" href="{% url 'team' %}">Management Team</a></li>
+                            <li><a class="dropdown-item py-2 fw-medium" href="{% url 'infrastructure' %}">Infrastructure
+                                    &amp; Services</a></li>
+                            <li><a class="dropdown-item py-2 fw-medium" href="{% url 'csr' %}">CSR</a></li>
+                            <li><a class="dropdown-item py-2 fw-medium" href="{% url 'career' %}">Careers</a></li>
+                            <li><a class="dropdown-item py-2 fw-medium" href="{% url 'news_events' %}">News &amp;
+                                    Events</a></li>
+                            <li><a class="dropdown-item py-2 fw-medium" href="{% url 'book_expo_meeting' %}">Book Expo Meeting</a></li>
+                            <li><a class="dropdown-item py-2 fw-medium" href="{% url 'gallery' %}">Gallery</a></li>
+                            <li><a class="dropdown-item py-2 fw-medium" href="{% url 'accreditations' %}">Our
+                                    Accreditations</a></li>
+                        </ul>
+                    </li>
+
                 </ul>
             </div>
         </div>
@@ -143,25 +162,6 @@
                 </a>
             </li>
 
-            <!-- About Accordion -->
-            <li class="sb-item sb-accordion" data-delay="2">
-                <button class="sb-link sb-acc-btn" data-acc-target="acc-about">
-                    <div class="sb-icon-wrap"><i class="ph-fill ph-buildings"></i></div>
-                    <span>About</span>
-                    <i class="ph-bold ph-caret-down sb-chevron"></i>
-                </button>
-                <ul class="sb-submenu" id="acc-about">
-                    <li><a href="{% url 'about' %}"><i class="ph-bold ph-dot"></i>About Company</a></li>
-                    <li><a href="#"><i class="ph-bold ph-dot"></i>Management Team</a></li>
-                    <li><a href="{% url 'infrastructure' %}"><i class="ph-bold ph-dot"></i>Infrastructure &amp;
-                            Services</a></li>
-                    <li><a href="{% url 'csr' %}"><i class="ph-bold ph-dot"></i>CSR</a></li>
-                    <li><a href="{% url 'career' %}"><i class="ph-bold ph-dot"></i>Careers</a></li>
-                    <li><a href="{% url 'news_events' %}"><i class="ph-bold ph-dot"></i>News &amp; Events</a></li>
-                    <li><a href="{% url 'accreditations' %}"><i class="ph-bold ph-dot"></i>Our Accreditations</a></li>
-                </ul>
-            </li>
-
             <!-- Products Accordion -->
             <li class="sb-item sb-accordion" data-delay="3">
                 <button class="sb-link sb-acc-btn" data-acc-target="acc-products">
@@ -172,17 +172,27 @@
                 <ul class="sb-submenu" id="acc-products">
                     <li><a href="{% url 'product_range' %}"><i class="ph-bold ph-dot"></i>Product Range</a></li>
                     <li><a href="{% url 'herbal_extracts' %}"><i class="ph-bold ph-dot"></i>Herbal Extracts</a></li>
-                    <li><a href="{% url 'natural_food_colors' %}"><i class="ph-bold ph-dot"></i>Natural Food Colors</a></li>
-                    <li><a href="{% url 'nutritional_fine_chemicals' %}"><i class="ph-bold ph-dot"></i>Nutritional Fine Chemicals</a></li>
-                    <li><a href="{% url 'spices_and_oleoresins' %}"><i class="ph-bold ph-dot"></i>Spices & Oleoresins</a></li>
-                    <li><a href="{% url 'raw_herbal_powders' %}"><i class="ph-bold ph-dot"></i>Raw Herbal Powders</a></li>
-                    <li><a href="{% url 'organic_product_list' %}"><i class="ph-bold ph-dot"></i>Organic Products</a></li>
-                    <li><a href="{% url 'natural_food_colors' %}?tab=flavours"><i class="ph-bold ph-dot"></i>Natural Flavours</a></li>
+                    <li><a href="{% url 'natural_food_colors' %}"><i class="ph-bold ph-dot"></i>Natural Food Colors &
+                            Flavours</a></li>
+                    <li><a href="{% url 'nutritional_fine_chemicals' %}"><i class="ph-bold ph-dot"></i>Nutritional Fine
+                            Chemicals</a></li>
+                    <li><a href="{% url 'spices_and_oleoresins' %}"><i class="ph-bold ph-dot"></i>Spices &
+                            Oleoresins</a></li>
+                    <li><a href="{% url 'raw_herbal_powders' %}"><i class="ph-bold ph-dot"></i>Raw Herbal Powders</a>
+                    </li>
+                    <!-- <li><a href="{% url 'organic_product_list' %}"><i class="ph-bold ph-dot"></i>Organic Products</a></li> -->
                     <li><a href="{% url 'product_brochures' %}"><i class="ph-bold ph-dot"></i>Product Brochures</a></li>
                     <li><a href="{% url 'product_documents' %}"><i class="ph-bold ph-dot"></i>Product Documents</a></li>
                 </ul>
             </li>
 
+            <li class="sb-item" data-delay="5">
+                <a href="{% url 'accreditations' %}" class="sb-link">
+                    <div class="sb-icon-wrap"><i class="ph-fill ph-seal-check"></i></div>
+                    <span>Our Accreditations</span>
+                    <i class="ph-bold ph-caret-right sb-arr"></i>
+                </a>
+            </li>
             <li class="sb-item" data-delay="4">
                 <a href="{% url 'facility' %}" class="sb-link">
                     <div class="sb-icon-wrap"><i class="ph-fill ph-map-pin"></i></div>
@@ -191,20 +201,32 @@
                 </a>
             </li>
 
-            <!-- <li class="sb-item" data-delay="5">
-                <a href="{% url 'brands_list' %}" class="sb-link">
-                    <div class="sb-icon-wrap"><i class="ph-fill ph-seal-check"></i></div>
-                    <span>Brands</span>
-                    <i class="ph-bold ph-caret-right sb-arr"></i>
-                </a>
-            </li> -->
-
             <li class="sb-item" data-delay="6">
                 <a href="{% url 'research' %}" class="sb-link">
                     <div class="sb-icon-wrap"><i class="ph-fill ph-clipboard-text"></i></div>
                     <span>Research</span>
                     <i class="ph-bold ph-caret-right sb-arr"></i>
                 </a>
+            </li>
+
+            <!-- About Accordion -->
+            <li class="sb-item sb-accordion" data-delay="2">
+                <button class="sb-link sb-acc-btn" data-acc-target="acc-about">
+                    <div class="sb-icon-wrap"><i class="ph-fill ph-buildings"></i></div>
+                    <span>About</span>
+                    <i class="ph-bold ph-caret-down sb-chevron"></i>
+                </button>
+                <ul class="sb-submenu" id="acc-about">
+                    <li><a href="{% url 'about' %}"><i class="ph-bold ph-dot"></i>About Company</a></li>
+                    <li><a href="{% url 'team' %}"><i class="ph-bold ph-dot"></i>Management Team</a></li>
+                    <li><a href="{% url 'infrastructure' %}"><i class="ph-bold ph-dot"></i>Infrastructure &amp;
+                            Services</a></li>
+                    <li><a href="{% url 'csr' %}"><i class="ph-bold ph-dot"></i>CSR</a></li>
+                    <li><a href="{% url 'career' %}"><i class="ph-bold ph-dot"></i>Careers</a></li>
+                    <li><a href="{% url 'news_events' %}"><i class="ph-bold ph-dot"></i>News &amp; Events</a></li>
+                    <li><a href="{% url 'book_expo_meeting' %}"><i class="ph-bold ph-dot"></i>Book Expo Meeting</a></li>
+                    <li><a href="{% url 'gallery' %}"><i class="ph-bold ph-dot"></i>Gallery</a></li>
+                </ul>
             </li>
 
         </ul>
@@ -315,33 +337,30 @@
         opacity: 1;
     }
 
-    /* ── Sidebar Panel ── */
+    /* ── Bottom Drawer Sidebar Panel ── */
     .mobile-sidebar {
         position: fixed;
-        top: 0;
+        bottom: 0;
+        top: auto;
         left: 0;
-        max-width: 305px;
-        width: 100%;
-        ;
-        max-width: 88vw;
-        height: 100dvh;
+        width: 100vw;
+        max-width: 100vw;
+        height: 85dvh;
         z-index: 2999;
         display: flex;
         flex-direction: column;
-        transform: translateX(-100%);
-        transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        transform: translateY(120%);
+        transition: transform 0.5s cubic-bezier(0.32, 1, 0.23, 1);
         overflow-y: auto;
         overflow-x: hidden;
-        /* Dropdown Glassmorphism */
-        background: #2f432f98;
-        backdrop-filter: blur(80px) saturate(180%);
-        -webkit-backdrop-filter: blur(80px) saturate(180%);
-        border-right: 1px solid rgba(255, 255, 255, 0.14);
-        box-shadow: 6px 0 40px rgba(0, 0, 0, 0.5);
+        background: #ffffff;
+        /* Premium white */
+        border-radius: 32px 32px 0 0;
+        box-shadow: 0 -20px 60px rgba(0, 0, 0, 0.15);
     }
 
     .mobile-sidebar.active {
-        transform: translateX(0);
+        transform: translateY(0);
     }
 
     /* Stagger-in items when sidebar opens */
@@ -373,12 +392,12 @@
     @keyframes sbItemIn {
         from {
             opacity: 0;
-            transform: translateX(-18px);
+            transform: translateY(20px);
         }
 
         to {
             opacity: 1;
-            transform: translateX(0);
+            transform: translateY(0);
         }
     }
 
@@ -387,8 +406,8 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-        padding: 18px 16px 14px;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        padding: 24px 24px 16px;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
         flex-shrink: 0;
         background: transparent;
     }
@@ -396,13 +415,14 @@
     .sb-brand {
         display: flex;
         align-items: center;
-        gap: 10px;
+        gap: 12px;
         text-decoration: none;
     }
 
     .sb-logo {
         height: 44px;
-        width: 44px; object-fit: contain;
+        width: 44px;
+        object-fit: contain;
         flex-shrink: 0;
     }
 
@@ -413,43 +433,43 @@
     }
 
     .sb-title {
-        font-size: 1rem;
+        font-size: 1.1rem;
         font-weight: 800;
-        color: #fff;
+        color: var(--forest-dark);
         letter-spacing: 0.3px;
     }
 
     .sb-sub {
         font-size: 0.68rem;
-        color: rgba(240, 255, 245, 0.88);
+        color: var(--text-muted);
         font-weight: 500;
     }
 
     .sb-close {
-        width: 36px;
-        height: 36px;
-        border-radius: 10px;
-        background: rgba(255, 255, 255, 0.08);
-        border: 1px solid rgba(255, 255, 255, 0.15);
-        color: #fff;
+        width: 38px;
+        height: 38px;
+        border-radius: 50%;
+        background: rgba(0, 0, 0, 0.04);
+        border: 1px solid rgba(0, 0, 0, 0.08);
+        color: var(--forest-dark);
         display: flex;
         align-items: center;
         justify-content: center;
-        font-size: 1.05rem;
+        font-size: 1.2rem;
         cursor: pointer;
-        transition: background 0.22s, color 0.22s;
+        transition: background 0.3s, color 0.3s, transform 0.3s;
         flex-shrink: 0;
     }
 
     .sb-close:hover {
-        background: rgba(255, 255, 255, 0.18);
-        color: #fff;
+        background: rgba(0, 0, 0, 0.08);
+        transform: rotate(90deg);
     }
 
-    /* ── Decorative Badge ── */
+    /* ── Decorative Badge & Label ── */
     .sb-divider {
-        padding: 10px 16px;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        padding: 12px 24px;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.04);
         flex-shrink: 0;
     }
 
@@ -457,22 +477,21 @@
         display: inline-flex;
         align-items: center;
         gap: 6px;
-        padding: 4px 12px;
-        background: rgba(74, 222, 128, 0.1);
-        border: 1px solid rgba(74, 222, 128, 0.25);
+        padding: 6px 14px;
+        background: rgba(11, 93, 63, 0.08);
+        border: 1px solid rgba(11, 93, 63, 0.12);
         border-radius: 999px;
-        color: #4ade80;
-        font-size: 0.7rem;
+        color: var(--forest-dark);
+        font-size: 0.75rem;
         font-weight: 700;
         letter-spacing: 0.5px;
         text-transform: uppercase;
     }
 
-    /* ── Section Label ── */
     .sb-section-label {
         font-size: 0.65rem;
         font-weight: 800;
-        color: rgba(255, 255, 255, 0.4);
+        color: rgba(0, 0, 0, 0.4);
         letter-spacing: 1.5px;
         text-transform: uppercase;
         margin: 14px 0 6px 16px;
@@ -482,7 +501,7 @@
     .sb-nav {
         flex: 1;
         overflow-y: auto;
-        padding: 0 10px 10px;
+        padding: 10px 24px 20px;
     }
 
     .sb-list {
@@ -491,7 +510,7 @@
         padding: 0;
         display: flex;
         flex-direction: column;
-        gap: 3px;
+        gap: 8px;
     }
 
     /* ── Each Item (for animation delay) ── */
@@ -527,27 +546,27 @@
     .sb-link {
         display: flex;
         align-items: center;
-        gap: 12px;
+        gap: 14px;
         width: 100%;
-        padding: 11px 12px;
-        border-radius: 12px;
-        color: rgba(240, 255, 245, 0.88);
-        font-size: 0.95rem;
+        padding: 12px 14px;
+        border-radius: 16px;
+        color: var(--text-body);
+        font-size: 1rem;
         font-weight: 600;
         text-decoration: none;
         background: transparent;
         border: none;
         cursor: pointer;
-        transition: background 0.22s, color 0.22s, padding-left 0.22s;
+        transition: background 0.3s, color 0.3s, padding-left 0.3s;
         text-align: left;
         position: relative;
     }
 
     .sb-link:hover,
     .sb-link.sb-active {
-        background: rgba(255, 255, 255, 0.18);
-        color: #ffffff;
-        padding-left: 16px;
+        background: rgba(11, 93, 63, 0.05);
+        color: var(--forest-dark);
+        padding-left: 18px;
     }
 
     .sb-link.sb-active::before {
@@ -558,61 +577,64 @@
         height: 60%;
         width: 3px;
         border-radius: 0 3px 3px 0;
-        background: #fff;
+        background: var(--forest-dark);
     }
 
     /* Icon bubble */
     .sb-icon-wrap {
-        width: 34px;
-        height: 34px;
-        border-radius: 9px;
-        background: rgba(74, 222, 128, 0.12);
+        width: 38px;
+        height: 38px;
+        border-radius: 12px;
+        background: rgba(11, 93, 63, 0.08);
+        border: 1px solid rgba(11, 93, 63, 0.1);
         display: flex;
         align-items: center;
         justify-content: center;
-        color: #4ade80;
-        font-size: 0.88rem;
+        color: var(--forest-dark);
+        font-size: 1.1rem;
         flex-shrink: 0;
-        transition: background 0.22s, transform 0.22s;
+        transition: background 0.3s, transform 0.3s, color 0.3s;
     }
 
     .sb-link:hover .sb-icon-wrap,
     .sb-link.sb-active .sb-icon-wrap {
-        background: rgba(255, 255, 255, 0.2);
+        background: var(--forest-dark);
+        color: var(--gold);
         transform: scale(1.08);
     }
 
     .sb-arr {
         margin-left: auto;
-        font-size: 0.7rem;
-        color: rgba(255, 255, 255, 0.4);
-        transition: transform 0.22s, color 0.22s;
+        font-size: 0.8rem;
+        color: rgba(0, 0, 0, 0.2);
+        transition: transform 0.3s, color 0.3s;
     }
 
     .sb-link:hover .sb-arr {
         transform: translateX(3px);
-        color: #fff;
+        color: var(--forest-dark);
     }
 
     /* ── Chevron for accordion ── */
     .sb-chevron {
         margin-left: auto;
-        font-size: 0.72rem;
-        color: rgba(255, 255, 255, 0.4);
-        transition: transform 0.3s ease, color 0.22s;
+        font-size: 0.8rem;
+        color: rgba(0, 0, 0, 0.3);
+        transition: transform 0.3s ease, color 0.3s;
     }
 
     .sb-acc-btn.open .sb-chevron {
         transform: rotate(180deg);
-        color: #fff;
+        color: var(--forest-dark);
     }
 
     .sb-acc-btn.open {
-        color: #fff;
+        color: var(--forest-dark);
     }
 
     .sb-acc-btn.open .sb-icon-wrap {
-        background: rgba(255, 255, 255, 0.2);
+        background: var(--forest-dark);
+        color: var(--gold);
     }
 
     /* ── Submenu ── */
@@ -620,53 +642,53 @@
         list-style: none;
         margin: 4px 0 4px 24px;
         padding: 0 0 0 14px;
-        border-left: 2px solid rgba(74, 222, 128, 0.2);
+        border-left: 2px solid rgba(0, 0, 0, 0.05);
         display: none;
         flex-direction: column;
-        gap: 1px;
+        gap: 2px;
         overflow: hidden;
         max-height: 0;
-        transition: max-height 0.38s cubic-bezier(0.4, 0, 0.2, 1);
+        transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
     .sb-submenu.open {
         display: flex;
-        max-height: 400px;
+        max-height: 500px;
     }
 
     .sb-submenu li a {
         display: flex;
         align-items: center;
-        gap: 6px;
-        padding: 8px 8px 8px 4px;
-        color: rgba(240, 255, 245, 0.88);
-        font-size: 0.85rem;
+        gap: 10px;
+        padding: 8px 10px;
+        color: var(--text-muted);
+        font-size: 0.9rem;
         font-weight: 500;
         text-decoration: none;
         border-radius: 8px;
-        transition: background 0.2s, color 0.2s, padding-left 0.2s;
+        transition: background 0.3s, color 0.3s, padding-left 0.3s;
     }
 
     .sb-submenu li a i {
         font-size: 1rem;
-        color: #fff;
+        color: var(--forest-dark);
     }
 
     .sb-submenu li a:hover {
-        background: rgba(255, 255, 255, 0.18);
-        color: #ffffff;
-        padding-left: 8px;
+        background: rgba(0, 0, 0, 0.03);
+        color: var(--forest-dark);
+        padding-left: 14px;
     }
 
     /* ── Footer ── */
     .sb-footer {
-        padding: 14px 14px 24px;
-        border-top: 1px solid rgba(255, 255, 255, 0.07);
+        padding: 24px;
+        border-top: 1px solid rgba(0, 0, 0, 0.05);
         flex-shrink: 0;
         display: flex;
         flex-direction: column;
-        gap: 12px;
-        background: transparent;
+        gap: 16px;
+        background: #f8faf9;
     }
 
     /* CTA Button */
@@ -676,94 +698,101 @@
         justify-content: center;
         gap: 8px;
         width: 100%;
-        padding: 13px;
-        background: linear-gradient(135deg, #198754, #15a060);
-        color: #fff;
-        font-weight: 700;
-        font-size: 0.95rem;
+        max-width: 250px;
+        margin: 0 auto;
+        padding: 14px;
+        background: var(--forest-dark);
+        color: var(--gold);
+        font-weight: 800;
+        font-size: 1rem;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
         text-decoration: none;
-        border-radius: 12px;
-        transition: transform 0.22s, box-shadow 0.22s;
-        box-shadow: 0 4px 15px rgba(25, 135, 84, 0.4);
+        border-radius: 100px;
+        transition: transform 0.22s, box-shadow 0.22s, background 0.22s;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     }
 
     .sb-cta-btn:hover {
         transform: translateY(-2px);
-        box-shadow: 0 8px 24px rgba(25, 135, 84, 0.5);
-        color: #fff;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+        background: var(--gold);
+        color: var(--forest-dark);
     }
 
     /* Contact Chips */
     .sb-contact-row {
         display: flex;
         flex-direction: column;
-        gap: 6px;
+        gap: 8px;
     }
 
     .sb-contact-chip {
         display: flex;
         align-items: center;
-        gap: 8px;
-        padding: 8px 10px;
-        background: rgba(255, 255, 255, 0.05);
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        border-radius: 10px;
+        gap: 12px;
+        padding: 12px 16px;
+        background: #ffffff;
+        border: 1px solid rgba(0, 0, 0, 0.05);
+        border-radius: 12px;
         text-decoration: none;
-        transition: background 0.2s;
+        transition: background 0.3s, transform 0.3s;
     }
 
     .sb-contact-chip i {
-        color: #fff;
-        font-size: 0.85rem;
+        color: var(--forest-dark);
+        font-size: 1.1rem;
         flex-shrink: 0;
     }
 
     .sb-contact-chip span {
-        font-size: 0.78rem;
-        color: rgba(240, 255, 245, 0.88);
+        font-size: 0.9rem;
+        color: var(--text-body);
+        font-weight: 500;
         overflow: hidden;
-        text-overflow: ellipsis;
         text-overflow: ellipsis;
     }
 
     .sb-contact-chip:hover {
-        background: rgba(255, 255, 255, 0.1);
+        background: rgba(0, 0, 0, 0.02);
+        transform: translateY(-1px);
     }
 
     /* Social Icons */
     .sb-socials {
         display: flex;
-        gap: 8px;
+        gap: 12px;
         flex-wrap: wrap;
+        justify-content: center;
+        margin-top: 10px;
     }
 
     .sb-social {
-        width: 36px;
-        height: 36px;
-        border-radius: 9px;
+        width: 42px;
+        height: 42px;
+        border-radius: 50%;
         display: flex;
         align-items: center;
         justify-content: center;
-        background: rgba(255, 255, 255, 0.06);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        color: #fff;
-        font-size: 0.9rem;
+        background: #ffffff;
+        border: 1px solid rgba(0, 0, 0, 0.05);
+        color: var(--forest-dark);
+        font-size: 1.1rem;
         text-decoration: none;
-        transition: background 0.22s, color 0.22s, transform 0.22s;
+        transition: background 0.3s, color 0.3s, transform 0.3s;
     }
 
     .sb-social:hover {
-        background: rgba(255, 255, 255, 0.18);
-        color: #fff;
-        border-color: rgba(255, 255, 255, 0.3);
-        transform: translateY(-2px);
+        background: var(--forest-dark);
+        color: var(--gold);
+        transform: scale(1.1);
     }
 
     .sb-copy {
-        font-size: 0.68rem;
-        color: rgba(255, 255, 255, 0.3);
+        font-size: 0.75rem;
+        color: var(--text-muted);
         text-align: center;
-        margin: 0;
+        margin: 10px 0 0 0;
     }
 
     /* ── Hide sidebar on desktop ── */
@@ -798,18 +827,18 @@
             visibility: hidden;
             transform: translateY(15px) scale(0.98);
             transform-origin: top center;
-            transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
-                        transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
-                        visibility 0.3s;
+            transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                visibility 0.3s;
             margin-top: 10px !important;
             pointer-events: none;
             background: rgba(255, 255, 255, 0.96);
             backdrop-filter: blur(16px);
-            border: 1px solid rgba(255,255,255,0.4) !important;
-            box-shadow: 0 12px 40px rgba(0,0,0,0.12) !important;
+            border: 1px solid rgba(255, 255, 255, 0.4) !important;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12) !important;
             min-width: 220px;
         }
-        
+
         /* Invisible bridge to prevent hover loss when crossing the gap */
         .dropdown-menu-animated::before {
             content: '';
@@ -834,7 +863,7 @@
             border-radius: 8px;
             margin-bottom: 2px;
         }
-        
+
         .dropdown-item:last-child {
             margin-bottom: 0;
         }
@@ -845,10 +874,10 @@
             padding-left: 1.5rem;
             transform: translateX(3px);
         }
-        
-        .nav-item.dropdown:hover > .nav-link {
+
+        .nav-item.dropdown:hover>.nav-link {
             color: #fff !important;
-            background: rgba(255,255,255,0.1);
+            background: rgba(255, 255, 255, 0.1);
             border-radius: 50rem;
         }
     }

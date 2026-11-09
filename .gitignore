@@ -12,3 +12,9 @@ New folder.zip
 *.zip
 __pycache__/
 *.pyc
+
+# Local backups and scratch
+index_history.txt
+old_index*.html
+old_styles.css
+scratch/

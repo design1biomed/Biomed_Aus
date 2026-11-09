@@ -9,164 +9,518 @@
     <!-- Phosphor Icons -->
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
     <style>
-        body { background-color: #f8faf9; }
-        .sidebar { min-height: 100vh; background: #0b5d3f; color: white; }
-        .sidebar a { color: rgba(255,255,255,0.8); text-decoration: none; padding: 10px 15px; display: block; border-radius: 8px; margin-bottom: 5px; }
-        .sidebar a:hover, .sidebar a.active { background: rgba(255,255,255,0.1); color: white; }
-        .topbar { background: white; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+        :root {
+            --sidebar-width: 275px;
+            --sidebar-bg: #092c1e;
+            --sidebar-hover: rgba(255, 255, 255, 0.08);
+            --sidebar-active: rgba(25, 135, 84, 0.38);
+            --sidebar-text: rgba(240, 245, 242, 0.82);
+            --sidebar-accent: #4ade80;
+        }
+
+        body {
+            background-color: #f4f7f5;
+            color: #212529;
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        /* ── Sidebar Layout & Scrolling ── */
+        .sidebar {
+            width: var(--sidebar-width);
+            min-width: var(--sidebar-width);
+            height: 100vh;
+            position: sticky;
+            top: 0;
+            background: var(--sidebar-bg);
+            color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            border-right: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 4px 0 20px rgba(0, 0, 0, 0.12);
+            z-index: 1040;
+        }
+
+        .sidebar-header {
+            padding: 1.1rem 1.25rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            background: rgba(0, 0, 0, 0.15);
+        }
+
+        .sidebar-body {
+            flex: 1;
+            overflow-y: auto;
+            overflow-x: hidden;
+            padding: 0.75rem 0.85rem;
+        }
+
+        .sidebar-body::-webkit-scrollbar {
+            width: 5px;
+        }
+        .sidebar-body::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .sidebar-body::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 4px;
+        }
+        .sidebar-body::-webkit-scrollbar-thumb:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .sidebar-footer {
+            padding: 0.85rem 1rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            background: rgba(0, 0, 0, 0.15);
+        }
+
+        /* ── Section Headings ── */
+        .sidebar-section-title {
+            font-size: 0.68rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            color: rgba(255, 255, 255, 0.42);
+            padding: 14px 10px 4px 10px;
+            margin: 0;
+            user-select: none;
+        }
+
+        /* ── Navigation Links & Alignment ── */
+        .sidebar-link {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 8px 12px;
+            border-radius: 8px;
+            color: var(--sidebar-text);
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            line-height: 1.3;
+            transition: all 0.18s ease;
+            margin-bottom: 3px;
+            border-left: 3px solid transparent;
+        }
+
+        .sidebar-link:hover {
+            background: var(--sidebar-hover);
+            color: #ffffff;
+            transform: translateX(2px);
+        }
+
+        .sidebar-link.active {
+            background: var(--sidebar-active);
+            color: #ffffff;
+            font-weight: 600;
+            border-left-color: var(--sidebar-accent);
+        }
+
+        .sidebar-link .nav-icon {
+            width: 20px;
+            height: 20px;
+            font-size: 1.15rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            opacity: 0.88;
+        }
+
+        .sidebar-link.active .nav-icon {
+            opacity: 1;
+            color: var(--sidebar-accent);
+        }
+
+        .sidebar-link .nav-label {
+            flex: 1;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        /* ── Collapsible Menu Toggles ── */
+        .sidebar-toggle {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            padding: 8px 12px;
+            border-radius: 8px;
+            color: var(--sidebar-text);
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            line-height: 1.3;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            transition: all 0.18s ease;
+            margin-bottom: 3px;
+            border-left: 3px solid transparent;
+            text-align: left;
+        }
+
+        .sidebar-toggle:hover {
+            background: var(--sidebar-hover);
+            color: #ffffff;
+            transform: translateX(2px);
+        }
+
+        .sidebar-toggle.active {
+            background: rgba(255, 255, 255, 0.05);
+            color: #ffffff;
+            border-left-color: rgba(74, 222, 128, 0.5);
+        }
+
+        .sidebar-toggle-main {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex: 1;
+            overflow: hidden;
+        }
+
+        .sidebar-toggle .caret-icon {
+            font-size: 0.8rem;
+            opacity: 0.7;
+            transition: transform 0.25s ease;
+            flex-shrink: 0;
+        }
+
+        .sidebar-toggle[aria-expanded="true"] .caret-icon {
+            transform: rotate(180deg);
+        }
+
+        /* ── Submenus ── */
+        .sidebar-submenu {
+            margin-left: 20px;
+            padding-left: 12px;
+            border-left: 1px solid rgba(255, 255, 255, 0.12);
+            margin-top: 2px;
+            margin-bottom: 6px;
+        }
+
+        .sidebar-sublink {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 6px 10px;
+            border-radius: 6px;
+            color: rgba(255, 255, 255, 0.72);
+            text-decoration: none;
+            font-size: 0.82rem;
+            line-height: 1.25;
+            transition: all 0.15s ease;
+            margin-bottom: 2px;
+        }
+
+        .sidebar-sublink:hover, .sidebar-sublink.active {
+            color: #ffffff;
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .sidebar-sublink.active {
+            color: var(--sidebar-accent);
+            font-weight: 600;
+        }
+
+        .sidebar-sublink .sub-icon {
+            font-size: 0.95rem;
+            width: 16px;
+            display: inline-flex;
+            justify-content: center;
+            flex-shrink: 0;
+            opacity: 0.75;
+        }
+
+        /* ── Topbar & Content ── */
+        .topbar {
+            background: #ffffff;
+            border-bottom: 1px solid #e5e9e6;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.03);
+            position: sticky;
+            top: 0;
+            z-index: 1020;
+        }
     </style>
 </head>
 <body>
     <div class="d-flex">
         <!-- Sidebar -->
-        <div class="sidebar p-3" style="width: 250px;">
-            <h4 class="mb-4 d-flex align-items-center gap-2">
-                <i class="ph ph-leaf"></i> Biomed Admin
-            </h4>
-            <a href="{% url 'custom_dashboard' %}" class="{% if request.resolver_match.url_name == 'custom_dashboard' %}active{% endif %}">
-                <i class="ph ph-squares-four me-2"></i> Dashboard
-            </a>
-            
-            <a href="#indexMenu" data-bs-toggle="collapse" class="d-flex align-items-center justify-content-between {% if 'edit_index' in request.resolver_match.url_name or 'extract' in request.resolver_match.url_name or 'accreditation' in request.resolver_match.url_name or 'timeline' in request.resolver_match.url_name or 'promise' in request.resolver_match.url_name or 'office' in request.resolver_match.url_name or 'solution' in request.resolver_match.url_name %}active{% endif %}">
-                <span><i class="ph ph-browser me-2"></i> Index Page Content</span>
-                <i class="ph ph-caret-down"></i>
-            </a>
-            <div class="collapse {% if 'edit_index' in request.resolver_match.url_name or 'extract' in request.resolver_match.url_name or 'accreditation' in request.resolver_match.url_name or 'timeline' in request.resolver_match.url_name or 'promise' in request.resolver_match.url_name or 'office' in request.resolver_match.url_name or 'solution' in request.resolver_match.url_name %}show{% endif %}" id="indexMenu">
-                <a href="{% url 'edit_index_page' %}" class="ps-4 {% if request.resolver_match.url_name == 'edit_index_page' %}text-white fw-bold{% endif %}" style="font-size: 0.9em;">
-                    <i class="ph ph-text-t me-2"></i> Hero Content
+        <aside class="sidebar">
+            <!-- Header Brand -->
+            <div class="sidebar-header d-flex align-items-center justify-content-between">
+                <a href="{% url 'custom_dashboard' %}" class="d-flex align-items-center gap-2 text-white text-decoration-none">
+                    <i class="ph-fill ph-leaf text-success fs-3"></i>
+                    <div>
+                        <div class="fw-bold fs-6 tracking-wide lh-1">BMI Australia</div>
+                        <div class="text-white-50" style="font-size: 0.7rem; letter-spacing: 0.5px;">Control Dashboard</div>
+                    </div>
                 </a>
-                <a href="{% url 'manage_extracts' %}" class="ps-4 {% if 'extract' in request.resolver_match.url_name %}text-white fw-bold{% endif %}" style="font-size: 0.9em;">
-                    <i class="ph ph-flask me-2"></i> Categories
-                </a>
-                <a href="{% url 'manage_solutions' %}" class="ps-4 {% if 'solution' in request.resolver_match.url_name %}text-white fw-bold{% endif %}" style="font-size: 0.9em;">
-                    <i class="ph ph-stars me-2"></i> Solutions / Offerings
-                </a>
-                <a href="{% url 'manage_accreditations' %}" class="ps-4 {% if 'accreditation' in request.resolver_match.url_name %}text-white fw-bold{% endif %}" style="font-size: 0.9em;">
-                    <i class="ph ph-certificate me-2"></i> Accreditations
-                </a>
-                <a href="{% url 'manage_timelines' %}" class="ps-4 {% if 'timeline' in request.resolver_match.url_name %}text-white fw-bold{% endif %}" style="font-size: 0.9em;">
-                    <i class="ph ph-clock me-2"></i> Quality Timeline
-                </a>
-                <a href="{% url 'manage_promises' %}" class="ps-4 {% if 'promise' in request.resolver_match.url_name %}text-white fw-bold{% endif %}" style="font-size: 0.9em;">
-                    <i class="ph ph-handshake me-2"></i> Core Promises
-                </a>
-                <a href="{% url 'manage_offices' %}" class="ps-4 {% if 'office' in request.resolver_match.url_name %}text-white fw-bold{% endif %}" style="font-size: 0.9em;">
-                    <i class="ph ph-map-pin me-2"></i> Global Offices
-                </a>
-            </div>
-            <a href="{% url 'manage_team' %}" class="{% if 'team' in request.resolver_match.url_name %}active{% endif %}">
-                <i class="ph ph-users me-2"></i> Manage Team Page
-            </a>
-            <a href="{% url 'edit_about_page' %}" class="{% if request.resolver_match.url_name == 'edit_about_page' %}active{% endif %}">
-                <i class="ph ph-info me-2"></i> About Page Content
-            </a>
-            <a href="{% url 'edit_csr_page' %}" class="{% if request.resolver_match.url_name == 'edit_csr_page' %}active{% endif %}">
-                <i class="ph ph-globe me-2"></i> CSR Page Content
-            </a>
-            <a href="{% url 'edit_infrastructure_page' %}" class="{% if request.resolver_match.url_name == 'edit_infrastructure_page' %}active{% endif %}">
-                <i class="ph ph-buildings me-2"></i> Infrastructure Page
-            </a>
-            <a href="{% url 'manage_research' %}" class="{% if 'research' in request.resolver_match.url_name %}active{% endif %}">
-                <i class="ph ph-flask me-2"></i> Manage Research Page
-            </a>
-            <a href="{% url 'dashboard_manage_brands' %}" class="{% if 'brand' in request.resolver_match.url_name %}active{% endif %}">
-                <i class="ph ph-tag me-2"></i> Manage Brands / TM
-            </a>
-            <a href="{% url 'dashboard_manage_product_range' %}" class="{% if 'product_range' in request.resolver_match.url_name %}active{% endif %}">
-                <i class="ph ph-package me-2"></i> Manage Product Range
-            </a>
-            
-            <a href="#productsMenu" data-bs-toggle="collapse" class="d-flex align-items-center justify-content-between {% if 'product' in request.resolver_match.url_name and 'product_range' not in request.resolver_match.url_name and 'brochure' not in request.resolver_match.url_name and 'document' not in request.resolver_match.url_name %}active{% endif %}">
-                <span><i class="ph ph-plant me-2"></i> Manage Products</span>
-                <i class="ph ph-caret-down"></i>
-            </a>
-            <div class="collapse {% if 'product' in request.resolver_match.url_name and 'product_range' not in request.resolver_match.url_name and 'brochure' not in request.resolver_match.url_name and 'document' not in request.resolver_match.url_name %}show{% endif %}" id="productsMenu">
-                <a href="{% url 'dashboard_manage_products' %}?category=herbal_extracts" class="ps-4 {% if request.GET.category == 'herbal_extracts' %}text-white fw-bold{% endif %}" style="font-size: 0.9em;">
-                    <i class="ph ph-leaf me-2"></i> Herbal Extracts
-                </a>
-                <a href="{% url 'dashboard_manage_products' %}?category=nutritional_fine_chemicals" class="ps-4 {% if request.GET.category == 'nutritional_fine_chemicals' %}text-white fw-bold{% endif %}" style="font-size: 0.9em;">
-                    <i class="ph ph-flask me-2"></i> Nutritional Fine Chemicals
-                </a>
-                <a href="{% url 'dashboard_manage_products' %}?category=spices_and_oleoresins" class="ps-4 {% if request.GET.category == 'spices_and_oleoresins' %}text-white fw-bold{% endif %}" style="font-size: 0.9em;">
-                    <i class="ph ph-fire me-2"></i> Spices & Oleoresins
-                </a>
-                <a href="{% url 'dashboard_manage_products' %}?category=raw_herbal_powders" class="ps-4 {% if request.GET.category == 'raw_herbal_powders' %}text-white fw-bold{% endif %}" style="font-size: 0.9em;">
-                    <i class="ph ph-plant me-2"></i> Raw Herbal Powders
-                </a>
-                <a href="{% url 'dashboard_manage_products' %}?category=organic_product_list" class="ps-4 {% if request.GET.category == 'organic_product_list' %}text-white fw-bold{% endif %}" style="font-size: 0.9em;">
-                    <i class="ph ph-check-circle me-2"></i> Organic Product List
-                </a>
-                <a href="{% url 'dashboard_manage_products' %}" class="ps-4 {% if not request.GET.category and 'product' in request.resolver_match.url_name and 'product_range' not in request.resolver_match.url_name and 'brochure' not in request.resolver_match.url_name and 'document' not in request.resolver_match.url_name %}text-white fw-bold{% endif %}" style="font-size: 0.9em;">
-                    <i class="ph ph-list me-2"></i> View All Products
-                </a>
-            </div>
-            <a href="{% url 'dashboard_manage_natural_food_colors' %}" class="{% if 'natural_food_color' in request.resolver_match.url_name %}active{% endif %}">
-                <i class="ph ph-palette me-2"></i> Manage Food Colors
-            </a>
-            <a href="{% url 'dashboard_manage_natural_flavours' %}" class="{% if 'natural_flavour' in request.resolver_match.url_name %}active{% endif %}">
-                <i class="ph ph-brand-apple me-2"></i> Manage Flavours
-            </a>
-            <a href="{% url 'dashboard_manage_product_brochures' %}" class="{% if 'product_brochure' in request.resolver_match.url_name %}active{% endif %}">
-                <i class="ph ph-file-pdf me-2"></i> Manage Brochures
-            </a>
-            <a href="{% url 'dashboard_manage_product_document_categories' %}" class="{% if 'product_document_categor' in request.resolver_match.url_name %}active{% endif %}">
-                <i class="ph ph-folders me-2"></i> Document Categories
-            </a>
-            <a href="{% url 'dashboard_manage_product_documents' %}" class="{% if 'product_document' in request.resolver_match.url_name and 'categor' not in request.resolver_match.url_name %}active{% endif %}">
-                <i class="ph ph-files me-2"></i> Manage Documents
-            </a>
-            <a href="{% url 'dashboard_manage_exhibition_events' %}" class="{% if 'exhibition_event' in request.resolver_match.url_name %}active{% endif %}">
-                <i class="ph ph-ticket me-2"></i> Manage Exhibitions
-            </a>
-            <a href="{% url 'dashboard_manage_instagram_posts' %}" class="{% if 'instagram_post' in request.resolver_match.url_name %}active{% endif %}">
-                <i class="ph ph-instagram-logo me-2"></i> Instagram Posts
-            </a>
-            <a href="{% url 'dashboard_manage_subscribers' %}" class="{% if 'subscriber' in request.resolver_match.url_name %}active{% endif %}">
-                <i class="ph ph-envelope-simple me-2"></i> Subscribers & News
-            </a>
-            <a href="{% url 'dashboard_manage_job_openings' %}" class="{% if 'job_opening' in request.resolver_match.url_name %}active{% endif %}">
-                <i class="ph ph-briefcase me-2"></i> Manage Job Openings
-            </a>
-            <a href="{% url 'dashboard_manage_job_applications' %}" class="{% if 'job_application' in request.resolver_match.url_name %}active{% endif %}">
-                <i class="ph ph-file-text me-2"></i> Job Applications
-            </a>
-            <a href="{% url 'manage_enquiries' %}" class="{% if 'enquir' in request.resolver_match.url_name %}active{% endif %}">
-                <i class="ph ph-envelope-simple-open me-2"></i> Manage Enquiries
-            </a>
-            <a href="{% url 'dashboard_manage_contact_messages' %}" class="{% if 'contact_message' in request.resolver_match.url_name %}active{% endif %}">
-                <i class="ph ph-envelope me-2"></i> Contact Messages
-            </a>
-            <a href="{% url 'dashboard_email_configuration' %}" class="{% if request.resolver_match.url_name == 'dashboard_email_configuration' %}active{% endif %}">
-                <i class="ph ph-gear me-2"></i> Email Configuration
-            </a>
-            <a href="{% url 'index' %}" target="_blank" class="mt-auto text-white-50">
-                <i class="ph ph-arrow-square-out me-2"></i> View Live Site
-            </a>
-            <a href="{% url 'dashboard_logout' %}" class="text-danger mt-1">
-                <i class="ph ph-sign-out me-2"></i> Logout
-            </a>
-        </div>
-
-        <!-- Main Content -->
-        <div class="flex-grow-1">
-            <div class="topbar p-3 d-flex justify-content-between align-items-center">
-                <h5 class="mb-0">{% block header_title %}Dashboard{% endblock %}</h5>
-                <span class="text-muted">Welcome, Admin</span>
             </div>
 
-            <div class="p-4">
+            <!-- Scrollable Navigation Items -->
+            <div class="sidebar-body">
+
+                <!-- 1. MAIN -->
+                <div class="sidebar-section-title">Main</div>
+                <a href="{% url 'custom_dashboard' %}" class="sidebar-link {% if request.resolver_match.url_name == 'custom_dashboard' %}active{% endif %}">
+                    <i class="ph ph-squares-four nav-icon"></i>
+                    <span class="nav-label">Dashboard Home</span>
+                </a>
+                <a href="{% url 'dashboard_manage_leads' %}" class="sidebar-link {% if 'lead' in request.resolver_match.url_name %}active{% endif %}">
+                    <i class="ph ph-address-book nav-icon"></i>
+                    <span class="nav-label">B2B Leads Manager</span>
+                </a>
+                <a href="{% url 'dashboard_analytics' %}" class="sidebar-link {% if 'analytics' in request.resolver_match.url_name %}active{% endif %}">
+                    <i class="ph ph-chart-line-up nav-icon"></i>
+                    <span class="nav-label">Traffic &amp; Analytics</span>
+                </a>
+
+                <!-- 2. CONTENT & PAGES -->
+                <div class="sidebar-section-title">Content &amp; Pages</div>
+
+                <!-- Collapsible: Index Page Content -->
+                <button class="sidebar-toggle {% if 'edit_index' in request.resolver_match.url_name or 'extract' in request.resolver_match.url_name or 'accreditation' in request.resolver_match.url_name or 'timeline' in request.resolver_match.url_name or 'promise' in request.resolver_match.url_name or 'office' in request.resolver_match.url_name or 'solution' in request.resolver_match.url_name %}active{% endif %}"
+                    type="button" data-bs-toggle="collapse" data-bs-target="#indexMenu"
+                    aria-expanded="{% if 'edit_index' in request.resolver_match.url_name or 'extract' in request.resolver_match.url_name or 'accreditation' in request.resolver_match.url_name or 'timeline' in request.resolver_match.url_name or 'promise' in request.resolver_match.url_name or 'office' in request.resolver_match.url_name or 'solution' in request.resolver_match.url_name %}true{% else %}false{% endif %}">
+                    <span class="sidebar-toggle-main">
+                        <i class="ph ph-browser nav-icon"></i>
+                        <span class="nav-label">Homepage Sections</span>
+                    </span>
+                    <i class="ph ph-caret-down caret-icon"></i>
+                </button>
+                <div class="collapse {% if 'edit_index' in request.resolver_match.url_name or 'extract' in request.resolver_match.url_name or 'accreditation' in request.resolver_match.url_name or 'timeline' in request.resolver_match.url_name or 'promise' in request.resolver_match.url_name or 'office' in request.resolver_match.url_name or 'solution' in request.resolver_match.url_name %}show{% endif %}" id="indexMenu">
+                    <div class="sidebar-submenu">
+                        <a href="{% url 'edit_index_page' %}" class="sidebar-sublink {% if request.resolver_match.url_name == 'edit_index_page' %}active{% endif %}">
+                            <i class="ph ph-text-t sub-icon"></i> Hero Content
+                        </a>
+                        <a href="{% url 'manage_extracts' %}" class="sidebar-sublink {% if 'extract' in request.resolver_match.url_name %}active{% endif %}">
+                            <i class="ph ph-flask sub-icon"></i> Extract Categories
+                        </a>
+                        <a href="{% url 'manage_solutions' %}" class="sidebar-sublink {% if 'solution' in request.resolver_match.url_name %}active{% endif %}">
+                            <i class="ph ph-stars sub-icon"></i> Offerings &amp; Solutions
+                        </a>
+                        <a href="{% url 'manage_accreditations' %}" class="sidebar-sublink {% if 'accreditation' in request.resolver_match.url_name %}active{% endif %}">
+                            <i class="ph ph-certificate sub-icon"></i> Accreditations
+                        </a>
+                        <a href="{% url 'manage_timelines' %}" class="sidebar-sublink {% if 'timeline' in request.resolver_match.url_name %}active{% endif %}">
+                            <i class="ph ph-clock sub-icon"></i> Quality Timeline
+                        </a>
+                        <a href="{% url 'manage_promises' %}" class="sidebar-sublink {% if 'promise' in request.resolver_match.url_name %}active{% endif %}">
+                            <i class="ph ph-handshake sub-icon"></i> Core Promises
+                        </a>
+                        <a href="{% url 'manage_offices' %}" class="sidebar-sublink {% if 'office' in request.resolver_match.url_name %}active{% endif %}">
+                            <i class="ph ph-map-pin sub-icon"></i> Global Offices
+                        </a>
+                    </div>
+                </div>
+
+                <a href="{% url 'manage_team' %}" class="sidebar-link {% if 'team' in request.resolver_match.url_name %}active{% endif %}">
+                    <i class="ph ph-users nav-icon"></i>
+                    <span class="nav-label">Management Team</span>
+                </a>
+                <a href="{% url 'edit_about_page' %}" class="sidebar-link {% if request.resolver_match.url_name == 'edit_about_page' %}active{% endif %}">
+                    <i class="ph ph-info nav-icon"></i>
+                    <span class="nav-label">About Page</span>
+                </a>
+                <a href="{% url 'edit_csr_page' %}" class="sidebar-link {% if request.resolver_match.url_name == 'edit_csr_page' %}active{% endif %}">
+                    <i class="ph ph-globe nav-icon"></i>
+                    <span class="nav-label">CSR Page</span>
+                </a>
+                <a href="{% url 'edit_infrastructure_page' %}" class="sidebar-link {% if request.resolver_match.url_name == 'edit_infrastructure_page' %}active{% endif %}">
+                    <i class="ph ph-buildings nav-icon"></i>
+                    <span class="nav-label">Infrastructure Page</span>
+                </a>
+                <a href="{% url 'manage_research' %}" class="sidebar-link {% if 'research' in request.resolver_match.url_name %}active{% endif %}">
+                    <i class="ph ph-flask nav-icon"></i>
+                    <span class="nav-label">Research Areas</span>
+                </a>
+
+                <!-- 3. CATALOG & PRODUCTS -->
+                <div class="sidebar-section-title">Catalog &amp; Products</div>
+                <a href="{% url 'dashboard_manage_brands' %}" class="sidebar-link {% if 'brand' in request.resolver_match.url_name %}active{% endif %}">
+                    <i class="ph ph-tag nav-icon"></i>
+                    <span class="nav-label">Brands &amp; Trademarks</span>
+                </a>
+                <a href="{% url 'dashboard_manage_product_range' %}" class="sidebar-link {% if 'product_range' in request.resolver_match.url_name %}active{% endif %}">
+                    <i class="ph ph-package nav-icon"></i>
+                    <span class="nav-label">Product Range Slides</span>
+                </a>
+
+                <!-- Collapsible: Products Catalog -->
+                <button class="sidebar-toggle {% if 'product' in request.resolver_match.url_name and 'product_range' not in request.resolver_match.url_name and 'brochure' not in request.resolver_match.url_name and 'document' not in request.resolver_match.url_name %}active{% endif %}"
+                    type="button" data-bs-toggle="collapse" data-bs-target="#productsMenu"
+                    aria-expanded="{% if 'product' in request.resolver_match.url_name and 'product_range' not in request.resolver_match.url_name and 'brochure' not in request.resolver_match.url_name and 'document' not in request.resolver_match.url_name %}true{% else %}false{% endif %}">
+                    <span class="sidebar-toggle-main">
+                        <i class="ph ph-plant nav-icon"></i>
+                        <span class="nav-label">Ingredient Catalog</span>
+                    </span>
+                    <i class="ph ph-caret-down caret-icon"></i>
+                </button>
+                <div class="collapse {% if 'product' in request.resolver_match.url_name and 'product_range' not in request.resolver_match.url_name and 'brochure' not in request.resolver_match.url_name and 'document' not in request.resolver_match.url_name %}show{% endif %}" id="productsMenu">
+                    <div class="sidebar-submenu">
+                        <a href="{% url 'dashboard_manage_products' %}?category=herbal_extracts" class="sidebar-sublink {% if request.GET.category == 'herbal_extracts' %}active{% endif %}">
+                            <i class="ph ph-leaf sub-icon"></i> Herbal Extracts
+                        </a>
+                        <a href="{% url 'dashboard_manage_products' %}?category=nutritional_fine_chemicals" class="sidebar-sublink {% if request.GET.category == 'nutritional_fine_chemicals' %}active{% endif %}">
+                            <i class="ph ph-flask sub-icon"></i> Fine Chemicals
+                        </a>
+                        <a href="{% url 'dashboard_manage_products' %}?category=spices_and_oleoresins" class="sidebar-sublink {% if request.GET.category == 'spices_and_oleoresins' %}active{% endif %}">
+                            <i class="ph ph-fire sub-icon"></i> Spices &amp; Oleoresins
+                        </a>
+                        <a href="{% url 'dashboard_manage_products' %}?category=raw_herbal_powders" class="sidebar-sublink {% if request.GET.category == 'raw_herbal_powders' %}active{% endif %}">
+                            <i class="ph ph-plant sub-icon"></i> Raw Herbal Powders
+                        </a>
+                        <a href="{% url 'dashboard_manage_products' %}?category=organic_product_list" class="sidebar-sublink {% if request.GET.category == 'organic_product_list' %}active{% endif %}">
+                            <i class="ph ph-check-circle sub-icon"></i> Organic Products
+                        </a>
+                        <a href="{% url 'dashboard_manage_products' %}" class="sidebar-sublink {% if not request.GET.category and 'product' in request.resolver_match.url_name and 'product_range' not in request.resolver_match.url_name and 'brochure' not in request.resolver_match.url_name and 'document' not in request.resolver_match.url_name %}active{% endif %}">
+                            <i class="ph ph-list sub-icon"></i> View All Items
+                        </a>
+                    </div>
+                </div>
+
+                <a href="{% url 'dashboard_manage_natural_food_colors' %}" class="sidebar-link {% if 'natural_food_color' in request.resolver_match.url_name %}active{% endif %}">
+                    <i class="ph ph-palette nav-icon"></i>
+                    <span class="nav-label">Natural Food Colors</span>
+                </a>
+                <a href="{% url 'dashboard_manage_natural_flavours' %}" class="sidebar-link {% if 'natural_flavour' in request.resolver_match.url_name %}active{% endif %}">
+                    <i class="ph ph-brand-apple nav-icon"></i>
+                    <span class="nav-label">Natural Flavours</span>
+                </a>
+                <a href="{% url 'dashboard_manage_product_brochures' %}" class="sidebar-link {% if 'product_brochure' in request.resolver_match.url_name %}active{% endif %}">
+                    <i class="ph ph-file-pdf nav-icon"></i>
+                    <span class="nav-label">Brochures</span>
+                </a>
+                <a href="{% url 'dashboard_manage_product_document_categories' %}" class="sidebar-link {% if 'product_document_categor' in request.resolver_match.url_name %}active{% endif %}">
+                    <i class="ph ph-folders nav-icon"></i>
+                    <span class="nav-label">Document Categories</span>
+                </a>
+                <a href="{% url 'dashboard_manage_product_documents' %}" class="sidebar-link {% if 'product_document' in request.resolver_match.url_name and 'categor' not in request.resolver_match.url_name %}active{% endif %}">
+                    <i class="ph ph-files nav-icon"></i>
+                    <span class="nav-label">Product COA &amp; Dossiers</span>
+                </a>
+
+                <!-- 4. LEADS & ENGAGEMENT -->
+                <div class="sidebar-section-title">Leads &amp; Inquiries</div>
+                <a href="{% url 'dashboard_manage_expo_bookings' %}" class="sidebar-link {% if 'expo_booking' in request.resolver_match.url_name %}active{% endif %}">
+                    <i class="ph ph-calendar-check nav-icon"></i>
+                    <span class="nav-label">Expo Bookings</span>
+                </a>
+                <a href="{% url 'dashboard_manage_exhibition_events' %}" class="sidebar-link {% if 'exhibition_event' in request.resolver_match.url_name %}active{% endif %}">
+                    <i class="ph ph-ticket nav-icon"></i>
+                    <span class="nav-label">Trade Exhibitions</span>
+                </a>
+                <a href="{% url 'manage_enquiries' %}" class="sidebar-link {% if 'enquir' in request.resolver_match.url_name and 'lead' not in request.resolver_match.url_name %}active{% endif %}">
+                    <i class="ph ph-envelope-simple-open nav-icon"></i>
+                    <span class="nav-label">Product Enquiries</span>
+                </a>
+                <a href="{% url 'dashboard_manage_contact_messages' %}" class="sidebar-link {% if 'contact_message' in request.resolver_match.url_name %}active{% endif %}">
+                    <i class="ph ph-envelope nav-icon"></i>
+                    <span class="nav-label">Contact Desk Messages</span>
+                </a>
+                <a href="{% url 'dashboard_manage_job_openings' %}" class="sidebar-link {% if 'job_opening' in request.resolver_match.url_name %}active{% endif %}">
+                    <i class="ph ph-briefcase nav-icon"></i>
+                    <span class="nav-label">Job Openings</span>
+                </a>
+                <a href="{% url 'dashboard_manage_job_applications' %}" class="sidebar-link {% if 'job_application' in request.resolver_match.url_name %}active{% endif %}">
+                    <i class="ph ph-file-text nav-icon"></i>
+                    <span class="nav-label">Job Applications</span>
+                </a>
+                <a href="{% url 'dashboard_manage_subscribers' %}" class="sidebar-link {% if 'subscriber' in request.resolver_match.url_name %}active{% endif %}">
+                    <i class="ph ph-envelope-simple nav-icon"></i>
+                    <span class="nav-label">Subscribers &amp; News</span>
+                </a>
+                <a href="{% url 'dashboard_manage_instagram_posts' %}" class="sidebar-link {% if 'instagram_post' in request.resolver_match.url_name %}active{% endif %}">
+                    <i class="ph ph-instagram-logo nav-icon"></i>
+                    <span class="nav-label">Instagram Posts</span>
+                </a>
+
+                <!-- 5. OPERATIONAL TOOLS -->
+                <div class="sidebar-section-title">Operational Tools</div>
+
+                <button class="sidebar-toggle {% if 'compressor' in request.resolver_match.url_name or 'pdf_thumbnail' in request.resolver_match.url_name or 'sitemap' in request.resolver_match.url_name %}active{% endif %}"
+                    type="button" data-bs-toggle="collapse" data-bs-target="#toolsMenu"
+                    aria-expanded="{% if 'compressor' in request.resolver_match.url_name or 'pdf_thumbnail' in request.resolver_match.url_name or 'sitemap' in request.resolver_match.url_name %}true{% else %}false{% endif %}">
+                    <span class="sidebar-toggle-main">
+                        <i class="ph ph-wrench nav-icon"></i>
+                        <span class="nav-label">System Utilities</span>
+                    </span>
+                    <i class="ph ph-caret-down caret-icon"></i>
+                </button>
+                <div class="collapse {% if 'compressor' in request.resolver_match.url_name or 'pdf_thumbnail' in request.resolver_match.url_name or 'sitemap' in request.resolver_match.url_name %}show{% endif %}" id="toolsMenu">
+                    <div class="sidebar-submenu">
+                        <a href="{% url 'dashboard_compressor' %}" class="sidebar-sublink {% if 'compressor' in request.resolver_match.url_name %}active{% endif %}">
+                            <i class="ph ph-file-image sub-icon"></i> WebP Compressor
+                        </a>
+                        <a href="{% url 'dashboard_pdf_thumbnails' %}" class="sidebar-sublink {% if 'pdf_thumbnail' in request.resolver_match.url_name %}active{% endif %}">
+                            <i class="ph ph-file-pdf sub-icon"></i> PDF Thumbnails
+                        </a>
+                        <a href="{% url 'dashboard_sitemap' %}" class="sidebar-sublink {% if 'sitemap' in request.resolver_match.url_name %}active{% endif %}">
+                            <i class="ph ph-tree-structure sub-icon"></i> XML Sitemap
+                        </a>
+                    </div>
+                </div>
+
+                <a href="{% url 'dashboard_email_configuration' %}" class="sidebar-link {% if request.resolver_match.url_name == 'dashboard_email_configuration' %}active{% endif %}">
+                    <i class="ph ph-gear nav-icon"></i>
+                    <span class="nav-label">Email Configuration</span>
+                </a>
+
+            </div>
+
+            <!-- Fixed Sidebar Footer Actions -->
+            <div class="sidebar-footer">
+                <a href="{% url 'index' %}" target="_blank" class="sidebar-link mb-1 text-white-50">
+                    <i class="ph ph-arrow-square-out nav-icon"></i>
+                    <span class="nav-label">View Live Website</span>
+                </a>
+                <a href="{% url 'dashboard_logout' %}" class="sidebar-link text-danger">
+                    <i class="ph ph-sign-out nav-icon"></i>
+                    <span class="nav-label">Sign Out</span>
+                </a>
+            </div>
+        </aside>
+
+        <!-- Main Workspace -->
+        <main class="flex-grow-1 d-flex flex-column min-vh-100" style="overflow-x: hidden;">
+            <!-- Topbar -->
+            <div class="topbar px-4 py-3 d-flex justify-content-between align-items-center">
+                <div class="d-flex align-items-center gap-2">
+                    <h5 class="mb-0 fw-bold text-dark">{% block header_title %}Control Panel{% endblock %}</h5>
+                </div>
+                <div class="d-flex align-items-center gap-3">
+                    <span class="badge bg-light text-dark border px-3 py-2 rounded-pill small">
+                        <i class="ph ph-user text-success me-1"></i>
+                        {{ request.user.username|default:"Admin" }}
+                    </span>
+                    <a href="{% url 'index' %}" target="_blank" class="btn btn-sm btn-outline-success rounded-pill px-3">
+                        <i class="ph ph-globe me-1"></i> Visit Site
+                    </a>
+                </div>
+            </div>
+
+            <!-- Page Content Body -->
+            <div class="p-4 flex-grow-1">
                 {% if messages %}
                     {% for message in messages %}
-                        <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+                        <div class="alert alert-{{ message.tags }} alert-dismissible fade show rounded-3 shadow-sm" role="alert">
                             {{ message }}
                             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                         </div>
                     {% endfor %}
                 {% endif %}
 
-                {% block dashboard_content %}{% endblock %}
+                <!-- Support both block dashboard_content and block content -->
+                {% block dashboard_content %}
+                    {% block content %}{% endblock %}
+                {% endblock %}
             </div>
-        </div>
+        </main>
     </div>
 
     <!-- Bootstrap JS -->

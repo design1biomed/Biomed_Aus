@@ -1,0 +1,107 @@
+{% extends 'main/dashboard/dashboard_base.html' %}
+
+{% block content %}
+<div class="container-fluid py-2">
+    <div class="d-flex flex-wrap justify-content-between align-items-center mb-4 gap-3">
+        <div>
+            <h3 class="fw-bold mb-1 text-dark"><i class="ph ph-tree-structure text-info me-2"></i> Dynamic XML Sitemap</h3>
+            <p class="text-muted small mb-0">Search engine indexing overview for Google, Bing, and major search web crawlers.</p>
+        </div>
+        <div class="d-flex gap-2">
+            <a href="{% url 'sitemap_xml' %}" target="_blank" class="btn btn-outline-primary rounded-pill px-3 py-2 fw-semibold d-inline-flex align-items-center gap-2">
+                <i class="ph ph-arrow-square-out fs-5"></i>
+                <span>View /sitemap.xml</span>
+            </a>
+            <button id="copySitemapBtn" class="btn btn-primary rounded-pill px-3 py-2 fw-semibold d-inline-flex align-items-center gap-2">
+                <i class="ph ph-copy fs-5"></i>
+                <span>Copy Sitemap URL</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Sitemap Health Cards -->
+    <div class="row g-3 mb-4">
+        <div class="col-sm-6 col-md-3">
+            <div class="card border-0 shadow-sm rounded-3 p-3 bg-white">
+                <span class="text-muted small fw-semibold text-uppercase">Total Indexed Pages</span>
+                <h3 class="fw-bold text-dark mb-0 mt-1">{{ total_urls }}</h3>
+            </div>
+        </div>
+        <div class="col-sm-6 col-md-3">
+            <div class="card border-0 shadow-sm rounded-3 p-3 bg-white">
+                <span class="text-muted small fw-semibold text-uppercase">Core Static Pages</span>
+                <h3 class="fw-bold text-primary mb-0 mt-1">{{ static_count }}</h3>
+            </div>
+        </div>
+        <div class="col-sm-6 col-md-3">
+            <div class="card border-0 shadow-sm rounded-3 p-3 bg-white">
+                <span class="text-muted small fw-semibold text-uppercase">Product &amp; Brand URLs</span>
+                <h3 class="fw-bold text-success mb-0 mt-1">{{ dynamic_count }}</h3>
+            </div>
+        </div>
+        <div class="col-sm-6 col-md-3">
+            <div class="card border-0 shadow-sm rounded-3 p-3 bg-white">
+                <span class="text-muted small fw-semibold text-uppercase">Sitemap Protocol</span>
+                <h3 class="fw-bold text-info mb-0 mt-1">XML 0.9</h3>
+            </div>
+        </div>
+    </div>
+
+    <!-- URLs Table -->
+    <div class="card border-0 shadow-sm rounded-4 overflow-hidden bg-white">
+        <div class="table-responsive">
+            <table class="table table-hover align-middle mb-0">
+                <thead class="table-light">
+                    <tr>
+                        <th class="ps-4">Page / Resource</th>
+                        <th>Canonical URL</th>
+                        <th>Priority</th>
+                        <th>Change Frequency</th>
+                        <th class="text-end pe-4">Test Link</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for item in url_items %}
+                        <tr>
+                            <td class="ps-4">
+                                <strong class="text-dark">{{ item.title }}</strong>
+                                <span class="badge bg-light text-muted border small ms-2">{{ item.category }}</span>
+                            </td>
+                            <td>
+                                <code class="text-dark small">{{ item.loc }}</code>
+                            </td>
+                            <td>
+                                <span class="badge bg-success bg-opacity-10 text-success fw-bold px-2 py-1 rounded-pill">{{ item.priority }}</span>
+                            </td>
+                            <td>
+                                <span class="badge bg-light text-dark border small">{{ item.changefreq }}</span>
+                            </td>
+                            <td class="text-end pe-4">
+                                <a href="{{ item.loc }}" target="_blank" class="btn btn-sm btn-outline-secondary rounded-pill px-3">
+                                    <i class="ph ph-arrow-square-out me-1"></i> Visit
+                                </a>
+                            </td>
+                        </tr>
+                    {% empty %}
+                        <tr>
+                            <td colspan="5" class="text-center py-4 text-muted">No URLs currently populated.</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.getElementById("copySitemapBtn").addEventListener("click", function () {
+        const fullUrl = window.location.origin + "{% url 'sitemap_xml' %}";
+        navigator.clipboard.writeText(fullUrl).then(() => {
+            const orig = this.innerHTML;
+            this.innerHTML = '<i class="ph ph-check fs-5"></i> Copied!';
+            setTimeout(() => this.innerHTML = orig, 2000);
+        });
+    });
+</script>
+{% endblock %}
+

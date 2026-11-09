@@ -1,0 +1,259 @@
+{% load static %}
+
+<!-- ══════════════════════════════════════════════════════════
+     PERFECTED FLOATING SPEED-DIAL CONCIERGE (WhatsApp & Phone)
+     ══════════════════════════════════════════════════════════ -->
+<style>
+    /* Online Live Pulsing Dot */
+    .online-indicator-dot {
+        position: absolute;
+        top: 2px;
+        right: 2px;
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background-color: #22c55e;
+        border: 2px solid #061a11;
+        box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.75);
+        animation: pulseOnline 2s infinite;
+        z-index: 12;
+    }
+    @keyframes pulseOnline {
+        0% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.75); }
+        70% { box-shadow: 0 0 0 8px rgba(34, 197, 94, 0); }
+        100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
+    }
+
+    /* Fixed Widget Anchor */
+    .bmi-floating-contact {
+        position: fixed;
+        bottom: 30px;
+        left: 30px;
+        z-index: 99999;
+        font-family: inherit;
+    }
+    @media (max-width: 991px) {
+        .bmi-floating-contact {
+            bottom: 80px;
+            left: 20px;
+        }
+    }
+
+    /* FAB Wrapper & Invisible Hit Bridge */
+    .bmi-fab-wrapper {
+        position: relative;
+        display: inline-block;
+    }
+    /* Invisible hover bridge connecting button to the popup menu */
+    .bmi-fab-wrapper::before {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 240px;
+        height: 190px;
+        pointer-events: none;
+        z-index: 1;
+    }
+    .bmi-fab-wrapper:hover::before,
+    .bmi-fab-wrapper.is-open::before {
+        pointer-events: auto;
+    }
+
+    /* Main Floating Trigger Button */
+    .fab-main-trigger {
+        width: 56px;
+        height: 56px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #0b5d3f 0%, #062b1a 100%);
+        border: 2px solid rgba(74, 222, 128, 0.5);
+        color: #ffffff;
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45), 0 0 25px rgba(74, 222, 128, 0.25);
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        z-index: 10;
+        user-select: none;
+        -webkit-user-select: none;
+        transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease;
+    }
+    .fab-main-trigger:hover {
+        transform: scale(1.08);
+        box-shadow: 0 16px 35px rgba(0, 0, 0, 0.55), 0 0 30px rgba(74, 222, 128, 0.4);
+    }
+    .fab-main-trigger .fab-icon-chat {
+        transition: transform 0.3s ease, opacity 0.2s ease;
+    }
+    .fab-main-trigger .fab-icon-close {
+        position: absolute;
+        opacity: 0;
+        transform: rotate(-90deg) scale(0.5);
+        transition: transform 0.3s ease, opacity 0.2s ease;
+    }
+    .bmi-fab-wrapper.is-open .fab-main-trigger .fab-icon-chat {
+        opacity: 0;
+        transform: rotate(90deg) scale(0.5);
+    }
+    .bmi-fab-wrapper.is-open .fab-main-trigger .fab-icon-close {
+        opacity: 1;
+        transform: rotate(0deg) scale(1);
+    }
+
+    /* Expandable Options Menu */
+    .fab-options-menu {
+        position: absolute;
+        bottom: 56px;
+        left: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        padding-bottom: 14px; /* Essential: bridges the hover gap directly to the trigger button */
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(12px) scale(0.96);
+        transition: opacity 0.25s ease, transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.25s;
+        pointer-events: none;
+        z-index: 9;
+    }
+    .bmi-fab-wrapper.is-open .fab-options-menu,
+    .bmi-fab-wrapper:hover .fab-options-menu {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0) scale(1);
+        pointer-events: auto;
+    }
+
+    /* Option Pills */
+    .fab-option-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        padding: 9px 18px 9px 10px;
+        border-radius: 9999px;
+        background: rgba(8, 22, 15, 0.96);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        border: 1.5px solid rgba(74, 222, 128, 0.35);
+        box-shadow: 0 12px 28px rgba(0, 0, 0, 0.5);
+        color: #ffffff !important;
+        text-decoration: none !important;
+        white-space: nowrap;
+        cursor: pointer;
+        transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+    .fab-option-pill:hover {
+        transform: translateX(5px);
+        background: rgba(12, 32, 22, 0.98);
+        border-color: rgba(74, 222, 128, 0.75);
+        box-shadow: 0 14px 32px rgba(0, 0, 0, 0.6), 0 0 20px rgba(74, 222, 128, 0.25);
+    }
+    .fab-option-icon {
+        width: 38px;
+        height: 38px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+    }
+    .fab-option-whatsapp .fab-option-icon {
+        background: linear-gradient(135deg, #25D366, #128C7E);
+        box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
+    }
+    .fab-option-phone .fab-option-icon {
+        background: linear-gradient(135deg, #0284c7, #0369a1);
+        box-shadow: 0 4px 12px rgba(2, 132, 199, 0.4);
+    }
+</style>
+
+<div class="bmi-floating-contact" id="bmiFloatingContact">
+    <div class="bmi-fab-wrapper" id="fabConciergeWrapper">
+        <!-- Floating Options Menu -->
+        <div class="fab-options-menu" id="fabOptionsMenu">
+            <!-- WhatsApp Action -->
+            <a href="https://api.whatsapp.com/send?phone=918806668458&text=Hello%20Bio%20Med%20Ingredients,%20I%20would%20like%20to%20inquire%20about%20your%20products."
+               target="_blank" rel="noopener noreferrer" class="fab-option-pill fab-option-whatsapp" title="Chat with Bio Med Ingredients on WhatsApp">
+                <span class="fab-option-icon">
+                    <!-- Clean Sharp WhatsApp SVG Icon -->
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 2C6.48 2 2 6.48 2 12C2 13.85 2.5 15.58 3.38 17.07L2 22L7.07 20.66C8.52 21.51 10.2 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2Z" fill="#25D366"/>
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M17.5 14.39C17.2 14.24 15.73 13.52 15.45 13.42C15.18 13.32 14.98 13.27 14.78 13.57C14.58 13.87 14.01 14.54 13.84 14.74C13.66 14.94 13.49 14.96 13.19 14.81C12.89 14.66 11.93 14.35 10.79 13.33C9.9 12.54 9.3 11.56 9.13 11.26C8.95 10.96 9.11 10.8 9.26 10.65C9.4 10.51 9.57 10.29 9.72 10.12C9.87 9.95 9.92 9.82 10.02 9.62C10.12 9.42 10.07 9.25 10 9.1C9.92 8.95 9.32 7.48 9.07 6.88C8.83 6.3 8.58 6.38 8.4 6.37C8.23 6.36 8.03 6.36 7.83 6.36C7.63 6.36 7.31 6.43 7.03 6.73C6.76 7.03 6 7.74 6 9.19C6 10.64 7.05 12.04 7.2 12.24C7.35 12.44 9.28 15.42 12.24 16.7C12.94 17 13.5 17.18 13.92 17.32C14.63 17.54 15.27 17.51 15.78 17.43C16.35 17.34 17.54 16.71 17.79 16.01C18.04 15.31 18.04 14.71 17.96 14.59C17.89 14.46 17.7 14.41 17.5 14.39Z" fill="#ffffff"/>
+                    </svg>
+                </span>
+                <div class="d-flex flex-column" style="line-height: 1.15;">
+                    <span class="fw-bold" style="font-size: 0.84rem;">WhatsApp Chat</span>
+                    <span class="text-white-50" style="font-size: 0.68rem;">Instant product inquiry</span>
+                </div>
+            </a>
+            
+            <!-- Direct Phone Action -->
+            <a href="tel:+918322782011" class="fab-option-pill fab-option-phone" title="Call Bio Med Ingredients Office">
+                <span class="fab-option-icon">
+                    <!-- Clean Sharp Phone SVG Icon -->
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M6.62 10.79C8.06 13.62 10.38 15.94 13.21 17.38L15.41 15.18C15.69 14.9 16.08 14.82 16.43 14.93C17.55 15.3 18.75 15.5 20 15.5C20.55 15.5 21 15.95 21 16.5V20C21 20.55 20.55 21 20 21C10.61 21 3 13.39 3 4C3 3.45 3.45 3 4 3H7.5C8.05 3 8.5 3.45 8.5 4C8.5 5.25 8.7 6.45 9.07 7.57C9.18 7.92 9.1 8.31 8.82 8.59L6.62 10.79Z" fill="#ffffff"/>
+                    </svg>
+                </span>
+                <div class="d-flex flex-column" style="line-height: 1.15;">
+                    <span class="fw-bold" style="font-size: 0.84rem;">Call Direct</span>
+                    <span class="text-white-50" style="font-size: 0.68rem;">+91 832 278 2011</span>
+                </div>
+            </a>
+        </div>
+
+        <!-- Main FAB Toggle Trigger -->
+        <div class="fab-main-trigger" id="fabMainTriggerBtn" title="Contact Bio Med Ingredients" role="button" aria-label="Open contact options" tabindex="0">
+            <span class="online-indicator-dot"></span>
+            <!-- Chat Icon (Default) -->
+            <svg class="fab-icon-chat" width="26" height="26" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M20 2H4C2.9 2 2 2.9 2 4V22L6 18H20C21.1 18 22 17.1 22 16V4C22 2.9 21.1 2 20 2ZM18 14H6V12H18V14ZM18 11H6V9H18V11ZM18 8H6V6H18V8Z" fill="#ffffff"/>
+            </svg>
+            <!-- Close Icon (When Opened) -->
+            <svg class="fab-icon-close" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M19 6.41L17.59 5L12 10.59L6.41 5L5 6.41L10.59 12L5 17.59L6.41 19L12 13.41L17.59 19L19 17.59L13.41 12L19 6.41Z" fill="#ffffff"/>
+            </svg>
+        </div>
+    </div>
+</div>
+
+<script>
+    (function() {
+        const trigger = document.getElementById("fabMainTriggerBtn");
+        const wrapper = document.getElementById("fabConciergeWrapper");
+        if (!trigger || !wrapper) return;
+
+        // Toggle open/close on click (supports touch and desktop)
+        function toggleConcierge(e) {
+            if (e) {
+                e.preventDefault();
+                e.stopPropagation();
+            }
+            wrapper.classList.toggle("is-open");
+        }
+
+        trigger.addEventListener("click", toggleConcierge);
+
+        // Enter or Space key support for accessibility
+        trigger.addEventListener("keydown", function(e) {
+            if (e.key === "Enter" || e.key === " ") {
+                toggleConcierge(e);
+            }
+        });
+
+        // Close when clicking anywhere outside
+        document.addEventListener("click", function(e) {
+            if (!wrapper.contains(e.target)) {
+                wrapper.classList.remove("is-open");
+            }
+        });
+
+        // Close on Escape key
+        document.addEventListener("keydown", function(e) {
+            if (e.key === "Escape") {
+                wrapper.classList.remove("is-open");
+            }
+        });
+    })();
+</script>

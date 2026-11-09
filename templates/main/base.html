@@ -9,26 +9,130 @@
     <meta name="description"
         content="Bio Med Ingredients Australia — supplying premium botanical extracts, nutraceutical ingredients, herbal extracts, cosmetic ingredients and pharmaceutical raw materials globally.">
 
-    <!-- Bootstrap CSS -->
+    <!-- DNS Preconnect: Resolve CDN hostnames before the browser even asks for them -->
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://unpkg.com" crossorigin>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="{% static 'images/bmi_logo.webp' %}">
+
+    <!-- Bootstrap CSS (render-blocking, must be first) -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-
-
-
-    <!-- Phosphor Icons -->
-    <script src="https://unpkg.com/@phosphor-icons/web"></script>
-<link rel="shortcut icon" href="{% static 'images/bmi_logo.webp' %}">
-    <!-- Google Fonts: Manrope -->
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800;900&display=swap"
-        rel="stylesheet">
 
     <!-- Swiper CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
     <!-- Custom Styles -->
-    <link rel="stylesheet" href="{% static 'css/styles.css' %}?v=3.2">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}?v=3.3">
+
+    <!-- Google Fonts: Non-blocking load (does not delay first paint) -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"></noscript>
+
+    <!-- Phosphor Icons: Deferred so it never blocks first paint -->
+    <script src="https://unpkg.com/@phosphor-icons/web" defer></script>
 </head>
 
-<body>
+<body class="preloader-active">
+    
+    <!-- Preloader -->
+    <style>
+        #preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            /* Use transparent bg so the pseudo-elements can form the split background */
+            background: transparent;
+            z-index: 999999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* Container fades out entirely after the doors open */
+            transition: visibility 1.2s;
+        }
+        
+        /* The left and right doors */
+        #preloader::before,
+        #preloader::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(135deg, #ffffff 0%, #f4f9f6 100%);
+            z-index: -1;
+            transition: transform 1.2s cubic-bezier(0.86, 0, 0.07, 1);
+        }
+        #preloader::before { left: 0; }
+        #preloader::after { right: 0; }
+
+        /* The Opening Split */
+        #preloader.split-screen::before {
+            transform: translateX(-100%);
+        }
+        #preloader.split-screen::after {
+            transform: translateX(100%);
+        }
+        
+        /* The logo fades out quickly as doors open */
+        #preloader .preloader-content {
+            transition: opacity 0.5s ease;
+        }
+        #preloader.split-screen .preloader-content {
+            opacity: 0;
+        }
+        .preloader-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+        .preloader-logo {
+            width: 160px;
+            height: auto;
+            opacity: 0;
+            animation: logo-spring 1s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+        }
+
+        @keyframes logo-spring {
+            0% { transform: scale(0.4) translateY(40px); opacity: 0; }
+            40% { opacity: 1; }
+            100% { transform: scale(1) translateY(0); opacity: 1; }
+        }
+
+        body.preloader-active {
+            overflow: hidden !important;
+        }
+    </style>
+    <div id="preloader">
+        <div class="preloader-content">
+            <img src="{% static 'images/bmi_logo.webp' %}" alt="Bio Med Ingredients Australia" class="preloader-logo">
+        </div>
+    </div>
+    <script>
+        // Synchronously check if we should show the preloader
+        // We only want to show it on the homepage ('/' or '')
+        (function() {
+            const path = window.location.pathname;
+            const isHomePage = (path === '/' || path === '' || path === '/index');
+            const alreadyShown = sessionStorage.getItem('preloader_shown');
+            
+            if (!isHomePage || alreadyShown) {
+                const pl = document.getElementById('preloader');
+                if (pl) pl.remove();
+                document.body.classList.remove('preloader-active');
+            } else {
+                sessionStorage.setItem('preloader_shown', 'true');
+            }
+            
+            
+        })();
+    </script>
 
     <!-- Include Header -->
     {% include 'main/header.html' %}
@@ -47,18 +151,16 @@
 
     {% block modals %}{% endblock %}
 
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Bootstrap JS (defer: doesn't block rendering) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" defer></script>
 
-    <!-- Swiper JS -->
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <!-- Swiper JS (defer) -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>
 
-    <!-- Vanilla Tilt JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"></script>
+    <!-- Vanilla Tilt JS (defer) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js" defer></script>
 
-
-
-    <!-- GSAP + ScrollTrigger -->
+    <!-- GSAP + ScrollTrigger — must be synchronous (inline scripts use them immediately) -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 
@@ -148,79 +250,63 @@
             });
         });
 
-        // ── Parallax Hero ────────────────────────────────────
-        gsap.to('.hero-bg-image', {
-            yPercent: 12,
+        // ── Dramatic Cinematic Hero Scroll & Parallax Curtain ────────────────────────────────────
+        
+        // Push the hero down slightly as you scroll.
+        // Because the page scrolls up faster than we push it down, the hero drifts upward slowly while the next section slides over it.
+        gsap.to('.hero-wrapper', {
+            yPercent: 35, 
             ease: 'none',
-            scrollTrigger: { trigger: '.hero-wrapper', scrub: true }
+            scrollTrigger: {
+                trigger: document.body,
+                start: 'top top',
+                end: () => `+=${window.innerHeight}`,
+                scrub: true
+            }
         });
 
-        // ── Floating Pollen Canvas (Interactive) ──────────────
-        const canvas = document.getElementById('particleCanvas');
-        if (canvas) {
-            const ctx = canvas.getContext('2d');
-            let mouseX = -1000;
-            let mouseY = -1000;
-
-            function resizeCanvas() {
-                canvas.width = window.innerWidth;
-                canvas.height = window.innerHeight;
-            }
-            resizeCanvas();
-            window.addEventListener('resize', resizeCanvas);
-
-            // Track mouse/touch
-            window.addEventListener('mousemove', (e) => { mouseX = e.clientX; mouseY = e.clientY; });
-            window.addEventListener('touchmove', (e) => { mouseX = e.touches[0].clientX; mouseY = e.touches[0].clientY; }, { passive: true });
-            window.addEventListener('mouseout', () => { mouseX = -1000; mouseY = -1000; });
-            window.addEventListener('touchend', () => { mouseX = -1000; mouseY = -1000; });
-
-            const particles = Array.from({ length: 40 }, () => ({
-                x: Math.random() * canvas.width,
-                y: Math.random() * canvas.height,
-                r: Math.random() * 2.5 + 0.5,
-                baseDx: (Math.random() - 0.5) * 0.4,
-                baseDy: -Math.random() * 0.5 - 0.2,
-                opacity: Math.random() * 0.5 + 0.1,
-                vx: 0,
-                vy: 0
-            }));
-
-            (function drawParticles() {
-                ctx.clearRect(0, 0, canvas.width, canvas.height);
-                particles.forEach(p => {
-                    ctx.beginPath();
-                    ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-                    ctx.fillStyle = `rgba(82, 183, 136, ${p.opacity})`;
-                    ctx.fill();
-
-                    // Mouse Interaction
-                    let dx = mouseX - p.x;
-                    let dy = mouseY - p.y;
-                    let dist = Math.sqrt(dx * dx + dy * dy);
-                    let minDist = 120;
-
-                    if (dist < minDist) {
-                        let force = (minDist - dist) / minDist;
-                        p.vx -= (dx / dist) * force * 0.5;
-                        p.vy -= (dy / dist) * force * 0.5;
-                    }
-
-                    // Friction & Base Velocity
-                    p.vx *= 0.92;
-                    p.vy *= 0.92;
-
-                    p.x += p.baseDx + p.vx;
-                    p.y += p.baseDy + p.vy;
-
-                    // Wrap around
-                    if (p.y < -10) { p.y = canvas.height + 10; p.x = Math.random() * canvas.width; p.vx = 0; p.vy = 0; }
-                    if (p.x < -10) { p.x = canvas.width + 10; p.y = Math.random() * canvas.height; p.vx = 0; p.vy = 0; }
-                    if (p.x > canvas.width + 10) { p.x = -10; p.y = Math.random() * canvas.height; p.vx = 0; p.vy = 0; }
-                });
-                requestAnimationFrame(drawParticles);
-            })();
+        if (document.querySelector('.hero-bg-image')) {
+            gsap.to('.hero-bg-image', {
+                yPercent: 30,
+                scale: 1.15,
+                ease: 'none',
+                scrollTrigger: { 
+                    trigger: document.body, 
+                    start: 'top top',
+                    end: () => `+=${window.innerHeight}`,
+                    scrub: true 
+                }
+            });
         }
+
+        if (document.querySelector('.hero-content')) {
+            gsap.to('.hero-content', {
+                yPercent: -60,
+                opacity: 0,
+                ease: 'none',
+                scrollTrigger: { 
+                    trigger: document.body, 
+                    start: 'top top',
+                    end: () => `+=${window.innerHeight * 0.75}`,
+                    scrub: true 
+                }
+            });
+        }
+
+        if (document.querySelector('.hero-overlay')) {
+            gsap.to('.hero-overlay', {
+                opacity: 0.85,
+                ease: 'none',
+                scrollTrigger: { 
+                    trigger: document.body, 
+                    start: 'top top',
+                    end: () => `+=${window.innerHeight}`,
+                    scrub: true
+                }
+            });
+        }
+
+        
 
         // ── Ripple on Button Click ───────────────────────────
         document.querySelectorAll('.btn-premium, .btn-cta-primary, .nav-contact-btn').forEach(btn => {
@@ -251,7 +337,17 @@
         }
 
         // ── Bootstrap Tooltips ───────────────────────────────
-        document.querySelectorAll('[data-bs-toggle="tooltip"]').forEach(el => new bootstrap.Tooltip(el));
+        function initTooltips() {
+            if (typeof bootstrap !== 'undefined') {
+                document.querySelectorAll('[data-bs-toggle="tooltip"]').forEach(el => new bootstrap.Tooltip(el));
+            }
+        }
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initTooltips);
+        } else {
+            initTooltips();
+        }
+        window.addEventListener('load', initTooltips);
 
         // ── Scroll to Top Button ──────────────────────────────
         const scrollToTopBtn = document.getElementById('scrollToTopBtn');
@@ -272,36 +368,39 @@
                 });
             });
         }
-        // -- Swiper Init --
-        const extractSwiper = new Swiper('.extract-swiper', {
-            slidesPerView: 1,
-            spaceBetween: 24,
-            loop: true,
-            grabCursor: true,
-            speed: 600,
-            autoplay: {
-                delay: 2500,
-                disableOnInteraction: false,
-            },
-            pagination: {
-                el: '.swiper-pagination',
-                clickable: true,
-            },
-            breakpoints: {
-                320: { slidesPerView: 1.5, spaceBetween: 16, centeredSlides: true },
-                768: { slidesPerView: 2.2, spaceBetween: 24, centeredSlides: false },
-                1024: { slidesPerView: 2.8, spaceBetween: 24, centeredSlides: false },
-                1400: { slidesPerView: 3.2, spaceBetween: 24, centeredSlides: false }
-            }
-        });
-
-        // Pause Swiper ONLY when hovering actual cards, not the container padding
-        document.querySelectorAll('.category-card').forEach(card => {
-            card.addEventListener('mouseenter', () => {
-                extractSwiper.autoplay.stop();
+        // -- Swiper Init (must wait for deferred Swiper JS to load) --
+        window.addEventListener('load', function() {
+            if (typeof Swiper === 'undefined') return;
+            const extractSwiper = new Swiper('.extract-swiper', {
+                slidesPerView: 'auto',
+                spaceBetween: 24,
+                loop: true,
+                grabCursor: true,
+                speed: 800,
+                autoplay: {
+                    delay: 2500,
+                    disableOnInteraction: false,
+                },
+                pagination: {
+                    el: '.extract-swiper .swiper-pagination',
+                    clickable: true,
+                },
+                breakpoints: {
+                    0: {
+                        centeredSlides: true,
+                        spaceBetween: 16,
+                    },
+                    992: {
+                        centeredSlides: false,
+                        spaceBetween: 24,
+                    }
+                }
             });
-            card.addEventListener('mouseleave', () => {
-                extractSwiper.autoplay.start();
+
+            // Pause Swiper when hovering cards
+            document.querySelectorAll('.category-card').forEach(card => {
+                card.addEventListener('mouseenter', () => extractSwiper.autoplay.stop());
+                card.addEventListener('mouseleave', () => extractSwiper.autoplay.start());
             });
         });
 
@@ -314,6 +413,89 @@
             gyroscope: true
         });
     </script>
-</body>
+    <!-- Lenis Smooth Scroll -->
+    <style>
+        html.lenis, html.lenis body { height: auto; }
+        .lenis.lenis-smooth { scroll-behavior: auto !important; }
+        .lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
+        .lenis.lenis-stopped { overflow: hidden; }
+        .lenis.lenis-smooth iframe { pointer-events: none; }
+    </style>
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Initialize Lenis Smooth Scroll
+            if (typeof Lenis !== 'undefined') {
+                window.lenis = new Lenis({
+                    lerp: 0.06,
+                    smoothWheel: true,
+                    wheelMultiplier: 0.9,
+                    smoothTouch: true,
+                    touchMultiplier: 1.5,
+                    infinite: false
+                });
 
+                // Sync Lenis with GSAP ScrollTrigger to prevent rendering glitches/jitter
+                if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+                    window.lenis.on('scroll', ScrollTrigger.update);
+                    gsap.ticker.add((time) => {
+                        window.lenis.raf(time * 1000);
+                    });
+                    gsap.ticker.lagSmoothing(0);
+                } else {
+                    // Fallback if GSAP is not loaded
+                    function raf(time) {
+                        window.lenis.raf(time);
+                        requestAnimationFrame(raf);
+                    }
+                    requestAnimationFrame(raf);
+                }
+
+                // If the preloader is still showing, immediately stop Lenis
+                // CSS overflow:hidden does NOT block Lenis since it uses JS transforms
+                if (document.getElementById('preloader')) {
+                    window.lenis.stop();
+                }
+            }
+        });
+    </script>
+
+    <!-- GDPR / ePrivacy Cookie Consent Banner -->
+    {% include 'main/includes/cookie_banner.html' %}
+
+
+    <!-- Preloader JS -->
+    <script>
+        // Immediately lock native scroll (CSS already sets overflow:hidden on .preloader-active)
+        // Also lock Lenis if it's already running
+        function lockScroll() {
+            document.body.classList.add('preloader-active');
+            if (window.lenis) window.lenis.stop();
+        }
+
+        function unlockScroll() {
+            document.body.classList.remove('preloader-active');
+            if (window.lenis) window.lenis.start();
+        }
+
+        function dismissPreloader() {
+            const preloader = document.getElementById('preloader');
+            if (!preloader || preloader.dataset.dismissed) return;
+            preloader.dataset.dismissed = 'true'; // prevent double-firing
+            setTimeout(() => {
+                preloader.classList.add('split-screen'); // Start the door opening animation
+                setTimeout(() => {
+                    preloader.remove();   // Remove preloader from DOM
+                    unlockScroll();       // Only NOW unlock scroll — preloader is fully gone
+                }, 1200); // Wait for the full door animation to complete
+            }, 1000); // 1s display time before starting to dismiss
+        }
+
+        // Primary: dismiss on page fully loaded
+        window.addEventListener('load', dismissPreloader);
+
+        // Safety net: if the page is still loading after 5 seconds (slow hosting), force dismiss
+        setTimeout(dismissPreloader, 5000);
+    </script>
+    </body>
 </html>

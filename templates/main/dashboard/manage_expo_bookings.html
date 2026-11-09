@@ -1,0 +1,132 @@
+{% extends 'main/dashboard/dashboard_base.html' %}
+
+{% block content %}
+<div class="container-fluid py-2">
+    <div class="d-flex flex-wrap justify-content-between align-items-center mb-4 gap-3">
+        <div>
+            <h3 class="fw-bold mb-1 text-dark"><i class="ph ph-calendar-check text-warning me-2"></i> Expo Meeting Bookings</h3>
+            <p class="text-muted small mb-0">Review, confirm, and manage client consultations scheduled for international trade expos.</p>
+        </div>
+        <div class="d-flex align-items-center gap-2">
+            <a href="{% url 'book_expo_meeting' %}" target="_blank" class="btn btn-outline-success rounded-pill px-3 py-2 fw-semibold d-inline-flex align-items-center gap-2">
+                <i class="ph ph-arrow-square-out fs-5"></i>
+                <span>Open Public Booking Form</span>
+            </a>
+        </div>
+    </div>
+
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-{{ message.tags }} alert-dismissible fade show rounded-3" role="alert">
+                {{ message }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        {% endfor %}
+    {% endif %}
+
+    <div class="card border-0 shadow-sm rounded-4 overflow-hidden bg-white">
+        <div class="table-responsive">
+            <table class="table table-hover align-middle mb-0">
+                <thead class="table-light">
+                    <tr>
+                        <th class="ps-4">Submitted</th>
+                        <th>Exhibition</th>
+                        <th>Scheduled Slot</th>
+                        <th>Delegate / Visitor</th>
+                        <th>Company &amp; Contact</th>
+                        <th>Agenda / Notes</th>
+                        <th>Status</th>
+                        <th class="text-end pe-4">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for booking in bookings %}
+                        <tr>
+                            <td class="ps-4 text-nowrap">
+                                <span class="fw-semibold text-dark">{{ booking.created_at|date:"M d, Y" }}</span><br>
+                                <small class="text-muted">{{ booking.created_at|date:"g:i A" }}</small>
+                            </td>
+                            <td>
+                                <strong class="text-dark">{{ booking.expo.tag }}</strong>
+                                {% if booking.expo.booth_number %}
+                                    <div class="small text-muted">{{ booking.expo.booth_number }}</div>
+                                {% endif %}
+                            </td>
+                            <td class="text-nowrap">
+                                <span class="badge bg-light text-dark border fw-bold fs-6 mb-1">
+                                    <i class="ph ph-calendar me-1 text-success"></i>{{ booking.meeting_date|date:"D, M d, Y" }}
+                                </span>
+                                <div class="small text-muted fw-semibold">
+                                    <i class="ph ph-clock me-1 text-warning"></i>{{ booking.meeting_time|time:"g:i A" }}
+                                </div>
+                            </td>
+                            <td>
+                                <div class="fw-bold text-dark">{{ booking.name }}</div>
+                                <div class="small text-muted">
+                                    <a href="mailto:{{ booking.email }}" class="text-decoration-none text-muted"><i class="ph ph-envelope me-1"></i>{{ booking.email }}</a>
+                                </div>
+                                <div class="small text-muted">
+                                    <a href="tel:{{ booking.phone }}" class="text-decoration-none text-muted"><i class="ph ph-phone me-1"></i>{{ booking.phone }}</a>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="fw-medium text-dark">{{ booking.company|default:'Not specified' }}</div>
+                            </td>
+                            <td>
+                                <p class="text-muted small mb-0 text-truncate" style="max-width: 220px;" title="{{ booking.message }}">
+                                    {{ booking.message|default:'No agenda provided.' }}
+                                </p>
+                            </td>
+                            <td>
+                                {% if booking.status == 'accepted' %}
+                                    <span class="badge bg-success bg-opacity-10 text-success fw-bold px-2 py-1 rounded-pill">Confirmed</span>
+                                {% elif booking.status == 'rejected' %}
+                                    <span class="badge bg-danger bg-opacity-10 text-danger fw-bold px-2 py-1 rounded-pill">Rejected</span>
+                                {% else %}
+                                    <span class="badge bg-warning bg-opacity-10 text-dark fw-bold px-2 py-1 rounded-pill">Pending</span>
+                                {% endif %}
+                            </td>
+                            <td class="text-end pe-4 text-nowrap">
+                                <div class="btn-group btn-group-sm">
+                                    {% if booking.status != 'accepted' %}
+                                        <form method="POST" action="{% url 'dashboard_expo_booking_status' booking.id %}" class="d-inline">
+                                            {% csrf_token %}
+                                            <input type="hidden" name="status" value="accepted">
+                                            <button type="submit" class="btn btn-outline-success btn-sm rounded-start-pill" title="Accept Booking">
+                                                <i class="ph ph-check"></i> Accept
+                                            </button>
+                                        </form>
+                                    {% endif %}
+                                    {% if booking.status != 'rejected' %}
+                                        <form method="POST" action="{% url 'dashboard_expo_booking_status' booking.id %}" class="d-inline">
+                                            {% csrf_token %}
+                                            <input type="hidden" name="status" value="rejected">
+                                            <button type="submit" class="btn btn-outline-secondary btn-sm" title="Decline Booking">
+                                                <i class="ph ph-x"></i> Reject
+                                            </button>
+                                        </form>
+                                    {% endif %}
+                                    <form method="POST" action="{% url 'dashboard_delete_expo_booking' booking.id %}" class="d-inline" onsubmit="return confirm('Are you sure you want to delete this booking?');">
+                                        {% csrf_token %}
+                                        <button type="submit" class="btn btn-outline-danger btn-sm rounded-end-pill" title="Delete">
+                                            <i class="ph ph-trash"></i>
+                                        </button>
+                                    </form>
+                                </div>
+                            </td>
+                        </tr>
+                    {% empty %}
+                        <tr>
+                            <td colspan="8" class="text-center py-5 text-muted">
+                                <i class="ph ph-calendar-blank fs-1 mb-2 d-block"></i>
+                                No expo meeting bookings have been submitted yet.
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}
+

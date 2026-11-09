@@ -13,14 +13,11 @@
             <div class="hero-badge justify-content-center justify-content-md-start mb-3 mx-auto mx-md-0"
                 style="padding: 0.4rem 1rem; display: inline-flex; width: fit-content;">
                 <span class="hero-badge-dot"></span>
-                <span class="text-white fw-bold text-uppercase letter-spacing-2" style="font-size: 0.75rem;">Meet The Team</span>
+                <span class="text-white fw-bold text-uppercase letter-spacing-2" style="font-size: 0.75rem;">Meet The
+                    Team</span>
             </div>
             <h1 class="hero-title mb-3" style="font-size: clamp(2rem, 4vw, 3.5rem);">
                 Our Team</h1>
-            <p class="hero-subtitle mb-4 mx-auto mx-md-0"
-                style="max-width: 700px; font-size: clamp(1rem, 1.5vw, 1.15rem);">
-                Driven by passion and guided by purpose.
-            </p>
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb justify-content-center justify-content-md-start mb-0">
                     <li class="breadcrumb-item"><a href="{% url 'index' %}"
@@ -61,7 +58,9 @@
             </div>
             <div class="col-md-5">
                 <div class="cross-accent-box cross-accent-left text-md-end">
-                    <p>{{ member.bio }}</p>
+                    <div class="cross-accent-wrapper">
+                        <p style="text-align:justify;">{{ member.bio }}</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -70,7 +69,9 @@
         <div class="row g-0 magazine-team-row justify-content-end" data-aos="fade-up" data-aos-delay="100">
             <div class="col-md-5 order-3 order-md-1">
                 <div class="cross-accent-box cross-accent-right text-md-start">
-                    <p>{{ member.bio }}</p>
+                    <div class="cross-accent-wrapper">
+                        <p style="text-align:justify;">{{ member.bio }}</p>
+                    </div>
                 </div>
             </div>
             <div class="col-md-3 order-2 order-md-2">
@@ -95,7 +96,7 @@
     </div>
 </section>
 
-<section class="magazine-team-section py-4 py-md-5 bg-white">
+<!-- <section class="magazine-team-section py-4 py-md-5 bg-white">
     <div class="container-fluid px-lg-5">
         <div class="row mb-4 mb-md-5 mt-3 mt-md-4">
             <div class="col-12" data-aos="fade-up">
@@ -104,9 +105,9 @@
         </div>
 
         {% for member in operation_members %}
-        {% if member.alignment == 'left' %}
-        <!-- Operation Team Member (Left Aligned) -->
-        <div class="row g-0 magazine-team-row" data-aos="fade-up" data-aos-delay="100">
+        {% if member.alignment == 'left' %} -->
+<!-- Operation Team Member (Left Aligned) -->
+<!-- <div class="row g-0 magazine-team-row" data-aos="fade-up" data-aos-delay="100">
             <div class="col-md-1 vertical-designation-wrapper">
                 <div class="vertical-designation" style="color: #c0c0c0;">
                     {{ member.secondary_designation|linebreaksbr }}
@@ -124,16 +125,20 @@
             </div>
             <div class="col-md-5">
                 <div class="cross-accent-box cross-accent-left text-md-end">
-                    <p>{{ member.bio }}</p>
+                    <div class="cross-accent-wrapper">
+                        <p style="text-align:justify;">{{ member.bio }}</p>
+                    </div>
                 </div>
             </div>
         </div>
-        {% else %}
-        <!-- Operation Team Member (Right Aligned) -->
-        <div class="row g-0 magazine-team-row justify-content-end" data-aos="fade-up" data-aos-delay="100">
+        {% else %} -->
+<!-- Operation Team Member (Right Aligned) -->
+<!-- <div class="row g-0 magazine-team-row justify-content-end" data-aos="fade-up" data-aos-delay="100">
             <div class="col-md-5 order-3 order-md-1">
                 <div class="cross-accent-box cross-accent-right text-md-start">
-                    <p>{{ member.bio }}</p>
+                    <div class="cross-accent-wrapper">
+                        <p style="text-align:justify;">{{ member.bio }}</p>
+                    </div>
                 </div>
             </div>
             <div class="col-md-3 order-2 order-md-2">
@@ -163,7 +168,7 @@
         {% endfor %}
 
     </div>
-</section>
+</section> -->
 
 
 <section class="team-summary py-4 py-md-5 mt-4 mt-md-5 bg-light border-top">
@@ -199,5 +204,3 @@
 </section>
 
 {% endblock %}
-
-

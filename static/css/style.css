@@ -2252,55 +2252,76 @@ footer a {
 /* The box with the + accents */
 .cross-accent-box {
     position: relative;
-    padding: 2rem;
+    padding: 2.25rem 2rem;
     display: flex;
     align-items: flex-end;
     height: 100%;
 }
 
+/* Disable legacy container-level absolute accents */
 .cross-accent-box::before,
 .cross-accent-box::after {
+    display: none !important;
+    content: none !important;
+}
+
+/* Bio wrapper that dynamically sizes to the paragraph text */
+.cross-accent-wrapper {
+    position: relative;
+    width: 100%;
+    display: block;
+}
+
+/* Precision architectural crosshair accents framing the bio text corners */
+.cross-accent-wrapper::before,
+.cross-accent-wrapper::after,
+.cross-accent-box:not(:has(.cross-accent-wrapper)) p::before,
+.cross-accent-box:not(:has(.cross-accent-wrapper)) p::after {
     content: '+';
     position: absolute;
-    font-size: 2rem;
+    font-size: 1.65rem;
     font-weight: 300;
     line-height: 1;
-    color: #000;
+    color: rgba(0, 0, 0, 0.45);
+    user-select: none;
+    pointer-events: none;
+    transition: color 0.2s ease, transform 0.2s ease;
 }
 
-/* Left Person Accents */
-.cross-accent-left::before {
-    top: 33rem;
-    /* Default values, can be adjusted */
-    left: 1rem;
-    transform: translate(-50%, -50%);
+/* Top-left corner crosshair: sits cleanly above and to the left of the opening line */
+.cross-accent-wrapper::before,
+.cross-accent-box:not(:has(.cross-accent-wrapper)) p::before {
+    top: -1.25rem;
+    left: -1.25rem;
+    bottom: auto;
+    right: auto;
+    transform: none;
 }
 
-.cross-accent-left::after {
-    bottom: 2rem;
-    right: 1rem;
-    transform: translate(50%, 50%);
+/* Bottom-right corner crosshair: sits cleanly below and to the right of the closing line */
+.cross-accent-wrapper::after,
+.cross-accent-box:not(:has(.cross-accent-wrapper)) p::after {
+    bottom: -1.25rem;
+    right: -1.25rem;
+    top: auto;
+    left: auto;
+    transform: none;
 }
 
-/* Right Person Accents */
-.cross-accent-right::before {
-    top: 33rem;
-    left: 1rem;
-    transform: translate(-50%, -50%);
-}
-
-.cross-accent-right::after {
-    bottom: 2rem;
-    right: 1rem;
-    transform: translate(50%, 50%);
+.cross-accent-box:hover .cross-accent-wrapper::before,
+.cross-accent-box:hover .cross-accent-wrapper::after,
+.cross-accent-box:hover p::before,
+.cross-accent-box:hover p::after {
+    color: #0b5d3f;
 }
 
 .cross-accent-box p {
     font-size: 0.85rem;
-    line-height: 1.6;
-    color: #000;
+    line-height: 1.65;
+    color: #222;
     margin: 0;
     text-align: justify;
+    position: relative;
 }
 
 @media (max-width: 767.98px) {

@@ -1,0 +1,84 @@
+{% extends "main/base.html" %}
+{% load static %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="parallax-hero-section hero-wrapper py-4 py-md-5 bg-light position-relative"
+    style="background: linear-gradient(135deg, rgba(8, 45, 25, 0.95), rgba(15, 67, 37, 0.88)), url('{% static 'images/bg/bg.webp' %}') center/cover no-repeat; min-height: 340px; display: flex; align-items: center;">
+    <div class="position-absolute top-0 start-0 w-100 h-100"
+        style="background: linear-gradient(180deg, rgba(8, 45, 25, .65), rgba(8, 45, 25, .15));"></div>
+    <div class="container position-relative z-1 text-center text-md-start">
+        <span class="badge bg-success bg-opacity-25 text-white border border-success border-opacity-50 px-3 py-2 rounded-pill fw-semibold mb-3" style="letter-spacing: 1px;">
+            REGULATORY &amp; LEGAL
+        </span>
+        <h1 class="display-3 fw-bold text-white mb-3" data-aos="fade-up">Terms of Service</h1>
+        <nav aria-label="breadcrumb" data-aos="fade-up" data-aos-delay="100">
+            <ol class="breadcrumb justify-content-center justify-content-md-start mb-0">
+                <li class="breadcrumb-item"><a href="{% url 'index' %}" class="text-white-50 text-decoration-none">Home</a></li>
+                <li class="breadcrumb-item active text-white" aria-current="page">Terms of Service</li>
+            </ol>
+        </nav>
+    </div>
+</section>
+
+<!-- Content Section -->
+<section class="py-5 bg-white position-relative">
+    <div class="container py-3">
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+
+                <div class="card border-0 shadow-sm rounded-4 p-4 p-md-5 mb-4" style="background: #fafcfb; border: 1px solid rgba(25, 135, 84, 0.12) !important;">
+                    <p class="text-muted small mb-2"><i class="ph ph-shield-check text-success me-1"></i> Regulatory &amp; Commercial Standard | Last Updated: November 2026</p>
+                    <p class="lead text-dark mb-4" style="line-height: 1.8;">
+                        Welcome to Bio Med Ingredients Australia. By accessing, browsing, or utilizing this website and its associated technical literature, you acknowledge that you have read, understood, and agreed to be bound by the following Terms of Service and applicable international trade, botanical, and therapeutic goods regulations.
+                    </p>
+
+                    <hr class="my-4 opacity-25">
+
+                    <h4 class="fw-bold text-success mb-3">1. Scope of B2B Commercial Operations</h4>
+                    <p class="text-muted mb-4" style="line-height: 1.8;">
+                        Bio Med Ingredients operates primarily as a business-to-business (B2B) manufacturer, processor, and global supplier of standardized herbal extracts, phytochemicals, natural food colors, and proprietary nutraceutical ingredients. The information, technical dossiers, and analytical data presented on this website are intended exclusively for qualified industry professionals, formulators, procurement officers, and scientific researchers.
+                    </p>
+
+                    <h4 class="fw-bold text-success mb-3">2. Regulatory &amp; Healthcare Disclaimer</h4>
+                    <div class="p-3 rounded-3 bg-light border-start border-4 border-warning mb-4">
+                        <p class="mb-0 text-dark small" style="line-height: 1.7;">
+                            <strong>Regulatory Notice:</strong> Statements contained on this website and within related technical literature have not been evaluated by the Therapeutic Goods Administration (TGA) in Australia, the US Food and Drug Administration (FDA), European Medicines Agency (EMA), or the Food Safety and Standards Authority of India (FSSAI). Raw materials and standardized extracts supplied by Bio Med Ingredients are intended for further manufacturing, laboratory evaluation, and incorporation into finished consumer formulations. They are not intended to diagnose, treat, cure, or prevent any human disease or medical condition.
+                        </p>
+                    </div>
+
+                    <h4 class="fw-bold text-success mb-3">3. Technical Specifications &amp; Certificate of Analysis (COA)</h4>
+                    <p class="text-muted mb-4" style="line-height: 1.8;">
+                        All batch specifications, HPLC chromatograms, microbiological limits, heavy metal thresholds, and active assay percentages displayed on this platform represent typical analytical benchmarks achieved at our accredited manufacturing facilities. Actual commercial deliverables are certified on a per-batch basis via an official Certificate of Analysis (COA). Buyers and formulators remain responsible for verifying the regulatory compliance and finished-product stability of all ingredients within their target destination markets.
+                    </p>
+
+                    <h4 class="fw-bold text-success mb-3">4. Intellectual Property &amp; Trademarks</h4>
+                    <p class="text-muted mb-4" style="line-height: 1.8;">
+                        All proprietary brand names, clinical formulations, logos, and trademarks—including but not limited to <em>Biojoin&trade;, HimAlith&trade;, PureBeanFit&trade;, CurcuminAura&trade;, Fenura&trade;, and LeanVerve&trade;</em>—are the exclusive intellectual property of Bio Med Ingredients. Unauthorized commercial exploitation, duplication, or digital republication without explicit written authorization is strictly prohibited.
+                    </p>
+
+                    <h4 class="fw-bold text-success mb-3">5. R&amp;D Sample Requests &amp; Commercial Quotations</h4>
+                    <p class="text-muted mb-4" style="line-height: 1.8;">
+                        Submission of a sample request or inquiry form does not constitute a binding sales agreement. Bio Med Ingredients reserves the right to evaluate the legitimacy of all corporate inquiries, verify business credentials, and reject requests that do not align with our export policies or regulatory compliance frameworks.
+                    </p>
+
+                    <h4 class="fw-bold text-success mb-3">6. Limitation of Liability</h4>
+                    <p class="text-muted mb-4" style="line-height: 1.8;">
+                        While Bio Med Ingredients takes diligent steps to maintain accurate, up-to-date scientific and botanical information on this website, the platform and its contents are provided on an "as is" basis. Under no circumstances shall Bio Med Ingredients or its directors be liable for any indirect, incidental, or consequential damages resulting from the use or inability to use this website or technical downloads.
+                    </p>
+
+                    <h4 class="fw-bold text-success mb-3">7. Corporate Contact</h4>
+                    <div class="p-3 p-md-4 rounded-3 bg-white border border-success border-opacity-25 mt-3">
+                        <p class="mb-1 fw-bold text-dark fs-5">Bio Med Ingredients Australia</p>
+                        <p class="mb-1 text-muted small"><i class="ph ph-envelope text-success me-2"></i>Email: <a href="mailto:info@biomedingredients.com" class="text-success text-decoration-none fw-semibold">info@biomedingredients.com</a></p>
+                        <p class="mb-0 text-muted small"><i class="ph ph-globe text-success me-2"></i>Website: <a href="{% url 'index' %}" class="text-success text-decoration-none fw-semibold">www.biomedingredients.com</a></p>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+

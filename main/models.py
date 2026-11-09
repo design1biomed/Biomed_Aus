@@ -772,6 +772,24 @@ class ExhibitionEvent(models.Model):
         verbose_name_plural = 'Exhibition Events'
         ordering = ['order', 'id']
 
+    @property
+    def effective_end_date(self):
+        return self.event_end_date or self.event_date
+
+    @property
+    def is_past(self):
+        from datetime import date
+        end_d = self.effective_end_date
+        if end_d:
+            return end_d < date.today()
+        return False
+
+    def save(self, *args, **kwargs):
+        # Automatically deactivate if the event end/start date has passed
+        if self.is_past:
+            self.is_active = False
+        super().save(*args, **kwargs)
+
     def __str__(self):
         return self.tag
 

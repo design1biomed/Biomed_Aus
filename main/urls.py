@@ -164,4 +164,28 @@ urlpatterns = [
     path('dashboard/contact-messages/view/<int:pk>/', views.dashboard_view_contact_message, name='dashboard_view_contact_message'),
     path('dashboard/contact-messages/delete/<int:pk>/', views.dashboard_delete_contact_message, name='dashboard_delete_contact_message'),
     path('dashboard/email-configuration/', views.dashboard_email_configuration, name='dashboard_email_configuration'),
+
+    # Public Legal & Gallery Pages
+    path('privacy-policy/', views.privacy_policy, name='privacy_policy'),
+    path('terms-of-service/', views.terms_of_service, name='terms_of_service'),
+    path('gallery/', views.gallery_page, name='gallery'),
+    path('book-expo-meeting/', views.book_expo_meeting, name='book_expo_meeting'),
+
+    # Dashboard: Expo Meetings
+    path('dashboard/expo-bookings/', views.dashboard_manage_expo_bookings, name='dashboard_manage_expo_bookings'),
+    path('dashboard/expo-bookings/status/<int:pk>/', views.dashboard_expo_booking_status, name='dashboard_expo_booking_status'),
+    path('dashboard/expo-bookings/delete/<int:pk>/', views.dashboard_delete_expo_booking, name='dashboard_delete_expo_booking'),
+
+    # Dashboard: Unified B2B Leads Manager
+    path('dashboard/leads/', views.dashboard_manage_leads, name='dashboard_manage_leads'),
+    path('dashboard/leads/export/', views.dashboard_export_leads_csv, name='dashboard_export_leads_csv'),
+
+    # Dashboard: Operational Tools & Analytics
+    path('dashboard/analytics/', views.dashboard_analytics, name='dashboard_analytics'),
+    path('dashboard/tools/compressor/', views.dashboard_compressor, name='dashboard_compressor'),
+    path('dashboard/tools/compressor/save/', views.dashboard_compressor_save, name='dashboard_compressor_save'),
+    path('dashboard/tools/pdf-thumbnails/', views.dashboard_pdf_thumbnails, name='dashboard_pdf_thumbnails'),
+    path('dashboard/tools/pdf-thumbnails/save/', views.dashboard_pdf_thumbnail_save, name='dashboard_pdf_thumbnail_save'),
+    path('dashboard/tools/sitemap/', views.dashboard_sitemap, name='dashboard_sitemap'),
+    path('sitemap.xml', views.sitemap_xml, name='sitemap_xml'),
 ]

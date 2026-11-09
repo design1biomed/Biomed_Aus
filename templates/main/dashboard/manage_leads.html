@@ -1,0 +1,192 @@
+{% extends 'main/dashboard/dashboard_base.html' %}
+
+{% block content %}
+<div class="container-fluid py-2">
+    <!-- Header with Stats & Actions -->
+    <div class="d-flex flex-wrap justify-content-between align-items-center mb-4 gap-3">
+        <div>
+            <h3 class="fw-bold mb-1 text-dark"><i class="ph ph-address-book text-success me-2"></i> B2B Leads Manager</h3>
+            <p class="text-muted small mb-0">Unified customer acquisition portal: product enquiries, contact messages, expo consultations, and career applications.</p>
+        </div>
+        <div class="d-flex align-items-center gap-2">
+            <a href="{% url 'dashboard_export_leads_csv' %}?type={{ current_type }}&q={{ search_query }}" class="btn btn-outline-success rounded-pill px-3 py-2 fw-semibold d-inline-flex align-items-center gap-2 shadow-sm">
+                <i class="ph ph-file-csv fs-5"></i>
+                <span>Export CSV (Excel)</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Quick Stats Cards -->
+    <div class="row g-3 mb-4">
+        <div class="col-sm-6 col-xl-3">
+            <div class="card border-0 shadow-sm rounded-3 p-3 bg-white h-100 border-start border-4 border-success">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                        <span class="text-muted small fw-semibold text-uppercase">Total Inquiries</span>
+                        <h3 class="fw-bold text-dark mb-0 mt-1">{{ total_enquiries_count }}</h3>
+                    </div>
+                    <div class="bg-success bg-opacity-10 text-success rounded-circle p-3">
+                        <i class="ph ph-flask fs-4"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-xl-3">
+            <div class="card border-0 shadow-sm rounded-3 p-3 bg-white h-100 border-start border-4 border-primary">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                        <span class="text-muted small fw-semibold text-uppercase">Contact Messages</span>
+                        <h3 class="fw-bold text-dark mb-0 mt-1">{{ total_contacts_count }}</h3>
+                    </div>
+                    <div class="bg-primary bg-opacity-10 text-primary rounded-circle p-3">
+                        <i class="ph ph-chat-circle-text fs-4"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-xl-3">
+            <div class="card border-0 shadow-sm rounded-3 p-3 bg-white h-100 border-start border-4 border-warning">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                        <span class="text-muted small fw-semibold text-uppercase">Expo Bookings</span>
+                        <h3 class="fw-bold text-dark mb-0 mt-1">{{ total_expo_count }}</h3>
+                    </div>
+                    <div class="bg-warning bg-opacity-10 text-warning rounded-circle p-3">
+                        <i class="ph ph-calendar-check fs-4"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-xl-3">
+            <div class="card border-0 shadow-sm rounded-3 p-3 bg-white h-100 border-start border-4 border-info">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                        <span class="text-muted small fw-semibold text-uppercase">Career Applicants</span>
+                        <h3 class="fw-bold text-dark mb-0 mt-1">{{ total_applications_count }}</h3>
+                    </div>
+                    <div class="bg-info bg-opacity-10 text-info rounded-circle p-3">
+                        <i class="ph ph-user-check fs-4"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Filter & Search Toolbar -->
+    <div class="card border-0 shadow-sm rounded-4 mb-4 bg-white p-3">
+        <form method="GET" action="{% url 'dashboard_manage_leads' %}" class="row g-2 align-items-center">
+            <div class="col-md-4">
+                <div class="input-group">
+                    <span class="input-group-text bg-light border-0"><i class="ph ph-magnifying-glass"></i></span>
+                    <input type="text" name="q" class="form-control bg-light border-0" placeholder="Search by name, company, email..." value="{{ search_query }}">
+                </div>
+            </div>
+            <div class="col-md-4">
+                <select name="type" class="form-select bg-light border-0">
+                    <option value="" {% if not current_type %}selected{% endif %}>All Lead Categories</option>
+                    <option value="enquiry" {% if current_type == 'enquiry' %}selected{% endif %}>Product Inquiries</option>
+                    <option value="contact" {% if current_type == 'contact' %}selected{% endif %}>Contact Messages</option>
+                    <option value="expo" {% if current_type == 'expo' %}selected{% endif %}>Expo Meeting Bookings</option>
+                    <option value="career" {% if current_type == 'career' %}selected{% endif %}>Career Applications</option>
+                </select>
+            </div>
+            <div class="col-md-4 d-flex gap-2">
+                <button type="submit" class="btn btn-success rounded-pill px-4 fw-semibold flex-grow-1">Filter Leads</button>
+                {% if search_query or current_type %}
+                    <a href="{% url 'dashboard_manage_leads' %}" class="btn btn-light rounded-pill px-3 border">Reset</a>
+                {% endif %}
+            </div>
+        </form>
+    </div>
+
+    <!-- Leads Table -->
+    <div class="card border-0 shadow-sm rounded-4 overflow-hidden bg-white">
+        <div class="table-responsive">
+            <table class="table table-hover align-middle mb-0">
+                <thead class="table-light">
+                    <tr>
+                        <th class="ps-4">Date</th>
+                        <th>Type</th>
+                        <th>Lead / Prospect</th>
+                        <th>Company &amp; Region</th>
+                        <th>Subject / Target</th>
+                        <th>Message / Details</th>
+                        <th class="text-end pe-4">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for lead in leads %}
+                        <tr>
+                            <td class="ps-4 text-nowrap">
+                                <span class="fw-semibold text-dark">{{ lead.date|date:"M d, Y" }}</span><br>
+                                <small class="text-muted">{{ lead.date|date:"g:i A" }}</small>
+                            </td>
+                            <td>
+                                {% if lead.type == 'enquiry' %}
+                                    <span class="badge bg-success bg-opacity-10 text-success fw-bold px-2 py-1 rounded-pill">Product Enquiry</span>
+                                {% elif lead.type == 'contact' %}
+                                    <span class="badge bg-primary bg-opacity-10 text-primary fw-bold px-2 py-1 rounded-pill">Contact Form</span>
+                                {% elif lead.type == 'expo' %}
+                                    <span class="badge bg-warning bg-opacity-10 text-dark fw-bold px-2 py-1 rounded-pill">Expo Meeting</span>
+                                {% elif lead.type == 'career' %}
+                                    <span class="badge bg-info bg-opacity-10 text-info fw-bold px-2 py-1 rounded-pill">Career Applicant</span>
+                                {% endif %}
+                            </td>
+                            <td>
+                                <div class="fw-bold text-dark">{{ lead.name }}</div>
+                                <div class="small text-muted">
+                                    <a href="mailto:{{ lead.email }}" class="text-decoration-none text-muted"><i class="ph ph-envelope me-1"></i>{{ lead.email }}</a>
+                                </div>
+                                {% if lead.phone %}
+                                    <div class="small text-muted">
+                                        <a href="tel:{{ lead.phone }}" class="text-decoration-none text-muted"><i class="ph ph-phone me-1"></i>{{ lead.phone }}</a>
+                                    </div>
+                                {% endif %}
+                            </td>
+                            <td>
+                                <div class="fw-medium text-dark">{{ lead.company|default:'Individual / Independent' }}</div>
+                                {% if lead.country %}
+                                    <div class="small text-muted"><i class="ph ph-map-pin me-1"></i>{{ lead.country }}</div>
+                                {% endif %}
+                            </td>
+                            <td>
+                                <div class="fw-semibold text-dark text-truncate" style="max-width: 200px;">
+                                    {{ lead.subject }}
+                                </div>
+                                {% if lead.meta_info %}
+                                    <small class="badge bg-light text-dark border">{{ lead.meta_info }}</small>
+                                {% endif %}
+                            </td>
+                            <td>
+                                <p class="text-muted small mb-0 text-truncate" style="max-width: 260px;" title="{{ lead.message }}">
+                                    {{ lead.message|default:'No additional notes.' }}
+                                </p>
+                            </td>
+                            <td class="text-end pe-4 text-nowrap">
+                                {% if lead.detail_url %}
+                                    <a href="{{ lead.detail_url }}" class="btn btn-sm btn-outline-success rounded-pill px-3">
+                                        View
+                                    </a>
+                                {% endif %}
+                                {% if lead.resume_url %}
+                                    <a href="{{ lead.resume_url }}" target="_blank" class="btn btn-sm btn-outline-info rounded-pill px-3">
+                                        <i class="ph ph-file-arrow-down me-1"></i> Resume
+                                    </a>
+                                {% endif %}
+                            </td>
+                        </tr>
+                    {% empty %}
+                        <tr>
+                            <td colspan="7" class="text-center py-5 text-muted">
+                                <i class="ph ph-folder-open fs-1 mb-2 d-block"></i>
+                                No leads or inquiries match the current filter criteria.
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}
+

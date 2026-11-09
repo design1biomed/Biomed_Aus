@@ -4,13 +4,30 @@
 
 {% block dashboard_content %}
 <div class="row mb-5">
-    <div class="col-12 mt-5">
-        <div class="d-flex justify-content-between align-items-center mb-4">
-            <h2 class="fw-bold text-dark mb-0">Manage Exhibition Events</h2>
-            <a href="{% url 'dashboard_add_exhibition_event' %}" class="btn btn-success rounded-pill px-4 fw-bold shadow-sm d-flex align-items-center">
-                <i class="ph ph-plus me-2"></i> Add Event
-            </a>
+    <div class="col-12 mt-4">
+        <div class="d-flex flex-wrap justify-content-between align-items-center gap-3 mb-4">
+            <div>
+                <h2 class="fw-bold text-dark mb-1">Manage Exhibition Events</h2>
+                <p class="text-muted small mb-0">Past trade shows and expos are automatically deactivated so only current and upcoming events appear on the website and booking forms.</p>
+            </div>
+            <div class="d-flex align-items-center gap-2">
+                <a href="{% url 'dashboard_manage_exhibition_events' %}?sync=1" class="btn btn-outline-secondary rounded-pill px-3 fw-medium shadow-sm d-flex align-items-center" title="Re-check event dates and sync expired events">
+                    <i class="ph ph-arrows-clockwise me-1"></i> Sync Statuses
+                </a>
+                <a href="{% url 'dashboard_add_exhibition_event' %}" class="btn btn-success rounded-pill px-4 fw-bold shadow-sm d-flex align-items-center">
+                    <i class="ph ph-plus me-2"></i> Add Event
+                </a>
+            </div>
         </div>
+
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert alert-{{ message.tags }} alert-dismissible fade show rounded-3 shadow-sm mb-4" role="alert">
+                    {{ message }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            {% endfor %}
+        {% endif %}
 
         <div class="card shadow-sm border-0 rounded-4 overflow-hidden">
             <div class="card-body p-0">
@@ -29,14 +46,38 @@
                         <tbody>
                             {% for event in events %}
                             <tr>
-                                <td class="px-4 py-3 fw-medium text-dark">{{ event.tag }}</td>
-                                <td class="px-4 py-3 text-muted">{% if event.event_date %}{{ event.event_date|date:"M d, Y" }}{% else %}TBA{% endif %}</td>
+                                <td class="px-4 py-3 fw-medium text-dark">
+                                    <div class="d-flex align-items-center gap-2">
+                                        {% if event.logo %}
+                                            <img src="{{ event.logo.url }}" alt="{{ event.tag }}" style="height: 28px; max-width: 45px; object-fit: contain;">
+                                        {% endif %}
+                                        <span>{{ event.tag }}</span>
+                                    </div>
+                                </td>
+                                <td class="px-4 py-3 text-muted">
+                                    {% if event.event_date %}
+                                        {{ event.event_date|date:"M d, Y" }}
+                                        {% if event.event_end_date and event.event_end_date != event.event_date %}
+                                            <span class="text-muted opacity-75">to</span> {{ event.event_end_date|date:"M d, Y" }}
+                                        {% endif %}
+                                    {% else %}
+                                        <span class="text-muted fst-italic">TBA</span>
+                                    {% endif %}
+                                </td>
                                 <td class="px-4 py-3 text-muted">{{ event.booth_number|default:"-" }}</td>
                                 <td class="px-4 py-3 text-center">
-                                    {% if event.is_active %}
-                                    <span class="badge bg-success bg-opacity-10 text-success rounded-pill px-3">Active</span>
+                                    {% if event.is_past %}
+                                    <span class="badge bg-secondary bg-opacity-10 text-secondary border border-secondary border-opacity-25 rounded-pill px-3 py-1 d-inline-flex align-items-center">
+                                        <i class="ph ph-clock-countdown me-1"></i> Past (Auto-Inactive)
+                                    </span>
+                                    {% elif event.is_active %}
+                                    <span class="badge bg-success bg-opacity-10 text-success border border-success border-opacity-25 rounded-pill px-3 py-1 d-inline-flex align-items-center">
+                                        <i class="ph ph-check-circle me-1"></i> Active / Upcoming
+                                    </span>
                                     {% else %}
-                                    <span class="badge bg-secondary bg-opacity-10 text-secondary rounded-pill px-3">Inactive</span>
+                                    <span class="badge bg-warning bg-opacity-10 text-warning border border-warning border-opacity-25 rounded-pill px-3 py-1 d-inline-flex align-items-center">
+                                        <i class="ph ph-pause-circle me-1"></i> Inactive
+                                    </span>
                                     {% endif %}
                                 </td>
                                 <td class="px-4 py-3 text-center text-muted">{{ event.order }}</td>

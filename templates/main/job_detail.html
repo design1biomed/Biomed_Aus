@@ -5,25 +5,27 @@
 
 {% block content %}
 
+<!-- FontAwesome strictly for database dynamic icons if needed -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
 <!-- Hero Section -->
 <section class="hero-wrapper" style="height: 40vh; min-height: 400px; display: flex; align-items: center;">
     <img src="/media/hero/hero.jpg" class="hero-bg-image" alt="Job Details"
-        onerror="this.src='{% static 'images/bg/bg.webp' %}'">
+        onerror="this.src='{% static 'images/hero_bg.webp' %}'">
     <div class="hero-overlay"></div>
     <div class="hero-content w-100 d-flex align-items-center" style="padding-top: 60px; position: relative;">
         <div class="container position-relative z-1 text-center text-md-start">
             <div class="hero-badge justify-content-center justify-content-md-start mb-3 mx-auto mx-md-0"
-                style="padding: 0.4rem 1rem; display: inline-flex; width: fit-content;">
+                style="padding: 0.4rem 1rem; display: inline-flex; width: fit-content;" data-aos="fade-up">
                 <span class="hero-badge-dot"></span>
-                <span class="text-white fw-bold text-uppercase letter-spacing-2" style="font-size: 0.75rem;">JOB DETAILS</span>
+                <span class="text-white fw-bold text-uppercase letter-spacing-2" style="font-size: 0.75rem;">CAREERS AT BMI</span>
             </div>
-            <h1 class="hero-title mb-3" style="font-size: clamp(2rem, 4vw, 3.5rem);">
+            <h1 class="hero-title text-white mb-3 display-editorial" style="font-size: clamp(2.5rem, 5vw, 4.5rem);">
                 {{ job.title }}
             </h1>
-            <nav aria-label="breadcrumb">
+            <nav aria-label="breadcrumb" data-aos="fade-up" data-aos-delay="200">
                 <ol class="breadcrumb justify-content-center justify-content-md-start mb-0">
-                    <li class="breadcrumb-item"><a href="{% url 'index' %}"
-                            class="text-white-50 text-decoration-none">Home</a></li>
+                    <li class="breadcrumb-item"><a href="{% url 'index' %}" class="text-white-50 text-decoration-none">Home</a></li>
                     <li class="breadcrumb-item"><a href="{% url 'career' %}" class="text-white-50 text-decoration-none">Careers</a></li>
                     <li class="breadcrumb-item active text-white" aria-current="page">{{ job.title }}</li>
                 </ol>
@@ -33,170 +35,16 @@
 </section>
 
 <!-- Job Details Section -->
-<style>
-    :root {
-        --job-primary: #124c30; /* Dark green text */
-        --job-accent: #198754; /* Green accent */
-        --job-bg: #f8f9fa; /* Light grey background */
-    }
-    body {
-        background-color: var(--job-bg);
-    }
-    .job-title {
-        color: var(--job-primary);
-        font-weight: 700;
-        font-size: 2.2rem;
-        margin-bottom: 0.5rem;
-    }
-    .job-category-badge {
-        display: inline-flex;
-        align-items: center;
-        background-color: #e8f5e9;
-        color: var(--job-accent);
-        padding: 0.4rem 1rem;
-        border-radius: 50px;
-        font-size: 0.85rem;
-        font-weight: 600;
-        border: 1px solid #c8e6c9;
-        margin-bottom: 2rem;
-    }
-    .job-category-badge i {
-        margin-right: 0.5rem;
-    }
-    .job-quote-desc {
-        border-left: 2px solid var(--job-accent);
-        padding-left: 1.5rem;
-        margin-left: 0.5rem;
-        margin-bottom: 3rem;
-        color: #6c757d;
-        font-size: 1.05rem;
-        line-height: 1.6;
-        border-top-left-radius: 10px;
-        border-bottom-left-radius: 10px;
-    }
-    .job-section-title {
-        color: var(--job-primary);
-        font-weight: 700;
-        font-size: 1.25rem;
-        margin-bottom: 1rem;
-        display: flex;
-        align-items: center;
-    }
-    .job-section-title i {
-        margin-right: 0.75rem;
-        font-size: 1.3rem;
-        color: var(--job-accent);
-    }
-    .job-section-text {
-        color: #6c757d;
-        font-size: 0.95rem;
-        line-height: 1.7;
-        margin-bottom: 2.5rem;
-    }
-    .job-ul {
-        padding-left: 1.2rem;
-    }
-    .job-ul li {
-        color: #6c757d;
-        font-size: 0.95rem;
-        line-height: 1.7;
-        margin-bottom: 0.5rem;
-    }
-    .job-quote-box {
-        background-color: var(--job-accent);
-        border-radius: 12px;
-        padding: 2.5rem 2rem;
-        color: white;
-        text-align: center;
-        margin-top: 3rem;
-        position: relative;
-    }
-    .job-quote-box i {
-        font-size: 2rem;
-        opacity: 0.5;
-        margin-bottom: 1rem;
-        display: block;
-    }
-    .job-quote-box p {
-        font-size: 1.1rem;
-        font-style: italic;
-        margin: 0;
-        font-weight: 500;
-    }
-    .sticky-apply-card {
-        background: white;
-        border-radius: 20px;
-        padding: 3rem 2rem;
-        text-align: center;
-        box-shadow: 0 10px 40px rgba(0,0,0,0.05);
-        position: sticky;
-        top: 100px;
-    }
-    .sticky-apply-card .apply-icon {
-        background: #e8f5e9;
-        color: var(--job-accent);
-        width: 60px;
-        height: 60px;
-        border-radius: 12px;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 1.8rem;
-        margin-bottom: 1.5rem;
-    }
-    .sticky-apply-card h4 {
-        color: var(--job-primary);
-        font-weight: 700;
-        margin-bottom: 1rem;
-    }
-    .sticky-apply-card p {
-        color: #6c757d;
-        font-size: 0.9rem;
-        margin-bottom: 2rem;
-        line-height: 1.6;
-    }
-    .apply-btn {
-        background-color: var(--job-accent);
-        color: white;
-        border: none;
-        padding: 0.8rem 2rem;
-        border-radius: 50px;
-        font-weight: 600;
-        width: 100%;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        transition: all 0.3s;
-    }
-    .apply-btn i {
-        margin-left: 0.5rem;
-        transition: transform 0.3s;
-    }
-    .apply-btn:hover {
-        background-color: var(--job-primary);
-        color: white;
-    }
-    .apply-btn:hover i {
-        transform: translateX(5px);
-    }
-    .form-section {
-        background: white;
-        border-radius: 20px;
-        padding: 3rem;
-        box-shadow: 0 10px 40px rgba(0,0,0,0.03);
-        margin-top: 4rem;
-    }
-</style>
-
-<section class="py-5">
-    <div class="container py-4">
+<section class="py-5 position-relative" style="background: #fafafa; z-index: 2; padding-top: 80px !important; padding-bottom: 100px !important;">
+    <div class="container">
         
         {% if messages %}
-        <div class="row justify-content-center mb-4">
+        <div class="row justify-content-center mb-5">
             <div class="col-lg-12">
                 {% for message in messages %}
-                <div class="alert alert-{{ message.tags }} alert-dismissible fade show rounded-4 shadow-sm" role="alert">
-                    <i class="bi bi-check-circle-fill me-2"></i> {{ message }}
+                <div class="alert alert-{{ message.tags }} alert-dismissible fade show rounded-4 shadow-sm" role="alert" style="background: white; border: 1px solid rgba(0,0,0,0.05);">
+                    <i class="ph-fill ph-check-circle me-2" style="color: var(--gold); font-size: 1.2rem; vertical-align: middle;"></i> 
+                    <span style="font-weight: 500; color: var(--forest-dark);">{{ message }}</span>
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
                 {% endfor %}
@@ -206,8 +54,8 @@
 
         <div class="row g-5">
             <!-- Left Column: Job Details -->
-            <div class="col-lg-8">
-                <h1 class="job-title">{{ job.title }}</h1>
+            <div class="col-lg-8" data-aos="fade-up" data-aos-delay="300">
+                <h1 class="job-title display-editorial">{{ job.title }}</h1>
                 <div class="job-category-badge">
                     <i class="ph ph-tag"></i> {{ job.category }}
                 </div>
@@ -217,114 +65,352 @@
                 </div>
 
                 {% if job.academic_excellence %}
-                <h3 class="job-section-title">
-                    <i class="ph ph-graduation-cap"></i> Academic Excellence
-                </h3>
-                <p class="job-section-text">
-                    {{ job.academic_excellence }}
-                </p>
+                <div data-aos="fade-up">
+                    <h3 class="job-section-title">
+                        <i class="ph ph-graduation-cap"></i> Academic Excellence
+                    </h3>
+                    <p class="job-section-text">
+                        {{ job.academic_excellence }}
+                    </p>
+                </div>
                 {% endif %}
 
                 {% if job.professional_expertise %}
-                <h3 class="job-section-title">
-                    <i class="ph ph-briefcase"></i> Professional Expertise
-                </h3>
-                <p class="job-section-text">
-                    {{ job.professional_expertise }}
-                </p>
+                <div data-aos="fade-up">
+                    <h3 class="job-section-title">
+                        <i class="ph ph-briefcase"></i> Professional Expertise
+                    </h3>
+                    <p class="job-section-text">
+                        {{ job.professional_expertise }}
+                    </p>
+                </div>
                 {% endif %}
 
                 {% if job.core_responsibilities %}
-                <h3 class="job-section-title">
-                    <i class="ph ph-gear"></i> Core Responsibilities
-                </h3>
-                <ul class="job-ul">
-                    {% for item in job.core_responsibilities_list %}
-                    <li>{{ item }}</li>
-                    {% endfor %}
-                </ul>
+                <div data-aos="fade-up">
+                    <h3 class="job-section-title">
+                        <i class="ph ph-target"></i> Core Responsibilities
+                    </h3>
+                    <ul class="job-ul">
+                        {% for item in job.core_responsibilities_list %}
+                        <li>{{ item }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
                 <div class="mb-5"></div>
                 {% endif %}
 
-                <div class="job-quote-box">
-                    <i class="ph ph-quotes"></i>
+                <div class="job-quote-box" data-aos="zoom-in" data-aos-delay="200">
+                    <i class="ph-fill ph-quotes"></i>
                     <p>Committed to delivering consistent quality, operational excellence, and high-performance manufacturing in the nutraceutical industry.</p>
                 </div>
             </div>
 
             <!-- Right Column: Sticky Apply Card -->
-            <div class="col-lg-4">
+            <div class="col-lg-4" data-aos="fade-left" data-aos-delay="400">
                 <div class="sticky-apply-card">
                     <div class="apply-icon">
-                        <i class="ph ph-file-text"></i>
+                        <i class="ph ph-paper-plane-tilt"></i>
                     </div>
                     <h4>Ready to join us?</h4>
                     <p>Submit your application and resume to be considered for this position.</p>
                     <button type="button" data-bs-toggle="modal" data-bs-target="#applyModal" class="apply-btn text-decoration-none">
-                        Apply Now <i class="ph ph-arrow-right"></i>
+                        Apply Now <i class="ph-bold ph-arrow-right"></i>
                     </button>
                 </div>
+            </div>
+        </div>
     </div>
 </section>
+
+<style>
+    body { background-color: #fafafa; }
+    
+    .job-title {
+        color: var(--forest-dark);
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+    }
+    
+    .job-category-badge {
+        display: inline-flex;
+        align-items: center;
+        background-color: rgba(212, 175, 55, 0.1);
+        color: var(--gold);
+        padding: 0.4rem 1.2rem;
+        border-radius: 50px;
+        font-size: 0.85rem;
+        font-weight: 700;
+        border: 1px solid rgba(212, 175, 55, 0.3);
+        margin-bottom: 2.5rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+    
+    .job-category-badge i { margin-right: 0.5rem; font-size: 1.1rem; }
+    
+    .job-quote-desc {
+        border-left: 3px solid var(--gold);
+        padding-left: 2rem;
+        margin-left: 0.5rem;
+        margin-bottom: 3rem;
+        color: #4a4a4a;
+        font-size: 1.15rem;
+        line-height: 1.8;
+        font-weight: 300;
+    }
+    
+    .job-section-title {
+        color: var(--forest-dark);
+        font-weight: 700;
+        font-size: 1.4rem;
+        margin-bottom: 1.2rem;
+        display: flex;
+        align-items: center;
+        margin-top: 3rem;
+    }
+    
+    .job-section-title i {
+        margin-right: 0.75rem;
+        font-size: 1.6rem;
+        color: var(--gold);
+    }
+    
+    .job-section-text {
+        color: #555;
+        font-size: 1.05rem;
+        line-height: 1.8;
+        font-weight: 300;
+    }
+    
+    /* Custom List Styling */
+    .job-ul {
+        list-style: none;
+        padding-left: 0;
+        margin-top: 1.5rem;
+    }
+    .job-ul li {
+        color: #555;
+        font-size: 1.05rem;
+        line-height: 1.7;
+        margin-bottom: 1rem;
+        padding-left: 2rem;
+        position: relative;
+        font-weight: 300;
+    }
+    .job-ul li::before {
+        content: '\2713'; /* Checkmark */
+        font-family: 'Phosphor'; /* Fallback */
+        position: absolute;
+        left: 0;
+        top: 2px;
+        color: var(--gold);
+        font-size: 1.2rem;
+        font-weight: bold;
+    }
+    
+    /* Quote Box */
+    .job-quote-box {
+        background-color: var(--forest-dark);
+        border-radius: 16px;
+        padding: 3.5rem 3rem;
+        color: white;
+        text-align: center;
+        margin-top: 4rem;
+        position: relative;
+        box-shadow: 0 20px 40px rgba(18, 76, 48, 0.15);
+        overflow: hidden;
+    }
+    .job-quote-box::before {
+        content: '';
+        position: absolute;
+        top: -50px;
+        right: -50px;
+        width: 150px;
+        height: 150px;
+        background: radial-gradient(circle, rgba(212,175,55,0.2) 0%, rgba(212,175,55,0) 70%);
+        border-radius: 50%;
+    }
+    .job-quote-box i {
+        font-size: 2.5rem;
+        color: var(--gold);
+        margin-bottom: 1.5rem;
+        display: block;
+        opacity: 0.8;
+    }
+    .job-quote-box p {
+        font-size: 1.25rem;
+        font-style: italic;
+        margin: 0;
+        font-weight: 300;
+        line-height: 1.8;
+        color: rgba(255, 255, 255, 0.9);
+    }
+    
+    /* Sticky Apply Card */
+    .sticky-apply-card {
+        background: white;
+        border-radius: 24px;
+        padding: 3.5rem 2.5rem;
+        text-align: center;
+        box-shadow: 0 15px 50px rgba(0,0,0,0.06);
+        position: sticky;
+        top: 120px;
+        border: 1px solid rgba(0,0,0,0.03);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .sticky-apply-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 25px 60px rgba(18, 76, 48, 0.1);
+    }
+    .sticky-apply-card .apply-icon {
+        background: rgba(212, 175, 55, 0.1);
+        color: var(--gold);
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2.2rem;
+        margin-bottom: 2rem;
+    }
+    .sticky-apply-card h4 {
+        color: var(--forest-dark);
+        font-weight: 800;
+        margin-bottom: 1rem;
+        font-size: 1.5rem;
+    }
+    .sticky-apply-card p {
+        color: #666;
+        font-size: 1rem;
+        margin-bottom: 2.5rem;
+        line-height: 1.7;
+        font-weight: 300;
+    }
+    
+    .apply-btn {
+        background-color: var(--gold);
+        color: white;
+        border: none;
+        padding: 1rem 2rem;
+        border-radius: 50px;
+        font-weight: 700;
+        width: 100%;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-size: 0.9rem;
+    }
+    .apply-btn i {
+        margin-left: 0.75rem;
+        transition: transform 0.3s ease;
+        font-size: 1.2rem;
+    }
+    .apply-btn:hover {
+        background-color: var(--forest-dark);
+        color: white;
+        transform: scale(1.02);
+    }
+    .apply-btn:hover i {
+        transform: translateX(6px);
+    }
+    
+    /* Modal Styling */
+    .premium-modal .modal-content {
+        border-radius: 24px;
+        border: none;
+        box-shadow: 0 25px 80px rgba(0,0,0,0.15);
+    }
+    .premium-modal .modal-header {
+        background: #fdfdfd;
+        border-bottom: 1px solid rgba(0,0,0,0.05);
+        border-top-left-radius: 24px;
+        border-top-right-radius: 24px;
+        padding: 2rem 2.5rem;
+    }
+    .premium-modal .modal-body {
+        padding: 2.5rem;
+    }
+    .premium-modal .form-control {
+        border-radius: 12px;
+        padding: 0.8rem 1.2rem;
+        border: 1px solid rgba(0,0,0,0.1);
+        font-weight: 300;
+        transition: all 0.2s;
+    }
+    .premium-modal .form-control:focus {
+        border-color: var(--gold);
+        box-shadow: 0 0 0 4px rgba(212,175,55,0.1);
+    }
+    .premium-modal .form-label {
+        font-weight: 600;
+        color: var(--forest-dark);
+        margin-bottom: 0.5rem;
+    }
+</style>
 
 {% endblock %}
 
 {% block modals %}
 <!-- Application Form Modal -->
-<div class="modal fade" id="applyModal" aria-labelledby="applyModalLabel" aria-hidden="true">
+<div class="modal fade premium-modal" id="applyModal" aria-labelledby="applyModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable">
-        <div class="modal-content rounded-4 border-0 shadow-lg">
-            <div class="modal-header bg-light border-bottom-0 p-4">
+        <div class="modal-content">
+            <div class="modal-header">
                 <div class="d-flex align-items-center">
-                    <div class="icon-wrapper text-{{ job.color_theme }} bg-{{ job.color_theme }} bg-opacity-10 rounded-circle d-flex align-items-center justify-content-center me-3" style="width: 50px; height: 50px;">
+                    <div class="icon-wrapper rounded-circle d-flex align-items-center justify-content-center me-3" style="width: 56px; height: 56px; background: rgba(212,175,55,0.1); color: var(--gold);">
                         <i class="fas {{ job.icon }} fs-4"></i>
                     </div>
                     <div>
-                        <h4 class="modal-title fw-bold mb-1" id="applyModalLabel">Apply for {{ job.title }}</h4>
-                        <span class="badge bg-white text-secondary border">{{ job.category }}</span>
+                        <h4 class="modal-title fw-bold mb-1" id="applyModalLabel" style="color: var(--forest-dark); font-size: 1.4rem;">Apply for {{ job.title }}</h4>
+                        <span class="badge" style="background: rgba(18,76,48,0.08); color: var(--forest-dark); font-weight: 600; border: 1px solid rgba(18,76,48,0.1); padding: 0.4rem 0.8rem;">{{ job.category }}</span>
                     </div>
                 </div>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="background-color: rgba(0,0,0,0.05); border-radius: 50%; padding: 0.8rem;"></button>
             </div>
             
-            <div class="modal-body p-4 p-md-5">
+            <div class="modal-body">
                 <form method="post" action="{% url 'job_detail' job.id %}" enctype="multipart/form-data">
                     {% csrf_token %}
                     <input type="hidden" name="job_id" value="{{ job.id }}">
                     
                     <div class="row g-4">
                         <div class="col-md-6">
-                            <label class="form-label fw-medium text-dark small">Full Name *</label>
+                            <label class="form-label small">Full Name *</label>
                             {{ form.name }}
                         </div>
                         <div class="col-md-6">
-                            <label class="form-label fw-medium text-dark small">Email Address *</label>
+                            <label class="form-label small">Email Address *</label>
                             {{ form.email }}
                         </div>
                         <div class="col-md-6">
-                            <label class="form-label fw-medium text-dark small">Phone Number *</label>
+                            <label class="form-label small">Phone Number *</label>
                             {{ form.phone }}
                         </div>
                         <div class="col-md-6">
-                            <label class="form-label fw-medium text-dark small">Years of Experience *</label>
+                            <label class="form-label small">Years of Experience *</label>
                             {{ form.experience }}
                         </div>
                         <div class="col-12">
-                            <label class="form-label fw-medium text-dark small">Current Address *</label>
+                            <label class="form-label small">Current Address *</label>
                             {{ form.address }}
                         </div>
                         <div class="col-12">
-                            <label class="form-label fw-medium text-dark small">Upload Resume (PDF/DOC) *</label>
+                            <label class="form-label small">Upload Resume (PDF/DOC) *</label>
                             {{ form.resume }}
                         </div>
                         <div class="col-12">
-                            <label class="form-label fw-medium text-dark small">Additional Details (Optional)</label>
+                            <label class="form-label small">Additional Details (Optional)</label>
                             {{ form.details }}
                         </div>
                         
-                        <div class="col-12 mt-4 text-end">
-                            <button type="button" class="btn btn-light rounded-pill px-4 me-2" data-bs-dismiss="modal">Cancel</button>
-                            <button type="submit" class="btn btn-success rounded-pill px-4 fw-bold shadow-sm" style="background-color: var(--job-accent); border-color: var(--job-accent);">Submit Application</button>
+                        <div class="col-12 mt-5 text-end">
+                            <button type="button" class="btn btn-light rounded-pill px-4 me-2 fw-medium" data-bs-dismiss="modal" style="padding: 0.8rem 2rem;">Cancel</button>
+                            <button type="submit" class="btn rounded-pill px-4 fw-bold shadow-sm" style="background-color: var(--forest-dark); color: white; padding: 0.8rem 2.5rem; transition: all 0.3s;" onmouseover="this.style.backgroundColor='var(--gold)';" onmouseout="this.style.backgroundColor='var(--forest-dark)';">Submit Application</button>
                         </div>
                     </div>
                 </form>
@@ -333,5 +419,3 @@
     </div>
 </div>
 {% endblock %}
-
-

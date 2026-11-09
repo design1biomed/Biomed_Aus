@@ -1,0 +1,109 @@
+{% extends "main/base.html" %}
+{% load static %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="parallax-hero-section hero-wrapper py-4 py-md-5 bg-light position-relative"
+    style="background: linear-gradient(135deg, rgba(8, 45, 25, 0.95), rgba(15, 67, 37, 0.88)), url('{% static 'images/bg/bg.webp' %}') center/cover no-repeat; min-height: 340px; display: flex; align-items: center;">
+    <div class="position-absolute top-0 start-0 w-100 h-100"
+        style="background: linear-gradient(180deg, rgba(8, 45, 25, .65), rgba(8, 45, 25, .15));"></div>
+    <div class="container position-relative z-1 text-center text-md-start">
+        <span class="badge bg-success bg-opacity-25 text-white border border-success border-opacity-50 px-3 py-2 rounded-pill fw-semibold mb-3" style="letter-spacing: 1px;">
+            INFRASTRUCTURE &amp; CAPABILITIES
+        </span>
+        <h1 class="display-3 fw-bold text-white mb-3" data-aos="fade-up">Our Gallery</h1>
+        <p class="text-white-50 fs-6 mb-3" style="max-width: 600px;">
+            A visual overview of our advanced botanical extraction facilities, analytical testing laboratories, commercial plantations, and international trade expo pavilions.
+        </p>
+        <nav aria-label="breadcrumb" data-aos="fade-up" data-aos-delay="100">
+            <ol class="breadcrumb justify-content-center justify-content-md-start mb-0">
+                <li class="breadcrumb-item"><a href="{% url 'index' %}" class="text-white-50 text-decoration-none">Home</a></li>
+                <li class="breadcrumb-item active text-white" aria-current="page">Gallery</li>
+            </ol>
+        </nav>
+    </div>
+</section>
+
+<!-- Gallery Grid Section -->
+<section class="py-5 bg-white position-relative">
+    <div class="container-fluid px-3 px-md-5 py-3">
+
+        {% if not gallery_images %}
+            <div class="text-center py-5">
+                <div class="d-inline-flex align-items-center justify-content-center bg-light text-muted rounded-circle p-4 mb-3">
+                    <i class="ph ph-images fs-1"></i>
+                </div>
+                <h4 class="fw-bold text-dark">No Gallery Images Found</h4>
+                <p class="text-muted mx-auto" style="max-width: 450px;">
+                    Our latest facility and expo photos are currently being curated. Please check back shortly or explore our <a href="{% url 'facility' %}" class="text-success fw-semibold">Facility Tour</a>.
+                </p>
+            </div>
+        {% else %}
+            <!-- Masonry / Responsive Grid -->
+            <div class="row g-4" id="galleryContainer">
+                {% for img in gallery_images %}
+                    <div class="col-sm-6 col-md-4 col-lg-3" data-aos="fade-up" data-aos-delay="{{ forloop.counter0|divisibleby:4|yesno:'100,200' }}">
+                        <div class="gallery-card rounded-4 overflow-hidden position-relative shadow-sm h-100 bg-light border">
+                            <a href="{{ img.image_upload.url }}" class="gallery-zoom-link d-block position-relative overflow-hidden" data-title="{{ img.title|default:'Bio Med Ingredients Gallery' }}">
+                                <img src="{{ img.image_upload.url }}" alt="{{ img.title|default:'Gallery Image' }}" class="img-fluid w-100 gallery-img" loading="lazy" style="height: 260px; object-fit: cover; transition: transform 0.5s ease;">
+                                <div class="gallery-overlay position-absolute inset-0 d-flex flex-column justify-content-end p-3" style="background: linear-gradient(180deg, rgba(0,0,0,0) 30%, rgba(8,45,25,0.85) 100%); opacity: 0; transition: opacity 0.3s ease;">
+                                    <span class="badge bg-success bg-opacity-75 text-white mb-1 align-self-start small"><i class="ph ph-magnifying-glass-plus me-1"></i> View</span>
+                                    {% if img.title %}
+                                        <h6 class="text-white fw-bold mb-0 text-truncate">{{ img.title }}</h6>
+                                    {% endif %}
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+
+    </div>
+</section>
+
+<!-- Lightbox Modal for Gallery Preview -->
+<div class="modal fade" id="galleryLightboxModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-xl">
+        <div class="modal-content bg-transparent border-0">
+            <div class="modal-header border-0 pb-0 justify-content-end">
+                <button type="button" class="btn-close btn-close-white fs-5" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-center p-2">
+                <img src="" id="lightboxModalImg" class="img-fluid rounded-4 shadow-lg" style="max-height: 85vh; object-fit: contain;">
+                <p id="lightboxModalCaption" class="text-white mt-3 fw-medium fs-6"></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .gallery-card:hover .gallery-img {
+        transform: scale(1.06);
+    }
+    .gallery-card:hover .gallery-overlay {
+        opacity: 1 !important;
+    }
+</style>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const links = document.querySelectorAll(".gallery-zoom-link");
+        const modal = new bootstrap.Modal(document.getElementById("galleryLightboxModal"));
+        const modalImg = document.getElementById("lightboxModalImg");
+        const modalCaption = document.getElementById("lightboxModalCaption");
+
+        links.forEach(function (link) {
+            link.addEventListener("click", function (e) {
+                e.preventDefault();
+                const src = this.getAttribute("href");
+                const title = this.getAttribute("data-title") || "";
+                modalImg.src = src;
+                modalCaption.textContent = title;
+                modal.show();
+            });
+        });
+    });
+</script>
+{% endblock %}
+

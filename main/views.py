@@ -4,7 +4,7 @@ from django.contrib.auth.decorators import login_required
 from django.core.files.storage import default_storage
 from django.conf import settings
 import os
-from .models import IndexPageContent, Accreditation, QualityTimeline, ExtractCategory, CorePromise, OfficeLocation, Enquiry, SolutionFeature, AboutPageContent, CSRPageContent, TeamMember, OperationTeamMember, InfrastructurePageContent, ResearchArea, ResearchCoreAreaLink, GalleryImage, Brand, ProductRangeSlide, Product, NaturalFoodColor, NaturalFlavour, ProductBrochure, ProductDocumentCategory, ProductDocument, ExhibitionEvent, EventSubscriber, InstagramPost, JobOpening, JobApplication, ContactMessage, EmailConfiguration
+from .models import IndexPageContent, Accreditation, QualityTimeline, ExtractCategory, CorePromise, OfficeLocation, Enquiry, SolutionFeature, AboutPageContent, CSRPageContent, TeamMember, OperationTeamMember, InfrastructurePageContent, ResearchArea, ResearchCoreAreaLink, GalleryImage, Brand, ProductRangeSlide, Product, NaturalFoodColor, NaturalFlavour, ProductBrochure, ProductDocumentCategory, ProductDocument, ExhibitionEvent, EventSubscriber, InstagramPost, JobOpening, JobApplication, ContactMessage, EmailConfiguration, ExpoMeetingBooking
 from .forms import IndexPageForm, AccreditationForm, QualityTimelineForm, ExtractCategoryForm, CorePromiseForm, OfficeLocationForm, SolutionFeatureForm, AboutPageForm, CSRPageForm, TeamMemberForm, OperationTeamMemberForm, InfrastructurePageForm, ResearchAreaForm, ResearchCoreAreaLinkForm, GalleryImageForm, BrandForm, ProductRangeSlideForm, ProductForm, NaturalFoodColorForm, NaturalFlavourForm, ProductBrochureForm, ProductDocumentCategoryForm, ProductDocumentForm, ExhibitionEventForm, InstagramPostForm, JobOpeningForm, JobApplicationForm, ContactMessageForm, EmailConfigurationForm
 from django.db.models import Q
 from django.shortcuts import get_object_or_404, render, redirect
@@ -84,7 +84,28 @@ def research_area_detail(request, slug):
 
 @login_required(login_url='dashboard_login')
 def custom_dashboard(request):
-    return render(request, 'main/dashboard/dashboard.html')
+    from .models import (
+        Product, ExhibitionEvent, ExpoMeetingBooking, Enquiry,
+        ContactMessage, JobApplication, EventSubscriber
+    )
+    auto_sync_expired_exhibitions()
+    total_leads = (
+        Enquiry.objects.count() +
+        ContactMessage.objects.count() +
+        JobApplication.objects.count() +
+        ExpoMeetingBooking.objects.count()
+    )
+    stats = {
+        'products_count': Product.objects.count(),
+        'exhibitions_count': ExhibitionEvent.objects.filter(is_active=True).count(),
+        'expo_bookings_pending': ExpoMeetingBooking.objects.filter(status='pending').count(),
+        'total_leads': total_leads,
+        'enquiries_count': Enquiry.objects.count(),
+        'contact_messages_count': ContactMessage.objects.count(),
+        'job_applications_count': JobApplication.objects.count(),
+        'subscribers_count': EventSubscriber.objects.count(),
+    }
+    return render(request, 'main/dashboard/dashboard.html', {'stats': stats})
 
 @login_required(login_url='dashboard_login')
 def edit_index_page(request):
@@ -1163,8 +1184,28 @@ def dashboard_delete_product_document(request, pk):
         return redirect('dashboard_manage_product_documents')
     return render(request, 'main/dashboard/delete_product_document.html', {'document': document})
 
+# --- Auto-sync expired exhibitions ---
+def auto_sync_expired_exhibitions():
+    """
+    Scans active ExhibitionEvent records and automatically deactivates (is_active = False)
+    any event whose end date (or start date if no end date provided) has passed (< today).
+    Returns the number of events newly marked inactive.
+    """
+    from datetime import date
+    from django.db.models import Q
+    today = date.today()
+    expired_active = ExhibitionEvent.objects.filter(is_active=True).filter(
+        Q(event_end_date__isnull=False, event_end_date__lt=today) |
+        Q(event_end_date__isnull=True, event_date__isnull=False, event_date__lt=today)
+    )
+    count = expired_active.count()
+    if count > 0:
+        expired_active.update(is_active=False)
+    return count
+
 # --- News & Events Front-end View ---
 def news_events(request):
+    auto_sync_expired_exhibitions()
     instagram_posts = InstagramPost.objects.filter(is_visible=True)
     exhibitions = ExhibitionEvent.objects.filter(is_active=True).order_by('order', '-id')
     return render(request, "main/news_events.html", {
@@ -1175,6 +1216,11 @@ def news_events(request):
 def subscribe_event_notifications(request):
     if request.method == "POST":
         email = request.POST.get("email")
+        is_ajax = (
+            request.headers.get('x-requested-with') == 'XMLHttpRequest' or
+            request.headers.get('Accept') == 'application/json' or
+            request.POST.get('is_ajax') == '1'
+        )
         if email:
             subscriber, created = EventSubscriber.objects.get_or_create(email=email)
             if created:
@@ -1202,14 +1248,35 @@ def subscribe_event_notifications(request):
                     msg.send(fail_silently=True)
                 except Exception:
                     pass
+            if is_ajax:
+                from django.http import JsonResponse
+                return JsonResponse({
+                    'status': 'success',
+                    'message': 'Thank you! You will be notified of upcoming trade exhibitions.'
+                })
             messages.success(request, 'Successfully subscribed to event notifications!')
         else:
+            if is_ajax:
+                from django.http import JsonResponse
+                return JsonResponse({
+                    'status': 'error',
+                    'message': 'Invalid email address provided.'
+                }, status=400)
             messages.error(request, 'Invalid email address provided.')
+    if request.headers.get('referer'):
+        return redirect(request.headers.get('referer'))
     return redirect('news_events')
 
 # --- Dashboard: Exhibition Events ---
 @login_required(login_url='dashboard_login')
 def dashboard_manage_exhibition_events(request):
+    synced_count = auto_sync_expired_exhibitions()
+    if request.GET.get('sync') == '1':
+        if synced_count > 0:
+            messages.success(request, f'Event status check complete: {synced_count} past event(s) automatically marked as inactive.')
+        else:
+            messages.info(request, 'Event status check complete: all past events are already marked inactive.')
+        return redirect('dashboard_manage_exhibition_events')
     events = ExhibitionEvent.objects.all().order_by('order', '-id')
     return render(request, 'main/dashboard/manage_exhibition_events.html', {'events': events})
 
@@ -1720,3 +1787,699 @@ def dashboard_send_newsletter(request):
 
         messages.success(request, f'Newsletter "{subject}" is being sent to {len(email_list)} subscribers.')
     return redirect('dashboard_manage_subscribers')
+
+
+# ==========================================
+# Legal & Compliance Views
+# ==========================================
+def privacy_policy(request):
+    return render(request, 'main/privacy_policy.html')
+
+def terms_of_service(request):
+    return render(request, 'main/terms_of_service.html')
+
+def custom_404_view(request, exception=None):
+    return render(request, '404.html', status=404)
+
+
+# ==========================================
+# Public Gallery View
+# ==========================================
+def gallery_page(request):
+    images = GalleryImage.objects.all().order_by('order', '-created_at')
+    return render(request, 'main/gallery.html', {'gallery_images': images})
+
+
+# ==========================================
+# Book Expo / Exhibition Meeting View
+# ==========================================
+def book_expo_meeting(request):
+    import json
+    from datetime import datetime, timedelta
+    from django.core.mail import EmailMessage
+    from django.template.loader import render_to_string
+
+    auto_sync_expired_exhibitions()
+    exhibitions = ExhibitionEvent.objects.filter(is_active=True).order_by('order', 'event_date')
+    selected_expo_id = 0
+    try:
+        if request.GET.get('expo_id'):
+            selected_expo_id = int(request.GET.get('expo_id'))
+        elif exhibitions.exists():
+            selected_expo_id = exhibitions.first().id
+    except (ValueError, TypeError):
+        selected_expo_id = exhibitions.first().id if exhibitions.exists() else 0
+
+    # Build date range mapping per exhibition
+    expo_dates_map = {}
+    for ex in exhibitions:
+        dates = []
+        if ex.event_date:
+            cur = ex.event_date
+            end = ex.event_end_date or ex.event_date
+            while cur <= end:
+                dates.append({
+                    'value': cur.strftime('%Y-%m-%d'),
+                    'text': cur.strftime('%a, %b %d, %Y')
+                })
+                cur += timedelta(days=1)
+        expo_dates_map[str(ex.id)] = dates
+
+    # Build booked times mapping
+    booked_times_map = {}
+    active_bookings = ExpoMeetingBooking.objects.filter(status__in=['pending', 'accepted'])
+    for b in active_bookings:
+        eid = str(b.expo_id)
+        dstr = b.meeting_date.strftime('%Y-%m-%d')
+        tstr = b.meeting_time.strftime('%H:%M')
+        if eid not in booked_times_map:
+            booked_times_map[eid] = {}
+        if dstr not in booked_times_map[eid]:
+            booked_times_map[eid][dstr] = []
+        booked_times_map[eid][dstr].append(tstr)
+
+    booking_success = False
+    created_booking = None
+
+    if request.method == 'POST':
+        # Honeypot check
+        if request.POST.get('b_website_url'):
+            booking_success = True
+            messages.success(request, 'Your meeting request has been submitted successfully!')
+            return render(request, 'main/book_expo_meeting.html', {
+                'exhibitions': exhibitions,
+                'selected_expo_id': selected_expo_id,
+                'expo_dates_json': json.dumps(expo_dates_map),
+                'booked_times_json': json.dumps(booked_times_map),
+                'booking_success': True,
+            })
+
+        expo_id = request.POST.get('expo')
+        name = request.POST.get('name', '').strip()
+        email = request.POST.get('email', '').strip()
+        company = request.POST.get('company', '').strip()
+        phone = request.POST.get('phone', '').strip()
+        meeting_date = request.POST.get('meeting_date', '').strip()
+        meeting_time = request.POST.get('meeting_time', '').strip()
+        message_txt = request.POST.get('message', '').strip()
+
+        if not expo_id or not name or not email or not phone or not meeting_date or not meeting_time:
+            messages.error(request, 'Please complete all required fields.')
+        else:
+            expo_obj = get_object_or_404(ExhibitionEvent, pk=expo_id)
+            try:
+                m_date = datetime.strptime(meeting_date, '%Y-%m-%d').date()
+                m_time = datetime.strptime(meeting_time, '%H:%M').time()
+
+                # Check double booking
+                conflict = ExpoMeetingBooking.objects.filter(
+                    expo=expo_obj,
+                    meeting_date=m_date,
+                    meeting_time=m_time,
+                    status__in=['pending', 'accepted']
+                ).exists()
+
+                if conflict:
+                    messages.error(request, 'This time slot was just reserved. Please select another time.')
+                else:
+                    created_booking = ExpoMeetingBooking.objects.create(
+                        expo=expo_obj,
+                        name=name,
+                        email=email,
+                        company=company,
+                        phone=phone,
+                        meeting_date=m_date,
+                        meeting_time=m_time,
+                        message=message_txt,
+                        status='pending'
+                    )
+                    booking_success = True
+                    messages.success(request, 'Your meeting request has been submitted successfully! We will confirm shortly.')
+
+                    # Send Email Notification
+                    try:
+                        email_config = EmailConfiguration.objects.first()
+                        target_email_str = email_config.booking_email if email_config and email_config.booking_email else 'design1@biomedingredients.com'
+                        recipients = [e.strip() for e in target_email_str.split(',') if e.strip()]
+
+                        subject = f"New Expo Meeting Booking: {name} at {expo_obj.tag}"
+                        html_content = render_to_string('main/email/general_email.html', {
+                            'title': 'New Trade Expo Meeting Scheduled',
+                            'intro_text': f"A new client consultation has been booked for {expo_obj.tag}.",
+                            'details': {
+                                'Exhibition': expo_obj.tag,
+                                'Booth': expo_obj.booth_number or 'N/A',
+                                'Meeting Date': m_date.strftime('%B %d, %Y'),
+                                'Meeting Time': m_time.strftime('%I:%M %p'),
+                                'Delegate Name': name,
+                                'Company': company or 'N/A',
+                                'Email': email,
+                                'Phone / WhatsApp': phone,
+                                'Agenda': message_txt or 'N/A'
+                            }
+                        })
+                        msg = EmailMessage(
+                            subject,
+                            html_content,
+                            getattr(settings, 'DEFAULT_FROM_EMAIL', 'info@biomedingredients.com'),
+                            recipients
+                        )
+                        msg.content_subtype = "html"
+                        msg.send(fail_silently=True)
+                    except Exception as err:
+                        print(f"Failed to send booking notification email: {err}")
+
+            except ValueError:
+                messages.error(request, 'Invalid date or time format.')
+
+    return render(request, 'main/book_expo_meeting.html', {
+        'exhibitions': exhibitions,
+        'selected_expo_id': selected_expo_id,
+        'expo_dates_json': json.dumps(expo_dates_map),
+        'booked_times_json': json.dumps(booked_times_map),
+        'booking_success': booking_success,
+        'booking': created_booking
+    })
+
+
+# ==========================================
+# Dashboard: Expo Meeting Bookings
+# ==========================================
+@login_required(login_url='dashboard_login')
+def dashboard_manage_expo_bookings(request):
+    bookings = ExpoMeetingBooking.objects.all().order_by('-created_at')
+    return render(request, 'main/dashboard/manage_expo_bookings.html', {'bookings': bookings})
+
+@login_required(login_url='dashboard_login')
+def dashboard_expo_booking_status(request, pk):
+    booking = get_object_or_404(ExpoMeetingBooking, pk=pk)
+    if request.method == 'POST':
+        new_status = request.POST.get('status')
+        if new_status in ['pending', 'accepted', 'rejected']:
+            booking.status = new_status
+            booking.save()
+            messages.success(request, f'Booking status updated to {new_status}.')
+    return redirect('dashboard_manage_expo_bookings')
+
+@login_required(login_url='dashboard_login')
+def dashboard_delete_expo_booking(request, pk):
+    booking = get_object_or_404(ExpoMeetingBooking, pk=pk)
+    if request.method == 'POST':
+        booking.delete()
+        messages.success(request, 'Expo meeting booking deleted.')
+    return redirect('dashboard_manage_expo_bookings')
+
+
+# ==========================================
+# Dashboard: Unified B2B Leads Manager
+# ==========================================
+@login_required(login_url='dashboard_login')
+def dashboard_manage_leads(request):
+    from django.urls import reverse
+
+    lead_type = request.GET.get('type', '').strip()
+    search_q = request.GET.get('q', '').strip().lower()
+
+    leads = []
+
+    # 1. Product Enquiries
+    if not lead_type or lead_type == 'enquiry':
+        enquiries = Enquiry.objects.all().order_by('-created_at')
+        for e in enquiries:
+            if search_q and search_q not in (e.full_name + ' ' + (e.company or '') + ' ' + e.email + ' ' + e.product_name).lower():
+                continue
+            leads.append({
+                'id': e.id,
+                'type': 'enquiry',
+                'date': e.created_at,
+                'name': e.full_name,
+                'company': e.company,
+                'country': '',
+                'email': e.email,
+                'phone': '',
+                'subject': e.product_name,
+                'meta_info': 'Product Spec Inquiry',
+                'message': e.message,
+                'detail_url': reverse('manage_enquiries'),
+                'resume_url': ''
+            })
+
+    # 2. Contact Messages
+    if not lead_type or lead_type == 'contact':
+        contacts = ContactMessage.objects.all().order_by('-created_at')
+        for c in contacts:
+            if search_q and search_q not in (c.name + ' ' + c.email + ' ' + c.country + ' ' + c.subject).lower():
+                continue
+            leads.append({
+                'id': c.id,
+                'type': 'contact',
+                'date': c.created_at,
+                'name': c.name,
+                'company': '',
+                'country': c.country,
+                'email': c.email,
+                'phone': c.phone,
+                'subject': c.subject,
+                'meta_info': 'General Contact Desk',
+                'message': c.message,
+                'detail_url': reverse('dashboard_view_contact_message', args=[c.id]),
+                'resume_url': ''
+            })
+
+    # 3. Expo Meeting Bookings
+    if not lead_type or lead_type == 'expo':
+        expo_bookings = ExpoMeetingBooking.objects.all().order_by('-created_at')
+        for b in expo_bookings:
+            if search_q and search_q not in (b.name + ' ' + (b.company or '') + ' ' + b.email + ' ' + b.expo.tag).lower():
+                continue
+            leads.append({
+                'id': b.id,
+                'type': 'expo',
+                'date': b.created_at,
+                'name': b.name,
+                'company': b.company,
+                'country': '',
+                'email': b.email,
+                'phone': b.phone,
+                'subject': f"{b.expo.tag} ({b.meeting_date.strftime('%b %d')} @ {b.meeting_time.strftime('%I:%M %p')})",
+                'meta_info': f"Status: {b.status.capitalize()}",
+                'message': b.message,
+                'detail_url': reverse('dashboard_manage_expo_bookings'),
+                'resume_url': ''
+            })
+
+    # 4. Job Applications
+    if not lead_type or lead_type == 'career':
+        apps = JobApplication.objects.all().order_by('-applied_at')
+        for a in apps:
+            pos_title = a.job.title if a.job else 'General Application'
+            if search_q and search_q not in (a.name + ' ' + a.email + ' ' + pos_title).lower():
+                continue
+            leads.append({
+                'id': a.id,
+                'type': 'career',
+                'date': a.applied_at,
+                'name': a.name,
+                'company': 'Candidate Applicant',
+                'country': '',
+                'email': a.email,
+                'phone': a.phone,
+                'subject': pos_title,
+                'meta_info': 'Career Applicant',
+                'message': f"Experience: {a.experience} years. {a.details or ''}",
+                'detail_url': reverse('dashboard_view_job_application', args=[a.id]),
+                'resume_url': a.resume.url if a.resume else ''
+            })
+
+    # Sort unified leads by descending date
+    leads.sort(key=lambda x: x['date'], reverse=True)
+
+    return render(request, 'main/dashboard/manage_leads.html', {
+        'leads': leads,
+        'current_type': lead_type,
+        'search_query': search_q,
+        'total_enquiries_count': Enquiry.objects.count(),
+        'total_contacts_count': ContactMessage.objects.count(),
+        'total_expo_count': ExpoMeetingBooking.objects.count(),
+        'total_applications_count': JobApplication.objects.count(),
+    })
+
+@login_required(login_url='dashboard_login')
+def dashboard_export_leads_csv(request):
+    import csv
+    from django.http import HttpResponse
+
+    response = HttpResponse(content_type='text/csv; charset=utf-8')
+    response['Content-Disposition'] = 'attachment; filename="biomed_leads_export.csv"'
+    # Write Excel UTF-8 BOM
+    response.write('\ufeff')
+
+    writer = csv.writer(response)
+    writer.writerow(['Lead ID', 'Type', 'Date', 'Full Name', 'Company', 'Country', 'Email', 'Phone', 'Subject / Target', 'Message / Notes'])
+
+    lead_type = request.GET.get('type', '').strip()
+    search_q = request.GET.get('q', '').strip().lower()
+
+    if not lead_type or lead_type == 'enquiry':
+        for e in Enquiry.objects.all().order_by('-created_at'):
+            if not search_q or search_q in (e.full_name + ' ' + (e.company or '') + ' ' + e.email + ' ' + e.product_name).lower():
+                writer.writerow([e.id, 'Product Enquiry', e.created_at.strftime('%Y-%m-%d %H:%M'), e.full_name, e.company or '', '', e.email, '', e.product_name, e.message])
+
+    if not lead_type or lead_type == 'contact':
+        for c in ContactMessage.objects.all().order_by('-created_at'):
+            if not search_q or search_q in (c.name + ' ' + c.email + ' ' + c.country + ' ' + c.subject).lower():
+                writer.writerow([c.id, 'Contact Message', c.created_at.strftime('%Y-%m-%d %H:%M'), c.name, '', c.country, c.email, c.phone, c.subject, c.message])
+
+    if not lead_type or lead_type == 'expo':
+        for b in ExpoMeetingBooking.objects.all().order_by('-created_at'):
+            if not search_q or search_q in (b.name + ' ' + (b.company or '') + ' ' + b.email + ' ' + b.expo.tag).lower():
+                writer.writerow([b.id, 'Expo Meeting', b.created_at.strftime('%Y-%m-%d %H:%M'), b.name, b.company or '', '', b.email, b.phone, f"{b.expo.tag} ({b.meeting_date} {b.meeting_time})", b.message or ''])
+
+    if not lead_type or lead_type == 'career':
+        for a in JobApplication.objects.all().order_by('-applied_at'):
+            pos = a.job.title if a.job else 'General Application'
+            if not search_q or search_q in (a.name + ' ' + a.email + ' ' + pos).lower():
+                writer.writerow([a.id, 'Career Applicant', a.applied_at.strftime('%Y-%m-%d %H:%M'), a.name, 'Candidate', '', a.email, a.phone, pos, a.details or ''])
+
+    return response
+
+
+# ==========================================
+# Dashboard: Analytics Overview
+# ==========================================
+@login_required(login_url='dashboard_login')
+def dashboard_analytics(request):
+    enquiries_count = Enquiry.objects.count()
+    contacts_count = ContactMessage.objects.count()
+    expo_count = ExpoMeetingBooking.objects.count()
+    apps_count = JobApplication.objects.count()
+    subs_count = EventSubscriber.objects.count()
+
+    recent_items = []
+    for e in Enquiry.objects.all().order_by('-created_at')[:4]:
+        recent_items.append({'type_label': 'Inquiry', 'name': e.full_name, 'sub_text': e.product_name, 'time': e.created_at})
+    for b in ExpoMeetingBooking.objects.all().order_by('-created_at')[:4]:
+        recent_items.append({'type_label': 'Expo Booking', 'name': b.name, 'sub_text': b.expo.tag, 'time': b.created_at})
+    for c in ContactMessage.objects.all().order_by('-created_at')[:4]:
+        recent_items.append({'type_label': 'Contact Msg', 'name': c.name, 'sub_text': c.subject, 'time': c.created_at})
+
+    recent_items.sort(key=lambda x: x['time'], reverse=True)
+
+    return render(request, 'main/dashboard/analytics.html', {
+        'total_enquiries': enquiries_count,
+        'total_contacts': contacts_count,
+        'total_expo': expo_count,
+        'total_applications': apps_count,
+        'total_subscribers': subs_count,
+        'recent_items': recent_items[:8]
+    })
+
+
+# ==========================================
+# Dashboard: Image Compressor Tool
+# ==========================================
+@login_required(login_url='dashboard_login')
+def dashboard_compressor(request):
+    import os
+    from django.conf import settings
+    from PIL import Image
+
+    scan_dirs = [
+        os.path.join(settings.BASE_DIR, 'media'),
+        os.path.join(settings.BASE_DIR, 'static', 'images')
+    ]
+
+    valid_exts = ('.jpg', '.jpeg', '.png', '.webp')
+    items = []
+    total_count = 0
+    total_size = 0
+    compressible_count = 0
+    est_savings = 0
+
+    for base in scan_dirs:
+        if not os.path.exists(base):
+            continue
+        for root, _, files in os.walk(base):
+            for f in files:
+                ext = os.path.splitext(f)[1].lower()
+                if ext in valid_exts:
+                    full_p = os.path.join(root, f)
+                    try:
+                        sz = os.path.getsize(full_p)
+                        total_count += 1
+                        total_size += sz
+
+                        rel_p = os.path.relpath(full_p, settings.BASE_DIR).replace('\\', '/')
+
+                        with Image.open(full_p) as im:
+                            w, h = im.size
+
+                        is_compressible = (max(w, h) > 1920) or (sz > 200 * 1024)
+                        if is_compressible:
+                            compressible_count += 1
+                            est_saved = int(sz * 0.5)
+                            est_savings += est_saved
+                        else:
+                            est_saved = 0
+
+                        items.append({
+                            'path': rel_p,
+                            'width': w,
+                            'height': h,
+                            'size_kb': round(sz / 1024, 1),
+                            'is_compressible': is_compressible,
+                            'est_saved_kb': round(est_saved / 1024, 1)
+                        })
+                    except Exception:
+                        pass
+
+    # Sort by size descending
+    items.sort(key=lambda x: x['size_kb'], reverse=True)
+
+    return render(request, 'main/dashboard/compressor.html', {
+        'items': items[:100],
+        'total_images': total_count,
+        'total_size_mb': round(total_size / (1024 * 1024), 2),
+        'compressible_count': compressible_count,
+        'est_savings_mb': round(est_savings / (1024 * 1024), 2)
+    })
+
+@login_required(login_url='dashboard_login')
+def dashboard_compressor_save(request):
+    from django.http import JsonResponse
+    import os
+    from django.conf import settings
+
+    if request.method != 'POST':
+        return JsonResponse({'success': False, 'error': 'POST required'})
+
+    rel_path = request.POST.get('path', '').replace('\\', '/').strip('/')
+    uploaded_file = request.FILES.get('file')
+
+    if not rel_path or not uploaded_file:
+        return JsonResponse({'success': False, 'error': 'Missing parameters'})
+
+    if not (rel_path.startswith('media/') or rel_path.startswith('static/images/')):
+        return JsonResponse({'success': False, 'error': 'Unauthorized directory'})
+
+    full_dest = os.path.join(settings.BASE_DIR, rel_path.replace('/', os.sep))
+    if not os.path.exists(full_dest):
+        return JsonResponse({'success': False, 'error': 'File not found on disk'})
+
+    try:
+        with open(full_dest, 'wb') as dest:
+            for chunk in uploaded_file.chunks():
+                dest.write(chunk)
+        return JsonResponse({'success': True, 'path': rel_path})
+    except Exception as e:
+        return JsonResponse({'success': False, 'error': str(e)})
+
+
+# ==========================================
+# Dashboard: PDF Thumbnails Tool
+# ==========================================
+@login_required(login_url='dashboard_login')
+def dashboard_pdf_thumbnails(request):
+    import os
+    from django.conf import settings
+
+    scan_targets = [
+        {
+            'collection': 'Product Documents',
+            'pdf_dir': os.path.join(settings.BASE_DIR, 'media', 'product_documents'),
+            'thumb_dir': os.path.join(settings.BASE_DIR, 'media', 'product_documents', 'thumbnails'),
+            'pdf_rel': 'media/product_documents/',
+            'thumb_rel': 'media/product_documents/thumbnails/'
+        },
+        {
+            'collection': 'Product Brochures',
+            'pdf_dir': os.path.join(settings.BASE_DIR, 'media', 'brochures', 'pdfs'),
+            'thumb_dir': os.path.join(settings.BASE_DIR, 'media', 'brochures', 'thumbnails'),
+            'pdf_rel': 'media/brochures/pdfs/',
+            'thumb_rel': 'media/brochures/thumbnails/'
+        }
+    ]
+
+    items = []
+    total_pdfs = 0
+    ready_count = 0
+    missing_count = 0
+
+    for target in scan_targets:
+        p_dir = target['pdf_dir']
+        t_dir = target['thumb_dir']
+        if not os.path.exists(p_dir):
+            continue
+        if not os.path.exists(t_dir):
+            os.makedirs(t_dir, exist_ok=True)
+
+        for f in os.listdir(p_dir):
+            if f.lower().endswith('.pdf'):
+                total_pdfs += 1
+                base_name = os.path.splitext(f)[0]
+                expected_thumb = os.path.join(t_dir, base_name + '.webp')
+                has_thumb = os.path.exists(expected_thumb)
+                if has_thumb:
+                    ready_count += 1
+                else:
+                    missing_count += 1
+
+                pdf_sz = os.path.getsize(os.path.join(p_dir, f))
+                items.append({
+                    'name': base_name.replace('_', ' ').replace('-', ' ').title(),
+                    'filename': f,
+                    'collection': target['collection'],
+                    'rel_pdf_path': target['pdf_rel'] + f,
+                    'rel_thumb_path': target['thumb_rel'] + base_name + '.webp',
+                    'has_thumb': has_thumb,
+                    'pdf_size_kb': round(pdf_sz / 1024, 1)
+                })
+
+    items.sort(key=lambda x: (x['has_thumb'], x['name']))
+
+    return render(request, 'main/dashboard/pdf_thumbnails.html', {
+        'items': items,
+        'total_pdfs': total_pdfs,
+        'ready_count': ready_count,
+        'missing_count': missing_count
+    })
+
+@login_required(login_url='dashboard_login')
+def dashboard_pdf_thumbnail_save(request):
+    from django.http import JsonResponse
+    import os
+    from django.conf import settings
+
+    if request.method != 'POST':
+        return JsonResponse({'success': False, 'error': 'POST required'})
+
+    thumb_rel = request.POST.get('thumb_path', '').replace('\\', '/').strip('/')
+    uploaded_file = request.FILES.get('file')
+
+    if not thumb_rel or not uploaded_file:
+        return JsonResponse({'success': False, 'error': 'Missing parameters'})
+
+    if not (thumb_rel.startswith('media/product_documents/thumbnails/') or thumb_rel.startswith('media/brochures/thumbnails/')):
+        return JsonResponse({'success': False, 'error': 'Unauthorized directory'})
+
+    full_dest = os.path.join(settings.BASE_DIR, thumb_rel.replace('/', os.sep))
+    os.makedirs(os.path.dirname(full_dest), exist_ok=True)
+
+    try:
+        with open(full_dest, 'wb') as dest:
+            for chunk in uploaded_file.chunks():
+                dest.write(chunk)
+        return JsonResponse({'success': True, 'path': thumb_rel})
+    except Exception as e:
+        return JsonResponse({'success': False, 'error': str(e)})
+
+
+# ==========================================
+# Dynamic XML Sitemap Generator
+# ==========================================
+def sitemap_xml(request):
+    from django.http import HttpResponse
+    from datetime import date
+    from django.urls import reverse
+
+    base_url = request.build_absolute_uri('/')[:-1]
+    today = date.today().strftime('%Y-%m-%d')
+
+    core_routes = [
+        ('', '1.0', 'daily'),
+        (reverse('about'), '0.8', 'monthly'),
+        (reverse('team'), '0.7', 'monthly'),
+        (reverse('infrastructure'), '0.8', 'monthly'),
+        (reverse('facility'), '0.8', 'monthly'),
+        (reverse('research'), '0.8', 'monthly'),
+        (reverse('accreditations'), '0.8', 'monthly'),
+        (reverse('product_range'), '0.9', 'weekly'),
+        (reverse('herbal_extracts'), '0.9', 'weekly'),
+        (reverse('natural_food_colors'), '0.9', 'weekly'),
+        (reverse('nutritional_fine_chemicals'), '0.9', 'weekly'),
+        (reverse('spices_and_oleoresins'), '0.9', 'weekly'),
+        (reverse('raw_herbal_powders'), '0.9', 'weekly'),
+        (reverse('organic_product_list'), '0.8', 'weekly'),
+        (reverse('product_brochures'), '0.8', 'monthly'),
+        (reverse('product_documents'), '0.8', 'monthly'),
+        (reverse('gallery'), '0.7', 'weekly'),
+        (reverse('news_events'), '0.8', 'weekly'),
+        (reverse('book_expo_meeting'), '0.9', 'weekly'),
+        (reverse('career'), '0.7', 'monthly'),
+        (reverse('csr'), '0.7', 'monthly'),
+        (reverse('contact'), '0.8', 'monthly'),
+        (reverse('privacy_policy'), '0.5', 'yearly'),
+        (reverse('terms_of_service'), '0.5', 'yearly'),
+    ]
+
+    xml = ['<?xml version="1.0" encoding="UTF-8"?>']
+    xml.append('<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">')
+
+    for path, priority, freq in core_routes:
+        xml.append('  <url>')
+        xml.append(f'    <loc>{base_url}{path}</loc>')
+        xml.append(f'    <lastmod>{today}</lastmod>')
+        xml.append(f'    <changefreq>{freq}</changefreq>')
+        xml.append(f'    <priority>{priority}</priority>')
+        xml.append('  </url>')
+
+    # Dynamic Brands
+    for b in Brand.objects.all():
+        xml.append('  <url>')
+        xml.append(f'    <loc>{base_url}{reverse("brand_detail", args=[b.id])}</loc>')
+        xml.append(f'    <lastmod>{today}</lastmod>')
+        xml.append('    <changefreq>weekly</changefreq>')
+        xml.append('    <priority>0.85</priority>')
+        xml.append('  </url>')
+
+    # Dynamic Research Areas
+    for r in ResearchArea.objects.all():
+        xml.append('  <url>')
+        xml.append(f'    <loc>{base_url}{reverse("research_area_detail", args=[r.slug])}</loc>')
+        xml.append(f'    <lastmod>{today}</lastmod>')
+        xml.append('    <changefreq>monthly</changefreq>')
+        xml.append('    <priority>0.8</priority>')
+        xml.append('  </url>')
+
+    xml.append('</urlset>')
+
+    return HttpResponse('\n'.join(xml), content_type='application/xml')
+
+
+@login_required(login_url='dashboard_login')
+def dashboard_sitemap(request):
+    from django.urls import reverse
+
+    base_url = request.build_absolute_uri('/')[:-1]
+
+    url_items = [
+        {'title': 'Home', 'category': 'Core Page', 'loc': base_url + '/', 'priority': '1.0', 'changefreq': 'daily'},
+        {'title': 'About Company', 'category': 'Corporate', 'loc': base_url + reverse('about'), 'priority': '0.8', 'changefreq': 'monthly'},
+        {'title': 'Management Team', 'category': 'Corporate', 'loc': base_url + reverse('team'), 'priority': '0.7', 'changefreq': 'monthly'},
+        {'title': 'Herbal Extracts', 'category': 'Product Catalog', 'loc': base_url + reverse('herbal_extracts'), 'priority': '0.9', 'changefreq': 'weekly'},
+        {'title': 'Natural Food Colors & Flavours', 'category': 'Product Catalog', 'loc': base_url + reverse('natural_food_colors'), 'priority': '0.9', 'changefreq': 'weekly'},
+        {'title': 'Product Documents & COAs', 'category': 'Technical', 'loc': base_url + reverse('product_documents'), 'priority': '0.8', 'changefreq': 'monthly'},
+        {'title': 'Public Gallery', 'category': 'Showcase', 'loc': base_url + reverse('gallery'), 'priority': '0.7', 'changefreq': 'weekly'},
+        {'title': 'Book an Expo Meeting', 'category': 'Trade Shows', 'loc': base_url + reverse('book_expo_meeting'), 'priority': '0.9', 'changefreq': 'weekly'},
+        {'title': 'News & Exhibitions', 'category': 'Events', 'loc': base_url + reverse('news_events'), 'priority': '0.8', 'changefreq': 'weekly'},
+        {'title': 'Contact Us', 'category': 'Contact', 'loc': base_url + reverse('contact'), 'priority': '0.8', 'changefreq': 'monthly'},
+        {'title': 'Privacy Statement', 'category': 'Compliance', 'loc': base_url + reverse('privacy_policy'), 'priority': '0.5', 'changefreq': 'yearly'},
+        {'title': 'Terms of Service', 'category': 'Compliance', 'loc': base_url + reverse('terms_of_service'), 'priority': '0.5', 'changefreq': 'yearly'},
+    ]
+
+    for b in Brand.objects.all():
+        url_items.append({
+            'title': f'Brand: {b.name}',
+            'category': 'Brand',
+            'loc': base_url + reverse('brand_detail', args=[b.id]),
+            'priority': '0.85',
+            'changefreq': 'weekly'
+        })
+
+    return render(request, 'main/dashboard/sitemap.html', {
+        'url_items': url_items,
+        'total_urls': len(url_items),
+        'static_count': 12,
+        'dynamic_count': max(0, len(url_items) - 12)
+    })
+

@@ -102,123 +102,165 @@
 
 {% if exhibitions %}
 <!-- Exhibition Details Section -->
-<section class="container-fluid px-0 exhibition-section-v3" style="background-color: #050b08; position: relative; z-index: 10; margin-top: -80px; border-top-left-radius: 60px; border-top-right-radius: 60px; padding-top: 5rem !important;">
-    <div class="row g-0">
-        <!-- Sticky Title Column -->
-        <div class="col-lg-4 position-relative">
-            <div class="sticky-top d-flex flex-column justify-content-center p-4 p-md-5" style="height: 100vh; top: 0;">
-                <h2 class="display-4 fw-bold text-white mb-3" style="letter-spacing: 1px;">Global<br><span style="color: #a8e063;">Exhibitions</span></h2>
-                <div style="height: 4px; width: 80px; background: linear-gradient(90deg, #a8e063, #00b09b); border-radius: 2px; margin-bottom: 2rem;"></div>
-                <p class="text-white-50 fs-5 mb-0" style="max-width: 300px;">Join Bio Med Ingredients at premier industry events worldwide.</p>
-                
-                <!-- Decorative background elements -->
-                <div class="position-absolute" style="top: 20%; right: -20%; width: 300px; height: 300px; background: rgba(82, 183, 136, 0.15); filter: blur(80px); border-radius: 50%;"></div>
-            </div>
-        </div>
+<section class="container-fluid px-0 exhibition-section-v3"
+    style="background-color: #050b08; position: relative; z-index: 10; margin-top: -80px; border-top-left-radius: 60px; border-top-right-radius: 60px; padding-top: 5rem !important; overflow: hidden; padding-bottom: 5rem;">
 
-        <!-- Scrolling Cards Column -->
-        <div class="col-lg-8 py-5 px-4 px-lg-5">
-            <div class="row g-4 g-lg-5">
+    <!-- Centered Title Area -->
+    <div class="container text-center mb-5 position-relative z-2">
+        <h2 class="display-4 fw-bold text-white mb-3" style="letter-spacing: 1px;">Global <span style="color: #a8e063;">Exhibitions</span></h2>
+        <div class="mx-auto" style="height: 4px; width: 80px; background: linear-gradient(90deg, #a8e063, #00b09b); border-radius: 2px; margin-bottom: 1.5rem;"></div>
+        <p class="text-white-50 fs-5 mb-0 mx-auto" style="max-width: 500px;">Join Bio Med Ingredients at premier industry events worldwide.</p>
+    </div>
+
+    <!-- Premium 3D Coverflow Swiper -->
+    <div class="swiper exhibition-modern-swiper" style="padding-bottom: 4rem; padding-top: 1rem;">
+        <div class="swiper-wrapper">
+            {% for i in "1234" %}
                 {% for ex in exhibitions %}
-                <div class="col-md-6 {% if forloop.counter|divisibleby:2 %}mt-md-5{% endif %}">
-                    <a href="javascript:void(0)" class="ex-card-v3 d-block position-relative rounded-4 overflow-hidden text-decoration-none shadow-lg">
-                        <div class="ex-card-img-wrapper" style="height: 450px;">
-                            <img src="{% if ex.background_image %}{{ ex.background_image.url }}{% else %}https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?q=80&w=800&auto=format&fit=crop{% endif %}" 
-                                 class="w-100 h-100 object-fit-cover ex-card-img" alt="{{ ex.tag }}">
-                        </div>
-                        
-                        <div class="ex-card-overlay-v3 position-absolute top-0 start-0 w-100 h-100 p-4 d-flex flex-column justify-content-between">
-                            <!-- Top Area -->
-                            <div class="d-flex justify-content-between align-items-start z-2">
+                <div class="swiper-slide ex-modern-slide">
+                    <a href="javascript:void(0)" class="ex-card-v3 d-block position-relative rounded-4 overflow-hidden text-decoration-none shadow-lg h-100 w-100">
+                        <img src="{% if ex.background_image %}{{ ex.background_image.url }}{% else %}https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?q=80&w=800&auto=format&fit=crop{% endif %}"
+                            class="w-100 h-100 object-fit-cover ex-card-img position-absolute top-0 start-0" alt="{{ ex.tag }}">
+                        <div class="ex-card-overlay-v3 position-absolute top-0 start-0 w-100 h-100 p-4 d-flex flex-column justify-content-between z-3">
+                            <div class="d-flex justify-content-between align-items-start">
                                 <div class="ex-date-badge bg-white text-dark px-3 py-2 rounded-pill fw-bold" style="font-size: 0.8rem;">
-                                    {% if ex.event_date %}
-                                        {{ ex.event_date|date:"M d, Y" }}
-                                    {% else %}
-                                        Coming Soon
-                                    {% endif %}
+                                    {% if ex.event_date %}{{ ex.event_date|date:"M d, Y" }}{% else %}Coming Soon{% endif %}
                                 </div>
                                 {% if ex.logo %}
-                                <img src="{{ ex.logo.url }}" alt="{{ ex.tag }} Logo" class="ex-logo-v3" style="max-height: 40px; max-width: 100px; filter: invert(1) brightness(100);">
+                                <img src="{{ ex.logo.url }}" alt="{{ ex.tag }} Logo" style="max-height: 40px; max-width: 100px; filter: invert(1) brightness(100);">
                                 {% endif %}
                             </div>
-
-                            <!-- Bottom Area -->
-                            <div class="ex-card-content z-2">
+                            <div class="ex-card-content">
                                 <h3 class="text-white fw-bold mb-2">{{ ex.tag }}</h3>
                                 {% if ex.booth_number %}
-                                <div class="text-success fw-semibold mb-3">?? {{ ex.booth_number }}</div>
+                                <div class="text-success fw-semibold mb-2"><i class="bi bi-geo-alt-fill me-1"></i>Booth: {{ ex.booth_number }}</div>
                                 {% endif %}
-                                <p class="text-white-50 mb-0 ex-card-desc" style="font-size: 0.9rem; line-height: 1.5;">
-                                    {{ ex.description|truncatewords:15 }}
-                                </p>
+                                <p class="text-white-50 mb-3 ex-card-desc" style="font-size: 0.95rem; line-height: 1.5;">{{ ex.description|truncatewords:18 }}</p>
+                                <a href="{% url 'book_expo_meeting' %}?expo_id={{ ex.id }}" class="btn btn-sm btn-success rounded-pill px-3 py-1 fw-bold d-inline-flex align-items-center gap-1 shadow-sm" style="pointer-events: auto; z-index: 5;">
+                                    <i class="ph ph-calendar-plus"></i> Book Meeting
+                                </a>
                             </div>
                         </div>
-                        
-                        <!-- Gradient Overlay -->
-                        <div class="position-absolute top-0 start-0 w-100 h-100 bg-gradient-v3 z-1"></div>
+                        <div class="position-absolute top-0 start-0 w-100 h-100 bg-gradient-v3 z-2"></div>
                     </a>
                 </div>
                 {% endfor %}
-            </div>
+            {% endfor %}
         </div>
     </div>
 </section>
 
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        if (typeof Swiper !== 'undefined' && document.querySelector('.exhibition-modern-swiper')) {
+            new Swiper('.exhibition-modern-swiper', {
+                effect: 'coverflow',
+                grabCursor: true,
+                centeredSlides: true,
+                slidesPerView: 'auto',
+                watchSlidesProgress: true,
+                coverflowEffect: {
+                    rotate: 15,
+                    stretch: -60,
+                    depth: 120,
+                    modifier: 1,
+                    slideShadows: false,
+                },
+                loop: true,
+                freeMode: true,
+                speed: 4000,
+                autoplay: {
+                    delay: 0,
+                    disableOnInteraction: false,
+                },
+                keyboard: { enabled: true }
+            });
+        }
+    });
+</script>
+{% else %}
+<!-- Upcoming Exhibitions Announcement / Placeholder -->
+<section class="container-fluid px-0 exhibition-section-v3"
+    style="background-color: #050b08; position: relative; z-index: 10; margin-top: -80px; border-top-left-radius: 60px; border-top-right-radius: 60px; padding-top: 5rem !important; overflow: hidden; padding-bottom: 5rem;">
+    <div class="container text-center py-4 position-relative z-2">
+        <h2 class="display-4 fw-bold text-white mb-3" style="letter-spacing: 1px;">Global <span style="color: #a8e063;">Exhibitions</span></h2>
+        <div class="mx-auto" style="height: 4px; width: 80px; background: linear-gradient(90deg, #a8e063, #00b09b); border-radius: 2px; margin-bottom: 1.5rem;"></div>
+        <p class="text-white-50 fs-5 mb-4 mx-auto" style="max-width: 580px;">We are currently finalizing our international trade show and exhibition schedule for the upcoming season.</p>
+        <div class="d-inline-flex align-items-center gap-2 px-4 py-2 rounded-pill" style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); color: #a8e063;">
+            <i class="ph ph-calendar-check" style="font-size: 1.25rem;"></i>
+            <span class="fw-medium">Stay tuned &mdash; New 2026/2027 dates will be announced shortly!</span>
+        </div>
+    </div>
+</section>
+{% endif %}
+
 <style>
-.exhibition-section-v3 {
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-}
+    /* Slide dimensions */
+    .ex-modern-slide { width: 360px; height: 480px; }
+    @media (max-width: 768px) { .ex-modern-slide { width: 280px; height: 400px; } }
 
-.ex-card-v3 {
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
-}
-.ex-card-v3:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.4) !important;
-}
-
-.ex-card-img {
-    transition: transform 0.8s ease;
-}
-.ex-card-v3:hover .ex-card-img {
-    transform: scale(1.08);
-}
-
-.bg-gradient-v3 {
-    background: linear-gradient(180deg, rgba(5,11,8,0.2) 0%, rgba(5,11,8,0.9) 100%);
-    transition: opacity 0.4s ease;
-}
-.ex-card-v3:hover .bg-gradient-v3 {
-    opacity: 0.9;
-    background: linear-gradient(180deg, rgba(82, 183, 136, 0.2) 0%, rgba(5,11,8,0.95) 100%);
-}
-
-.ex-card-content {
-    transform: translateY(20px);
-    transition: transform 0.4s ease;
-}
-.ex-card-v3:hover .ex-card-content {
-    transform: translateY(0);
-}
-
-.ex-card-desc {
-    opacity: 0;
-    max-height: 0;
-    overflow: hidden;
-    transition: opacity 0.4s ease, max-height 0.4s ease;
-}
-.ex-card-v3:hover .ex-card-desc {
-    opacity: 1;
-    max-height: 80px;
-}
-
-/* Stagger effect for desktop */
-@media (min-width: 768px) {
-    .mt-md-5 {
-        margin-top: 4rem !important;
+    /* Edge fade */
+    .exhibition-modern-swiper {
+        -webkit-mask-image: linear-gradient(to right, transparent, black 12%, black 88%, transparent);
+        mask-image: linear-gradient(to right, transparent, black 12%, black 88%, transparent);
     }
-}
+
+    /* Linear continuous glide */
+    .exhibition-modern-swiper .swiper-wrapper {
+        transition-timing-function: linear !important;
+        will-change: transform;
+    }
+
+    /* GPU acceleration per slide */
+    .exhibition-modern-swiper .swiper-slide {
+        will-change: transform;
+        backface-visibility: hidden;
+        -webkit-backface-visibility: hidden;
+        transform: translateZ(0);
+    }
+
+    .exhibition-section-v3 {
+        border-top: 1px solid rgba(255, 255, 255, 0.05);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .bg-gradient-v3 {
+        background: linear-gradient(180deg, rgba(5, 11, 8, 0.2) 0%, rgba(5, 11, 8, 0.9) 100%);
+        transition: opacity 0.4s ease;
+    }
+
+    .ex-card-v3:hover .bg-gradient-v3 {
+        opacity: 0.9;
+        background: linear-gradient(180deg, rgba(82, 183, 136, 0.2) 0%, rgba(5, 11, 8, 0.95) 100%);
+    }
+
+    .ex-card-content {
+        transform: translateY(20px);
+        transition: transform 0.4s ease;
+    }
+
+    .ex-card-v3:hover .ex-card-content {
+        transform: translateY(0);
+    }
+
+    .ex-card-desc {
+        opacity: 0;
+        max-height: 0;
+        overflow: hidden;
+        transition: opacity 0.4s ease, max-height 0.4s ease;
+    }
+
+    .ex-card-v3:hover .ex-card-desc {
+        opacity: 1;
+        max-height: 80px;
+    }
+
+    /* Stagger effect for desktop */
+    @media (min-width: 768px) {
+        .mt-md-5 {
+            margin-top: 4rem !important;
+        }
+    }
 </style>
 <!-- Instagram Feed Section -->
 <section class="pt-4 pt-md-5 bg-white position-relative">
@@ -300,7 +342,8 @@
                                     <div class="mb-2" style="font-size: 0.85rem;">
                                         <span class="fw-bold text-dark me-1">biomedingredients</span>
                                         <span class="text-dark"
-                                            style="display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; text-overflow: ellipsis;">{{ post.caption }}</span>
+                                            style="display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; text-overflow: ellipsis;">
+                                            {{ post.caption }}</span>
                                     </div>
                                     {% else %}
                                     <div class="mb-2" style="font-size: 0.85rem;">
@@ -311,7 +354,8 @@
 
                                     <!-- Date / Link -->
                                     <div class="d-flex justify-content-between align-items-center mt-auto pt-2">
-                                        <span class="text-muted text-uppercase" style="font-size: 0.65rem;">{{ post.created_at|date:"F d, Y"|default:"Recent" }}</span>
+                                        <span class="text-muted text-uppercase" style="font-size: 0.65rem;">
+                                            {{ post.created_at|date:"F d, Y"|default:"Recent" }}</span>
                                         {% if post.link %}
                                         <a href="{{ post.link }}" target="_blank" class="text-decoration-none fw-bold"
                                             style="font-size: 0.8rem; color: #0095f6;">View on Instagram</a>
@@ -387,8 +431,6 @@
         filter: drop-shadow(0 0 4px rgba(0, 176, 155, 0.4));
     }
 </style>
-
-{% endif %}
 
 <style>
     .hover-lift {
@@ -654,6 +696,3 @@
 </script>
 
 {% endblock %}
-
-
-

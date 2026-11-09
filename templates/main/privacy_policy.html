@@ -1,0 +1,146 @@
+{% extends "main/base.html" %}
+{% load static %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="parallax-hero-section hero-wrapper py-4 py-md-5 bg-light position-relative"
+    style="background: linear-gradient(135deg, rgba(8, 45, 25, 0.95), rgba(15, 67, 37, 0.88)), url('{% static 'images/bg/bg.webp' %}') center/cover no-repeat; min-height: 340px; display: flex; align-items: center;">
+    <div class="position-absolute top-0 start-0 w-100 h-100"
+        style="background: linear-gradient(180deg, rgba(8, 45, 25, .65), rgba(8, 45, 25, .15));"></div>
+    <div class="container position-relative z-1 text-center text-md-start">
+        <span class="badge bg-success bg-opacity-25 text-white border border-success border-opacity-50 px-3 py-2 rounded-pill fw-semibold mb-3" style="letter-spacing: 1px;">
+            COMPLIANCE &amp; GOVERNANCE
+        </span>
+        <h1 class="display-3 fw-bold text-white mb-3" data-aos="fade-up">Privacy Statement</h1>
+        <nav aria-label="breadcrumb" data-aos="fade-up" data-aos-delay="100">
+            <ol class="breadcrumb justify-content-center justify-content-md-start mb-0">
+                <li class="breadcrumb-item"><a href="{% url 'index' %}" class="text-white-50 text-decoration-none">Home</a></li>
+                <li class="breadcrumb-item active text-white" aria-current="page">Privacy Statement</li>
+            </ol>
+        </nav>
+    </div>
+</section>
+
+<!-- Content Section -->
+<section class="py-5 bg-white position-relative">
+    <div class="container py-3">
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+
+                <div class="card border-0 shadow-sm rounded-4 p-4 p-md-5 mb-4" style="background: #fafcfb; border: 1px solid rgba(25, 135, 84, 0.12) !important;">
+                    <div class="border-bottom pb-4 mb-4">
+                        <span class="badge bg-success bg-opacity-10 text-success fw-bold px-3 py-2 rounded-pill mb-2">Corporate Compliance</span>
+                        <h2 class="fw-bold text-dark mb-1">BIO MED INGREDIENTS AUSTRALIA</h2>
+                        <p class="text-muted small mb-0"><i class="ph ph-calendar text-success me-1"></i> Effective Date: November 2026 | Last Updated: November 2026</p>
+                    </div>
+
+                    <p class="text-dark" style="line-height: 1.8;">
+                        Bio Med Ingredients Australia ("BMI Australia", "we", "our", or "us") is dedicated to protecting the privacy, confidentiality, and security of the personal information you share with us through our digital presence. This Privacy Statement explains what information we collect, how we manage it in accordance with the Australian Privacy Principles (APPs) and applicable international data protection standards (including GDPR), and your rights concerning your personal data.
+                    </p>
+                    <p class="text-dark fw-medium mb-4" style="line-height: 1.8;">
+                        By using our website, requesting product specifications, or submitting sample inquiries, you acknowledge that you have read and understood this Privacy Statement.
+                    </p>
+
+                    <hr class="my-4 opacity-25">
+
+                    <!-- Section 1 -->
+                    <h4 class="fw-bold text-success mb-3">1. Information We Collect</h4>
+                    <div class="mb-4">
+                        <h6 class="fw-bold text-dark mb-2">a) Information You Provide Voluntarily</h6>
+                        <ul class="text-muted mb-3" style="line-height: 1.8;">
+                            <li>Full name, official designation, and company name</li>
+                            <li>Corporate contact details (email address, telephone/WhatsApp number)</li>
+                            <li>Product inquiries, exhibition meeting bookings, and formulation requirements</li>
+                            <li>Sample dispatch address and technical application details</li>
+                            <li>Curriculum Vitae and professional credentials submitted for employment applications</li>
+                        </ul>
+
+                        <h6 class="fw-bold text-dark mb-2">b) Information Collected Automatically</h6>
+                        <ul class="text-muted mb-0" style="line-height: 1.8;">
+                            <li>IP address, approximate geographic location, and browser user agent</li>
+                            <li>Page views, interaction duration, and referring URLs</li>
+                            <li>Cookie preferences and device telemetry</li>
+                        </ul>
+                    </div>
+
+                    <!-- Section 2 -->
+                    <h4 class="fw-bold text-success mb-3">2. How We Use Your Information</h4>
+                    <ul class="text-muted mb-4" style="line-height: 1.8;">
+                        <li>To provide technical specifications, Certificates of Analysis (COA), and commercial pricing</li>
+                        <li>To coordinate and dispatch laboratory evaluation samples</li>
+                        <li>To schedule trade exhibition and conference meetings</li>
+                        <li>To process employment applications through our careers portal</li>
+                        <li>To send relevant product bulletins and regulatory updates (with explicit opt-in consent)</li>
+                        <li>To ensure digital security, prevent automated spam, and maintain operational stability</li>
+                    </ul>
+
+                    <!-- Section 3 -->
+                    <h4 class="fw-bold text-success mb-3">3. Data Sharing &amp; Disclosure</h4>
+                    <p class="text-muted mb-3" style="line-height: 1.8;">
+                        We never sell, rent, or trade your personal information. Data may only be shared under the following conditions:
+                    </p>
+                    <ul class="text-muted mb-4" style="line-height: 1.8;">
+                        <li>With our verified international courier partners solely for physical sample fulfillment</li>
+                        <li>With our group manufacturing entities and accredited laboratory facilities to provide tailored technical dossiers</li>
+                        <li>When required by statutory law, regulatory authorities, or legitimate court orders</li>
+                    </ul>
+
+                    <!-- Section 4 -->
+                    <h4 class="fw-bold text-success mb-3">4. Cookie Policy</h4>
+                    <p class="text-muted mb-2" style="line-height: 1.8;">
+                        Our website utilizes cookies and local storage tokens to deliver seamless browsing:
+                    </p>
+                    <ul class="text-muted mb-3" style="line-height: 1.8;">
+                        <li><strong>Strictly Necessary Cookies:</strong> Essential for session state, navigation security, and spam prevention.</li>
+                        <li><strong>Performance &amp; Analytics Cookies:</strong> Anonymized metrics to evaluate catalog usage and improve performance.</li>
+                        <li><strong>Functional Cookies:</strong> Retains interface preferences and consent choices.</li>
+                    </ul>
+                    <p class="text-muted mb-4" style="line-height: 1.8;">
+                        You can adjust your preferences at any time by clicking the <a href="javascript:void(0);" onclick="if(window.openCookiePreferences) window.openCookiePreferences();" class="text-success fw-bold text-decoration-underline">Cookie Preferences</a> link in our website footer.
+                    </p>
+
+                    <!-- Section 5 -->
+                    <h4 class="fw-bold text-success mb-3">5. Data Retention &amp; Security</h4>
+                    <p class="text-muted mb-4" style="line-height: 1.8;">
+                        We implement enterprise-grade technical safeguards, encrypted communication protocols (HTTPS/TLS), and restricted access controls. Business inquiries are stored securely in compliance with commercial record retention guidelines.
+                    </p>
+
+                    <!-- Section 6 -->
+                    <h4 class="fw-bold text-success mb-3">6. Your Rights</h4>
+                    <p class="text-muted mb-2" style="line-height: 1.8;">
+                        Depending on your jurisdiction, you maintain the following rights regarding your personal information:
+                    </p>
+                    <ul class="text-muted mb-4" style="line-height: 1.8;">
+                        <li>Right to request access to personal data held by us</li>
+                        <li>Right to request correction of inaccurate records</li>
+                        <li>Right to request deletion or restriction of processing</li>
+                        <li>Right to unsubscribe from marketing and notification lists at any time</li>
+                    </ul>
+
+                    <!-- Section 7 -->
+                    <h4 class="fw-bold text-success mb-3">7. Contact Our Privacy Team</h4>
+                    <div class="p-4 rounded-3 bg-white border border-success border-opacity-25 mb-4">
+                        <p class="mb-2 fw-bold text-dark fs-5">Bio Med Ingredients Australia</p>
+                        <p class="mb-2 text-muted" style="line-height: 1.7;">
+                            <i class="ph ph-envelope text-success me-2"></i>Email: <a href="mailto:info@biomedingredients.com" class="text-success text-decoration-none fw-semibold">info@biomedingredients.com</a>
+                        </p>
+                        <p class="mb-2 text-muted">
+                            <i class="ph ph-phone text-success me-2"></i>Phone: +61 (0) 400 000 000 / +91 83227 82011
+                        </p>
+                        <p class="mb-0 text-muted">
+                            <i class="ph ph-globe text-success me-2"></i>Website: <a href="{% url 'index' %}" class="text-success text-decoration-none fw-semibold">www.biomedingredients.com</a>
+                        </p>
+                    </div>
+
+                    <p class="text-muted small mb-0">
+                        We periodically review and update this Privacy Statement. Please check back regularly to stay informed of our data protection practices.
+                    </p>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+

@@ -1,0 +1,263 @@
+{% extends 'main/dashboard/dashboard_base.html' %}
+
+{% block content %}
+<div class="container-fluid py-2">
+    <div class="d-flex flex-wrap justify-content-between align-items-center mb-4 gap-3">
+        <div>
+            <h3 class="fw-bold mb-1 text-dark"><i class="ph ph-file-pdf text-danger me-2"></i> PDF Thumbnail Generator</h3>
+            <p class="text-muted small mb-0">Automatically render first-page cover previews for all uploaded technical brochures and product specifications.</p>
+        </div>
+        <div class="d-flex gap-2">
+            <button id="batchThumbBtn" class="btn btn-danger rounded-pill px-4 py-2 fw-semibold d-inline-flex align-items-center gap-2 shadow-sm">
+                <i class="ph ph-magic-wand fs-5"></i>
+                <span>Generate Missing Thumbnails</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Summary Metrics -->
+    <div class="row g-3 mb-4">
+        <div class="col-sm-6 col-md-4">
+            <div class="card border-0 shadow-sm rounded-3 p-3 bg-white">
+                <span class="text-muted small fw-semibold text-uppercase">Total PDF Documents</span>
+                <h3 class="fw-bold text-dark mb-0 mt-1">{{ total_pdfs }}</h3>
+            </div>
+        </div>
+        <div class="col-sm-6 col-md-4">
+            <div class="card border-0 shadow-sm rounded-3 p-3 bg-white">
+                <span class="text-muted small fw-semibold text-uppercase">Thumbnails Ready</span>
+                <h3 class="fw-bold text-success mb-0 mt-1">{{ ready_count }}</h3>
+            </div>
+        </div>
+        <div class="col-sm-6 col-md-4">
+            <div class="card border-0 shadow-sm rounded-3 p-3 bg-white">
+                <span class="text-muted small fw-semibold text-uppercase">Missing Previews</span>
+                <h3 class="fw-bold text-warning mb-0 mt-1">{{ missing_count }}</h3>
+            </div>
+        </div>
+    </div>
+
+    <!-- Progress Indicator -->
+    <div id="thumbProgressWrap" class="card border-0 shadow-sm rounded-4 p-4 mb-4 bg-white d-none">
+        <div class="d-flex justify-content-between align-items-center mb-2">
+            <span class="fw-bold text-dark" id="thumbProgressText">Rendering PDF covers...</span>
+            <span class="fw-bold text-danger" id="thumbProgressPercent">0%</span>
+        </div>
+        <div class="progress" style="height: 12px; border-radius: 6px;">
+            <div id="thumbProgressBar" class="progress-bar bg-danger progress-bar-striped progress-bar-animated" style="width: 0%"></div>
+        </div>
+    </div>
+
+    <!-- PDFs Table -->
+    <div class="card border-0 shadow-sm rounded-4 overflow-hidden bg-white">
+        <div class="table-responsive">
+            <table class="table table-hover align-middle mb-0">
+                <thead class="table-light">
+                    <tr>
+                        <th class="ps-4">Preview</th>
+                        <th>Document Name</th>
+                        <th>Directory</th>
+                        <th>PDF Size</th>
+                        <th>Thumbnail Status</th>
+                        <th class="text-end pe-4">Action</th>
+                    </tr>
+                </thead>
+                <tbody id="thumbTableBody">
+                    {% for item in items %}
+                        <tr id="pdf-row-{{ forloop.counter }}">
+                            <td class="ps-4" style="width: 80px;">
+                                {% if item.has_thumb %}
+                                    <img src="/{{ item.rel_thumb_path }}" alt="Cover" class="rounded-2 border object-fit-cover preview-thumb-img" style="width: 50px; height: 65px;" loading="lazy">
+                                {% else %}
+                                    <div class="rounded-2 border bg-light d-flex align-items-center justify-content-center text-muted placeholder-thumb" style="width: 50px; height: 65px;">
+                                        <i class="ph ph-file-pdf fs-3 text-danger opacity-50"></i>
+                                    </div>
+                                {% endif %}
+                            </td>
+                            <td>
+                                <strong class="text-dark d-block">{{ item.name }}</strong>
+                                <a href="/{{ item.rel_pdf_path }}" target="_blank" class="small text-muted text-decoration-none">
+                                    <i class="ph ph-arrow-square-out me-1"></i>{{ item.filename }}
+                                </a>
+                            </td>
+                            <td>
+                                <span class="badge bg-light text-dark border small">{{ item.collection }}</span>
+                            </td>
+                            <td>
+                                <span class="fw-semibold text-dark">{{ item.pdf_size_kb }} KB</span>
+                            </td>
+                            <td>
+                                {% if item.has_thumb %}
+                                    <span class="badge bg-success bg-opacity-10 text-success fw-bold px-2 py-1 rounded-pill status-pill">
+                                        <i class="ph ph-check-circle me-1"></i>Cover Ready
+                                    </span>
+                                {% else %}
+                                    <span class="badge bg-warning bg-opacity-10 text-dark fw-bold px-2 py-1 rounded-pill status-pill">
+                                        <i class="ph ph-clock me-1"></i>Needs Thumbnail
+                                    </span>
+                                {% endif %}
+                            </td>
+                            <td class="text-end pe-4 text-nowrap">
+                                <button type="button" class="btn btn-sm btn-outline-danger rounded-pill px-3 generate-single-btn" data-pdf="/{{ item.rel_pdf_path }}" data-thumb="{{ item.rel_thumb_path }}" data-row="pdf-row-{{ forloop.counter }}">
+                                    <i class="ph ph-magic-wand me-1"></i> {% if item.has_thumb %}Regenerate{% else %}Generate{% endif %}
+                                </button>
+                            </td>
+                        </tr>
+                    {% empty %}
+                        <tr>
+                            <td colspan="6" class="text-center py-5 text-muted">
+                                <i class="ph ph-file-pdf fs-1 mb-2 d-block"></i>
+                                No PDF documents discovered in brochures or product documents directories.
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<!-- PDF.js CDN -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+<script>
+    pdfjsLib.GlobalWorkerOptions.workerSrc = "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js";
+
+    document.addEventListener("DOMContentLoaded", function () {
+        const batchBtn = document.getElementById("batchThumbBtn");
+        const progressWrap = document.getElementById("thumbProgressWrap");
+        const progressBar = document.getElementById("thumbProgressBar");
+        const progressText = document.getElementById("thumbProgressText");
+        const progressPercent = document.getElementById("thumbProgressPercent");
+
+        async function renderPdfFirstPageToWebp(pdfUrl) {
+            const loadingTask = pdfjsLib.getDocument(pdfUrl);
+            const pdf = await loadingTask.promise;
+            const page = await pdf.getPage(1);
+
+            const viewport = page.getViewport({ scale: 1.5 });
+            const canvas = document.createElement("canvas");
+            canvas.width = viewport.width;
+            canvas.height = viewport.height;
+
+            const ctx = canvas.getContext("2d");
+            await page.render({ canvasContext: ctx, viewport: viewport }).promise;
+
+            return new Promise((resolve) => {
+                canvas.toBlob((blob) => {
+                    resolve(blob);
+                }, "image/webp", 0.85);
+            });
+        }
+
+        async function uploadThumbnail(thumbPath, blob) {
+            const formData = new FormData();
+            formData.append("thumb_path", thumbPath);
+            formData.append("file", blob, "thumb.webp");
+            formData.append("csrfmiddlewaretoken", "{{ csrf_token }}");
+
+            const response = await fetch("{% url 'dashboard_pdf_thumbnail_save' %}", {
+                method: "POST",
+                body: formData
+            });
+            return await response.json();
+        }
+
+        // Single PDF Handler
+        document.querySelectorAll(".generate-single-btn").forEach(btn => {
+            btn.addEventListener("click", async function () {
+                const pdfUrl = this.getAttribute("data-pdf");
+                const thumbPath = this.getAttribute("data-thumb");
+                const rowId = this.getAttribute("data-row");
+                const row = document.getElementById(rowId);
+                const originalHtml = this.innerHTML;
+
+                this.disabled = true;
+                this.innerHTML = '<span class="spinner-border spinner-border-sm me-1"></span> Rendering';
+
+                try {
+                    const blob = await renderPdfFirstPageToWebp(pdfUrl);
+                    const res = await uploadThumbnail(thumbPath, blob);
+                    if (res.success) {
+                        this.disabled = false;
+                        this.innerHTML = '<i class="ph ph-check me-1"></i> Done';
+                        if (row) {
+                            const pill = row.querySelector(".status-pill");
+                            if (pill) {
+                                pill.className = "badge bg-success bg-opacity-10 text-success fw-bold px-2 py-1 rounded-pill status-pill";
+                                pill.innerHTML = '<i class="ph ph-check-circle me-1"></i>Cover Ready';
+                            }
+                            const previewTd = row.cells[0];
+                            previewTd.innerHTML = `<img src="/${thumbPath}?v=${Date.now()}" alt="Cover" class="rounded-2 border object-fit-cover preview-thumb-img" style="width: 50px; height: 65px;">`;
+                        }
+                    } else {
+                        alert(res.error || "Failed to save thumbnail");
+                        this.disabled = false;
+                        this.innerHTML = originalHtml;
+                    }
+                } catch (e) {
+                    alert("PDF Error: " + e.message);
+                    this.disabled = false;
+                    this.innerHTML = originalHtml;
+                }
+            });
+        });
+
+        // Batch Generator
+        if (batchBtn) {
+            batchBtn.addEventListener("click", async function () {
+                const buttons = Array.from(document.querySelectorAll(".generate-single-btn")).filter(b => {
+                    const row = document.getElementById(b.getAttribute("data-row"));
+                    return row && row.querySelector(".status-pill").textContent.includes("Needs");
+                });
+
+                if (buttons.length === 0) {
+                    alert("All PDF documents already have thumbnails!");
+                    return;
+                }
+
+                if (!confirm(`Generate thumbnails for ${buttons.length} missing PDF documents?`)) {
+                    return;
+                }
+
+                batchBtn.disabled = true;
+                progressWrap.classList.remove("d-none");
+
+                for (let i = 0; i < buttons.length; i++) {
+                    const btn = buttons[i];
+                    const pdfUrl = btn.getAttribute("data-pdf");
+                    const thumbPath = btn.getAttribute("data-thumb");
+                    const rowId = btn.getAttribute("data-row");
+                    const row = document.getElementById(rowId);
+
+                    progressText.textContent = `Rendering (${i + 1}/${buttons.length}): ${pdfUrl.split('/').pop()}`;
+                    const percent = Math.round(((i + 1) / buttons.length) * 100);
+                    progressBar.style.width = percent + "%";
+                    progressPercent.textContent = percent + "%";
+
+                    try {
+                        const blob = await renderPdfFirstPageToWebp(pdfUrl);
+                        const res = await uploadThumbnail(thumbPath, blob);
+                        if (res.success && row) {
+                            const pill = row.querySelector(".status-pill");
+                            if (pill) {
+                                pill.className = "badge bg-success bg-opacity-10 text-success fw-bold px-2 py-1 rounded-pill status-pill";
+                                pill.innerHTML = '<i class="ph ph-check-circle me-1"></i>Cover Ready';
+                            }
+                            const previewTd = row.cells[0];
+                            previewTd.innerHTML = `<img src="/${thumbPath}?v=${Date.now()}" alt="Cover" class="rounded-2 border object-fit-cover preview-thumb-img" style="width: 50px; height: 65px;">`;
+                            btn.innerHTML = '<i class="ph ph-check me-1"></i> Done';
+                        }
+                    } catch (e) {
+                        console.error("Failed on " + pdfUrl, e);
+                    }
+                }
+
+                progressText.textContent = "All PDF thumbnails rendered and saved!";
+                progressBar.classList.remove("progress-bar-animated");
+                alert("Thumbnail generation complete!");
+            });
+        }
+    });
+</script>
+{% endblock %}
+
