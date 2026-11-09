@@ -163,13 +163,25 @@
             <div class="accred-track">
                 {% for i in '123'|make_list %}
                 {% for accred in accreditations %}
-                <a href="#" class="accred-card d-block">
+                {% with details=accred.get_verification_details %}
+                <a href="javascript:void(0)" class="accred-card d-block text-decoration-none" role="button"
+                   data-bs-toggle="modal" data-bs-target="#accredVerificationModal"
+                   data-title="{{ details.title }}"
+                   data-badge="{{ details.badge_name }}"
+                   data-body="{{ details.cert_body }}"
+                   data-standard="{{ details.standard }}"
+                   data-scope="{{ details.scope }}"
+                   data-reg="{{ details.reg_number }}"
+                   data-validity="{{ details.validity }}"
+                   data-img="{% if accred.image %}{{ accred.image.url }}{% endif %}"
+                   title="Click to verify {{ accred.name }} certification">
                     {% if accred.image %}
                     <img src="{{ accred.image.url }}" alt="{{ accred.name }}" loading="lazy">
                     {% else %}
                     <span>{{ accred.name }}</span>
                     {% endif %}
                 </a>
+                {% endwith %}
                 {% endfor %}
                 {% endfor %}
             </div>
