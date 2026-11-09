@@ -1,0 +1,4111 @@
+[
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$cFNzLa0I3BVrjvPINwRQJT$T/JOJVjvd7sgJkWf3hX8O1A2aF1XElgb0asI1wegl4Q=",
+    "last_login": "2026-11-07T08:13:49.822Z",
+    "is_superuser": true,
+    "username": "Adminaus",
+    "first_name": "",
+    "last_name": "",
+    "email": "admin@example.com",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2026-08-05T09:27:27.904Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "065wkodrulc8lshp5oq5txu7v0m37aq5",
+  "fields": {
+    "session_data": ".eJxVjMsOgjAQAP9lz6aBvmg5evcbmt1t16IGEgon478bEg56nZnMGxLuW017K2uaMozQw-WXEfKzzIfID5zvi-Jl3taJ1JGo0zZ1W3J5Xc_2b1CxVRhBdBDmnglFrDFDIcudhOg1su2ieGKKznUeJbD2xgSnBa3QgNFqy_D5Ag7iOJc:1wxGyH:rW-jELwgIHw60DPyzxaABQ5EhN-cR6ug5O5qurRFIKk",
+    "expire_date": "2026-09-04T04:35:13.473Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "12p0axmqfg10leuhgktiqf0pspmo4mpx",
+  "fields": {
+    "session_data": ".eJxVjMsOgjAQAP9lz6aBvmg5evcbmt1t16IGEgon478bEg56nZnMGxLuW017K2uaMozQw-WXEfKzzIfID5zvi-Jl3taJ1JGo0zZ1W3J5Xc_2b1CxVRhBdBDmnglFrDFDIcudhOg1su2ieGKKznUeJbD2xgSnBa3QgNFqy_D5Ag7iOJc:1wunmF:KbXY57ikiKvZJ87qxWlyzYu-4wwZY8XtPQddL6TbLCM",
+    "expire_date": "2026-08-28T09:00:35.527Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "2wk5w99e37aft5v5581twaxx1ritcvvo",
+  "fields": {
+    "session_data": ".eJxVjMsOgjAQAP9lz6aBvmg5evcbmt1t16IGEgon478bEg56nZnMGxLuW017K2uaMozQw-WXEfKzzIfID5zvi-Jl3taJ1JGo0zZ1W3J5Xc_2b1CxVRhBdBDmnglFrDFDIcudhOg1su2ieGKKznUeJbD2xgSnBa3QgNFqy_D5Ag7iOJc:1wznzo:qZTPMlmQc0EJiIyVNvhP4xYxj9IAJXYdxEvU4QCj0Fg",
+    "expire_date": "2026-09-11T04:15:16.718Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "4brj92q1k94b02e6o2kdrri0av3eb70u",
+  "fields": {
+    "session_data": ".eJxVjMsOgjAQAP9lz6aBvmg5evcbmt1t16IGEgon478bEg56nZnMGxLuW017K2uaMozQw-WXEfKzzIfID5zvi-Jl3taJ1JGo0zZ1W3J5Xc_2b1CxVRhBdBDmnglFrDFDIcudhOg1su2ieGKKznUeJbD2xgSnBa3QgNFqy_D5Ag7iOJc:1wrXwE:RmuZbPPAqEAnqKm2-YZg1pe3syWq1icsLSipxgWas8k",
+    "expire_date": "2026-08-19T09:29:26.368Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "5cf8g1lbr7k6vhu5v86zcbpy5u2vdfmx",
+  "fields": {
+    "session_data": ".eJxVjMsOgjAQAP9lz6aBvmg5evcbmt1t16IGEgon478bEg56nZnMGxLuW017K2uaMozQw-WXEfKzzIfID5zvi-Jl3taJ1JGo0zZ1W3J5Xc_2b1CxVRhBdBDmnglFrDFDIcudhOg1su2ieGKKznUeJbD2xgSnBa3QgNFqy_D5Ag7iOJc:1xPaHX:6Gz7fBhW7Xgzzosn821FK23g4Ir2S8EOgLKnwf3boks",
+    "expire_date": "2026-11-21T06:52:07.596Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "5guxnp7tb8b32nnuf0sj7948bveq2arw",
+  "fields": {
+    "session_data": ".eJxVjMsKwjAQAP9lzxLyzrZH735DyG4SU5UWmvYk_rsUetDrzDBviGnfWtx7WeOUYQQFl19GiZ9lPkR-pPm-CF7mbZ1IHIk4bRe3JZfX9Wz_Bi31BiOQRfbVaccahyqDq-S4-mI4oDKBDDKhJY0YpEkqy2y1rkkNgzUqGw-fL9x_N0w:1xPbPy:JbT-5iSOb1D6QRU1os92nkTiPVRn_swlzvXJcnM7SNE",
+    "expire_date": "2026-11-21T08:04:54.103Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "6pgfl9qrgct8ppv9ok2siffr98zssl3q",
+  "fields": {
+    "session_data": ".eJxVjMsOgjAQAP9lz6aBvmg5evcbmt1t16IGEgon478bEg56nZnMGxLuW017K2uaMozQw-WXEfKzzIfID5zvi-Jl3taJ1JGo0zZ1W3J5Xc_2b1CxVRhBdBDmnglFrDFDIcudhOg1su2ieGKKznUeJbD2xgSnBa3QgNFqy_D5Ag7iOJc:1wtzWB:TGSCsfQeEd4UfXYxFEXbZKgH_2q4MXpAUEHlClsQP1k",
+    "expire_date": "2026-08-26T03:20:39.209Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "7r8mnq4wwqqcst21hy1zc5hoe24b8iyq",
+  "fields": {
+    "session_data": ".eJxVjMsOgjAQAP9lz6aBvmg5evcbmt1t16IGEgon478bEg56nZnMGxLuW017K2uaMozQw-WXEfKzzIfID5zvi-Jl3taJ1JGo0zZ1W3J5Xc_2b1CxVRhBdBDmnglFrDFDIcudhOg1su2ieGKKznUeJbD2xgSnBa3QgNFqy_D5Ag7iOJc:1wuqMG:2qy63pdu36WYp8OFKMDxaOJ-1iSRiRWSYzQC1CkOw58",
+    "expire_date": "2026-08-28T11:45:56.794Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "8l6vfp3ky5egedtugg67kuhxr5lps9fr",
+  "fields": {
+    "session_data": ".eJxVjMsKwjAQAP9lzxLyzrZH735DyG4SU5UWmvYk_rsUetDrzDBviGnfWtx7WeOUYQQFl19GiZ9lPkR-pPm-CF7mbZ1IHIk4bRe3JZfX9Wz_Bi31BiOQRfbVaccahyqDq-S4-mI4oDKBDDKhJY0YpEkqy2y1rkkNgzUqGw-fL9x_N0w:1xPbHO:QP4TPcmaD43XwAt7cuHbdvOpld8beUXUcSOhNOrMnmo",
+    "expire_date": "2026-11-21T07:56:02.494Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "8yzqm9f8gncdp3lltb240g22q7n8w9lj",
+  "fields": {
+    "session_data": ".eJxVjMsKwjAQAP9lzxLyzrZH735DyG4SU5UWmvYk_rsUetDrzDBviGnfWtx7WeOUYQQFl19GiZ9lPkR-pPm-CF7mbZ1IHIk4bRe3JZfX9Wz_Bi31BiOQRfbVaccahyqDq-S4-mI4oDKBDDKhJY0YpEkqy2y1rkkNgzUqGw-fL9x_N0w:1xPbYb:15zBlbG1jLRJlZ0Cv-7zBPmdqnWN5NpIA6BbKTY5rLI",
+    "expire_date": "2026-11-21T08:13:49.825Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "9kpkn99jas4y6mb8tyn8wffq81cskgvy",
+  "fields": {
+    "session_data": ".eJxVjMsOgjAQAP9lz6aBvmg5evcbmt1t16IGEgon478bEg56nZnMGxLuW017K2uaMozQw-WXEfKzzIfID5zvi-Jl3taJ1JGo0zZ1W3J5Xc_2b1CxVRhBdBDmnglFrDFDIcudhOg1su2ieGKKznUeJbD2xgSnBa3QgNFqy_D5Ag7iOJc:1wwHK2:50Wqr2UYkhbLvgk13VryLwWRKJqlbtT5amw-05rTdIc",
+    "expire_date": "2026-09-01T10:45:34.136Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "9odbocj5p4vzh7dt7k3oa37evp0o173u",
+  "fields": {
+    "session_data": ".eJxVjMsOgjAQAP9lz6aBvmg5evcbmt1t16IGEgon478bEg56nZnMGxLuW017K2uaMozQw-WXEfKzzIfID5zvi-Jl3taJ1JGo0zZ1W3J5Xc_2b1CxVRhBdBDmnglFrDFDIcudhOg1su2ieGKKznUeJbD2xgSnBa3QgNFqy_D5Ag7iOJc:1wtMba:WOxsmVCqRwZZ-w9sNbuYh5-7Cmk_Ya-ALCS0SBzP3PE",
+    "expire_date": "2026-08-24T09:47:38.890Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "dw0t225qu9cnf148k7zzigbhy731egi7",
+  "fields": {
+    "session_data": ".eJxVjMsOgjAQAP9lz6aBvmg5evcbmt1t16IGEgon478bEg56nZnMGxLuW017K2uaMozQw-WXEfKzzIfID5zvi-Jl3taJ1JGo0zZ1W3J5Xc_2b1CxVRhBdBDmnglFrDFDIcudhOg1su2ieGKKznUeJbD2xgSnBa3QgNFqy_D5Ag7iOJc:1x0G9l:t45HDTj8-zxLDaEcjLkXbJD0Cz7ClAFer5IQCeYkUoI",
+    "expire_date": "2026-09-12T10:19:25.788Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "e379qmrw5p4hu3ctf315llcz2mtkqavi",
+  "fields": {
+    "session_data": ".eJxVjMsOgjAQAP9lz6aBvmg5evcbmt1t16IGEgon478bEg56nZnMGxLuW017K2uaMozQw-WXEfKzzIfID5zvi-Jl3taJ1JGo0zZ1W3J5Xc_2b1CxVRhBdBDmnglFrDFDIcudhOg1su2ieGKKznUeJbD2xgSnBa3QgNFqy_D5Ag7iOJc:1x75ay:GcW4ewAUK3swUMIDLhQFelmJHXucISPRzEBcS8DwVy4",
+    "expire_date": "2026-10-01T06:27:44.988Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "fsf94ubdhnwbe95kjegbjpvpexop8l5a",
+  "fields": {
+    "session_data": ".eJxVjMsOgjAQAP9lz6aBvmg5evcbmt1t16IGEgon478bEg56nZnMGxLuW017K2uaMozQw-WXEfKzzIfID5zvi-Jl3taJ1JGo0zZ1W3J5Xc_2b1CxVRhBdBDmnglFrDFDIcudhOg1su2ieGKKznUeJbD2xgSnBa3QgNFqy_D5Ag7iOJc:1wujgR:2M_mpiRNfHN79Uy0RLyslP5zfU2csrO9ek7WVBAIX6g",
+    "expire_date": "2026-08-28T04:38:19.141Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "geak3w4nhvmyjgjrdfn6w3c5ziyoutdb",
+  "fields": {
+    "session_data": ".eJxVjMsOgjAQAP9lz6aBvmg5evcbmt1t16IGEgon478bEg56nZnMGxLuW017K2uaMozQw-WXEfKzzIfID5zvi-Jl3taJ1JGo0zZ1W3J5Xc_2b1CxVRhBdBDmnglFrDFDIcudhOg1su2ieGKKznUeJbD2xgSnBa3QgNFqy_D5Ag7iOJc:1x7AFo:E2LjPxag4i6af4ogyqbXLcttJ4YHZvQO7iFpy0uYyAU",
+    "expire_date": "2026-10-01T11:26:12.859Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "j8gmho78wnedt8cx2mmmys07p3d15mi9",
+  "fields": {
+    "session_data": ".eJxVjMsOgjAQAP9lz6aBvmg5evcbmt1t16IGEgon478bEg56nZnMGxLuW017K2uaMozQw-WXEfKzzIfID5zvi-Jl3taJ1JGo0zZ1W3J5Xc_2b1CxVRhBdBDmnglFrDFDIcudhOg1su2ieGKKznUeJbD2xgSnBa3QgNFqy_D5Ag7iOJc:1xPaI2:ajCBWiiVkmNc3OjqEeaTa6FJwnd5JxzNb8kI3XkojRM",
+    "expire_date": "2026-11-21T06:52:38.269Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "mkfhxgmpxmpi7b2zomhuhi28wjzo540x",
+  "fields": {
+    "session_data": ".eJxVjMsOgjAQAP9lz6aBvmg5evcbmt1t16IGEgon478bEg56nZnMGxLuW017K2uaMozQw-WXEfKzzIfID5zvi-Jl3taJ1JGo0zZ1W3J5Xc_2b1CxVRhBdBDmnglFrDFDIcudhOg1su2ieGKKznUeJbD2xgSnBa3QgNFqy_D5Ag7iOJc:1wxGyH:rW-jELwgIHw60DPyzxaABQ5EhN-cR6ug5O5qurRFIKk",
+    "expire_date": "2026-09-04T04:35:13.733Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "o0zw3dp14l705j6073sdtas4f4hanq87",
+  "fields": {
+    "session_data": ".eJxVjMsOgjAQAP9lz6aBvmg5evcbmt1t16IGEgon478bEg56nZnMGxLuW017K2uaMozQw-WXEfKzzIfID5zvi-Jl3taJ1JGo0zZ1W3J5Xc_2b1CxVRhBdBDmnglFrDFDIcudhOg1su2ieGKKznUeJbD2xgSnBa3QgNFqy_D5Ag7iOJc:1wtHmH:seO20hoD3BEggViK9BcjBfQ_5wLKE0144tPn_t9dnp8",
+    "expire_date": "2026-08-24T04:38:21.068Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "omvks0qs0sw9cioybgqprkpn8a9j8luz",
+  "fields": {
+    "session_data": ".eJxVjMsOgjAQAP9lz6aBvmg5evcbmt1t16IGEgon478bEg56nZnMGxLuW017K2uaMozQw-WXEfKzzIfID5zvi-Jl3taJ1JGo0zZ1W3J5Xc_2b1CxVRhBdBDmnglFrDFDIcudhOg1su2ieGKKznUeJbD2xgSnBa3QgNFqy_D5Ag7iOJc:1wtOIU:FguxVk43jIvxdq7kD6SYn8FYwI6LR_xnzxITMlOM2yw",
+    "expire_date": "2026-08-24T11:36:02.917Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "p15vb6xzyidnc4j9urnfh45jpw9k2r3y",
+  "fields": {
+    "session_data": ".eJxVjMsOgjAQAP9lz6aBvmg5evcbmt1t16IGEgon478bEg56nZnMGxLuW017K2uaMozQw-WXEfKzzIfID5zvi-Jl3taJ1JGo0zZ1W3J5Xc_2b1CxVRhBdBDmnglFrDFDIcudhOg1su2ieGKKznUeJbD2xgSnBa3QgNFqy_D5Ag7iOJc:1wtdiz:LzQmjE9kqPWkQMS1djgtgwNHwhv1Ic4riWWS5el6N9o",
+    "expire_date": "2026-08-25T04:04:25.824Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "p48029gl4cyfu5pu3chc3mj6pz8leqze",
+  "fields": {
+    "session_data": ".eJxVjMsOgjAQAP9lz6aBvmg5evcbmt1t16IGEgon478bEg56nZnMGxLuW017K2uaMozQw-WXEfKzzIfID5zvi-Jl3taJ1JGo0zZ1W3J5Xc_2b1CxVRhBdBDmnglFrDFDIcudhOg1su2ieGKKznUeJbD2xgSnBa3QgNFqy_D5Ag7iOJc:1x3UTt:IDO6sUsVKgMt-VCcfspq1OjcuRHBkCchxqAkbbx4Uv0",
+    "expire_date": "2026-09-21T08:13:33.987Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "pvakek4k5l5bghk9kb01pr0dqqy91v1x",
+  "fields": {
+    "session_data": ".eJxVjMsOgjAQAP9lz6aBvmg5evcbmt1t16IGEgon478bEg56nZnMGxLuW017K2uaMozQw-WXEfKzzIfID5zvi-Jl3taJ1JGo0zZ1W3J5Xc_2b1CxVRhBdBDmnglFrDFDIcudhOg1su2ieGKKznUeJbD2xgSnBa3QgNFqy_D5Ag7iOJc:1wvoDh:phGN8k-YA_FPj3WA0TR9bPoF-xbUf7p2c7f23kfPttg",
+    "expire_date": "2026-08-31T03:41:05.749Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "q6dll2rihyszhe8098iqiprvge2xfgn2",
+  "fields": {
+    "session_data": ".eJxVjMsOgjAQAP9lz6aBvmg5evcbmt1t16IGEgon478bEg56nZnMGxLuW017K2uaMozQw-WXEfKzzIfID5zvi-Jl3taJ1JGo0zZ1W3J5Xc_2b1CxVRhBdBDmnglFrDFDIcudhOg1su2ieGKKznUeJbD2xgSnBa3QgNFqy_D5Ag7iOJc:1wtHMs:agWKp-gxDdnRoY7tAHx3ITXy38ls7IfYPpJC7kAqrVo",
+    "expire_date": "2026-08-24T04:12:06.458Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "qplxuxx5uqhnurav7udw4oc4m20l8shw",
+  "fields": {
+    "session_data": ".eJxVjMsOgjAQAP9lz6aBvmg5evcbmt1t16IGEgon478bEg56nZnMGxLuW017K2uaMozQw-WXEfKzzIfID5zvi-Jl3taJ1JGo0zZ1W3J5Xc_2b1CxVRhBdBDmnglFrDFDIcudhOg1su2ieGKKznUeJbD2xgSnBa3QgNFqy_D5Ag7iOJc:1x0zKZ:z3QT8MF-vd2TdUr39qKm1G9FLaqmTImGsIVNwdi__uI",
+    "expire_date": "2026-09-14T10:33:35.890Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "r9yua556oownec14q3aizrv92gmiypvx",
+  "fields": {
+    "session_data": ".eJxVjMsOgjAQAP9lz6aBvmg5evcbmt1t16IGEgon478bEg56nZnMGxLuW017K2uaMozQw-WXEfKzzIfID5zvi-Jl3taJ1JGo0zZ1W3J5Xc_2b1CxVRhBdBDmnglFrDFDIcudhOg1su2ieGKKznUeJbD2xgSnBa3QgNFqy_D5Ag7iOJc:1wwtkO:lHEKYkHbiDb9KphqkwWeJu1qIzRrzCiKTG1ybCyaMj8",
+    "expire_date": "2026-09-03T03:47:20.364Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "u03agd0prjn19mdbor0nqfc7t7yh2j2t",
+  "fields": {
+    "session_data": ".eJxVjMsOgjAQAP9lz6aBvmg5evcbmt1t16IGEgon478bEg56nZnMGxLuW017K2uaMozQw-WXEfKzzIfID5zvi-Jl3taJ1JGo0zZ1W3J5Xc_2b1CxVRhBdBDmnglFrDFDIcudhOg1su2ieGKKznUeJbD2xgSnBa3QgNFqy_D5Ag7iOJc:1wraeJ:W06gfhfKodVVKmNxTaepUa_x1ud7-pCqTeTVeLREQME",
+    "expire_date": "2026-08-19T12:23:07.738Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "w3hjn1t4h1yp4b1js4ibep163xcba2su",
+  "fields": {
+    "session_data": ".eJxVjMsKwjAQAP9lzxLyzrZH735DyG4SU5UWmvYk_rsUetDrzDBviGnfWtx7WeOUYQQFl19GiZ9lPkR-pPm-CF7mbZ1IHIk4bRe3JZfX9Wz_Bi31BiOQRfbVaccahyqDq-S4-mI4oDKBDDKhJY0YpEkqy2y1rkkNgzUqGw-fL9x_N0w:1xPbEL:_WYjF4vMc2Xpalp-o-2mJquNNPwNhU1xZpNGYtVQyxI",
+    "expire_date": "2026-11-21T07:52:53.213Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "w9w4inc08oxnfn5bv5n1cmtjy40yvrmd",
+  "fields": {
+    "session_data": ".eJxVjMsOgjAQAP9lz6aBvmg5evcbmt1t16IGEgon478bEg56nZnMGxLuW017K2uaMozQw-WXEfKzzIfID5zvi-Jl3taJ1JGo0zZ1W3J5Xc_2b1CxVRhBdBDmnglFrDFDIcudhOg1su2ieGKKznUeJbD2xgSnBa3QgNFqy_D5Ag7iOJc:1wwtmc:l7QcXXPFsTU6sBgpD0qfzzkx77F56O0Xl350rb4k4_0",
+    "expire_date": "2026-09-03T03:49:38.633Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "yvzolukr0on0s65tia839siv3mggnpv8",
+  "fields": {
+    "session_data": ".eJxVjMsKwjAQAP9lzxLyzrZH735DyG4SU5UWmvYk_rsUetDrzDBviGnfWtx7WeOUYQQFl19GiZ9lPkR-pPm-CF7mbZ1IHIk4bRe3JZfX9Wz_Bi31BiOQRfbVaccahyqDq-S4-mI4oDKBDDKhJY0YpEkqy2y1rkkNgzUqGw-fL9x_N0w:1xPbPS:P6qPZcD-cbvgvAGcNRFZvYi7PVFWZGu4gNO0vFTmQFM",
+    "expire_date": "2026-11-21T08:04:22.049Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "ywez7dz6qc5thx1e8oy6mkbuauwabeus",
+  "fields": {
+    "session_data": ".eJxVjMsOgjAQAP9lz6aBvmg5evcbmt1t16IGEgon478bEg56nZnMGxLuW017K2uaMozQw-WXEfKzzIfID5zvi-Jl3taJ1JGo0zZ1W3J5Xc_2b1CxVRhBdBDmnglFrDFDIcudhOg1su2ieGKKznUeJbD2xgSnBa3QgNFqy_D5Ag7iOJc:1wrwej:45glCPIGnGD5vfgnemUd1MPlr_ykx5QJ1rA8dDLOnbE",
+    "expire_date": "2026-08-20T11:53:01.058Z"
+  }
+},
+{
+  "model": "main.indexpagecontent",
+  "pk": 1,
+  "fields": {
+    "hero_title": "We Integrate<br><span class=\"text-accent-gold\">technology with nature.</span>",
+    "hero_subtitle": "Catering to the nutraceutical, cosmeceutical, pharmaceutical and food industries. Suppliers of organically and naturally produced herbal & spice extracts, plant extracts and oleoresins.",
+    "hero_image": "hero/hero_nr2YxNz.jpg",
+    "about_title": "Bio Med Ingredients Australia",
+    "about_subtitle": "WHO WE ARE",
+    "about_text": "Bio Med Ingredients is committed towards GOOD HEALTH and PROTECTION OF THE ENVIRONMENT.\r\nWhen Bio Med Ingredients was born in 2015, our mission has been to manufacture and supply organically produced medicinal plants to the nutritional, cosmetic, pharmaceutical and food industries.\r\n\r\nAt Bio Med Ingredients, we are providing premium quality nutraceuticals, herbal extracts, and natural food colors & flavors. With a commitment to innovation, sustainability, and scientific excellence, we empower industries to create products that enhance health, well-being, and sensory experiences.",
+    "about_feature_1_title": "100% Organic",
+    "about_feature_1_subtitle": "Certified Extracts",
+    "about_feature_2_title": "R&D Driven",
+    "about_feature_2_subtitle": "Advanced Innovation",
+    "about_image_1": "about/lab2.webp",
+    "about_image_2": "about/lab3.webp",
+    "extracts_title": "Products",
+    "extracts_subtitle": "Discover our meticulously curated categories of high-potency ingredients.",
+    "solutions_badge": "What We Offer",
+    "solutions_heading": "Premium Botanical Solutions",
+    "solutions_subheading": "Discover our wide range of meticulously crafted natural ingredients, designed to elevate your products and support holistic wellness.",
+    "quality_title": "Quality, Consistency, Commitment",
+    "quality_description": "Biomed Ingredients Australia is committed towards good health and protection of the environment.",
+    "accred_kicker": "✦ Trusted & Certified",
+    "accred_title": "Accreditation & Licensing.",
+    "accred_description": "We're here to help you provide the best products. Learn about our commitment to quality through our Accreditation & Licensing.",
+    "cta_title": "We Promise",
+    "cta_subtitle": "We strictly stand against synthetic products. Since we are into the business of supplying medicinal plants, we took the organic route to cultivate these herbs. With the help of our well-experienced R&D team, we have embraced an environment-friendly method of agronomy which uses organic supplementation instead of chemical fertilization. Our farmers also follow the Good Agricultural Practices (GAP) instituted by the Food and Agricultural Organization of the United Nations (FAO).\r\nOur process of extracting the raw materials from plant source adheres to certified standards. We inspect random samples of raw materials before every production cycle. This guarantees the production of fine herbal extracts",
+    "difference_kicker": "The Bio Med Difference",
+    "difference_title": "Why People <span style=\"color:var(--gold);\">Love Us!</span>",
+    "difference_text": "Our products are distinguished by exceptional quality, consistency, and proven efficacy. We carefully select research-based, high-potential ingredients to ensure optimal performance — enhancing value and market position.",
+    "difference_stat1_number": "99",
+    "difference_stat1_label": "Client Retention",
+    "difference_stat2_number": "100",
+    "difference_stat2_label": "Quality Tested",
+    "map_badge": "Global Reach",
+    "map_heading": "Our Global Presence",
+    "map_subheading": "Operating from our headquarters in India, with strategic offices in Australia, Germany, and Jordan to serve you globally."
+  }
+},
+{
+  "model": "main.accreditation",
+  "pk": 4,
+  "fields": {
+    "name": "FDA",
+    "image": "accreditations/FDA.png",
+    "order": 1
+  }
+},
+{
+  "model": "main.accreditation",
+  "pk": 5,
+  "fields": {
+    "name": "EU organic",
+    "image": "accreditations/EU_organic.png",
+    "order": 2
+  }
+},
+{
+  "model": "main.accreditation",
+  "pk": 6,
+  "fields": {
+    "name": "FSSAI",
+    "image": "accreditations/FSSAI.png",
+    "order": 3
+  }
+},
+{
+  "model": "main.accreditation",
+  "pk": 7,
+  "fields": {
+    "name": "FSSC 22000",
+    "image": "accreditations/FSSC_22000.png",
+    "order": 4
+  }
+},
+{
+  "model": "main.accreditation",
+  "pk": 8,
+  "fields": {
+    "name": "GMP",
+    "image": "accreditations/GMP.png",
+    "order": 5
+  }
+},
+{
+  "model": "main.accreditation",
+  "pk": 9,
+  "fields": {
+    "name": "India halal",
+    "image": "accreditations/India_halal.png",
+    "order": 6
+  }
+},
+{
+  "model": "main.accreditation",
+  "pk": 10,
+  "fields": {
+    "name": "India Organic",
+    "image": "accreditations/India_Organic.png",
+    "order": 7
+  }
+},
+{
+  "model": "main.accreditation",
+  "pk": 11,
+  "fields": {
+    "name": "ISO 9001 2015",
+    "image": "accreditations/ISO_9001_2015.png",
+    "order": 8
+  }
+},
+{
+  "model": "main.accreditation",
+  "pk": 12,
+  "fields": {
+    "name": "ISO 9001",
+    "image": "accreditations/ISO_9001.png",
+    "order": 9
+  }
+},
+{
+  "model": "main.accreditation",
+  "pk": 13,
+  "fields": {
+    "name": "KLBD",
+    "image": "accreditations/KLBD.png",
+    "order": 10
+  }
+},
+{
+  "model": "main.accreditation",
+  "pk": 14,
+  "fields": {
+    "name": "Kosher",
+    "image": "accreditations/Kosher.png",
+    "order": 11
+  }
+},
+{
+  "model": "main.accreditation",
+  "pk": 15,
+  "fields": {
+    "name": "SGS GMP",
+    "image": "accreditations/SGS_GMP.png",
+    "order": 12
+  }
+},
+{
+  "model": "main.accreditation",
+  "pk": 16,
+  "fields": {
+    "name": "spice board",
+    "image": "accreditations/spice_board.png",
+    "order": 13
+  }
+},
+{
+  "model": "main.accreditation",
+  "pk": 17,
+  "fields": {
+    "name": "USDA organic",
+    "image": "accreditations/USDA_organic.png",
+    "order": 14
+  }
+},
+{
+  "model": "main.qualitytimeline",
+  "pk": 1,
+  "fields": {
+    "title": "Quality",
+    "description": "At Biomed Ingredients Australia we believe not only in delivering quality products but believe in quality thinking.",
+    "order": 1
+  }
+},
+{
+  "model": "main.qualitytimeline",
+  "pk": 2,
+  "fields": {
+    "title": "Consistency",
+    "description": "It is our endeavor to deliver naturally and organically developed product. Our R&D and manufacturing facilities are certified organic.",
+    "order": 2
+  }
+},
+{
+  "model": "main.qualitytimeline",
+  "pk": 3,
+  "fields": {
+    "title": "Commitment",
+    "description": "Our philosophy is to achieve good health and wellness the natural way. Our products are therefore safe, and bestows holistic cure.",
+    "order": 3
+  }
+},
+{
+  "model": "main.extractcategory",
+  "pk": 1,
+  "fields": {
+    "title": "Turmeric / Curcumin",
+    "subtitle": "Bio-Active",
+    "description": "High demand for anti-inflammatory and joint health supplements.",
+    "image": "extracts/cosmetic_ingredients.webp",
+    "order": 1
+  }
+},
+{
+  "model": "main.extractcategory",
+  "pk": 2,
+  "fields": {
+    "title": "Echinacea",
+    "subtitle": "High Potency",
+    "description": "Consistently popular during Australian cold and flu seasons.",
+    "image": "extracts/sports_nutrition.webp",
+    "order": 2
+  }
+},
+{
+  "model": "main.extractcategory",
+  "pk": 3,
+  "fields": {
+    "title": "Ashwagandha",
+    "subtitle": "100% Natural",
+    "description": "A leading adaptogen heavily favored for stress and cortisol management.",
+    "image": "extracts/food_colors.webp",
+    "order": 3
+  }
+},
+{
+  "model": "main.extractcategory",
+  "pk": 4,
+  "fields": {
+    "title": "Milk Thistle (Silymarin)",
+    "subtitle": "Certified Extracts",
+    "description": "Widely purchased for internal liver-protection and detox formulations.",
+    "image": "extracts/field2.webp",
+    "order": 4
+  }
+},
+{
+  "model": "main.extractcategory",
+  "pk": 5,
+  "fields": {
+    "title": "Ginkgo Biloba & Ginseng",
+    "subtitle": "Certified Extracts",
+    "description": "Staple ingredients targeted at cognitive support, memory, and daily energy.",
+    "image": "extracts/marigold.webp",
+    "order": 6
+  }
+},
+{
+  "model": "main.officelocation",
+  "pk": 1,
+  "fields": {
+    "country": "India (HQ)",
+    "top_percentage": 56.9,
+    "left_percentage": 67.1,
+    "is_hq": true
+  }
+},
+{
+  "model": "main.officelocation",
+  "pk": 2,
+  "fields": {
+    "country": "Australia",
+    "top_percentage": 77.5,
+    "left_percentage": 84.6,
+    "is_hq": false
+  }
+},
+{
+  "model": "main.officelocation",
+  "pk": 3,
+  "fields": {
+    "country": "Germany",
+    "top_percentage": 39.6,
+    "left_percentage": 51.0,
+    "is_hq": false
+  }
+},
+{
+  "model": "main.officelocation",
+  "pk": 4,
+  "fields": {
+    "country": "Jordan",
+    "top_percentage": 48.8,
+    "left_percentage": 57.6,
+    "is_hq": false
+  }
+},
+{
+  "model": "main.enquiry",
+  "pk": 1,
+  "fields": {
+    "full_name": "Ajomon Thomas",
+    "company": "eeeeeeeeeeee",
+    "email": "design1@biomedingredients.com",
+    "product_name": "fleshflh",
+    "message": "fFffqrqrwqqW",
+    "created_at": "2026-08-05T09:31:18.526Z"
+  }
+},
+{
+  "model": "main.enquiry",
+  "pk": 2,
+  "fields": {
+    "full_name": "Ajomon Thomas",
+    "company": "eeeeeeeeeeee",
+    "email": "ajomonthomas741@gmail.com",
+    "product_name": "fleshflh",
+    "message": "fjgggkgkkgkg\r\n\r\n",
+    "created_at": "2026-08-18T10:58:45.577Z"
+  }
+},
+{
+  "model": "main.enquiry",
+  "pk": 3,
+  "fields": {
+    "full_name": "Ajomon Thomas",
+    "company": "WWWW",
+    "email": "ajomonthomas741@gmail.com",
+    "product_name": "Annato 20% (Oil soluble )",
+    "message": "aaaaaaaaaaaaaaaaaaaaaaa",
+    "created_at": "2026-08-18T11:14:48.771Z"
+  }
+},
+{
+  "model": "main.enquiry",
+  "pk": 4,
+  "fields": {
+    "full_name": "Test User",
+    "company": "Test Company",
+    "email": "test@example.com",
+    "product_name": "Curcumin",
+    "message": "This is a test message to check if contact form works.",
+    "created_at": "2026-08-22T09:13:36.639Z"
+  }
+},
+{
+  "model": "main.enquiry",
+  "pk": 5,
+  "fields": {
+    "full_name": "Test User",
+    "company": "Test Company",
+    "email": "test@example.com",
+    "product_name": "Coenzyme Q10",
+    "message": "I am interested in Coenzyme Q10 product details.",
+    "created_at": "2026-08-22T09:45:09.322Z"
+  }
+},
+{
+  "model": "main.solutionfeature",
+  "pk": 1,
+  "fields": {
+    "title": "Herbal Extracts & Nutraceuticals",
+    "description": "We are a premium scientific herbal ingredients supplier, dedicated to delivering pure, high-quality extracts for diverse health and wellness applications.",
+    "icon_class": "ph-fill ph-plant",
+    "order": 1
+  }
+},
+{
+  "model": "main.solutionfeature",
+  "pk": 2,
+  "fields": {
+    "title": "Food & Beverage Ingredients",
+    "description": "Through advanced technologies and creative innovation, we craft ingredients that capture natural flavor and freshness.",
+    "icon_class": "ph ph-flask",
+    "order": 2
+  }
+},
+{
+  "model": "main.solutionfeature",
+  "pk": 3,
+  "fields": {
+    "title": "Essential Oils & Flavors",
+    "description": "Our essential oils and flavors capture a plant's true essence. They are highly pure and potent, perfect for aromatherapy and natural flavoring.",
+    "icon_class": "ph ph-drop",
+    "order": 3
+  }
+},
+{
+  "model": "main.solutionfeature",
+  "pk": 4,
+  "fields": {
+    "title": "Spice Oils & Oleoresins",
+    "description": "A symphony of pure essence, our spice oleoresins capture the true spirit of every spice.",
+    "icon_class": "ph ph-sparkle",
+    "order": 4
+  }
+},
+{
+  "model": "main.aboutpagecontent",
+  "pk": 1,
+  "fields": {
+    "top_banner_heading": "Biomed Ingredients, Your Responsible Manufacturer",
+    "top_banner_subheading": "Biomed Ingredients - Where Quality Matters",
+    "main_image": "about_images/office2.png",
+    "main_heading": "About US",
+    "main_text": "Biomed Ingredients Australia is committed towards good health and protection of the environment.\r\n\r\nWhen Bio-Med Ingredients was born in 2014, our mission has been to manufacture and supply organically produced medicinal plants to the nutritional, cosmetic, pharmaceutical and food industries.\r\n\r\nWe live in an era, where health is not wealth but it is seen as a means of making wealth. Conventional farming is literally killing our well-being and ecology. In order to increase the yield exponentially, harsh and hostile chemicals are introduced into farming. This has not just damaged our soil and water but has introduced a host of new diseases that are affecting both man and animals.",
+    "mission_text": "To deliver superior natural ingredients that meet global standards, fostering health and sustainability.",
+    "vision_text": "To be the leading global provider of natural ingredients, driving innovation and responsible sourcing.",
+    "values_text": "Integrity, Quality, Innovation, Sustainability, Customer Focus.",
+    "middle_text": "IFOAM – Organics International (an organization that promotes organic farming) says, “Organic Agriculture is a production of a system that sustains the health of soils, ecosystems, and people. It relies on ecological processes, biodiversity and cycles adapted to local conditions, rather than the use of inputs with adverse effects. Organic Agriculture combines tradition, innovation, and science to benefit the shared environment and promote fair relationships and good quality of life for all involved.”\r\n\r\nTherefore, we strictly stand against synthetic products. Since we are into the business of supplying medicinal plants, we took the organic route to cultivate these herbs. With the help of our well-experienced R&D team, we have embraced an environment-friendly method of agronomy which uses organic supplementation instead of chemical fertilization. Our farmers also follow the Good Agricultural Practices (GAP) instituted by the Food and Agricultural Organization of the United Nations (FAO).\r\n\r\nThe use of natural products as a source of a compound in drug discovery is gaining momentum. Synthetic drugs address the symptoms of a disease, but natural drugs augment the body’s own healing system.\r\n​\r\nOur process of extracting the raw materials from plant source adheres to certified standards. We inspect random samples of raw materials before every production cycle. This guarantees the production of crème de la crème of herbal extracts.",
+    "bottom_image": "about_images/green-tea-bud-and-fresh-leaves-with-soft-light-te-2025-03-08-13-24-12-utc.JPG",
+    "box_1_title": "Team",
+    "box_1_subtitle": "OUR TEAM",
+    "box_1_link": "/team/",
+    "box_2_title": "Infrastructure & Services",
+    "box_2_subtitle": "Vertical Integration, Our Services, QA for Botanical Ingredients",
+    "box_2_link": "/infrastructure-and-services/",
+    "box_3_title": "C S R",
+    "box_3_subtitle": "CORPORATE SOCIAL RESPONSIBILITIES",
+    "box_3_link": "/csr/",
+    "product_lines_intro": "We have an array of organically and naturally developed products. Our product lines are:",
+    "product_line_1": "Herbal & Spice Extract",
+    "product_line_1_url": "/herbal-extracts/",
+    "product_line_2": "Nutritional Fine Chemicals",
+    "product_line_2_url": "/nutritional-fine-chemicals/",
+    "product_line_3": "Oleoresin",
+    "product_line_3_url": "/spices-and-oleoresins/",
+    "product_line_4": "Herbal Powder",
+    "product_line_4_url": "/raw-herbal-powders/",
+    "product_line_5": "Food Color",
+    "product_line_5_url": "/natural-food-colors/",
+    "product_line_6": "Health Supplement",
+    "product_line_6_url": "/nutritional-fine-chemicals/",
+    "story_eyebrow": "OUR STORY",
+    "story_heading": "About Us",
+    "story_paragraph_1": "Biomed Ingredients Australia is committed towards good health and protection of the environment.\r\nWhen Bio-Med Ingredients was born in 2014, our mission has been to manufacture and supply organically produced medicinal plants to the nutritional, cosmetic, pharmaceutical and food industries.",
+    "story_paragraph_2": "We live in an era, where health is not wealth but it is seen as a means of making wealth. Conventional farming is literally killing our well-being and ecology. In order to increase the yield exponentially, harsh and hostile chemicals are introduced into farming. This has not just damaged our soil and water but has introduced a host of new diseases that are affecting both man and animals.",
+    "story_cta_label": "Learn More",
+    "stat_1_number": "10+",
+    "stat_1_label": "Years of Experience",
+    "stat_2_number": "50+",
+    "stat_2_label": "Happy Clients",
+    "stat_3_number": "100+",
+    "stat_3_label": "Natural Ingredients",
+    "stat_4_number": "30+",
+    "stat_4_label": "Countries Served",
+    "story_main_image": "about_story/hero.webp",
+    "story_field_image": "about_story/340A5018.webp",
+    "story_facility_image": "about_story/vlcsnap-2023-08-03-12h08m47s589.webp",
+    "story_lab_image": "about_story/IMG_4901.webp",
+    "belief_quote_prefix": "We strongly believe,",
+    "belief_quote": "Nature is the best physician"
+  }
+},
+{
+  "model": "main.csrpagecontent",
+  "pk": 1,
+  "fields": {
+    "hero_title": "Corporate Social Responsibility",
+    "hero_subtitle": "Giving back to the community and nurturing the environment for a sustainable future.",
+    "hero_badge_text": "Impact & Responsibility",
+    "hero_image": "",
+    "intro_title": "Corporate Social Responsibilities",
+    "intro_content": "Our global CR policy focuses on four key areas where we believe we can make the most difference.\r\n\r\nFor three of these – Industry, Environment and People – we have established a global framework for our operating companies to work within, allowing them flexibility over which area to invest in according to what will have the most meaning and impact locally.\r\n\r\nWhilst local legal standards apply as an absolute minimum, we aim to achieve good practice in our local markets and share this across the Group. The fourth area – Community – is entirely locally driven, allowing our people to support causes close to them and to become involved in their communities.",
+    "pillar_1_kicker": "INDUSTRY",
+    "pillar_1_title": "Understanding Customer Challenges",
+    "pillar_1_content": "We aim to leverage the unique relationships that we have with our customers across the globe to continue to understand and support the issues and challenges that they face.",
+    "pillar_1_image": "csr/barberry-berries-on-a-branch-on-a-natural-backgrou-2025-10-11-11-27-33-utc.webp",
+    "pillar_2_kicker": "ENVIRONMENT",
+    "pillar_2_title": "Reducing Our Impact",
+    "pillar_2_content": "We continue to analyse our impact on our environment. We remain committed to reducing our energy consumption and related emissions where possible, as well as reducing our wider impacts such as resource use and waste to landfill.",
+    "pillar_2_image": "csr/340A5389.webp",
+    "pillar_3_kicker": "PEOPLE",
+    "pillar_3_title": "Fairness & Equality",
+    "pillar_3_content": "We have a Code of Ethics which recognizes the importance of treating all of our employees fairly, covering issues such as responsible employment, diversity and equal opportunities. This is an effective way of communicating, at a high level, the principles which should be applied in the conduct of our business.",
+    "pillar_3_image": "csr/GREEN_TEA.png",
+    "pillar_4_kicker": "COMMUNITY",
+    "pillar_4_title": "Supporting Local Causes",
+    "pillar_4_content": "Our local communities are important to us. We support a number of charities and community organisations worldwide in order to make a positive impact on the communities where we have a presence.",
+    "pillar_4_image": "csr/coffee-beans-coffee-green-leaves-wooden-background-fresh-coffee-beans-wooden-background.webp",
+    "pillar_5_kicker": "GREEN INITIATIVE",
+    "pillar_5_title": "The Green Initiative Program",
+    "pillar_5_content": "As a part of corporate social responsibility, we at Biomed Ingredients has started a program called the “Green Initiative”. We care for the mother nature and with this initiative, we are involving each and every human being directly or indirectly in saving our planet.",
+    "pillar_5_image": ""
+  }
+},
+{
+  "model": "main.teammember",
+  "pk": 1,
+  "fields": {
+    "name": "Mr. Sebastian Thomas",
+    "primary_designation": "Managing Director & Chairman",
+    "secondary_designation": "MANAGING DIRECTOR\r\nCHAIRMAN",
+    "bio": "Mr. Sebastian Thomas is an entrepreneur and business leader whose professional journey reflects a blend of industry experience and entrepreneurial vision. Originally from Kerala and currently based in Goa, he holds a degree in Business Management. His career began with Toyota Kirloskar in Bengaluru, followed by professional assignments with Sami Labs, Deutsch India, ABB and Pentair Water. In 2016, he established Bio Med Ingredients Private Limited in Goa, marking an important milestone in his entrepreneurial career. His professional interests include business development, international trade and the evolving field of natural botanical ingredients. Beyond his professional commitments, Mr. Sebastian has a keen interest in organic farming, sustainable agriculture and environmentally responsible farming practices. He is also associated with several organisations engaged in social welfare and community development initiatives.",
+    "image_upload": "team/Sebastian.webp",
+    "alignment": "left",
+    "order": 1
+  }
+},
+{
+  "model": "main.teammember",
+  "pk": 2,
+  "fields": {
+    "name": "Mrs. Savitha B Pillai",
+    "primary_designation": "Founder & Director",
+    "secondary_designation": "FOUNDER\r\nDIRECTOR",
+    "bio": "Mrs. Savitha B. Pillai is an entrepreneur with an academic background in Economics, professional experience in education and a keen interest in nature and natural products. She holds a Bachelor’s and postgraduate degree in Economics from Madras Christian College, Tambaram, along with a Bachelor of Education (B.Ed.). Her appreciation for nature and interest in the potential of natural ingredients led her to explore entrepreneurship. In 2016, she co-founded Bio Med Ingredients Private Limited alongside Mr. Sebastian Thomas. She currently serves as the company’s full-time Director, contributing to its management and development. She brings a clear sense of purpose to her role, with a strong commitment to organisational growth, responsible leadership and the long-term vision of the enterprise.",
+    "image_upload": "team/Savitha.png",
+    "alignment": "right",
+    "order": 2
+  }
+},
+{
+  "model": "main.teammember",
+  "pk": 3,
+  "fields": {
+    "name": "Mrs. Ania Martian",
+    "primary_designation": "CEO - Europe",
+    "secondary_designation": "CEO EUROPE",
+    "bio": "Ania Martian is the Founder and CEO of BM Ingredients Europe GmbH. With extensive international experience in sales, import and export, customer development, and botanical ingredients, she leads the company’s commercial strategy and international growth. Her strong product knowledge, multilingual background, and hands-on approach enable her to build lasting relationships with customers, suppliers, and partners across global markets. Ania is focused on combining reliable service, market expertise, and long-term partnerships to create sustainable growth for BM Ingredients Europe and its customers.",
+    "image_upload": "team/Ania2x.png",
+    "alignment": "left",
+    "order": 3
+  }
+},
+{
+  "model": "main.infrastructurepagecontent",
+  "pk": 1,
+  "fields": {
+    "main_heading": "Infrastructure & Services",
+    "farming_badge": "Sustainable Agriculture",
+    "farming_heading": "Vertical Integration",
+    "farming_text_1": "We always start from the basic. so we start from cultivation and thus we connected with farmers. In many parts of the world, people depended on rain, rich soil, and the environment around them; farmers have a deep understanding and connection to nature.",
+    "farming_text_2": "To ensure the seamless supply chain of products Bio Med Ingredients directly connected with farmers for all kind of herbs which grows in India. When raw material are seasonal and usage of pesticides uncontrollable vertical integration with farmers gives wings to Bio Med to fly high.",
+    "farming_text_3": "While farming is important for a number of reasons, it is equally important for farmers and agriculture organizations to collect data. Having an understanding of the plant and to have an understanding of the type of plant that is being grown and a means to track the good, and bad, produce from seed to store.",
+    "farming_img_upload": "",
+    "services_badge": "Capabilities & Support",
+    "services_heading": "Our Services",
+    "services_text_1": "Since inception of our brand, we have tried to gain the customer reliance by offering them solutions to their requirements at affordable prices with unbeatable qualities which lead to unbeatable growth of our company. Our pioneering products are the origin of new finished formulation in the dietary supplement market. We are the first point of discussion among manufacturers and marketers on designing new formation for finished formulation. Our ability to supply customary designed herbal extract formulation helps finished formulation companies to have better product in the market that one can boast of.",
+    "services_text_2": "We are the one manufacturer you can trust and turn to for everything from an ingredient and product development to time sensitive delivery. Whatever the challenge, we move beyond the trodden path always with an eye on delivering best ever effects. That is why BMI is the ingredient premier manufacturer supplier, and the only source you'll ever need. Whether we work together to create custom blends or develop production efficiencies, B M I's value-added ingredient services will help streamline your operations, generate cost savings, and even create new profit centers. This level of expertise, rarely found in a raw material supplier, has set new standards for our industry and can do the same for that of yours.",
+    "services_text_3": "When you work with BMI, we'll not only deliver premium ingredients at reasonable prices, our state-of-the-art quality controls will also ensure that each ingredient meets your standards for uniqueness, purity, strength, consistency, and reliability. Our technical and commercial expertize can even help you guide, suggest and manufacture new ingredients and upgrade those you're using already. Besides, we'll extend expert technical support to your manufacturing group that can help your company improve efficiencies, minimize waste, and optimize productivity. So you only have to bank on one sole supplier instead of going for five. It will be better for you to test one sample instead of many. At BMI, manufacturing solutions and great customer service",
+    "services_img_upload": "",
+    "quality_badge": "Structured & Science-Led Framework",
+    "quality_heading": "Quality Assurance for Botanical Ingredients",
+    "quality_text_1": "Quality at Bio Med Ingredients is guided by a structured, science-led framework. It is upheld through disciplined sourcing, controlled manufacturing systems and evidence-based evaluation. Our focus is to ensure that every ingredient we supply meets defined standards of identity, purity and performance.\r\n\r\nWe work with trusted cultivation and raw material partners who follow responsible agricultural and post-harvest practices. All incoming materials undergo authentication and verification before processing, ensuring consistency and traceability from the point of origin.",
+    "quality_text_2": "Our manufacturing operations are supported by a DSIR Recognised R and D Unit, equipped to conduct analytical validation, formulation studies and continuous process improvement. The R and D unit works closely with production and quality teams to enhance extraction efficiency, maintain fingerprint consistency and reinforce product stability. This scientific foundation strengthens reliability across our supply chain.\r\n\r\nProduction is carried out in controlled environments with standardised operating procedures and monitored processing lines. Quality assessment includes raw material evaluation, in-process checks and final product testing using validated analytical methods. Parameters covered include identity, purity, microbial safety, heavy metal limits and pesticide residue compliance, aligned with globally accepted regulatory expectations.",
+    "quality_text_3": "Documentation, batch traceability and specification transparency form a critical part of our quality assurance system. We maintain readiness for regulatory review and partner audits, reinforcing confidence in every supply.\r\n\r\nFor Bio Med Ingredients, quality is not an isolated function. It is an organisational discipline supported by trained teams, scientific capability and operational integrity. It is the standard we commit to consistently and the promise we uphold in every partnership.",
+    "quality_text_highlight": "Production is carried out in controlled environments with standardised operating procedures...",
+    "quality_text_4": "Documentation, batch traceability and specification transparency form a critical part...",
+    "quality_text_5": "For Bio Med Ingredients, quality is not an isolated function. It is an organisational discipline...",
+    "quality_img_upload": "",
+    "standards_heading": "International Standards",
+    "standards_text_1": "Premium ingredients tested by us as per international standards...",
+    "standards_text_2": "State-of-the-art quality controls and quality assurance systems to meet out cGMP and ISO standards.",
+    "standards_img_upload": ""
+  }
+},
+{
+  "model": "main.researcharea",
+  "pk": 1,
+  "fields": {
+    "title": "A Review of Highly Potential Antioxidant Ingredient Quercetin: A Bioactive Flavonoid",
+    "slug": "a-review-of-highly-potential-antioxidant-ingredient-quercetin-a-bioactive-flavonoid",
+    "description": "Antioxidants are chemicals that have the potential to shield cells from harm from unstable molecules like free radicals.",
+    "image_upload": "research/IMG_4902.webp",
+    "image_path": "",
+    "pdf_upload": "research_pdfs/Berberine_Liposome_copy.pdf",
+    "order": 1
+  }
+},
+{
+  "model": "main.researchcorearealink",
+  "pk": 1,
+  "fields": {
+    "title": "Quercetin",
+    "target_url": "/research/a-review-of-highly-potential-antioxidant-ingredient-quercetin-a-bioactive-flavonoid/",
+    "order": 1
+  }
+},
+{
+  "model": "main.galleryimage",
+  "pk": 1,
+  "fields": {
+    "title": "qqqqqqqqqqqqqqqq",
+    "image_upload": "gallery/leaves-on-a-branch-of-a-moringa-plant-in-the-blurr-2026-03-18-12-16-44-utc.webp",
+    "order": 1,
+    "created_at": "2026-08-10T04:18:43.455Z"
+  }
+},
+{
+  "model": "main.brand",
+  "pk": 1,
+  "fields": {
+    "name": "PureBeanFit®",
+    "trademark": "6131942",
+    "ingredient": "Green coffee bean extract 50%, Green Tea extract 95%, Piperine 95%, Vitamin C from Acerola Cherry.",
+    "dose": "500mg/day",
+    "description": "Standardized with essential vitamins and nutrients to enhance the efficacy of chlorogenic acids for weight management and metabolic support.",
+    "applications": "Weight loss, antioxidant, anti-diabetic, liver support.",
+    "logo_path": "",
+    "logo_upload": "brands/brand10.webp",
+    "layer_image_upload": "brands/layers/PureBeanFit_.webp",
+    "bg_image_upload": "brands/backgrounds/PureBeanFit_.webp",
+    "health_benefits": "",
+    "recommended_daily_dose": "500mg Capsules 2 C/Day",
+    "detailed_description": "Green Coffee extract contains Chlorogenic acids which thereby act by inhibiting and improving insulin resistance and thereby ensure diabetic control.Diabetes mellitus, a very common and multifaceted metabolic disorder is considered as one of the fastest growing public health problems in the world. It is characterized by hyperglycemia, a condition with high glucose level in the blood plasma resulting from defects in insulin secretion or its action and in some cases both the impairment in secretion and also action of insulin coexist. Thereby the Green coffee extract present in PureBeanFit®, acts as a great influence on blood sugar management as it helps in reduction of blood glucose levels by the following.",
+    "mechanism": "Green Coffee extract contains Chlorogenic acids which thereby act by inhibiting and improving insulin resistance and thereby ensure diabetic control.Diabetes mellitus, a very common and multifaceted metabolic disorder is considered as one of the fastest growing public health problems in the world. It is characterized by hyperglycemia, a condition with high glucose level in the blood plasma resulting from defects in insulin secretion or its action and in some cases both the impairment in secretion and also action of insulin coexist. Thereby the Green coffee extract present in PureBeanFit®, acts as a great influence on blood sugar management as it helps in reduction of blood glucose levels by the following.",
+    "structure_img_upload": "",
+    "family": "Rubiaceae",
+    "botanical_name": "Coffea Arabica",
+    "plant_part": "Beans",
+    "shelf_life": "3 Years",
+    "moq": "1700 Bottles",
+    "solubility": "Water Soluble",
+    "preclinical_studies": "Pre-clinical studies were conducted for PureBeanFit® in comparison to normal marketed green coffee bean extract at PRADO Pune. The objective of this study is to evaluate the efficacy of the Extract in Streptozotocin induced diabetes in Sprague Dawley Rats when administered by Oral route. The animals were kept for overnight fasting for approximately 16-14 hours. The streptozotocin (60 mg/kg IP) was injected by intraperitoneal route as a single dose on day 1 to induce diabetes. Animals will be screened for development of hyperglycaemia (fasting blood glucose >250 mg/kg) for 5 days after streptozotocin injection. The dose volume will not be exceeding 10 ml/kg body weight and actual volume to be administered were calculated based on the body weights of each animal.",
+    "pdf_upload": "brands/pdfs/PureBeanFit.pdf"
+  }
+},
+{
+  "model": "main.productrangeslide",
+  "pk": 1,
+  "fields": {
+    "title": "Herbal Extracts and Nutraceutical Ingredients",
+    "description": "Our herbal and nutraceutical extracts are developed for health and wellness applications requiring consistent potency and scientific reliability. Suitable for dietary supplements, functional foods, and evidence-based nutrition formulations.\r\n\r\nKey ingredients: Turmeric (Curcumin 95%), Coleus Forskohlii (Forskolin), Ashwagandha (Withanolides), Fenugreek, Green Tea (EGCG), Saffron, Ginger, Black Pepper (Piperine), Marigold (Lutein/Zeaxanthin).",
+    "extra_text": "",
+    "image_upload": "product_range/herbal-essence-alternative-healthy-medicine.jpg",
+    "image_path": "",
+    "button_url": "#",
+    "order": 1
+  }
+},
+{
+  "model": "main.productrangeslide",
+  "pk": 2,
+  "fields": {
+    "title": "Food and Beverage Ingredients",
+    "description": "Our food ingredient range supports clean label formulation, consistent large-scale manufacturing, and natural flavor and nutritional enhancement — aligned with global regulatory standards.",
+    "extra_text": "",
+    "image_upload": "product_range/refreshing-beverages-on-wooden-bench-outdoors-in-s-2026-01-08-07-27-31-utc.jpg",
+    "image_path": "",
+    "button_url": "#",
+    "order": 2
+  }
+},
+{
+  "model": "main.productrangeslide",
+  "pk": 3,
+  "fields": {
+    "title": "Cosmetic and Personal Care Ingredients",
+    "description": "Plant-derived actives and functional botanicals for skincare, haircare, and wellness applications. Each ingredient is evaluated for purity, safety, and compatibility with finished product systems.",
+    "extra_text": "",
+    "image_upload": "product_range/cosmetic-powders-with-applicator-brushes-and-green-2026-03-24-22-28-46-utc.jpg",
+    "image_path": "",
+    "button_url": "#",
+    "order": 3
+  }
+},
+{
+  "model": "main.productrangeslide",
+  "pk": 4,
+  "fields": {
+    "title": "Natural Food Colors",
+    "description": "Plant-sourced colorants with stable shade expression and uniformity — suitable for food, beverage, and nutraceutical applications demanding clean label compliance.",
+    "extra_text": "",
+    "image_upload": "product_range/pastries-and-confectionery-on-beautiful-background-847516410-denoise.jpeg",
+    "image_path": "",
+    "button_url": "#",
+    "order": 4
+  }
+},
+{
+  "model": "main.productrangeslide",
+  "pk": 5,
+  "fields": {
+    "title": "Spice Oleoresins",
+    "description": "Concentrated flavor and aromatic oleoresins providing standardized, reproducible quality for food seasoning and industrial ingredient manufacturing. A superior alternative to raw spices for consistent batch production.",
+    "extra_text": "",
+    "image_upload": "product_range/envato-8FW83KU-original.jpg",
+    "image_path": "",
+    "button_url": "#",
+    "order": 5
+  }
+},
+{
+  "model": "main.productrangeslide",
+  "pk": 6,
+  "fields": {
+    "title": "Essential Oils",
+    "description": "Sourced from verified origins and processed to retain authentic aromatic and functional profiles. Available for food flavoring, cosmetic formulations, and aromatherapy applications.",
+    "extra_text": "",
+    "image_upload": "product_range/drop-oil-dripping-from-pipette-into-bottle-essential-oil.jpg",
+    "image_path": "",
+    "button_url": "#",
+    "order": 6
+  }
+},
+{
+  "model": "main.productrangeslide",
+  "pk": 7,
+  "fields": {
+    "title": "Organic Products",
+    "description": "Certified organic ingredients cultivated and processed without synthetic pesticides or fertilizers, preserving the natural integrity of the botanicals.",
+    "extra_text": "",
+    "image_upload": "product_range/coffee-beans-coffee-green-leaves-wooden-background-fresh-coffee-beans-wood_Bg901g0.jpg",
+    "image_path": "",
+    "button_url": "#",
+    "order": 7
+  }
+},
+{
+  "model": "main.product",
+  "pk": 1,
+  "fields": {
+    "category": "herbal_extracts",
+    "sub_category": null,
+    "name": "Amla Extracts",
+    "code": null,
+    "description": "Emblica Officinalis\r\nTannins 20% and 40%\r\nAntioxidant / Hair care / skin care\r\nAvailable in : Powder form",
+    "image_path": null,
+    "image_upload": "products/green-fruits-hanging-from-a-branch-with-leaves-2026-01-07-07-18-12-utc.jpg",
+    "pdf_path": null,
+    "pdf_upload": "product_pdfs/Vitamin_premixes_copy.pdf",
+    "pdf_title": null
+  }
+},
+{
+  "model": "main.product",
+  "pk": 2,
+  "fields": {
+    "category": "raw_herbal_powders",
+    "sub_category": "leaves_herbs",
+    "name": "Achyranthus aspera Powder",
+    "code": null,
+    "description": null,
+    "image_path": null,
+    "image_upload": "",
+    "pdf_path": null,
+    "pdf_upload": "",
+    "pdf_title": null
+  }
+},
+{
+  "model": "main.product",
+  "pk": 3,
+  "fields": {
+    "category": "raw_herbal_powders",
+    "sub_category": "leaves_herbs",
+    "name": "Aloe vera Gel",
+    "code": null,
+    "description": null,
+    "image_path": null,
+    "image_upload": "",
+    "pdf_path": null,
+    "pdf_upload": "",
+    "pdf_title": null
+  }
+},
+{
+  "model": "main.product",
+  "pk": 4,
+  "fields": {
+    "category": "raw_herbal_powders",
+    "sub_category": "leaves_herbs",
+    "name": "Aloe vera spray dried Powder",
+    "code": null,
+    "description": null,
+    "image_path": null,
+    "image_upload": "",
+    "pdf_path": null,
+    "pdf_upload": "",
+    "pdf_title": null
+  }
+},
+{
+  "model": "main.product",
+  "pk": 5,
+  "fields": {
+    "category": "raw_herbal_powders",
+    "sub_category": "leaves_herbs",
+    "name": "Andrographis paniculata Powder",
+    "code": null,
+    "description": null,
+    "image_path": null,
+    "image_upload": "",
+    "pdf_path": null,
+    "pdf_upload": "",
+    "pdf_title": null
+  }
+},
+{
+  "model": "main.product",
+  "pk": 6,
+  "fields": {
+    "category": "raw_herbal_powders",
+    "sub_category": "leaves_herbs",
+    "name": "Azadirachta indica leaf Powder",
+    "code": null,
+    "description": null,
+    "image_path": null,
+    "image_upload": "",
+    "pdf_path": null,
+    "pdf_upload": "",
+    "pdf_title": null
+  }
+},
+{
+  "model": "main.product",
+  "pk": 7,
+  "fields": {
+    "category": "raw_herbal_powders",
+    "sub_category": "leaves_herbs",
+    "name": "Centella asiatica Powder",
+    "code": null,
+    "description": null,
+    "image_path": null,
+    "image_upload": "",
+    "pdf_path": null,
+    "pdf_upload": "",
+    "pdf_title": null
+  }
+},
+{
+  "model": "main.product",
+  "pk": 8,
+  "fields": {
+    "category": "raw_herbal_powders",
+    "sub_category": "leaves_herbs",
+    "name": "Cinnamon Leaf Powder",
+    "code": null,
+    "description": null,
+    "image_path": null,
+    "image_upload": "",
+    "pdf_path": null,
+    "pdf_upload": "",
+    "pdf_title": null
+  }
+},
+{
+  "model": "main.product",
+  "pk": 9,
+  "fields": {
+    "category": "raw_herbal_powders",
+    "sub_category": "leaves_herbs",
+    "name": "Curry leaves Powder",
+    "code": null,
+    "description": null,
+    "image_path": null,
+    "image_upload": "",
+    "pdf_path": null,
+    "pdf_upload": "",
+    "pdf_title": null
+  }
+},
+{
+  "model": "main.product",
+  "pk": 10,
+  "fields": {
+    "category": "raw_herbal_powders",
+    "sub_category": "leaves_herbs",
+    "name": "Eclipta alba herb Powder",
+    "code": null,
+    "description": null,
+    "image_path": null,
+    "image_upload": "",
+    "pdf_path": null,
+    "pdf_upload": "",
+    "pdf_title": null
+  }
+},
+{
+  "model": "main.product",
+  "pk": 11,
+  "fields": {
+    "category": "raw_herbal_powders",
+    "sub_category": "leaves_herbs",
+    "name": "Mangifera indica leaf Powder",
+    "code": null,
+    "description": null,
+    "image_path": null,
+    "image_upload": "",
+    "pdf_path": null,
+    "pdf_upload": "",
+    "pdf_title": null
+  }
+},
+{
+  "model": "main.product",
+  "pk": 12,
+  "fields": {
+    "category": "raw_herbal_powders",
+    "sub_category": "leaves_herbs",
+    "name": "Moringa Leaf Powder",
+    "code": null,
+    "description": null,
+    "image_path": null,
+    "image_upload": "",
+    "pdf_path": null,
+    "pdf_upload": "",
+    "pdf_title": null
+  }
+},
+{
+  "model": "main.product",
+  "pk": 13,
+  "fields": {
+    "category": "raw_herbal_powders",
+    "sub_category": "leaves_herbs",
+    "name": "Murraya koeniglii leaf Powder",
+    "code": null,
+    "description": null,
+    "image_path": null,
+    "image_upload": "",
+    "pdf_path": null,
+    "pdf_upload": "",
+    "pdf_title": null
+  }
+},
+{
+  "model": "main.product",
+  "pk": 14,
+  "fields": {
+    "category": "raw_herbal_powders",
+    "sub_category": "leaves_herbs",
+    "name": "Neem Leaf Powder",
+    "code": null,
+    "description": null,
+    "image_path": null,
+    "image_upload": "",
+    "pdf_path": null,
+    "pdf_upload": "",
+    "pdf_title": null
+  }
+},
+{
+  "model": "main.product",
+  "pk": 15,
+  "fields": {
+    "category": "raw_herbal_powders",
+    "sub_category": "leaves_herbs",
+    "name": "Phyllanthus amarus herb Powder",
+    "code": null,
+    "description": null,
+    "image_path": null,
+    "image_upload": "",
+    "pdf_path": null,
+    "pdf_upload": "",
+    "pdf_title": null
+  }
+},
+{
+  "model": "main.product",
+  "pk": 16,
+  "fields": {
+    "category": "raw_herbal_powders",
+    "sub_category": "leaves_herbs",
+    "name": "Tulsi herb Powder",
+    "code": null,
+    "description": null,
+    "image_path": null,
+    "image_upload": "",
+    "pdf_path": null,
+    "pdf_upload": "",
+    "pdf_title": null
+  }
+},
+{
+  "model": "main.product",
+  "pk": 17,
+  "fields": {
+    "category": "raw_herbal_powders",
+    "sub_category": "roots_rhizomes",
+    "name": "Ashwagandha root Powder",
+    "code": null,
+    "description": null,
+    "image_path": null,
+    "image_upload": "",
+    "pdf_path": null,
+    "pdf_upload": "",
+    "pdf_title": null
+  }
+},
+{
+  "model": "main.product",
+  "pk": 18,
+  "fields": {
+    "category": "raw_herbal_powders",
+    "sub_category": "roots_rhizomes",
+    "name": "Asparagus racemosus rhizome Powder",
+    "code": null,
+    "description": null,
+    "image_path": null,
+    "image_upload": "",
+    "pdf_path": null,
+    "pdf_upload": "",
+    "pdf_title": null
+  }
+},
+{
+  "model": "main.product",
+  "pk": 19,
+  "fields": {
+    "category": "raw_herbal_powders",
+    "sub_category": "roots_rhizomes",
+    "name": "Curcuma longa rhizome Powder",
+    "code": null,
+    "description": null,
+    "image_path": null,
+    "image_upload": "",
+    "pdf_path": null,
+    "pdf_upload": "",
+    "pdf_title": null
+  }
+},
+{
+  "model": "main.product",
+  "pk": 20,
+  "fields": {
+    "category": "raw_herbal_powders",
+    "sub_category": "roots_rhizomes",
+    "name": "Curcuma zedoaria rhizome Powder",
+    "code": null,
+    "description": null,
+    "image_path": null,
+    "image_upload": "",
+    "pdf_path": null,
+    "pdf_upload": "",
+    "pdf_title": null
+  }
+},
+{
+  "model": "main.product",
+  "pk": 21,
+  "fields": {
+    "category": "raw_herbal_powders",
+    "sub_category": "roots_rhizomes",
+    "name": "Cyperus rotundus rhizome Powder",
+    "code": null,
+    "description": null,
+    "image_path": null,
+    "image_upload": "",
+    "pdf_path": null,
+    "pdf_upload": "",
+    "pdf_title": null
+  }
+},
+{
+  "model": "main.product",
+  "pk": 22,
+  "fields": {
+    "category": "raw_herbal_powders",
+    "sub_category": "roots_rhizomes",
+    "name": "Ginger Powder",
+    "code": null,
+    "description": null,
+    "image_path": null,
+    "image_upload": "",
+    "pdf_path": null,
+    "pdf_upload": "",
+    "pdf_title": null
+  }
+},
+{
+  "model": "main.product",
+  "pk": 23,
+  "fields": {
+    "category": "raw_herbal_powders",
+    "sub_category": "roots_rhizomes",
+    "name": "Glycyrrhiza glabra root Powder Gymnema Leaf Powder",
+    "code": null,
+    "description": null,
+    "image_path": null,
+    "image_upload": "",
+    "pdf_path": null,
+    "pdf_upload": "",
+    "pdf_title": null
+  }
+},
+{
+  "model": "main.product",
+  "pk": 24,
+  "fields": {
+    "category": "raw_herbal_powders",
+    "sub_category": "roots_rhizomes",
+    "name": "Ipomoea digitata rhizome Powder",
+    "code": null,
+    "description": null,
+    "image_path": null,
+    "image_upload": "",
+    "pdf_path": null,
+    "pdf_upload": "",
+    "pdf_title": null
+  }
+},
+{
+  "model": "main.product",
+  "pk": 25,
+  "fields": {
+    "category": "raw_herbal_powders",
+    "sub_category": "roots_rhizomes",
+    "name": "Shatavari root Powder",
+    "code": null,
+    "description": null,
+    "image_path": null,
+    "image_upload": "",
+    "pdf_path": null,
+    "pdf_upload": "",
+    "pdf_title": null
+  }
+},
+{
+  "model": "main.product",
+  "pk": 26,
+  "fields": {
+    "category": "raw_herbal_powders",
+    "sub_category": "roots_rhizomes",
+    "name": "Valerin Root Powder",
+    "code": null,
+    "description": null,
+    "image_path": null,
+    "image_upload": "",
+    "pdf_path": null,
+    "pdf_upload": "",
+    "pdf_title": null
+  }
+},
+{
+  "model": "main.product",
+  "pk": 27,
+  "fields": {
+    "category": "raw_herbal_powders",
+    "sub_category": "roots_rhizomes",
+    "name": "Withania somnifera root Powder",
+    "code": null,
+    "description": null,
+    "image_path": null,
+    "image_upload": "",
+    "pdf_path": null,
+    "pdf_upload": "",
+    "pdf_title": null
+  }
+},
+{
+  "model": "main.product",
+  "pk": 28,
+  "fields": {
+    "category": "raw_herbal_powders",
+    "sub_category": "roots_rhizomes",
+    "name": "Zeodary curcumin Powder",
+    "code": null,
+    "description": null,
+    "image_path": null,
+    "image_upload": "",
+    "pdf_path": null,
+    "pdf_upload": "",
+    "pdf_title": null
+  }
+},
+{
+  "model": "main.product",
+  "pk": 29,
+  "fields": {
+    "category": "raw_herbal_powders",
+    "sub_category": "fruits_seeds",
+    "name": "Amla juice Powder",
+    "code": null,
+    "description": null,
+    "image_path": null,
+    "image_upload": "",
+    "pdf_path": null,
+    "pdf_upload": "",
+    "pdf_title": null
+  }
+},
+{
+  "model": "main.product",
+  "pk": 30,
+  "fields": {
+    "category": "raw_herbal_powders",
+    "sub_category": "fruits_seeds",
+    "name": "Apricot Shell 40-60 Mesh Granules",
+    "code": null,
+    "description": null,
+    "image_path": null,
+    "image_upload": "",
+    "pdf_path": null,
+    "pdf_upload": "",
+    "pdf_title": null
+  }
+},
+{
+  "model": "main.product",
+  "pk": 31,
+  "fields": {
+    "category": "raw_herbal_powders",
+    "sub_category": "fruits_seeds",
+    "name": "Azadirachta indica fruit Powder",
+    "code": null,
+    "description": null,
+    "image_path": null,
+    "image_upload": "",
+    "pdf_path": null,
+    "pdf_upload": "",
+    "pdf_title": null
+  }
+},
+{
+  "model": "main.product",
+  "pk": 32,
+  "fields": {
+    "category": "raw_herbal_powders",
+    "sub_category": "fruits_seeds",
+    "name": "Embelia ribes fruit Powder",
+    "code": null,
+    "description": null,
+    "image_path": null,
+    "image_upload": "",
+    "pdf_path": null,
+    "pdf_upload": "",
+    "pdf_title": null
+  }
+},
+{
+  "model": "main.product",
+  "pk": 33,
+  "fields": {
+    "category": "raw_herbal_powders",
+    "sub_category": "fruits_seeds",
+    "name": "Emblica officinalis fruit Powder",
+    "code": null,
+    "description": null,
+    "image_path": null,
+    "image_upload": "",
+    "pdf_path": null,
+    "pdf_upload": "",
+    "pdf_title": null
+  }
+},
+{
+  "model": "main.product",
+  "pk": 34,
+  "fields": {
+    "category": "raw_herbal_powders",
+    "sub_category": "fruits_seeds",
+    "name": "Ficus carica fruit Powder",
+    "code": null,
+    "description": null,
+    "image_path": null,
+    "image_upload": "",
+    "pdf_path": null,
+    "pdf_upload": "",
+    "pdf_title": null
+  }
+},
+{
+  "model": "main.product",
+  "pk": 35,
+  "fields": {
+    "category": "raw_herbal_powders",
+    "sub_category": "fruits_seeds",
+    "name": "Flax Seed Powder",
+    "code": null,
+    "description": null,
+    "image_path": null,
+    "image_upload": "",
+    "pdf_path": null,
+    "pdf_upload": "",
+    "pdf_title": null
+  }
+},
+{
+  "model": "main.product",
+  "pk": 36,
+  "fields": {
+    "category": "raw_herbal_powders",
+    "sub_category": "fruits_seeds",
+    "name": "Garcinia Cambogia Powder",
+    "code": null,
+    "description": null,
+    "image_path": null,
+    "image_upload": "",
+    "pdf_path": null,
+    "pdf_upload": "",
+    "pdf_title": null
+  }
+},
+{
+  "model": "main.product",
+  "pk": 37,
+  "fields": {
+    "category": "raw_herbal_powders",
+    "sub_category": "fruits_seeds",
+    "name": "Mangifera indica seed Powder",
+    "code": null,
+    "description": null,
+    "image_path": null,
+    "image_upload": "",
+    "pdf_path": null,
+    "pdf_upload": "",
+    "pdf_title": null
+  }
+},
+{
+  "model": "main.product",
+  "pk": 38,
+  "fields": {
+    "category": "raw_herbal_powders",
+    "sub_category": "fruits_seeds",
+    "name": "Momordica charantia Powder",
+    "code": null,
+    "description": null,
+    "image_path": null,
+    "image_upload": "",
+    "pdf_path": null,
+    "pdf_upload": "",
+    "pdf_title": null
+  }
+},
+{
+  "model": "main.product",
+  "pk": 39,
+  "fields": {
+    "category": "raw_herbal_powders",
+    "sub_category": "fruits_seeds",
+    "name": "Piper longum fruit Powder",
+    "code": null,
+    "description": null,
+    "image_path": null,
+    "image_upload": "",
+    "pdf_path": null,
+    "pdf_upload": "",
+    "pdf_title": null
+  }
+},
+{
+  "model": "main.product",
+  "pk": 40,
+  "fields": {
+    "category": "raw_herbal_powders",
+    "sub_category": "fruits_seeds",
+    "name": "Piper nigrum fruit pwoder",
+    "code": null,
+    "description": null,
+    "image_path": null,
+    "image_upload": "",
+    "pdf_path": null,
+    "pdf_upload": "",
+    "pdf_title": null
+  }
+},
+{
+  "model": "main.product",
+  "pk": 41,
+  "fields": {
+    "category": "raw_herbal_powders",
+    "sub_category": "fruits_seeds",
+    "name": "Pongamia glabra seed Powder",
+    "code": null,
+    "description": null,
+    "image_path": null,
+    "image_upload": "",
+    "pdf_path": null,
+    "pdf_upload": "",
+    "pdf_title": null
+  }
+},
+{
+  "model": "main.product",
+  "pk": 42,
+  "fields": {
+    "category": "raw_herbal_powders",
+    "sub_category": "fruits_seeds",
+    "name": "Psyllium Husk Powder",
+    "code": null,
+    "description": null,
+    "image_path": null,
+    "image_upload": "",
+    "pdf_path": null,
+    "pdf_upload": "",
+    "pdf_title": null
+  }
+},
+{
+  "model": "main.product",
+  "pk": 43,
+  "fields": {
+    "category": "raw_herbal_powders",
+    "sub_category": "fruits_seeds",
+    "name": "Tamarind seed Powder",
+    "code": null,
+    "description": null,
+    "image_path": null,
+    "image_upload": "",
+    "pdf_path": null,
+    "pdf_upload": "",
+    "pdf_title": null
+  }
+},
+{
+  "model": "main.product",
+  "pk": 44,
+  "fields": {
+    "category": "raw_herbal_powders",
+    "sub_category": "fruits_seeds",
+    "name": "Terminalia bellerica fruit Powder",
+    "code": null,
+    "description": null,
+    "image_path": null,
+    "image_upload": "",
+    "pdf_path": null,
+    "pdf_upload": "",
+    "pdf_title": null
+  }
+},
+{
+  "model": "main.product",
+  "pk": 45,
+  "fields": {
+    "category": "raw_herbal_powders",
+    "sub_category": "fruits_seeds",
+    "name": "Terminalia chebula fruit Powder",
+    "code": null,
+    "description": null,
+    "image_path": null,
+    "image_upload": "",
+    "pdf_path": null,
+    "pdf_upload": "",
+    "pdf_title": null
+  }
+},
+{
+  "model": "main.product",
+  "pk": 46,
+  "fields": {
+    "category": "raw_herbal_powders",
+    "sub_category": "fruits_seeds",
+    "name": "Tribulus terrestris fruit Powder",
+    "code": null,
+    "description": null,
+    "image_path": null,
+    "image_upload": "",
+    "pdf_path": null,
+    "pdf_upload": "",
+    "pdf_title": null
+  }
+},
+{
+  "model": "main.product",
+  "pk": 47,
+  "fields": {
+    "category": "raw_herbal_powders",
+    "sub_category": "bark_stems",
+    "name": "Azadirachta indica bark Powder",
+    "code": null,
+    "description": null,
+    "image_path": null,
+    "image_upload": "",
+    "pdf_path": null,
+    "pdf_upload": "",
+    "pdf_title": null
+  }
+},
+{
+  "model": "main.product",
+  "pk": 48,
+  "fields": {
+    "category": "raw_herbal_powders",
+    "sub_category": "bark_stems",
+    "name": "Azadirachta indica stem Powder",
+    "code": null,
+    "description": null,
+    "image_path": null,
+    "image_upload": "",
+    "pdf_path": null,
+    "pdf_upload": "",
+    "pdf_title": null
+  }
+},
+{
+  "model": "main.product",
+  "pk": 49,
+  "fields": {
+    "category": "raw_herbal_powders",
+    "sub_category": "bark_stems",
+    "name": "Berberis aristata stem Powder",
+    "code": null,
+    "description": null,
+    "image_path": null,
+    "image_upload": "",
+    "pdf_path": null,
+    "pdf_upload": "",
+    "pdf_title": null
+  }
+},
+{
+  "model": "main.product",
+  "pk": 50,
+  "fields": {
+    "category": "raw_herbal_powders",
+    "sub_category": "bark_stems",
+    "name": "Cinnamomum bark Powder",
+    "code": null,
+    "description": null,
+    "image_path": null,
+    "image_upload": "",
+    "pdf_path": null,
+    "pdf_upload": "",
+    "pdf_title": null
+  }
+},
+{
+  "model": "main.product",
+  "pk": 51,
+  "fields": {
+    "category": "raw_herbal_powders",
+    "sub_category": "bark_stems",
+    "name": "Ficus religiosa bark Powder",
+    "code": null,
+    "description": null,
+    "image_path": null,
+    "image_upload": "",
+    "pdf_path": null,
+    "pdf_upload": "",
+    "pdf_title": null
+  }
+},
+{
+  "model": "main.product",
+  "pk": 52,
+  "fields": {
+    "category": "raw_herbal_powders",
+    "sub_category": "bark_stems",
+    "name": "Ficus religiosa stem Powder",
+    "code": null,
+    "description": null,
+    "image_path": null,
+    "image_upload": "",
+    "pdf_path": null,
+    "pdf_upload": "",
+    "pdf_title": null
+  }
+},
+{
+  "model": "main.product",
+  "pk": 53,
+  "fields": {
+    "category": "raw_herbal_powders",
+    "sub_category": "bark_stems",
+    "name": "Holarrhena antidysenterica stem Powder",
+    "code": null,
+    "description": null,
+    "image_path": null,
+    "image_upload": "",
+    "pdf_path": null,
+    "pdf_upload": "",
+    "pdf_title": null
+  }
+},
+{
+  "model": "main.product",
+  "pk": 54,
+  "fields": {
+    "category": "raw_herbal_powders",
+    "sub_category": "bark_stems",
+    "name": "Saraca indica bark Powder",
+    "code": null,
+    "description": null,
+    "image_path": null,
+    "image_upload": "",
+    "pdf_path": null,
+    "pdf_upload": "",
+    "pdf_title": null
+  }
+},
+{
+  "model": "main.product",
+  "pk": 55,
+  "fields": {
+    "category": "raw_herbal_powders",
+    "sub_category": "bark_stems",
+    "name": "Terminalis arjuna stem Powder",
+    "code": null,
+    "description": null,
+    "image_path": null,
+    "image_upload": "",
+    "pdf_path": null,
+    "pdf_upload": "",
+    "pdf_title": null
+  }
+},
+{
+  "model": "main.product",
+  "pk": 56,
+  "fields": {
+    "category": "raw_herbal_powders",
+    "sub_category": "bark_stems",
+    "name": "Tinospora cordifolia stem Powder",
+    "code": null,
+    "description": null,
+    "image_path": null,
+    "image_upload": "",
+    "pdf_path": null,
+    "pdf_upload": "",
+    "pdf_title": null
+  }
+},
+{
+  "model": "main.product",
+  "pk": 57,
+  "fields": {
+    "category": "raw_herbal_powders",
+    "sub_category": "other",
+    "name": "Beet Root juice Powder",
+    "code": null,
+    "description": null,
+    "image_path": null,
+    "image_upload": "",
+    "pdf_path": null,
+    "pdf_upload": "",
+    "pdf_title": null
+  }
+},
+{
+  "model": "main.product",
+  "pk": 58,
+  "fields": {
+    "category": "raw_herbal_powders",
+    "sub_category": "other",
+    "name": "Carrot Juice Powder",
+    "code": null,
+    "description": null,
+    "image_path": null,
+    "image_upload": "",
+    "pdf_path": null,
+    "pdf_upload": "",
+    "pdf_title": null
+  }
+},
+{
+  "model": "main.product",
+  "pk": 59,
+  "fields": {
+    "category": "raw_herbal_powders",
+    "sub_category": "other",
+    "name": "Cinnamon Powder whole",
+    "code": null,
+    "description": null,
+    "image_path": null,
+    "image_upload": "",
+    "pdf_path": null,
+    "pdf_upload": "",
+    "pdf_title": null
+  }
+},
+{
+  "model": "main.product",
+  "pk": 60,
+  "fields": {
+    "category": "raw_herbal_powders",
+    "sub_category": "other",
+    "name": "Clove Powder",
+    "code": null,
+    "description": null,
+    "image_path": null,
+    "image_upload": "",
+    "pdf_path": null,
+    "pdf_upload": "",
+    "pdf_title": null
+  }
+},
+{
+  "model": "main.product",
+  "pk": 61,
+  "fields": {
+    "category": "raw_herbal_powders",
+    "sub_category": "other",
+    "name": "Coconut milk Powder",
+    "code": null,
+    "description": null,
+    "image_path": null,
+    "image_upload": "",
+    "pdf_path": null,
+    "pdf_upload": "",
+    "pdf_title": null
+  }
+},
+{
+  "model": "main.product",
+  "pk": 62,
+  "fields": {
+    "category": "raw_herbal_powders",
+    "sub_category": "other",
+    "name": "Diarid herbal Powder",
+    "code": null,
+    "description": null,
+    "image_path": null,
+    "image_upload": "",
+    "pdf_path": null,
+    "pdf_upload": "",
+    "pdf_title": null
+  }
+},
+{
+  "model": "main.product",
+  "pk": 63,
+  "fields": {
+    "category": "raw_herbal_powders",
+    "sub_category": "other",
+    "name": "Fermented soy Powder",
+    "code": null,
+    "description": null,
+    "image_path": null,
+    "image_upload": "",
+    "pdf_path": null,
+    "pdf_upload": "",
+    "pdf_title": null
+  }
+},
+{
+  "model": "main.product",
+  "pk": 64,
+  "fields": {
+    "category": "raw_herbal_powders",
+    "sub_category": "other",
+    "name": "Garlic Powder",
+    "code": null,
+    "description": null,
+    "image_path": null,
+    "image_upload": "",
+    "pdf_path": null,
+    "pdf_upload": "",
+    "pdf_title": null
+  }
+},
+{
+  "model": "main.product",
+  "pk": 65,
+  "fields": {
+    "category": "raw_herbal_powders",
+    "sub_category": "other",
+    "name": "Helicterus isora Powder",
+    "code": null,
+    "description": null,
+    "image_path": null,
+    "image_upload": "",
+    "pdf_path": null,
+    "pdf_upload": "",
+    "pdf_title": null
+  }
+},
+{
+  "model": "main.product",
+  "pk": 66,
+  "fields": {
+    "category": "raw_herbal_powders",
+    "sub_category": "other",
+    "name": "marigold petal Powder",
+    "code": null,
+    "description": null,
+    "image_path": null,
+    "image_upload": "",
+    "pdf_path": null,
+    "pdf_upload": "",
+    "pdf_title": null
+  }
+},
+{
+  "model": "main.product",
+  "pk": 67,
+  "fields": {
+    "category": "raw_herbal_powders",
+    "sub_category": "other",
+    "name": "Neem Cake Powder",
+    "code": null,
+    "description": null,
+    "image_path": null,
+    "image_upload": "",
+    "pdf_path": null,
+    "pdf_upload": "",
+    "pdf_title": null
+  }
+},
+{
+  "model": "main.product",
+  "pk": 68,
+  "fields": {
+    "category": "raw_herbal_powders",
+    "sub_category": "other",
+    "name": "Nutmeg Powder",
+    "code": null,
+    "description": null,
+    "image_path": null,
+    "image_upload": "",
+    "pdf_path": null,
+    "pdf_upload": "",
+    "pdf_title": null
+  }
+},
+{
+  "model": "main.product",
+  "pk": 69,
+  "fields": {
+    "category": "raw_herbal_powders",
+    "sub_category": "other",
+    "name": "Sesame cake Powder",
+    "code": null,
+    "description": null,
+    "image_path": null,
+    "image_upload": "",
+    "pdf_path": null,
+    "pdf_upload": "",
+    "pdf_title": null
+  }
+},
+{
+  "model": "main.product",
+  "pk": 70,
+  "fields": {
+    "category": "raw_herbal_powders",
+    "sub_category": "other",
+    "name": "Spirulina Powder",
+    "code": null,
+    "description": null,
+    "image_path": null,
+    "image_upload": "",
+    "pdf_path": null,
+    "pdf_upload": "",
+    "pdf_title": null
+  }
+},
+{
+  "model": "main.product",
+  "pk": 71,
+  "fields": {
+    "category": "raw_herbal_powders",
+    "sub_category": "other",
+    "name": "Tinospora cordifolia Powder",
+    "code": null,
+    "description": null,
+    "image_path": null,
+    "image_upload": "",
+    "pdf_path": null,
+    "pdf_upload": "",
+    "pdf_title": null
+  }
+},
+{
+  "model": "main.product",
+  "pk": 72,
+  "fields": {
+    "category": "raw_herbal_powders",
+    "sub_category": "other",
+    "name": "Triphala Plus blend",
+    "code": null,
+    "description": null,
+    "image_path": null,
+    "image_upload": "",
+    "pdf_path": null,
+    "pdf_upload": "",
+    "pdf_title": null
+  }
+},
+{
+  "model": "main.product",
+  "pk": 73,
+  "fields": {
+    "category": "nutritional_fine_chemicals",
+    "sub_category": "joint_health",
+    "name": "Methylsulfonylmethane (80 Mesh)",
+    "code": null,
+    "description": null,
+    "image_path": null,
+    "image_upload": "",
+    "pdf_path": null,
+    "pdf_upload": "",
+    "pdf_title": null
+  }
+},
+{
+  "model": "main.product",
+  "pk": 74,
+  "fields": {
+    "category": "nutritional_fine_chemicals",
+    "sub_category": "joint_health",
+    "name": "Methylsulfonylmethane (60 Mesh)",
+    "code": null,
+    "description": null,
+    "image_path": null,
+    "image_upload": "",
+    "pdf_path": null,
+    "pdf_upload": "",
+    "pdf_title": null
+  }
+},
+{
+  "model": "main.product",
+  "pk": 75,
+  "fields": {
+    "category": "nutritional_fine_chemicals",
+    "sub_category": "joint_health",
+    "name": "Chondroitin sulphate SH 90%",
+    "code": null,
+    "description": null,
+    "image_path": null,
+    "image_upload": "",
+    "pdf_path": null,
+    "pdf_upload": "",
+    "pdf_title": null
+  }
+},
+{
+  "model": "main.product",
+  "pk": 76,
+  "fields": {
+    "category": "nutritional_fine_chemicals",
+    "sub_category": "joint_health",
+    "name": "Chondroitin sulphate 50%",
+    "code": null,
+    "description": null,
+    "image_path": null,
+    "image_upload": "",
+    "pdf_path": null,
+    "pdf_upload": "",
+    "pdf_title": null
+  }
+},
+{
+  "model": "main.product",
+  "pk": 77,
+  "fields": {
+    "category": "nutritional_fine_chemicals",
+    "sub_category": "vitamins_coenzymes",
+    "name": "Alpha Lipoic Acid",
+    "code": null,
+    "description": null,
+    "image_path": null,
+    "image_upload": "",
+    "pdf_path": null,
+    "pdf_upload": "",
+    "pdf_title": null
+  }
+},
+{
+  "model": "main.product",
+  "pk": 78,
+  "fields": {
+    "category": "nutritional_fine_chemicals",
+    "sub_category": "vitamins_coenzymes",
+    "name": "Resveratrol",
+    "code": null,
+    "description": null,
+    "image_path": null,
+    "image_upload": "",
+    "pdf_path": null,
+    "pdf_upload": "",
+    "pdf_title": null
+  }
+},
+{
+  "model": "main.product",
+  "pk": 79,
+  "fields": {
+    "category": "nutritional_fine_chemicals",
+    "sub_category": "joint_health",
+    "name": "Glucosamine hydrochloride",
+    "code": null,
+    "description": null,
+    "image_path": null,
+    "image_upload": "",
+    "pdf_path": null,
+    "pdf_upload": "",
+    "pdf_title": null
+  }
+},
+{
+  "model": "main.product",
+  "pk": 80,
+  "fields": {
+    "category": "nutritional_fine_chemicals",
+    "sub_category": "vitamins_coenzymes",
+    "name": "Vitamin B13",
+    "code": null,
+    "description": null,
+    "image_path": null,
+    "image_upload": "",
+    "pdf_path": null,
+    "pdf_upload": "",
+    "pdf_title": null
+  }
+},
+{
+  "model": "main.product",
+  "pk": 81,
+  "fields": {
+    "category": "nutritional_fine_chemicals",
+    "sub_category": "joint_health",
+    "name": "Methylsulfonylmethane (20 Mesh)",
+    "code": null,
+    "description": null,
+    "image_path": null,
+    "image_upload": "",
+    "pdf_path": null,
+    "pdf_upload": "",
+    "pdf_title": null
+  }
+},
+{
+  "model": "main.product",
+  "pk": 82,
+  "fields": {
+    "category": "nutritional_fine_chemicals",
+    "sub_category": "joint_health",
+    "name": "Methylsulfonylmethane",
+    "code": null,
+    "description": null,
+    "image_path": null,
+    "image_upload": "",
+    "pdf_path": null,
+    "pdf_upload": "",
+    "pdf_title": null
+  }
+},
+{
+  "model": "main.product",
+  "pk": 83,
+  "fields": {
+    "category": "nutritional_fine_chemicals",
+    "sub_category": "vitamins_coenzymes",
+    "name": "Coenzyme Q10",
+    "code": null,
+    "description": null,
+    "image_path": null,
+    "image_upload": "",
+    "pdf_path": null,
+    "pdf_upload": "",
+    "pdf_title": null
+  }
+},
+{
+  "model": "main.product",
+  "pk": 84,
+  "fields": {
+    "category": "nutritional_fine_chemicals",
+    "sub_category": "minerals",
+    "name": "L-Selenomethionine",
+    "code": null,
+    "description": null,
+    "image_path": null,
+    "image_upload": "",
+    "pdf_path": null,
+    "pdf_upload": "",
+    "pdf_title": null
+  }
+},
+{
+  "model": "main.product",
+  "pk": 85,
+  "fields": {
+    "category": "nutritional_fine_chemicals",
+    "sub_category": "vitamins_coenzymes",
+    "name": "L-Carnitine",
+    "code": null,
+    "description": null,
+    "image_path": null,
+    "image_upload": "",
+    "pdf_path": null,
+    "pdf_upload": "",
+    "pdf_title": null
+  }
+},
+{
+  "model": "main.product",
+  "pk": 86,
+  "fields": {
+    "category": "nutritional_fine_chemicals",
+    "sub_category": "joint_health",
+    "name": "Glucosamine Sulphate",
+    "code": null,
+    "description": null,
+    "image_path": null,
+    "image_upload": "",
+    "pdf_path": null,
+    "pdf_upload": "",
+    "pdf_title": null
+  }
+},
+{
+  "model": "main.product",
+  "pk": 87,
+  "fields": {
+    "category": "nutritional_fine_chemicals",
+    "sub_category": "joint_health",
+    "name": "Glucosamine Hydrochloride 200 mesh",
+    "code": null,
+    "description": null,
+    "image_path": null,
+    "image_upload": "",
+    "pdf_path": null,
+    "pdf_upload": "",
+    "pdf_title": null
+  }
+},
+{
+  "model": "main.product",
+  "pk": 88,
+  "fields": {
+    "category": "nutritional_fine_chemicals",
+    "sub_category": "joint_health",
+    "name": "Chondroitin sulphate 20%",
+    "code": null,
+    "description": null,
+    "image_path": null,
+    "image_upload": "",
+    "pdf_path": null,
+    "pdf_upload": "",
+    "pdf_title": null
+  }
+},
+{
+  "model": "main.product",
+  "pk": 89,
+  "fields": {
+    "category": "nutritional_fine_chemicals",
+    "sub_category": "minerals",
+    "name": "Zinc monomethionine",
+    "code": null,
+    "description": null,
+    "image_path": null,
+    "image_upload": "",
+    "pdf_path": null,
+    "pdf_upload": "",
+    "pdf_title": null
+  }
+},
+{
+  "model": "main.product",
+  "pk": 90,
+  "fields": {
+    "category": "nutritional_fine_chemicals",
+    "sub_category": "joint_health",
+    "name": "Chondroitin sulphate 98%",
+    "code": null,
+    "description": null,
+    "image_path": null,
+    "image_upload": "",
+    "pdf_path": null,
+    "pdf_upload": "",
+    "pdf_title": null
+  }
+},
+{
+  "model": "main.product",
+  "pk": 91,
+  "fields": {
+    "category": "nutritional_fine_chemicals",
+    "sub_category": "minerals",
+    "name": "Calcium citrate malate",
+    "code": null,
+    "description": null,
+    "image_path": null,
+    "image_upload": "",
+    "pdf_path": null,
+    "pdf_upload": "",
+    "pdf_title": null
+  }
+},
+{
+  "model": "main.product",
+  "pk": 92,
+  "fields": {
+    "category": "nutritional_fine_chemicals",
+    "sub_category": "joint_health",
+    "name": "Hyaluronoic acid",
+    "code": null,
+    "description": null,
+    "image_path": null,
+    "image_upload": "",
+    "pdf_path": null,
+    "pdf_upload": "",
+    "pdf_title": null
+  }
+},
+{
+  "model": "main.product",
+  "pk": 93,
+  "fields": {
+    "category": "nutritional_fine_chemicals",
+    "sub_category": "joint_health",
+    "name": "Chondroitin sulphate 45%",
+    "code": null,
+    "description": null,
+    "image_path": null,
+    "image_upload": "",
+    "pdf_path": null,
+    "pdf_upload": "",
+    "pdf_title": null
+  }
+},
+{
+  "model": "main.product",
+  "pk": 94,
+  "fields": {
+    "category": "nutritional_fine_chemicals",
+    "sub_category": "minerals",
+    "name": "L-Selenomethionine DCP",
+    "code": null,
+    "description": null,
+    "image_path": null,
+    "image_upload": "",
+    "pdf_path": null,
+    "pdf_upload": "",
+    "pdf_title": null
+  }
+},
+{
+  "model": "main.product",
+  "pk": 95,
+  "fields": {
+    "category": "nutritional_fine_chemicals",
+    "sub_category": "joint_health",
+    "name": "Collagen Peptide",
+    "code": null,
+    "description": null,
+    "image_path": null,
+    "image_upload": "",
+    "pdf_path": null,
+    "pdf_upload": "",
+    "pdf_title": null
+  }
+},
+{
+  "model": "main.product",
+  "pk": 96,
+  "fields": {
+    "category": "nutritional_fine_chemicals",
+    "sub_category": "joint_health",
+    "name": "Methylsulfonylmethane TG",
+    "code": null,
+    "description": null,
+    "image_path": null,
+    "image_upload": "",
+    "pdf_path": null,
+    "pdf_upload": "",
+    "pdf_title": null
+  }
+},
+{
+  "model": "main.product",
+  "pk": 97,
+  "fields": {
+    "category": "nutritional_fine_chemicals",
+    "sub_category": "joint_health",
+    "name": "Methylsulfonylmethane (40 Mesh)",
+    "code": null,
+    "description": null,
+    "image_path": null,
+    "image_upload": "",
+    "pdf_path": null,
+    "pdf_upload": "",
+    "pdf_title": null
+  }
+},
+{
+  "model": "main.product",
+  "pk": 98,
+  "fields": {
+    "category": "nutritional_fine_chemicals",
+    "sub_category": "joint_health",
+    "name": "Chondroitin sulphate 70%",
+    "code": null,
+    "description": null,
+    "image_path": null,
+    "image_upload": "",
+    "pdf_path": null,
+    "pdf_upload": "",
+    "pdf_title": null
+  }
+},
+{
+  "model": "main.product",
+  "pk": 99,
+  "fields": {
+    "category": "nutritional_fine_chemicals",
+    "sub_category": "joint_health",
+    "name": "Chondroitin sulphate 90%",
+    "code": null,
+    "description": null,
+    "image_path": null,
+    "image_upload": "",
+    "pdf_path": null,
+    "pdf_upload": "",
+    "pdf_title": null
+  }
+},
+{
+  "model": "main.product",
+  "pk": 100,
+  "fields": {
+    "category": "nutritional_fine_chemicals",
+    "sub_category": "joint_health",
+    "name": "Methylsulfonylmethane (60 Mesh) - Pine tree",
+    "code": null,
+    "description": null,
+    "image_path": null,
+    "image_upload": "",
+    "pdf_path": null,
+    "pdf_upload": "",
+    "pdf_title": null
+  }
+},
+{
+  "model": "main.product",
+  "pk": 101,
+  "fields": {
+    "category": "spices_and_oleoresins",
+    "sub_category": "essential_oils",
+    "name": "Ajowan oil",
+    "code": null,
+    "description": null,
+    "image_path": null,
+    "image_upload": "",
+    "pdf_path": null,
+    "pdf_upload": "",
+    "pdf_title": null
+  }
+},
+{
+  "model": "main.product",
+  "pk": 102,
+  "fields": {
+    "category": "spices_and_oleoresins",
+    "sub_category": "essential_oils",
+    "name": "Black pepper oil",
+    "code": null,
+    "description": null,
+    "image_path": null,
+    "image_upload": "",
+    "pdf_path": null,
+    "pdf_upload": "",
+    "pdf_title": null
+  }
+},
+{
+  "model": "main.product",
+  "pk": 103,
+  "fields": {
+    "category": "spices_and_oleoresins",
+    "sub_category": "essential_oils",
+    "name": "Cardamom oil",
+    "code": null,
+    "description": null,
+    "image_path": null,
+    "image_upload": "",
+    "pdf_path": null,
+    "pdf_upload": "",
+    "pdf_title": null
+  }
+},
+{
+  "model": "main.product",
+  "pk": 104,
+  "fields": {
+    "category": "spices_and_oleoresins",
+    "sub_category": "essential_oils",
+    "name": "Cinnamon bark oil",
+    "code": null,
+    "description": null,
+    "image_path": null,
+    "image_upload": "",
+    "pdf_path": null,
+    "pdf_upload": "",
+    "pdf_title": null
+  }
+},
+{
+  "model": "main.product",
+  "pk": 105,
+  "fields": {
+    "category": "spices_and_oleoresins",
+    "sub_category": "essential_oils",
+    "name": "Cinnamon leaf oil",
+    "code": null,
+    "description": null,
+    "image_path": null,
+    "image_upload": "",
+    "pdf_path": null,
+    "pdf_upload": "",
+    "pdf_title": null
+  }
+},
+{
+  "model": "main.product",
+  "pk": 106,
+  "fields": {
+    "category": "spices_and_oleoresins",
+    "sub_category": "essential_oils",
+    "name": "Clove bud oil",
+    "code": null,
+    "description": null,
+    "image_path": null,
+    "image_upload": "",
+    "pdf_path": null,
+    "pdf_upload": "",
+    "pdf_title": null
+  }
+},
+{
+  "model": "main.product",
+  "pk": 107,
+  "fields": {
+    "category": "spices_and_oleoresins",
+    "sub_category": "essential_oils",
+    "name": "Coriander oil",
+    "code": null,
+    "description": null,
+    "image_path": null,
+    "image_upload": "",
+    "pdf_path": null,
+    "pdf_upload": "",
+    "pdf_title": null
+  }
+},
+{
+  "model": "main.product",
+  "pk": 108,
+  "fields": {
+    "category": "spices_and_oleoresins",
+    "sub_category": "essential_oils",
+    "name": "Cumin seed oil",
+    "code": null,
+    "description": null,
+    "image_path": null,
+    "image_upload": "",
+    "pdf_path": null,
+    "pdf_upload": "",
+    "pdf_title": null
+  }
+},
+{
+  "model": "main.product",
+  "pk": 109,
+  "fields": {
+    "category": "spices_and_oleoresins",
+    "sub_category": "essential_oils",
+    "name": "Fennel seed oil",
+    "code": null,
+    "description": null,
+    "image_path": null,
+    "image_upload": "",
+    "pdf_path": null,
+    "pdf_upload": "",
+    "pdf_title": null
+  }
+},
+{
+  "model": "main.product",
+  "pk": 110,
+  "fields": {
+    "category": "spices_and_oleoresins",
+    "sub_category": "essential_oils",
+    "name": "Ginger oil",
+    "code": null,
+    "description": null,
+    "image_path": null,
+    "image_upload": "",
+    "pdf_path": null,
+    "pdf_upload": "",
+    "pdf_title": null
+  }
+},
+{
+  "model": "main.product",
+  "pk": 111,
+  "fields": {
+    "category": "spices_and_oleoresins",
+    "sub_category": "essential_oils",
+    "name": "Hing oil",
+    "code": null,
+    "description": null,
+    "image_path": null,
+    "image_upload": "",
+    "pdf_path": null,
+    "pdf_upload": "",
+    "pdf_title": null
+  }
+},
+{
+  "model": "main.product",
+  "pk": 112,
+  "fields": {
+    "category": "spices_and_oleoresins",
+    "sub_category": "oleoresins",
+    "name": "Oleoresin Nutmeg 30%",
+    "code": null,
+    "description": null,
+    "image_path": null,
+    "image_upload": "",
+    "pdf_path": null,
+    "pdf_upload": "",
+    "pdf_title": null
+  }
+},
+{
+  "model": "main.product",
+  "pk": 113,
+  "fields": {
+    "category": "spices_and_oleoresins",
+    "sub_category": "essential_oils",
+    "name": "Thyme oil",
+    "code": null,
+    "description": null,
+    "image_path": null,
+    "image_upload": "",
+    "pdf_path": null,
+    "pdf_upload": "",
+    "pdf_title": null
+  }
+},
+{
+  "model": "main.product",
+  "pk": 114,
+  "fields": {
+    "category": "spices_and_oleoresins",
+    "sub_category": "oleoresins",
+    "name": "Oleoresin Cassia 50%",
+    "code": null,
+    "description": null,
+    "image_path": null,
+    "image_upload": "",
+    "pdf_path": null,
+    "pdf_upload": "",
+    "pdf_title": null
+  }
+},
+{
+  "model": "main.product",
+  "pk": 115,
+  "fields": {
+    "category": "spices_and_oleoresins",
+    "sub_category": "oleoresins",
+    "name": "Oleoresin black pepper 40%",
+    "code": null,
+    "description": null,
+    "image_path": null,
+    "image_upload": "",
+    "pdf_path": null,
+    "pdf_upload": "",
+    "pdf_title": null
+  }
+},
+{
+  "model": "main.product",
+  "pk": 116,
+  "fields": {
+    "category": "spices_and_oleoresins",
+    "sub_category": "oleoresins",
+    "name": "Oleoresin cardamom",
+    "code": null,
+    "description": null,
+    "image_path": null,
+    "image_upload": "",
+    "pdf_path": null,
+    "pdf_upload": "",
+    "pdf_title": null
+  }
+},
+{
+  "model": "main.product",
+  "pk": 117,
+  "fields": {
+    "category": "spices_and_oleoresins",
+    "sub_category": "oleoresins",
+    "name": "Oleoresin Capsicum OS 1.0 Mill SHU",
+    "code": null,
+    "description": null,
+    "image_path": null,
+    "image_upload": "",
+    "pdf_path": null,
+    "pdf_upload": "",
+    "pdf_title": null
+  }
+},
+{
+  "model": "main.product",
+  "pk": 118,
+  "fields": {
+    "category": "spices_and_oleoresins",
+    "sub_category": "oleoresins",
+    "name": "Oleoresin Cumin 30%",
+    "code": null,
+    "description": null,
+    "image_path": null,
+    "image_upload": "",
+    "pdf_path": null,
+    "pdf_upload": "",
+    "pdf_title": null
+  }
+},
+{
+  "model": "main.product",
+  "pk": 119,
+  "fields": {
+    "category": "spices_and_oleoresins",
+    "sub_category": "oleoresins",
+    "name": "Oleoresin Celery seed 8%",
+    "code": null,
+    "description": null,
+    "image_path": null,
+    "image_upload": "",
+    "pdf_path": null,
+    "pdf_upload": "",
+    "pdf_title": null
+  }
+},
+{
+  "model": "main.product",
+  "pk": 120,
+  "fields": {
+    "category": "spices_and_oleoresins",
+    "sub_category": "oleoresins",
+    "name": "Oleoresin fennel 5%",
+    "code": null,
+    "description": null,
+    "image_path": null,
+    "image_upload": "",
+    "pdf_path": null,
+    "pdf_upload": "",
+    "pdf_title": null
+  }
+},
+{
+  "model": "main.product",
+  "pk": 121,
+  "fields": {
+    "category": "spices_and_oleoresins",
+    "sub_category": "oleoresins",
+    "name": "Oleoresin ginger 30%",
+    "code": null,
+    "description": null,
+    "image_path": null,
+    "image_upload": "",
+    "pdf_path": null,
+    "pdf_upload": "",
+    "pdf_title": null
+  }
+},
+{
+  "model": "main.product",
+  "pk": 122,
+  "fields": {
+    "category": "spices_and_oleoresins",
+    "sub_category": "oleoresins",
+    "name": "Oleoresin mace 30%",
+    "code": null,
+    "description": null,
+    "image_path": null,
+    "image_upload": "",
+    "pdf_path": null,
+    "pdf_upload": "",
+    "pdf_title": null
+  }
+},
+{
+  "model": "main.product",
+  "pk": 123,
+  "fields": {
+    "category": "spices_and_oleoresins",
+    "sub_category": "oleoresins",
+    "name": "Oleoresin paprika OS 40000 CU",
+    "code": null,
+    "description": null,
+    "image_path": null,
+    "image_upload": "",
+    "pdf_path": null,
+    "pdf_upload": "",
+    "pdf_title": null
+  }
+},
+{
+  "model": "main.product",
+  "pk": 124,
+  "fields": {
+    "category": "spices_and_oleoresins",
+    "sub_category": "oleoresins",
+    "name": "Oleoresin paprika OS 100000 CU",
+    "code": null,
+    "description": null,
+    "image_path": null,
+    "image_upload": "",
+    "pdf_path": null,
+    "pdf_upload": "",
+    "pdf_title": null
+  }
+},
+{
+  "model": "main.product",
+  "pk": 125,
+  "fields": {
+    "category": "spices_and_oleoresins",
+    "sub_category": "spices_powders",
+    "name": "Chilli Powder",
+    "code": null,
+    "description": null,
+    "image_path": null,
+    "image_upload": "",
+    "pdf_path": null,
+    "pdf_upload": "",
+    "pdf_title": null
+  }
+},
+{
+  "model": "main.product",
+  "pk": 126,
+  "fields": {
+    "category": "spices_and_oleoresins",
+    "sub_category": "spices_powders",
+    "name": "Chilli whole",
+    "code": null,
+    "description": null,
+    "image_path": null,
+    "image_upload": "",
+    "pdf_path": null,
+    "pdf_upload": "",
+    "pdf_title": null
+  }
+},
+{
+  "model": "main.product",
+  "pk": 127,
+  "fields": {
+    "category": "spices_and_oleoresins",
+    "sub_category": "spices_powders",
+    "name": "Black pepper powder",
+    "code": null,
+    "description": null,
+    "image_path": null,
+    "image_upload": "",
+    "pdf_path": null,
+    "pdf_upload": "",
+    "pdf_title": null
+  }
+},
+{
+  "model": "main.product",
+  "pk": 128,
+  "fields": {
+    "category": "spices_and_oleoresins",
+    "sub_category": "spices_powders",
+    "name": "Ginger fingers",
+    "code": null,
+    "description": null,
+    "image_path": null,
+    "image_upload": "",
+    "pdf_path": null,
+    "pdf_upload": "",
+    "pdf_title": null
+  }
+},
+{
+  "model": "main.product",
+  "pk": 129,
+  "fields": {
+    "category": "spices_and_oleoresins",
+    "sub_category": "spices_powders",
+    "name": "Turmeric fingers",
+    "code": null,
+    "description": null,
+    "image_path": null,
+    "image_upload": "",
+    "pdf_path": null,
+    "pdf_upload": "",
+    "pdf_title": null
+  }
+},
+{
+  "model": "main.product",
+  "pk": 130,
+  "fields": {
+    "category": "spices_and_oleoresins",
+    "sub_category": "spices_powders",
+    "name": "Onion powder",
+    "code": null,
+    "description": null,
+    "image_path": null,
+    "image_upload": "",
+    "pdf_path": null,
+    "pdf_upload": "",
+    "pdf_title": null
+  }
+},
+{
+  "model": "main.product",
+  "pk": 131,
+  "fields": {
+    "category": "spices_and_oleoresins",
+    "sub_category": "spices_powders",
+    "name": "Turmeric powder",
+    "code": null,
+    "description": null,
+    "image_path": null,
+    "image_upload": "",
+    "pdf_path": null,
+    "pdf_upload": "",
+    "pdf_title": null
+  }
+},
+{
+  "model": "main.product",
+  "pk": 132,
+  "fields": {
+    "category": "spices_and_oleoresins",
+    "sub_category": "spices_powders",
+    "name": "Moringa powder",
+    "code": null,
+    "description": null,
+    "image_path": null,
+    "image_upload": "",
+    "pdf_path": null,
+    "pdf_upload": "",
+    "pdf_title": null
+  }
+},
+{
+  "model": "main.product",
+  "pk": 133,
+  "fields": {
+    "category": "spices_and_oleoresins",
+    "sub_category": "spices_powders",
+    "name": "Garlic powder",
+    "code": null,
+    "description": null,
+    "image_path": null,
+    "image_upload": "",
+    "pdf_path": null,
+    "pdf_upload": "",
+    "pdf_title": null
+  }
+},
+{
+  "model": "main.product",
+  "pk": 134,
+  "fields": {
+    "category": "spices_and_oleoresins",
+    "sub_category": "spices_powders",
+    "name": "Ginger powder",
+    "code": null,
+    "description": null,
+    "image_path": null,
+    "image_upload": "",
+    "pdf_path": null,
+    "pdf_upload": "",
+    "pdf_title": null
+  }
+},
+{
+  "model": "main.product",
+  "pk": 135,
+  "fields": {
+    "category": "spices_and_oleoresins",
+    "sub_category": "spices_powders",
+    "name": "Vanila beans",
+    "code": null,
+    "description": null,
+    "image_path": null,
+    "image_upload": "",
+    "pdf_path": null,
+    "pdf_upload": "",
+    "pdf_title": null
+  }
+},
+{
+  "model": "main.product",
+  "pk": 136,
+  "fields": {
+    "category": "spices_and_oleoresins",
+    "sub_category": "spices_powders",
+    "name": "Mace powder",
+    "code": null,
+    "description": null,
+    "image_path": null,
+    "image_upload": "",
+    "pdf_path": null,
+    "pdf_upload": "",
+    "pdf_title": null
+  }
+},
+{
+  "model": "main.product",
+  "pk": 137,
+  "fields": {
+    "category": "spices_and_oleoresins",
+    "sub_category": "spices_powders",
+    "name": "Cardamom powder",
+    "code": null,
+    "description": null,
+    "image_path": null,
+    "image_upload": "",
+    "pdf_path": null,
+    "pdf_upload": "",
+    "pdf_title": null
+  }
+},
+{
+  "model": "main.product",
+  "pk": 138,
+  "fields": {
+    "category": "spices_and_oleoresins",
+    "sub_category": "spices_powders",
+    "name": "Cinnamon stick",
+    "code": null,
+    "description": null,
+    "image_path": null,
+    "image_upload": "",
+    "pdf_path": null,
+    "pdf_upload": "",
+    "pdf_title": null
+  }
+},
+{
+  "model": "main.product",
+  "pk": 139,
+  "fields": {
+    "category": "spices_and_oleoresins",
+    "sub_category": "spices_powders",
+    "name": "Cinnamon powder",
+    "code": null,
+    "description": null,
+    "image_path": null,
+    "image_upload": "",
+    "pdf_path": null,
+    "pdf_upload": "",
+    "pdf_title": null
+  }
+},
+{
+  "model": "main.product",
+  "pk": 140,
+  "fields": {
+    "category": "spices_and_oleoresins",
+    "sub_category": "oleoresins",
+    "name": "Oleoresin fenugreek",
+    "code": null,
+    "description": null,
+    "image_path": null,
+    "image_upload": "",
+    "pdf_path": null,
+    "pdf_upload": "",
+    "pdf_title": null
+  }
+},
+{
+  "model": "main.product",
+  "pk": 141,
+  "fields": {
+    "category": "spices_and_oleoresins",
+    "sub_category": "oleoresins",
+    "name": "Oleoresin mustard",
+    "code": null,
+    "description": null,
+    "image_path": null,
+    "image_upload": "",
+    "pdf_path": null,
+    "pdf_upload": "",
+    "pdf_title": null
+  }
+},
+{
+  "model": "main.product",
+  "pk": 142,
+  "fields": {
+    "category": "spices_and_oleoresins",
+    "sub_category": "oleoresins",
+    "name": "Oleoresin tamarind",
+    "code": null,
+    "description": null,
+    "image_path": null,
+    "image_upload": "",
+    "pdf_path": null,
+    "pdf_upload": "",
+    "pdf_title": null
+  }
+},
+{
+  "model": "main.product",
+  "pk": 143,
+  "fields": {
+    "category": "spices_and_oleoresins",
+    "sub_category": "oleoresins",
+    "name": "Oleoresin capsicum 10%",
+    "code": null,
+    "description": null,
+    "image_path": null,
+    "image_upload": "",
+    "pdf_path": null,
+    "pdf_upload": "",
+    "pdf_title": null
+  }
+},
+{
+  "model": "main.product",
+  "pk": 144,
+  "fields": {
+    "category": "spices_and_oleoresins",
+    "sub_category": "spices_powders",
+    "name": "Cardamom pod",
+    "code": null,
+    "description": null,
+    "image_path": null,
+    "image_upload": "",
+    "pdf_path": null,
+    "pdf_upload": "",
+    "pdf_title": null
+  }
+},
+{
+  "model": "main.product",
+  "pk": 145,
+  "fields": {
+    "category": "spices_and_oleoresins",
+    "sub_category": "spices_powders",
+    "name": "Fenugreek Powder",
+    "code": null,
+    "description": null,
+    "image_path": null,
+    "image_upload": "",
+    "pdf_path": null,
+    "pdf_upload": "",
+    "pdf_title": null
+  }
+},
+{
+  "model": "main.product",
+  "pk": 146,
+  "fields": {
+    "category": "spices_and_oleoresins",
+    "sub_category": "spices_powders",
+    "name": "Fenugreek Whole",
+    "code": null,
+    "description": null,
+    "image_path": null,
+    "image_upload": "",
+    "pdf_path": null,
+    "pdf_upload": "",
+    "pdf_title": null
+  }
+},
+{
+  "model": "main.product",
+  "pk": 147,
+  "fields": {
+    "category": "spices_and_oleoresins",
+    "sub_category": "spices_powders",
+    "name": "Black Pepper Whole",
+    "code": null,
+    "description": null,
+    "image_path": null,
+    "image_upload": "",
+    "pdf_path": null,
+    "pdf_upload": "",
+    "pdf_title": null
+  }
+},
+{
+  "model": "main.product",
+  "pk": 148,
+  "fields": {
+    "category": "spices_and_oleoresins",
+    "sub_category": "spices_powders",
+    "name": "Turmeric rhizome powder",
+    "code": null,
+    "description": null,
+    "image_path": null,
+    "image_upload": "",
+    "pdf_path": null,
+    "pdf_upload": "",
+    "pdf_title": null
+  }
+},
+{
+  "model": "main.product",
+  "pk": 149,
+  "fields": {
+    "category": "spices_and_oleoresins",
+    "sub_category": "spices_powders",
+    "name": "Holy basil Powder",
+    "code": null,
+    "description": null,
+    "image_path": null,
+    "image_upload": "",
+    "pdf_path": null,
+    "pdf_upload": "",
+    "pdf_title": null
+  }
+},
+{
+  "model": "main.product",
+  "pk": 150,
+  "fields": {
+    "category": "spices_and_oleoresins",
+    "sub_category": "oleoresins",
+    "name": "Oleoresin cumin seed",
+    "code": null,
+    "description": null,
+    "image_path": null,
+    "image_upload": "",
+    "pdf_path": null,
+    "pdf_upload": "",
+    "pdf_title": null
+  }
+},
+{
+  "model": "main.product",
+  "pk": 151,
+  "fields": {
+    "category": "spices_and_oleoresins",
+    "sub_category": "oleoresins",
+    "name": "Oleoresin white pepper",
+    "code": null,
+    "description": null,
+    "image_path": null,
+    "image_upload": "",
+    "pdf_path": null,
+    "pdf_upload": "",
+    "pdf_title": null
+  }
+},
+{
+  "model": "main.product",
+  "pk": 152,
+  "fields": {
+    "category": "spices_and_oleoresins",
+    "sub_category": "oleoresins",
+    "name": "Oleoresin clove",
+    "code": null,
+    "description": null,
+    "image_path": null,
+    "image_upload": "",
+    "pdf_path": null,
+    "pdf_upload": "",
+    "pdf_title": null
+  }
+},
+{
+  "model": "main.product",
+  "pk": 153,
+  "fields": {
+    "category": "spices_and_oleoresins",
+    "sub_category": "oleoresins",
+    "name": "Turmeric oleoresin",
+    "code": null,
+    "description": null,
+    "image_path": null,
+    "image_upload": "",
+    "pdf_path": null,
+    "pdf_upload": "",
+    "pdf_title": null
+  }
+},
+{
+  "model": "main.product",
+  "pk": 154,
+  "fields": {
+    "category": "spices_and_oleoresins",
+    "sub_category": "spices_powders",
+    "name": "Nutmeg powder",
+    "code": null,
+    "description": null,
+    "image_path": null,
+    "image_upload": "",
+    "pdf_path": null,
+    "pdf_upload": "",
+    "pdf_title": null
+  }
+},
+{
+  "model": "main.product",
+  "pk": 155,
+  "fields": {
+    "category": "spices_and_oleoresins",
+    "sub_category": "spices_powders",
+    "name": "Nutmeg whole",
+    "code": null,
+    "description": null,
+    "image_path": null,
+    "image_upload": "",
+    "pdf_path": null,
+    "pdf_upload": "",
+    "pdf_title": null
+  }
+},
+{
+  "model": "main.product",
+  "pk": 156,
+  "fields": {
+    "category": "spices_and_oleoresins",
+    "sub_category": "spices_powders",
+    "name": "Coriander whole",
+    "code": null,
+    "description": null,
+    "image_path": null,
+    "image_upload": "",
+    "pdf_path": null,
+    "pdf_upload": "",
+    "pdf_title": null
+  }
+},
+{
+  "model": "main.product",
+  "pk": 157,
+  "fields": {
+    "category": "spices_and_oleoresins",
+    "sub_category": "spices_powders",
+    "name": "Coriander Powder",
+    "code": null,
+    "description": null,
+    "image_path": null,
+    "image_upload": "",
+    "pdf_path": null,
+    "pdf_upload": "",
+    "pdf_title": null
+  }
+},
+{
+  "model": "main.product",
+  "pk": 158,
+  "fields": {
+    "category": "spices_and_oleoresins",
+    "sub_category": "spices_powders",
+    "name": "Cumin Powder",
+    "code": null,
+    "description": null,
+    "image_path": null,
+    "image_upload": "",
+    "pdf_path": null,
+    "pdf_upload": "",
+    "pdf_title": null
+  }
+},
+{
+  "model": "main.product",
+  "pk": 159,
+  "fields": {
+    "category": "spices_and_oleoresins",
+    "sub_category": "spices_powders",
+    "name": "Cumin whole",
+    "code": null,
+    "description": null,
+    "image_path": null,
+    "image_upload": "",
+    "pdf_path": null,
+    "pdf_upload": "",
+    "pdf_title": null
+  }
+},
+{
+  "model": "main.product",
+  "pk": 160,
+  "fields": {
+    "category": "spices_and_oleoresins",
+    "sub_category": "spices_powders",
+    "name": "Star anise",
+    "code": null,
+    "description": null,
+    "image_path": null,
+    "image_upload": "",
+    "pdf_path": null,
+    "pdf_upload": "",
+    "pdf_title": null
+  }
+},
+{
+  "model": "main.product",
+  "pk": 161,
+  "fields": {
+    "category": "spices_and_oleoresins",
+    "sub_category": "oleoresins",
+    "name": "Oleoresin capsicum OS 1.5 MSHU",
+    "code": null,
+    "description": null,
+    "image_path": null,
+    "image_upload": "",
+    "pdf_path": null,
+    "pdf_upload": "",
+    "pdf_title": null
+  }
+},
+{
+  "model": "main.product",
+  "pk": 162,
+  "fields": {
+    "category": "spices_and_oleoresins",
+    "sub_category": "oleoresins",
+    "name": "Oleoresin capsicum (Roasted)",
+    "code": null,
+    "description": null,
+    "image_path": null,
+    "image_upload": "",
+    "pdf_path": null,
+    "pdf_upload": "",
+    "pdf_title": null
+  }
+},
+{
+  "model": "main.product",
+  "pk": 163,
+  "fields": {
+    "category": "spices_and_oleoresins",
+    "sub_category": "oleoresins",
+    "name": "Oleoresin black pepper 50% (CO2 extraction)",
+    "code": null,
+    "description": null,
+    "image_path": null,
+    "image_upload": "",
+    "pdf_path": null,
+    "pdf_upload": "",
+    "pdf_title": null
+  }
+},
+{
+  "model": "main.product",
+  "pk": 164,
+  "fields": {
+    "category": "spices_and_oleoresins",
+    "sub_category": "essential_oils",
+    "name": "Coleus Oil",
+    "code": null,
+    "description": null,
+    "image_path": null,
+    "image_upload": "",
+    "pdf_path": null,
+    "pdf_upload": "",
+    "pdf_title": null
+  }
+},
+{
+  "model": "main.product",
+  "pk": 165,
+  "fields": {
+    "category": "spices_and_oleoresins",
+    "sub_category": "spices_powders",
+    "name": "Celery Powder",
+    "code": null,
+    "description": null,
+    "image_path": null,
+    "image_upload": "",
+    "pdf_path": null,
+    "pdf_upload": "",
+    "pdf_title": null
+  }
+},
+{
+  "model": "main.product",
+  "pk": 166,
+  "fields": {
+    "category": "spices_and_oleoresins",
+    "sub_category": "oleoresins",
+    "name": "Oleoresin Capsicum 2.0 Mill SHU",
+    "code": null,
+    "description": null,
+    "image_path": null,
+    "image_upload": "",
+    "pdf_path": null,
+    "pdf_upload": "",
+    "pdf_title": null
+  }
+},
+{
+  "model": "main.product",
+  "pk": 167,
+  "fields": {
+    "category": "spices_and_oleoresins",
+    "sub_category": "spices_powders",
+    "name": "Black pepper powder (Steam Sterilized)",
+    "code": null,
+    "description": null,
+    "image_path": null,
+    "image_upload": "",
+    "pdf_path": null,
+    "pdf_upload": "",
+    "pdf_title": null
+  }
+},
+{
+  "model": "main.product",
+  "pk": 168,
+  "fields": {
+    "category": "spices_and_oleoresins",
+    "sub_category": "spices_powders",
+    "name": "Fenugreek Seed Powder (Steam sterilized)",
+    "code": null,
+    "description": null,
+    "image_path": null,
+    "image_upload": "",
+    "pdf_path": null,
+    "pdf_upload": "",
+    "pdf_title": null
+  }
+},
+{
+  "model": "main.product",
+  "pk": 169,
+  "fields": {
+    "category": "spices_and_oleoresins",
+    "sub_category": "spices_powders",
+    "name": "Chili Powder (Steam sterilized)",
+    "code": null,
+    "description": null,
+    "image_path": null,
+    "image_upload": "",
+    "pdf_path": null,
+    "pdf_upload": "",
+    "pdf_title": null
+  }
+},
+{
+  "model": "main.product",
+  "pk": 170,
+  "fields": {
+    "category": "spices_and_oleoresins",
+    "sub_category": "spices_powders",
+    "name": "Chili Crushed (Steam Sterilized)",
+    "code": null,
+    "description": null,
+    "image_path": null,
+    "image_upload": "",
+    "pdf_path": null,
+    "pdf_upload": "",
+    "pdf_title": null
+  }
+},
+{
+  "model": "main.product",
+  "pk": 171,
+  "fields": {
+    "category": "spices_and_oleoresins",
+    "sub_category": "spices_powders",
+    "name": "Onion Powder (Steam Sterilized)",
+    "code": null,
+    "description": null,
+    "image_path": null,
+    "image_upload": "",
+    "pdf_path": null,
+    "pdf_upload": "",
+    "pdf_title": null
+  }
+},
+{
+  "model": "main.product",
+  "pk": 172,
+  "fields": {
+    "category": "spices_and_oleoresins",
+    "sub_category": "spices_powders",
+    "name": "Garlic Powder (Steam Sterilized)",
+    "code": null,
+    "description": null,
+    "image_path": null,
+    "image_upload": "",
+    "pdf_path": null,
+    "pdf_upload": "",
+    "pdf_title": null
+  }
+},
+{
+  "model": "main.product",
+  "pk": 173,
+  "fields": {
+    "category": "spices_and_oleoresins",
+    "sub_category": "spices_powders",
+    "name": "Fenugreek dried Leaves",
+    "code": null,
+    "description": null,
+    "image_path": null,
+    "image_upload": "",
+    "pdf_path": null,
+    "pdf_upload": "",
+    "pdf_title": null
+  }
+},
+{
+  "model": "main.product",
+  "pk": 174,
+  "fields": {
+    "category": "spices_and_oleoresins",
+    "sub_category": "spices_powders",
+    "name": "Fenugreek Seeds",
+    "code": null,
+    "description": null,
+    "image_path": null,
+    "image_upload": "",
+    "pdf_path": null,
+    "pdf_upload": "",
+    "pdf_title": null
+  }
+},
+{
+  "model": "main.product",
+  "pk": 175,
+  "fields": {
+    "category": "spices_and_oleoresins",
+    "sub_category": "essential_oils",
+    "name": "Argan Oil",
+    "code": null,
+    "description": null,
+    "image_path": null,
+    "image_upload": "",
+    "pdf_path": null,
+    "pdf_upload": "",
+    "pdf_title": null
+  }
+},
+{
+  "model": "main.product",
+  "pk": 176,
+  "fields": {
+    "category": "spices_and_oleoresins",
+    "sub_category": "essential_oils",
+    "name": "Avocado Oil",
+    "code": null,
+    "description": null,
+    "image_path": null,
+    "image_upload": "",
+    "pdf_path": null,
+    "pdf_upload": "",
+    "pdf_title": null
+  }
+},
+{
+  "model": "main.product",
+  "pk": 177,
+  "fields": {
+    "category": "spices_and_oleoresins",
+    "sub_category": "essential_oils",
+    "name": "Castor oil cold pressed",
+    "code": null,
+    "description": null,
+    "image_path": null,
+    "image_upload": "",
+    "pdf_path": null,
+    "pdf_upload": "",
+    "pdf_title": null
+  }
+},
+{
+  "model": "main.naturalfoodcolor",
+  "pk": 1,
+  "fields": {
+    "name": "Annato 20% (Oil soluble )",
+    "color_hex": "#e8b254",
+    "order": 1
+  }
+},
+{
+  "model": "main.naturalflavour",
+  "pk": 1,
+  "fields": {
+    "name": "Mixed Berry",
+    "category": "Additional Fruit Based Flavours",
+    "color_hex": "#ebebeb",
+    "order": 1
+  }
+},
+{
+  "model": "main.productbrochure",
+  "pk": 1,
+  "fields": {
+    "title": "CORPORATE BROCHURE",
+    "image_upload": "",
+    "image_path": "",
+    "pdf_upload": "brochures/pdfs/Brand_Products.pdf",
+    "pdf_path": "",
+    "order": 1
+  }
+},
+{
+  "model": "main.productdocumentcategory",
+  "pk": 1,
+  "fields": {
+    "name": "Beverage Premixes",
+    "created_at": "2026-08-11T04:51:34.220Z"
+  }
+},
+{
+  "model": "main.productdocumentcategory",
+  "pk": 2,
+  "fields": {
+    "name": "Botanical Powders",
+    "created_at": "2026-08-11T04:51:47.598Z"
+  }
+},
+{
+  "model": "main.productdocumentcategory",
+  "pk": 3,
+  "fields": {
+    "name": "Branded Products",
+    "created_at": "2026-08-11T04:51:58.131Z"
+  }
+},
+{
+  "model": "main.productdocumentcategory",
+  "pk": 4,
+  "fields": {
+    "name": "Carotenoids & Eye Health",
+    "created_at": "2026-08-11T04:52:06.131Z"
+  }
+},
+{
+  "model": "main.productdocumentcategory",
+  "pk": 5,
+  "fields": {
+    "name": "Essential & Natural Oils",
+    "created_at": "2026-08-11T04:52:17.532Z"
+  }
+},
+{
+  "model": "main.productdocumentcategory",
+  "pk": 6,
+  "fields": {
+    "name": "Finished Nutraceutical Supplements",
+    "created_at": "2026-08-11T04:52:26.779Z"
+  }
+},
+{
+  "model": "main.productdocumentcategory",
+  "pk": 7,
+  "fields": {
+    "name": "Flavours",
+    "created_at": "2026-08-11T04:52:36.692Z"
+  }
+},
+{
+  "model": "main.productdocumentcategory",
+  "pk": 8,
+  "fields": {
+    "name": "Fruit & Vegetable Products",
+    "created_at": "2026-08-11T04:52:45.333Z"
+  }
+},
+{
+  "model": "main.productdocumentcategory",
+  "pk": 9,
+  "fields": {
+    "name": "Herbal Extract",
+    "created_at": "2026-08-11T04:53:03.370Z"
+  }
+},
+{
+  "model": "main.productdocumentcategory",
+  "pk": 10,
+  "fields": {
+    "name": "Natural Food Colours",
+    "created_at": "2026-08-11T04:53:09.603Z"
+  }
+},
+{
+  "model": "main.productdocumentcategory",
+  "pk": 11,
+  "fields": {
+    "name": "Nutraceutical Ingredients",
+    "created_at": "2026-08-11T04:53:18.775Z"
+  }
+},
+{
+  "model": "main.productdocumentcategory",
+  "pk": 12,
+  "fields": {
+    "name": "Organic Product",
+    "created_at": "2026-08-11T04:53:27.364Z"
+  }
+},
+{
+  "model": "main.productdocumentcategory",
+  "pk": 13,
+  "fields": {
+    "name": "Synthetic Food Colours",
+    "created_at": "2026-08-11T04:53:32.089Z"
+  }
+},
+{
+  "model": "main.productdocument",
+  "pk": 1,
+  "fields": {
+    "name": "Ashwagandha",
+    "category": 9,
+    "image": "product_documents/images/Ashwagandha_5.webp",
+    "pdfs": "product_documents/pdfs/Ashwagandha 26.pdf,product_documents/pdfs/BMI20230688_PA report Ashwagandha_Extract_5.0__.pdf,product_documents/pdfs/BMI20230688_PAH report Ashwagandha_Extract_5.0__.pdf,product_documents/pdfs/BMI20230753 Ashwagandha EXTRACT 10.0_ AssayReport.pdf,product_documents/pdfs/BMI20230753 Ashwagandha EXTRACT 10.0_ hm Report.pdf,product_documents/pdfs/BMI20230753 Ashwagandha EXTRACT 10.0_ Micro Report.pdf,product_documents/pdfs/BMI20230753 Ashwagandha EXTRACT 10.0_ pesticide Report.pdf,product_documents/pdfs/BMI20230753 Ashwagandha_Extract_10.0__ RS.pdf,product_documents/pdfs/BMI20230753 COA Ashwagandha extract 10.0_ grav.pdf,product_documents/pdfs/FPSB01 Ashwagandha Extract 10.0_ Grav Root.pdf,product_documents/pdfs/ICC Ashwagandha extract 10.0_.pdf,product_documents/pdfs/MSDS  Ashwagandha Extract 10.0_.pdf,product_documents/pdfs/Nutritional values Ashwagandha Extract.pdf,product_documents/pdfs/TDS Ashwagandha Extract 10.0_.pdf",
+    "created_at": "2026-08-11T05:33:03.998Z",
+    "updated_at": "2026-08-11T05:33:03.998Z"
+  }
+},
+{
+  "model": "main.exhibitionevent",
+  "pk": 1,
+  "fields": {
+    "tag": "CPHI Korea",
+    "description": "COEX, Seoul, Korea",
+    "background_image": "exhibitions/seoul-south-korea-2026-03-24-11-18-10-utc.jpg",
+    "order": 1,
+    "is_active": false,
+    "booth_number": "N15",
+    "logo": "exhibitions/logos/cphi_loho.webp",
+    "event_date": "2026-08-11",
+    "event_end_date": "2026-08-13"
+  }
+},
+{
+  "model": "main.exhibitionevent",
+  "pk": 3,
+  "fields": {
+    "tag": "BHARAT NUTRAVERSE",
+    "description": "New Delhi, India",
+    "background_image": "exhibitions/Gemini_Generated_Image_4gbozj4gbozj4gbo.png",
+    "order": 2,
+    "is_active": false,
+    "booth_number": "A453",
+    "logo": "exhibitions/logos/bharat_nutra_Topaz_Gigapixel_2x_scale.webp",
+    "event_date": "2026-09-07",
+    "event_end_date": "2026-09-09"
+  }
+},
+{
+  "model": "main.exhibitionevent",
+  "pk": 4,
+  "fields": {
+    "tag": "HI JAPAN",
+    "description": "Tokyo, Japan",
+    "background_image": "exhibitions/torii-gates-near-the-water-in-japan-2026-03-18-04-30-03-utc.jpg",
+    "order": 3,
+    "is_active": false,
+    "booth_number": "1-103",
+    "logo": "exhibitions/logos/fi-logo-rgb-hi-japan-0f38b298a833852b43d0ae6a1c72f5fa.avif",
+    "event_date": "2026-10-14",
+    "event_end_date": "2026-10-16"
+  }
+},
+{
+  "model": "main.exhibitionevent",
+  "pk": 7,
+  "fields": {
+    "tag": "VITAFOODS",
+    "description": "Pavilions 1–3, Jio World Convention Centre (JWCC), Mumbai",
+    "background_image": "exhibitions/sicis-jio-world-centre--mumbai-concert-halls-archello.1659697660.0687.jpg",
+    "order": 4,
+    "is_active": true,
+    "booth_number": "Q04",
+    "logo": "exhibitions/logos/vfi-new-logo-min-463bf138f0ff3c3cc94e3d53ad8d3c08.avif",
+    "event_date": "2027-02-09",
+    "event_end_date": "2027-02-11"
+  }
+},
+{
+  "model": "main.eventsubscriber",
+  "pk": 1,
+  "fields": {
+    "email": "ajomonthomas741@gmail.com",
+    "subscribed_at": "2026-08-20T04:39:56.571Z",
+    "is_active": true
+  }
+},
+{
+  "model": "main.instagrampost",
+  "pk": 1,
+  "fields": {
+    "image_upload": "instagram_posts/01.jpg",
+    "caption": "ffasfafaaas",
+    "link": "https://www.instagram.com/p/DbFQP-ojKjl/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
+    "is_visible": true,
+    "order": 1,
+    "created_at": "2026-08-11T08:11:13.483Z"
+  }
+},
+{
+  "model": "main.instagrampost",
+  "pk": 2,
+  "fields": {
+    "image_upload": "instagram_posts/torii-gates-near-the-water-in-japan-2026-03-18-04-30-03-utc.jpg",
+    "caption": "sffffffffffffffffffff",
+    "link": "https://www.instagram.com/p/DbFQP-ojKjl/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
+    "is_visible": true,
+    "order": 2,
+    "created_at": "2026-08-13T03:32:04.317Z"
+  }
+},
+{
+  "model": "main.jobopening",
+  "pk": 1,
+  "fields": {
+    "title": "sfas",
+    "category": "sssssssssssss",
+    "description": "ssssssffffffffffffffffffffff",
+    "academic_excellence": "hsdsffsfzfzfd",
+    "professional_expertise": "atesrsdfrffesfded",
+    "core_responsibilities": "ffffffffffffffffffffffffggggggggggggggggg",
+    "core_competencies": "sdffgsgbg sdfadaws",
+    "professional_edge": "egouhtiuhiehgiovhj",
+    "commitment_statement": "lnhdggmn;dfsmfd",
+    "icon": "fa-microscope",
+    "color_theme": "success",
+    "link": "#fffaerarawrwrwrwrwrwrr",
+    "order": 1
+  }
+},
+{
+  "model": "main.jobapplication",
+  "pk": 7,
+  "fields": {
+    "job": 1,
+    "name": "Ajomon Thomas",
+    "email": "ajomonthomas741@gmail.com",
+    "phone": "35644478",
+    "experience": 3,
+    "address": "jd0yu0b0j0hj0=sjg0j0j606",
+    "resume": "resumes/Berberine_Liposome_copy.pdf",
+    "details": "eeeeeeeeeeeeeeeeeeeeee",
+    "applied_at": "2026-08-18T10:47:26.305Z"
+  }
+},
+{
+  "model": "main.jobapplication",
+  "pk": 8,
+  "fields": {
+    "job": 1,
+    "name": "Ajomon Thomas",
+    "email": "ajomonthomas741@gmail.com",
+    "phone": "35644478",
+    "experience": 4,
+    "address": "ergncgxgsdffs",
+    "resume": "resumes/Vitamin_premixes_copy.pdf",
+    "details": "wwwwwwwwwwwwwww",
+    "applied_at": "2026-08-18T10:52:12.119Z"
+  }
+},
+{
+  "model": "main.contactmessage",
+  "pk": 1,
+  "fields": {
+    "name": "Ajomon Thomas",
+    "email": "ajomonthomas741@gmail.com",
+    "phone": "35644478",
+    "country": "Andorra",
+    "subject": "arwb",
+    "message": "aaaaaaaaaaaa",
+    "created_at": "2026-08-18T10:55:01.317Z"
+  }
+},
+{
+  "model": "main.emailconfiguration",
+  "pk": 1,
+  "fields": {
+    "enquiry_email": "design1@biomedingredients.com",
+    "booking_email": "design1@biomedingredients.com",
+    "career_email": "design1@biomedingredients.com, ajomonthomas741@gmail.com",
+    "subscription_email": "design1@biomedingredients.com"
+  }
+}
+]
