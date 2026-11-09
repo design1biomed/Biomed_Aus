@@ -26,7 +26,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
     <!-- Custom Styles -->
-    <link rel="stylesheet" href="{% static 'css/styles.css' %}?v=3.4">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}?v=3.3">
 
     <!-- Google Fonts: Non-blocking load (does not delay first paint) -->
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -148,8 +148,6 @@
 
     <!-- Include Footer -->
     {% include 'main/footer.html' %}
-
-    {% include 'main/includes/accreditation_modal.html' %}
 
     {% block modals %}{% endblock %}
 

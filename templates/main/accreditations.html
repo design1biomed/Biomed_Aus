@@ -194,7 +194,6 @@
         <div class="row g-4 justify-content-center">
 
             {% for item in accreditations_list %}
-            {% with details=item.get_verification_details %}
             <div class="col-6 col-md-4 col-xl-3" data-aos="fade-up" data-aos-delay="{% cycle '100' '200' '300' '400' as delay %}"
                 data-aos-duration="800">
                 <div class="corp-cert-card">
@@ -206,24 +205,22 @@
                     <h3 class="corp-cert-title">{{ item.name }}</h3>
 
                     <div class="w-100 mt-auto">
-                        <button type="button" class="btn btn-outline-success w-100 rounded-pill fw-semibold shadow-sm d-flex align-items-center justify-content-center gap-2"
-                            data-bs-toggle="modal" data-bs-target="#accredVerificationModal"
-                            data-title="{{ details.title }}"
-                            data-badge="{{ details.badge_name }}"
-                            data-body="{{ details.cert_body }}"
-                            data-standard="{{ details.standard }}"
-                            data-scope="{{ details.scope }}"
-                            data-reg="{{ details.reg_number }}"
-                            data-validity="{{ details.validity }}"
-                            data-img="{{ item.image.url }}"
-                            style="font-size: 0.85rem; padding: 0.45rem 0.8rem;">
-                            <i class="ph ph-shield-check"></i> Verify &amp; View
+                        {% if access_granted %}
+                        <button type="button" class="btn btn-outline-success w-100 rounded-pill fw-semibold shadow-sm"
+                            data-bs-toggle="modal" data-bs-target="#certModal{{ item.id }}" style="font-size: 0.85rem; padding: 0.4rem 0.8rem;">
+                            <i class="ph ph-file-pdf me-2"></i> View
                         </button>
+                        {% else %}
+                        <button type="button" class="btn btn-outline-success w-100 rounded-pill fw-semibold shadow-sm"
+                            data-bs-toggle="modal" data-bs-target="#unlockModal" style="font-size: 0.85rem; padding: 0.4rem 0.8rem;">
+                            <i class="ph ph-lock-key me-2"></i> View
+                        </button>
+                        {% endif %}
                     </div>
 
                 </div>
             </div>
-            {% endwith %}
+
             {% endfor %}
             {% resetcycle %}
 

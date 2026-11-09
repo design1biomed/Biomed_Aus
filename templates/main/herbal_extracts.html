@@ -264,14 +264,6 @@
                                 </div>
                                 {% endif %}
 
-                                {% if 'Ashwagandha' in prod.name or 'Curcumin' in prod.name or 'Turmeric' in prod.name or 'Boswellia' in prod.name or 'Marigold' in prod.name or 'Lutein' in prod.name or 'Fenugreek' in prod.name or 'Green Tea' in prod.name %}
-                                <div class="mb-2">
-                                    <a href="{% url 'research' %}#clinical-trials" class="badge bg-success bg-opacity-10 text-success border border-success border-opacity-25 text-decoration-none px-2 py-1 rounded-pill d-inline-flex align-items-center gap-1 fw-semibold" style="font-size: 0.75rem;" title="View PubMed Clinical Trial Evidence">
-                                        <i class="ph ph-flask"></i> Clinical Studies (PubMed)
-                                    </a>
-                                </div>
-                                {% endif %}
-
                                 {% if prod.description %}
                                 <p class="text-muted small mb-4 flex-grow-1" style="line-height: 1.6;">
                                     {{ prod.description|linebreaksbr|truncatechars:120 }}

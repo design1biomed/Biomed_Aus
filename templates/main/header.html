@@ -110,65 +110,13 @@
         </div>
 
         <!-- Right: CTAs (Desktop Only) -->
-        <div class="d-none d-lg-flex ms-lg-auto align-items-center gap-3 order-2 order-lg-3">
-            
-            <!-- Regional Selector Dropdown -->
-            <div class="dropdown regional-dropdown">
-                <button class="btn regional-btn rounded-pill px-3 py-1 d-flex align-items-center gap-2 fw-semibold" type="button" id="regionalDropdown" data-bs-toggle="dropdown" aria-expanded="false" title="Switch Region &amp; Regulatory Standard">
-                    <span class="region-flag" id="currentRegionFlag">🇦🇺</span>
-                    <span class="region-text" id="currentRegionLabel">AU · AUD</span>
-                    <i class="ph ph-caret-down fs-xs text-white-50"></i>
-                </button>
-                <ul class="dropdown-menu dropdown-menu-end shadow-lg rounded-4 p-2 border-0 mt-2" aria-labelledby="regionalDropdown" style="min-width: 270px; background: rgba(255,255,255,0.98); backdrop-filter: blur(16px);">
-                    <li>
-                        <button type="button" class="dropdown-item rounded-3 py-2 px-3 d-flex align-items-center gap-3 regional-option active" data-region="au" data-flag="🇦🇺" data-label="AU · AUD" data-curr="AUD ($)" data-compliance="🇦🇺 Australian Market Mode: TGA Compliant · Local Sydney Dispatch · AUD Invoicing">
-                            <span class="fs-4">🇦🇺</span>
-                            <div class="text-start">
-                                <div class="fw-bold text-dark" style="font-size: 0.85rem;">Australia &amp; NZ (AUD)</div>
-                                <div class="text-muted" style="font-size: 0.72rem;">TGA &amp; BVAQ Certified · Sydney Hub</div>
-                            </div>
-                        </button>
-                    </li>
-                    <li>
-                        <button type="button" class="dropdown-item rounded-3 py-2 px-3 d-flex align-items-center gap-3 regional-option" data-region="eu" data-flag="🇪🇺" data-label="EU · EUR" data-curr="EUR (€)" data-compliance="🇪🇺 European Market Mode: EFSA Standards · Non-GMO / EU Organic · EUR Invoicing">
-                            <span class="fs-4">🇪🇺</span>
-                            <div class="text-start">
-                                <div class="fw-bold text-dark" style="font-size: 0.85rem;">Europe (EUR)</div>
-                                <div class="text-muted" style="font-size: 0.72rem;">EFSA Standards · Rotterdam Freight</div>
-                            </div>
-                        </button>
-                    </li>
-                    <li>
-                        <button type="button" class="dropdown-item rounded-3 py-2 px-3 d-flex align-items-center gap-3 regional-option" data-region="us" data-flag="🇺🇸" data-label="US · USD" data-curr="USD ($)" data-compliance="🇺🇸 US &amp; Global Market Mode: FDA cGMP 21 CFR Part 111 · Worldwide CIF/FOB Quotes">
-                            <span class="fs-4">🇺🇸</span>
-                            <div class="text-start">
-                                <div class="fw-bold text-dark" style="font-size: 0.85rem;">US &amp; Global (USD)</div>
-                                <div class="text-muted" style="font-size: 0.72rem;">FDA cGMP · Worldwide Air &amp; Ocean Freight</div>
-                            </div>
-                        </button>
-                    </li>
-                </ul>
-            </div>
-
+        <div class="d-none d-lg-flex ms-lg-auto align-items-center gap-4 order-2 order-lg-3">
             <a href="{% url 'contact' %}" class="btn nav-contact-btn rounded-pill px-4 py-2 fw-semibold {% if request.resolver_match.url_name == 'contact' or request.path == '/contact/' %}active{% endif %}"
                 style="border-width: 1px;">Contact Us</a>
         </div>
 
     </div>
 </nav>
-
-<!-- Floating Regional Compliance Pill -->
-<div id="regionalComplianceBar" class="regional-compliance-bar" role="status" aria-live="polite">
-    <div class="d-flex align-items-center gap-2">
-        <span class="badge bg-success bg-opacity-20 text-success border border-success-subtle rounded-pill px-2 py-1" style="font-size: 0.72rem;">
-            <i class="ph-fill ph-check-circle"></i> COMPLIANCE
-        </span>
-        <span id="regionalComplianceText" class="fw-medium text-white" style="font-size: 0.8rem;">
-            🇦🇺 Australian Market Mode: TGA &amp; BVAQ Certified · Sydney Hub Dispatch
-        </span>
-    </div>
-    <button type="button" id="closeRegionalBarBtn" class="btn-close btn-close-white ms-2" style="font-size: 0.65rem;" aria-label="Dismiss notice"></button>
-</div>
 
 <!-- ═══════════════════════════════════════════
      OVERLAY
@@ -197,20 +145,6 @@
     <!-- ── Decorative divider ── -->
     <div class="sb-divider">
         <span class="sb-pill-badge"><i class="ph-fill ph-leaf"></i> Natural · Pure · Trusted</span>
-    </div>
-
-    <!-- ── Regional Regulatory Selector (Mobile) ── -->
-    <div class="px-4 py-2">
-        <div class="p-2 rounded-4 bg-light border d-flex align-items-center justify-content-between">
-            <span class="small fw-bold text-dark d-flex align-items-center gap-1" style="font-size: 0.78rem;">
-                <i class="ph ph-globe text-success"></i> Market:
-            </span>
-            <div class="d-flex gap-1">
-                <button type="button" class="btn btn-sm rounded-pill px-2 py-1 regional-mobile-btn active fw-bold" data-region="au" style="font-size: 0.75rem;">🇦🇺 AU</button>
-                <button type="button" class="btn btn-sm rounded-pill px-2 py-1 regional-mobile-btn fw-bold" data-region="eu" style="font-size: 0.75rem;">🇪🇺 EU</button>
-                <button type="button" class="btn btn-sm rounded-pill px-2 py-1 regional-mobile-btn fw-bold" data-region="us" style="font-size: 0.75rem;">🇺🇸 US</button>
-            </div>
-        </div>
     </div>
 
     <!-- ── Navigation ── -->
@@ -995,15 +929,14 @@
         // Desktop nav active pill validation
         const navPillLinks = document.querySelectorAll('.nav-pill-wrapper .nav-pill-link');
         let desktopActiveFound = false;
-        const normCurrent = currentPath.replace(/\/+$/, '') || '/';
 
         // 1. Direct top-level links get priority (Home, Our Accreditations, Facility, Research)
         navPillLinks.forEach(function (link) {
             const href = link.getAttribute('href');
             if (href) {
                 const cleanHref = href.split('?')[0];
-                const normHref = cleanHref.replace(/\/+$/, '') || '/';
-                if (normCurrent === normHref) {
+                if ((currentPath === '/' && cleanHref === '/') || 
+                    (cleanHref !== '/' && cleanHref !== '#' && currentPath === cleanHref)) {
                     navPillLinks.forEach(function (l) { l.classList.remove('active'); });
                     link.classList.add('active');
                     desktopActiveFound = true;
@@ -1012,13 +945,12 @@
         });
 
         // 2. If not an exact top-level link, check dropdown items for subpages
-        if (!desktopActiveFound && normCurrent !== '/') {
+        if (!desktopActiveFound && currentPath !== '/') {
             document.querySelectorAll('.nav-pill-wrapper .dropdown-menu .dropdown-item').forEach(function (item) {
                 const href = item.getAttribute('href');
                 if (href && href !== '#') {
                     const cleanHref = href.split('?')[0];
-                    const normHref = cleanHref.replace(/\/+$/, '') || '/';
-                    if (normCurrent === normHref || (normHref !== '/' && normCurrent.startsWith(normHref))) {
+                    if (currentPath === cleanHref || (cleanHref !== '/' && currentPath.startsWith(cleanHref))) {
                         item.classList.add('active-dropdown-item');
                         const parentToggle = item.closest('.nav-item.dropdown');
                         if (parentToggle && !desktopActiveFound) {
@@ -1035,16 +967,13 @@
         }
 
         // 3. Prefix matching for top-level sections (e.g. /research/slug/)
-        if (!desktopActiveFound && normCurrent !== '/') {
+        if (!desktopActiveFound && currentPath !== '/') {
             navPillLinks.forEach(function (link) {
                 const href = link.getAttribute('href');
-                if (href && href !== '/' && href !== '#') {
-                    const normHref = href.split('?')[0].replace(/\/+$/, '') || '/';
-                    if (normHref !== '/' && normCurrent.startsWith(normHref)) {
-                        navPillLinks.forEach(function (l) { l.classList.remove('active'); });
-                        link.classList.add('active');
-                        desktopActiveFound = true;
-                    }
+                if (href && href !== '/' && href !== '#' && currentPath.startsWith(href)) {
+                    navPillLinks.forEach(function (l) { l.classList.remove('active'); });
+                    link.classList.add('active');
+                    desktopActiveFound = true;
                 }
             });
         }
@@ -1071,66 +1000,6 @@
         document.querySelectorAll('.sb-link:not(.sb-acc-btn), .sb-submenu a, .sb-footer a').forEach(function (link) {
             link.addEventListener('click', closeSidebar);
         });
-
-        /* ── Regional & Multi-Currency Selector Logic ── */
-        const regionOptions = document.querySelectorAll('.regional-option, .regional-mobile-btn');
-        const flagEl = document.getElementById('currentRegionFlag');
-        const labelEl = document.getElementById('currentRegionLabel');
-        const barEl = document.getElementById('regionalComplianceBar');
-        const barText = document.getElementById('regionalComplianceText');
-        const closeBarBtn = document.getElementById('closeRegionalBarBtn');
-
-        const regionalData = {
-            'au': {
-                flag: '🇦🇺',
-                label: 'AU · AUD',
-                compliance: '🇦🇺 <strong>Australian Market Mode</strong>: TGA &amp; BVAQ Certified · Local Sydney Dispatch · AUD Invoicing'
-            },
-            'eu': {
-                flag: '🇪🇺',
-                label: 'EU · EUR',
-                compliance: '🇪🇺 <strong>European Market Mode</strong>: EFSA Standards · Non-GMO / EU Organic · EUR Invoicing'
-            },
-            'us': {
-                flag: '🇺🇸',
-                label: 'US · USD',
-                compliance: '🇺🇸 <strong>US &amp; Global Market Mode</strong>: FDA cGMP 21 CFR Part 111 · Worldwide CIF/FOB Quotes'
-            }
-        };
-
-        function setRegion(rCode) {
-            const data = regionalData[rCode] || regionalData['au'];
-            if (flagEl) flagEl.textContent = data.flag;
-            if (labelEl) labelEl.textContent = data.label;
-            if (barText) barText.innerHTML = data.compliance;
-
-            regionOptions.forEach(function(el) {
-                if (el.getAttribute('data-region') === rCode) {
-                    el.classList.add('active');
-                } else {
-                    el.classList.remove('active');
-                }
-            });
-
-            localStorage.setItem('bmi_user_region', rCode);
-        }
-
-        const savedRegion = localStorage.getItem('bmi_user_region') || 'au';
-        setRegion(savedRegion);
-
-        regionOptions.forEach(function(btn) {
-            btn.addEventListener('click', function(e) {
-                const r = this.getAttribute('data-region');
-                setRegion(r);
-                if (barEl) barEl.classList.remove('dismissed');
-            });
-        });
-
-        if (closeBarBtn && barEl) {
-            closeBarBtn.addEventListener('click', function() {
-                barEl.classList.add('dismissed');
-            });
-        }
 
         /* ── Header Load Animation ── */
         window.addEventListener("load", function () {
