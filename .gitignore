@@ -9,6 +9,7 @@ scratch_video.mp4
 notify_video.mp4
 
 New folder.zip
+New folder/
 *.zip
 __pycache__/
 *.pyc
