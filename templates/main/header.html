@@ -102,8 +102,6 @@
                                     Events</a></li>
                             <li><a class="dropdown-item py-2 fw-medium {% if request.resolver_match.url_name == 'book_expo_meeting' %}active-dropdown-item{% endif %}" href="{% url 'book_expo_meeting' %}">Book Expo Meeting</a></li>
                             <li><a class="dropdown-item py-2 fw-medium {% if request.resolver_match.url_name == 'gallery' %}active-dropdown-item{% endif %}" href="{% url 'gallery' %}">Gallery</a></li>
-                            <li><a class="dropdown-item py-2 fw-medium {% if request.resolver_match.url_name == 'accreditations' %}active-dropdown-item{% endif %}" href="{% url 'accreditations' %}">Our
-                                    Accreditations</a></li>
                         </ul>
                     </li>
 
@@ -931,22 +929,44 @@
         // Desktop nav active pill validation
         const navPillLinks = document.querySelectorAll('.nav-pill-wrapper .nav-pill-link');
         let desktopActiveFound = false;
-        document.querySelectorAll('.nav-pill-wrapper .dropdown-menu .dropdown-item').forEach(function (item) {
-            const href = item.getAttribute('href');
-            if (href && href !== '#' && (currentPath === href || (href !== '/' && currentPath.startsWith(href.split('?')[0])))) {
-                item.classList.add('active-dropdown-item');
-                const parentToggle = item.closest('.nav-item.dropdown');
-                if (parentToggle) {
-                    const toggleLink = parentToggle.querySelector('.nav-pill-link');
-                    if (toggleLink) {
-                        navPillLinks.forEach(function (l) { l.classList.remove('active'); });
-                        toggleLink.classList.add('active');
-                        desktopActiveFound = true;
-                    }
+
+        // 1. Direct top-level links get priority (Home, Our Accreditations, Facility, Research)
+        navPillLinks.forEach(function (link) {
+            const href = link.getAttribute('href');
+            if (href) {
+                const cleanHref = href.split('?')[0];
+                if ((currentPath === '/' && cleanHref === '/') || 
+                    (cleanHref !== '/' && cleanHref !== '#' && currentPath === cleanHref)) {
+                    navPillLinks.forEach(function (l) { l.classList.remove('active'); });
+                    link.classList.add('active');
+                    desktopActiveFound = true;
                 }
             }
         });
 
+        // 2. If not an exact top-level link, check dropdown items for subpages
+        if (!desktopActiveFound && currentPath !== '/') {
+            document.querySelectorAll('.nav-pill-wrapper .dropdown-menu .dropdown-item').forEach(function (item) {
+                const href = item.getAttribute('href');
+                if (href && href !== '#') {
+                    const cleanHref = href.split('?')[0];
+                    if (currentPath === cleanHref || (cleanHref !== '/' && currentPath.startsWith(cleanHref))) {
+                        item.classList.add('active-dropdown-item');
+                        const parentToggle = item.closest('.nav-item.dropdown');
+                        if (parentToggle && !desktopActiveFound) {
+                            const toggleLink = parentToggle.querySelector('.nav-pill-link');
+                            if (toggleLink) {
+                                navPillLinks.forEach(function (l) { l.classList.remove('active'); });
+                                toggleLink.classList.add('active');
+                                desktopActiveFound = true;
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        // 3. Prefix matching for top-level sections (e.g. /research/slug/)
         if (!desktopActiveFound && currentPath !== '/') {
             navPillLinks.forEach(function (link) {
                 const href = link.getAttribute('href');
