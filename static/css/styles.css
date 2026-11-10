@@ -292,16 +292,30 @@ img {
     -webkit-backdrop-filter: blur(16px) saturate(160%);
     border: 1px solid rgba(255, 255, 255, 0.1);
     box-shadow: 0 2px 20px rgba(0, 0, 0, 0.25);
+    flex-shrink: 0 !important;
+}
+
+.nav-pill-wrapper ul.navbar-nav {
+    flex-wrap: nowrap !important;
 }
 
 /* Nav links inside pill */
 .nav-pill-link {
     font-family: var(--font);
-    font-size: 0.875rem;
+    font-size: 0.83rem;
     font-weight: 600;
     border-radius: 100px;
-    color: rgba(255, 255, 255, 0.72) !important;
+    color: rgba(255, 255, 255, 0.78) !important;
     transition: background 0.2s ease, color 0.2s ease;
+    white-space: nowrap !important;
+    padding: 0.32rem 0.65rem !important;
+}
+
+@media (min-width: 1350px) {
+    .nav-pill-link {
+        font-size: 0.875rem;
+        padding: 0.38rem 0.82rem !important;
+    }
 }
 
 .nav-pill-link:hover {
@@ -373,12 +387,14 @@ img {
     border: 1.5px solid rgba(255, 255, 255, 0.38) !important;
     color: #ffffff !important;
     font-family: var(--font);
-    font-size: 0.875rem;
+    font-size: 0.85rem;
     font-weight: 600;
     border-radius: 100px;
     transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
+    white-space: nowrap !important;
+    flex-shrink: 0 !important;
 }
 
 .nav-contact-btn:hover {

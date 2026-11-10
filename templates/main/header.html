@@ -7,10 +7,10 @@
      DESKTOP NAVBAR
      ═══════════════════════════════════════════ -->
 <nav class="navbar navbar-expand-lg fixed-top pt-4 pb-3 custom-pill-navbar" id="mainNav">
-    <div class="container d-flex align-items-center">
+    <div class="container-fluid px-3 px-xl-5 d-flex align-items-center">
 
         <!-- Left: Brand -->
-        <a class="navbar-brand d-flex align-items-center gap-2 me-auto ms-lg-3" href="/">
+        <a class="navbar-brand d-flex align-items-center gap-2 me-auto ms-lg-2 flex-shrink-0" href="/">
             <img src="{% static 'images/bmi_logo.webp' %}" alt="Bio Med Ingredients Logo"
                 style="height: 45px !important; width: auto !important; max-width: none !important;">
             <span class="fs-5 fw-bold nav-brand-text d-none d-sm-inline notranslate"
@@ -29,19 +29,19 @@
         </button>
 
         <!-- Center: Nav Pill (Desktop Only) -->
-        <div class="collapse navbar-collapse justify-content-center order-3 order-lg-2 mt-3 mt-lg-0 d-none d-lg-flex"
+        <div class="collapse navbar-collapse justify-content-center order-3 order-lg-2 mt-3 mt-lg-0 d-none d-lg-flex flex-shrink-0"
             id="navbarNav">
             <div class="nav-pill-wrapper bg-dark rounded-pill p-1 d-inline-flex">
-                <ul class="navbar-nav flex-row flex-wrap align-items-center mb-0 px-2 py-1 gap-1 gap-md-2">
+                <ul class="navbar-nav flex-row flex-nowrap align-items-center mb-0 px-2 py-1 gap-1">
                     <li class="nav-item">
-                        <a class="nav-link nav-pill-link {% if request.resolver_match.url_name == 'index' or request.path == '/' %}active{% endif %} rounded-pill px-3 py-1 d-flex align-items-center gap-2 fw-semibold"
+                        <a class="nav-link nav-pill-link {% if request.resolver_match.url_name == 'index' or request.path == '/' %}active{% endif %} rounded-pill px-2 px-xl-3 py-1 d-flex align-items-center gap-1 gap-xl-2 fw-semibold text-nowrap"
                             href="{% url 'index' %}">
                             <i class="ph ph-house"></i> Home
                         </a>
                     </li>
 
                     <li class="nav-item dropdown">
-                        <a class="nav-link nav-pill-link {% if request.resolver_match.url_name in 'product_range herbal_extracts natural_food_colors nutritional_fine_chemicals spices_and_oleoresins raw_herbal_powders organic_product_list product_brochures product_documents' or '/product' in request.path or '/herbal-extracts' in request.path or '/natural-food-colors' in request.path or '/nutritional-fine-chemicals' in request.path or '/spices-and-oleoresins' in request.path or '/raw-herbal-powders' in request.path %}active{% endif %} rounded-pill px-3 py-1 fw-semibold dropdown-toggle"
+                        <a class="nav-link nav-pill-link {% if request.resolver_match.url_name in 'product_range herbal_extracts natural_food_colors nutritional_fine_chemicals spices_and_oleoresins raw_herbal_powders organic_product_list product_brochures product_documents' or '/product' in request.path or '/herbal-extracts' in request.path or '/natural-food-colors' in request.path or '/nutritional-fine-chemicals' in request.path or '/spices-and-oleoresins' in request.path or '/raw-herbal-powders' in request.path %}active{% endif %} rounded-pill px-2 px-xl-3 py-1 fw-semibold dropdown-toggle text-nowrap"
                             href="{% url 'product_range' %}" id="navbarDropdownProducts" role="button">
                             Products
                         </a>
@@ -69,11 +69,11 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link nav-pill-link {% if request.resolver_match.url_name == 'accreditations' or request.path == '/accreditations/' %}active{% endif %} rounded-pill px-3 py-1 fw-semibold"
-                            href="{% url 'accreditations' %}">Our Accreditations</a>
+                        <a class="nav-link nav-pill-link {% if request.resolver_match.url_name == 'accreditations' or request.path == '/accreditations/' %}active{% endif %} rounded-pill px-2 px-xl-3 py-1 fw-semibold text-nowrap"
+                            href="{% url 'accreditations' %}">Accreditations</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link nav-pill-link {% if request.resolver_match.url_name == 'facility' or request.path == '/facility/' %}active{% endif %} rounded-pill px-3 py-1 fw-semibold"
+                        <a class="nav-link nav-pill-link {% if request.resolver_match.url_name == 'facility' or request.path == '/facility/' %}active{% endif %} rounded-pill px-2 px-xl-3 py-1 fw-semibold text-nowrap"
                             href="{% url 'facility' %}">Facility</a>
                     </li>
                     <!-- <li class="nav-item">
@@ -81,14 +81,14 @@
                             href="{% url 'brands_list' %}">Trademark</a>
                     </li> -->
                     <li class="nav-item">
-                        <a class="nav-link nav-pill-link {% if 'research' in request.resolver_match.url_name or '/research' in request.path %}active{% endif %} rounded-pill px-3 py-1 fw-semibold"
+                        <a class="nav-link nav-pill-link {% if 'research' in request.resolver_match.url_name or '/research' in request.path %}active{% endif %} rounded-pill px-2 px-xl-3 py-1 fw-semibold text-nowrap"
                             href="{% url 'research' %}">Research</a>
                     </li>
 
                     <li class="nav-item dropdown">
-                        <a class="nav-link nav-pill-link {% if request.resolver_match.url_name in 'about team infrastructure csr career job_detail news_events book_expo_meeting gallery' or '/about' in request.path or '/team' in request.path or '/infrastructure' in request.path or '/csr' in request.path or '/career' in request.path or '/news-events' in request.path or '/gallery' in request.path %}active{% endif %} rounded-pill px-3 py-1 fw-semibold dropdown-toggle"
+                        <a class="nav-link nav-pill-link {% if request.resolver_match.url_name in 'about team infrastructure csr career job_detail news_events book_expo_meeting gallery' or '/about' in request.path or '/team' in request.path or '/infrastructure' in request.path or '/csr' in request.path or '/career' in request.path or '/news-events' in request.path or '/gallery' in request.path %}active{% endif %} rounded-pill px-2 px-xl-3 py-1 fw-semibold dropdown-toggle text-nowrap"
                             href="{% url 'about' %}" id="navbarDropdownAbout" role="button">
-                            About
+                            About Us
                         </a>
                         <ul class="dropdown-menu dropdown-menu-animated p-2 mt-2 border-0 shadow-lg rounded-4"
                             aria-labelledby="navbarDropdownAbout">
@@ -110,7 +110,7 @@
         </div>
 
         <!-- Right: CTAs (Desktop Only) -->
-        <div class="d-none d-lg-flex ms-lg-auto align-items-center gap-2 gap-xl-3 order-2 order-lg-3">
+        <div class="d-none d-lg-flex ms-lg-auto align-items-center gap-2 gap-xl-3 order-2 order-lg-3 flex-nowrap flex-shrink-0">
             
             <!-- Language Selector Dropdown -->
             <div class="dropdown lang-dropdown">
@@ -219,7 +219,7 @@
                 </ul>
             </div>
 
-            <a href="{% url 'contact' %}" class="btn nav-contact-btn rounded-pill px-4 py-2 fw-semibold {% if request.resolver_match.url_name == 'contact' or request.path == '/contact/' %}active{% endif %}"
+            <a href="{% url 'contact' %}" class="btn nav-contact-btn text-nowrap rounded-pill px-3 px-xl-4 py-2 fw-semibold {% if request.resolver_match.url_name == 'contact' or request.path == '/contact/' %}active{% endif %}"
                 style="border-width: 1px;">Contact Us</a>
         </div>
 
