@@ -361,6 +361,37 @@ img {
     border-top-color: #0b1c2d !important;
 }
 
+/* ── Dropdown Caret Smooth Flip & Bounce Animation ── */
+.nav-pill-wrapper .dropdown-toggle::after {
+    display: inline-block;
+    margin-left: 0.35rem;
+    vertical-align: 0.16em;
+    border-top: 0.32em solid;
+    border-right: 0.3em solid transparent;
+    border-bottom: 0;
+    border-left: 0.3em solid transparent;
+    transition: transform 0.32s cubic-bezier(0.34, 1.56, 0.64, 1), border-color 0.2s ease;
+    transform-origin: center 35%;
+}
+
+/* Subtle hover dip */
+.nav-pill-wrapper .dropdown-toggle:hover::after {
+    transform: translateY(2.5px);
+}
+
+/* Smooth 180-degree flip when dropdown is open */
+.nav-pill-wrapper .dropdown-toggle.show::after,
+.nav-pill-wrapper .nav-item.dropdown.show > .dropdown-toggle::after,
+.nav-pill-wrapper .dropdown-toggle[aria-expanded="true"]::after {
+    transform: rotate(180deg) !important;
+}
+
+.nav-pill-wrapper .dropdown-toggle.show:hover::after,
+.nav-pill-wrapper .nav-item.dropdown.show > .dropdown-toggle:hover::after,
+.nav-pill-wrapper .dropdown-toggle[aria-expanded="true"]:hover::after {
+    transform: rotate(180deg) translateY(2.5px) !important;
+}
+
 .dropdown-item.active-dropdown-item,
 .dropdown-item.active {
     background: rgba(39, 90, 54, 0.1) !important;
