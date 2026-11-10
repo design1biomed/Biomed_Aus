@@ -333,7 +333,8 @@ img {
 .nav-pill-link.show:focus,
 .nav-pill-link.show:active,
 .nav-item.dropdown.show > .nav-pill-link,
-.nav-item.dropdown > .nav-pill-link.active {
+.nav-item.dropdown > .nav-pill-link.active,
+.nav-pill-wrapper .nav-item.dropdown:hover > .nav-pill-link.active {
     background: #ffffff !important;
     color: #0b1c2d !important;
     font-weight: 600 !important;
@@ -344,7 +345,8 @@ img {
 
 .nav-pill-link.active *,
 .nav-pill-link.show *,
-.nav-item.dropdown.show > .nav-pill-link * {
+.nav-item.dropdown.show > .nav-pill-link *,
+.nav-pill-wrapper .nav-item.dropdown:hover > .nav-pill-link.active * {
     color: #0b1c2d !important;
 }
 
