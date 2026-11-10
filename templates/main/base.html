@@ -26,7 +26,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
     <!-- Custom Styles -->
-    <link rel="stylesheet" href="{% static 'css/styles.css' %}?v=3.5">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}?v=3.6">
 
     <!-- Google Fonts: Non-blocking load (does not delay first paint) -->
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -34,6 +34,43 @@
 
     <!-- Phosphor Icons: Deferred so it never blocks first paint -->
     <script src="https://unpkg.com/@phosphor-icons/web" defer></script>
+
+    <!-- Google Translate Banner & Top Shift Suppression -->
+    <style>
+        html, body {
+            top: 0px !important;
+            position: static !important;
+        }
+        iframe.VIpgJd-ZVi9od-ORHb-OEVmcd,
+        .VIpgJd-ZVi9od-ORHb-OEVmcd,
+        .VIpgJd-ZVi9od-xl07Ob-OEVmcd,
+        .VIpgJd-ZVi9od-SmfZ-OEVmcd,
+        .VIpgJd-yAWNEb-L7lbkb,
+        iframe[class*="VIpgJd"],
+        iframe[class*="goog-te-banner"],
+        .goog-te-banner-frame,
+        iframe.skiptranslate,
+        #goog-gt-tt,
+        .goog-te-balloon-frame {
+            display: none !important;
+            visibility: hidden !important;
+            height: 0px !important;
+            width: 0px !important;
+            opacity: 0 !important;
+            pointer-events: none !important;
+            z-index: -999999 !important;
+            position: absolute !important;
+            top: -99999px !important;
+        }
+        #google_translate_element {
+            display: none !important;
+        }
+        .goog-text-highlight {
+            background: transparent !important;
+            border: none !important;
+            box-shadow: none !important;
+        }
+    </style>
 </head>
 
 <body class="preloader-active">

@@ -3239,8 +3239,9 @@ img {
 .lang-dropdown-menu::-webkit-scrollbar {
     width: 6px;
 }
+
 .lang-dropdown-menu::-webkit-scrollbar-thumb {
-    background: rgba(0,0,0,0.15);
+    background: rgba(0, 0, 0, 0.15);
     border-radius: 4px;
 }
 
@@ -3311,22 +3312,33 @@ img {
 }
 
 /* Hide Google Translate top banner, tooltip and default widgets */
-body {
+html, body {
     top: 0px !important;
     position: static !important;
 }
 
+iframe.VIpgJd-ZVi9od-ORHb-OEVmcd,
+.VIpgJd-ZVi9od-ORHb-OEVmcd,
+.VIpgJd-ZVi9od-xl07Ob-OEVmcd,
+.VIpgJd-ZVi9od-SmfZ-OEVmcd,
+.VIpgJd-yAWNEb-L7lbkb,
+iframe[class*="VIpgJd"],
+iframe[class*="goog-te-banner"],
 .goog-te-banner-frame,
 .goog-te-banner-frame.skiptranslate,
 iframe.goog-te-banner-frame,
+iframe.skiptranslate,
 #goog-gt-tt,
 .goog-te-balloon-frame {
     display: none !important;
     visibility: hidden !important;
-    height: 0 !important;
-    width: 0 !important;
+    height: 0px !important;
+    width: 0px !important;
     opacity: 0 !important;
     pointer-events: none !important;
+    z-index: -999999 !important;
+    position: absolute !important;
+    top: -99999px !important;
 }
 
 #google_translate_element {
@@ -3348,18 +3360,22 @@ iframe.goog-te-banner-frame,
 [dir="rtl"] {
     text-align: right;
 }
+
 [dir="rtl"] .me-lg-4 {
     margin-left: 1.5rem !important;
     margin-right: 0 !important;
 }
+
 [dir="rtl"] .ms-lg-auto {
     margin-right: auto !important;
     margin-left: 0 !important;
 }
+
 [dir="rtl"] .navbar-logo {
     margin-left: 0.5rem !important;
     margin-right: 0 !important;
 }
+
 [dir="rtl"] .lang-option .lang-check {
     margin-left: 0;
     margin-right: auto;
