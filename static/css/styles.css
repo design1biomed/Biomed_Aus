@@ -361,7 +361,7 @@ img {
     border-top-color: #0b1c2d !important;
 }
 
-/* ── Dropdown Caret Smooth Flip & Bounce Animation ── */
+/* ── Dropdown Caret Smooth Up-to-Down Animation ── */
 .nav-pill-wrapper .dropdown-toggle::after {
     display: inline-block;
     margin-left: 0.35rem;
@@ -370,26 +370,29 @@ img {
     border-right: 0.3em solid transparent;
     border-bottom: 0;
     border-left: 0.3em solid transparent;
-    transition: transform 0.32s cubic-bezier(0.34, 1.56, 0.64, 1), border-color 0.2s ease;
-    transform-origin: center 35%;
+    transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), border-color 0.2s ease;
+    transform-origin: center center;
+    will-change: transform;
 }
 
-/* Subtle hover dip */
-.nav-pill-wrapper .dropdown-toggle:hover::after {
-    transform: translateY(2.5px);
+@keyframes caretUpDownMotion {
+    0% {
+        transform: translateY(-2.5px);
+    }
+    50% {
+        transform: translateY(3.5px);
+    }
+    100% {
+        transform: translateY(-2.5px);
+    }
 }
 
-/* Smooth 180-degree flip when dropdown is open */
+/* Animate up to down on hover and when dropdown is open */
+.nav-pill-wrapper .dropdown-toggle:hover::after,
 .nav-pill-wrapper .dropdown-toggle.show::after,
 .nav-pill-wrapper .nav-item.dropdown.show > .dropdown-toggle::after,
 .nav-pill-wrapper .dropdown-toggle[aria-expanded="true"]::after {
-    transform: rotate(180deg) !important;
-}
-
-.nav-pill-wrapper .dropdown-toggle.show:hover::after,
-.nav-pill-wrapper .nav-item.dropdown.show > .dropdown-toggle:hover::after,
-.nav-pill-wrapper .dropdown-toggle[aria-expanded="true"]:hover::after {
-    transform: rotate(180deg) translateY(2.5px) !important;
+    animation: caretUpDownMotion 0.8s ease-in-out infinite !important;
 }
 
 .dropdown-item.active-dropdown-item,
