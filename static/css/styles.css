@@ -324,25 +324,40 @@ img {
     animation: jelly 0.6s ease;
 }
 
-.nav-pill-link.active {
+.nav-pill-link.active,
+.nav-pill-link.active:hover,
+.nav-pill-link.active:focus,
+.nav-pill-link.active:active,
+.nav-pill-link.show,
+.nav-pill-link.show:hover,
+.nav-pill-link.show:focus,
+.nav-pill-link.show:active,
+.nav-item.dropdown.show > .nav-pill-link,
+.nav-item.dropdown > .nav-pill-link.active {
     background: #ffffff !important;
     color: #0b1c2d !important;
     font-weight: 600 !important;
     border-radius: 100px !important;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.12);
-}
-
-.nav-pill-link.active:hover {
-    background: #ffffff !important;
-    color: #0b1c2d !important;
     animation: none !important;
 }
 
-.nav-pill-link.active i {
+.nav-pill-link.active *,
+.nav-pill-link.show *,
+.nav-item.dropdown.show > .nav-pill-link * {
     color: #0b1c2d !important;
 }
 
-.nav-pill-link.active.dropdown-toggle::after {
+.nav-pill-link.active i,
+.nav-pill-link.show i,
+.nav-item.dropdown.show > .nav-pill-link i {
+    color: #0b1c2d !important;
+}
+
+.nav-pill-link.active.dropdown-toggle::after,
+.nav-pill-link.show.dropdown-toggle::after,
+.nav-item.dropdown.show > .nav-pill-link.dropdown-toggle::after,
+.nav-item.dropdown > .nav-pill-link.active.dropdown-toggle::after {
     border-top-color: #0b1c2d !important;
 }
 
