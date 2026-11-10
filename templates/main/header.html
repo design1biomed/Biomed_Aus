@@ -13,7 +13,7 @@
         <a class="navbar-brand d-flex align-items-center gap-2 me-auto ms-lg-2 flex-shrink-0" href="/">
             <img src="{% static 'images/bmi_logo.webp' %}" alt="Bio Med Ingredients Logo"
                 style="height: 45px !important; width: auto !important; max-width: none !important;">
-            <span class="fs-5 fw-bold nav-brand-text d-none d-sm-inline notranslate"
+            <span class="fs-5 fw-bold nav-brand-text d-none d-sm-inline"
                 style="letter-spacing: -0.5px; white-space: nowrap;">Bio Med Ingredients
                 Australia</span>
         </a>
@@ -110,116 +110,8 @@
         </div>
 
         <!-- Right: CTAs (Desktop Only) -->
-        <div class="d-none d-lg-flex ms-lg-auto align-items-center gap-2 gap-xl-3 order-2 order-lg-3 flex-nowrap flex-shrink-0">
-            
-            <!-- Language Selector Dropdown -->
-            <div class="dropdown lang-dropdown">
-                <button class="btn lang-selector-btn rounded-pill px-3 py-2 d-flex align-items-center gap-2 fw-semibold"
-                    type="button" id="languageDropdownBtn" data-bs-toggle="dropdown" aria-expanded="false"
-                    title="Change Language">
-                    <span class="lang-flag" id="activeLangFlag">🇬🇧</span>
-                    <span class="lang-code text-uppercase fw-bold" id="activeLangCode">EN</span>
-                    <i class="ph ph-caret-down fs-xs text-white-50"></i>
-                </button>
-                <ul class="dropdown-menu dropdown-menu-end shadow-lg rounded-4 p-2 border-0 mt-2 lang-dropdown-menu"
-                    aria-labelledby="languageDropdownBtn">
-                    <li class="px-3 py-1 text-muted small fw-semibold" style="font-size: 0.7rem; letter-spacing: 0.05em; text-transform: uppercase;">
-                        Select Language
-                    </li>
-                    <li>
-                        <button type="button" class="lang-option active" data-lang="en" data-flag="🇬🇧" data-code="EN">
-                            <span class="fs-5">🇬🇧</span>
-                            <div class="text-start">
-                                <div class="fw-bold">English</div>
-                                <div class="text-muted" style="font-size: 0.7rem;">Default · Global</div>
-                            </div>
-                            <i class="ph-bold ph-check lang-check"></i>
-                        </button>
-                    </li>
-                    <li>
-                        <button type="button" class="lang-option" data-lang="de" data-flag="🇩🇪" data-code="DE">
-                            <span class="fs-5">🇩🇪</span>
-                            <div class="text-start">
-                                <div class="fw-bold">Deutsch</div>
-                                <div class="text-muted" style="font-size: 0.7rem;">German</div>
-                            </div>
-                            <i class="ph-bold ph-check lang-check"></i>
-                        </button>
-                    </li>
-                    <li>
-                        <button type="button" class="lang-option" data-lang="fr" data-flag="🇫🇷" data-code="FR">
-                            <span class="fs-5">🇫🇷</span>
-                            <div class="text-start">
-                                <div class="fw-bold">Français</div>
-                                <div class="text-muted" style="font-size: 0.7rem;">French</div>
-                            </div>
-                            <i class="ph-bold ph-check lang-check"></i>
-                        </button>
-                    </li>
-                    <li>
-                        <button type="button" class="lang-option" data-lang="es" data-flag="🇪🇸" data-code="ES">
-                            <span class="fs-5">🇪🇸</span>
-                            <div class="text-start">
-                                <div class="fw-bold">Español</div>
-                                <div class="text-muted" style="font-size: 0.7rem;">Spanish</div>
-                            </div>
-                            <i class="ph-bold ph-check lang-check"></i>
-                        </button>
-                    </li>
-                    <li>
-                        <button type="button" class="lang-option" data-lang="it" data-flag="🇮🇹" data-code="IT">
-                            <span class="fs-5">🇮🇹</span>
-                            <div class="text-start">
-                                <div class="fw-bold">Italiano</div>
-                                <div class="text-muted" style="font-size: 0.7rem;">Italian</div>
-                            </div>
-                            <i class="ph-bold ph-check lang-check"></i>
-                        </button>
-                    </li>
-                    <li>
-                        <button type="button" class="lang-option" data-lang="ja" data-flag="🇯🇵" data-code="JA">
-                            <span class="fs-5">🇯🇵</span>
-                            <div class="text-start">
-                                <div class="fw-bold">日本語</div>
-                                <div class="text-muted" style="font-size: 0.7rem;">Japanese</div>
-                            </div>
-                            <i class="ph-bold ph-check lang-check"></i>
-                        </button>
-                    </li>
-                    <li>
-                        <button type="button" class="lang-option" data-lang="zh-CN" data-flag="🇨🇳" data-code="ZH">
-                            <span class="fs-5">🇨🇳</span>
-                            <div class="text-start">
-                                <div class="fw-bold">简体中文</div>
-                                <div class="text-muted" style="font-size: 0.7rem;">Chinese</div>
-                            </div>
-                            <i class="ph-bold ph-check lang-check"></i>
-                        </button>
-                    </li>
-                    <li>
-                        <button type="button" class="lang-option" data-lang="ar" data-flag="🇦🇪" data-code="AR">
-                            <span class="fs-5">🇦🇪</span>
-                            <div class="text-start">
-                                <div class="fw-bold">العربية</div>
-                                <div class="text-muted" style="font-size: 0.7rem;">Arabic</div>
-                            </div>
-                            <i class="ph-bold ph-check lang-check"></i>
-                        </button>
-                    </li>
-                    <li>
-                        <button type="button" class="lang-option" data-lang="ko" data-flag="🇰🇷" data-code="KO">
-                            <span class="fs-5">🇰🇷</span>
-                            <div class="text-start">
-                                <div class="fw-bold">한국어</div>
-                                <div class="text-muted" style="font-size: 0.7rem;">Korean</div>
-                            </div>
-                            <i class="ph-bold ph-check lang-check"></i>
-                        </button>
-                    </li>
-                </ul>
-            </div>
-
-            <a href="{% url 'contact' %}" class="btn nav-contact-btn text-nowrap rounded-pill px-3 px-xl-4 py-2 fw-semibold {% if request.resolver_match.url_name == 'contact' or request.path == '/contact/' %}active{% endif %}"
+        <div class="d-none d-lg-flex ms-lg-auto align-items-center gap-4 order-2 order-lg-3">
+            <a href="{% url 'contact' %}" class="btn nav-contact-btn rounded-pill px-4 py-2 fw-semibold {% if request.resolver_match.url_name == 'contact' or request.path == '/contact/' %}active{% endif %}"
                 style="border-width: 1px;">Contact Us</a>
         </div>
 
@@ -240,7 +132,7 @@
     <div class="sb-brand-strip">
         <a class="sb-brand" href="/">
             <img src="{% static 'images/bmi_logo.webp' %}" alt="Logo" class="sb-logo">
-            <div class="sb-brand-text notranslate">
+            <div class="sb-brand-text">
                 <span class="sb-title">Bio Med</span>
                 <span class="sb-sub">Ingredients Pvt. Ltd.</span>
             </div>
@@ -253,31 +145,6 @@
     <!-- ── Decorative divider ── -->
     <div class="sb-divider">
         <span class="sb-pill-badge"><i class="ph-fill ph-leaf"></i> Natural · Pure · Trusted</span>
-    </div>
-
-    <!-- ── Mobile Language Switcher ── -->
-    <div class="px-4 py-2">
-        <div class="sb-lang-box p-3 rounded-4 bg-light border">
-            <div class="d-flex align-items-center justify-content-between mb-2">
-                <span class="small fw-bold text-dark d-flex align-items-center gap-2" style="font-size: 0.82rem;">
-                    <i class="ph-bold ph-globe text-success"></i> Language:
-                </span>
-                <span class="badge bg-success bg-opacity-10 text-success rounded-pill px-2 py-1 fw-bold" id="mobileActiveLangBadge" style="font-size: 0.72rem;">
-                    🇬🇧 English
-                </span>
-            </div>
-            <div class="d-flex flex-wrap gap-1">
-                <button type="button" class="btn btn-sm rounded-pill px-2 py-1 sb-lang-btn active" data-lang="en">🇬🇧 EN</button>
-                <button type="button" class="btn btn-sm rounded-pill px-2 py-1 sb-lang-btn" data-lang="de">🇩🇪 DE</button>
-                <button type="button" class="btn btn-sm rounded-pill px-2 py-1 sb-lang-btn" data-lang="fr">🇫🇷 FR</button>
-                <button type="button" class="btn btn-sm rounded-pill px-2 py-1 sb-lang-btn" data-lang="es">🇪🇸 ES</button>
-                <button type="button" class="btn btn-sm rounded-pill px-2 py-1 sb-lang-btn" data-lang="it">🇮🇹 IT</button>
-                <button type="button" class="btn btn-sm rounded-pill px-2 py-1 sb-lang-btn" data-lang="ja">🇯🇵 JA</button>
-                <button type="button" class="btn btn-sm rounded-pill px-2 py-1 sb-lang-btn" data-lang="zh-CN">🇨🇳 中文</button>
-                <button type="button" class="btn btn-sm rounded-pill px-2 py-1 sb-lang-btn" data-lang="ar">🇦🇪 AR</button>
-                <button type="button" class="btn btn-sm rounded-pill px-2 py-1 sb-lang-btn" data-lang="ko">🇰🇷 KO</button>
-            </div>
-        </div>
     </div>
 
     <!-- ── Navigation ── -->
@@ -1006,27 +873,41 @@
             transform: translateX(3px);
         }
 
-        .nav-item.dropdown:hover > .nav-link:not(.active) {
+        .nav-item.dropdown:hover > .nav-link:not(.active):not(.show) {
             color: #fff !important;
             background: rgba(255, 255, 255, 0.1);
             border-radius: 50rem;
         }
 
         .nav-item.dropdown:hover > .nav-link.active,
-        .nav-item.dropdown > .nav-link.active {
+        .nav-item.dropdown:hover > .nav-link.show,
+        .nav-item.dropdown.show > .nav-link,
+        .nav-item.dropdown > .nav-link.active,
+        .nav-pill-wrapper .nav-pill-link.active,
+        .nav-pill-wrapper .nav-pill-link.show {
             color: #0b1c2d !important;
+            -webkit-text-fill-color: #0b1c2d !important;
             background: #ffffff !important;
             border-radius: 50rem;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.12);
         }
 
         .nav-item.dropdown:hover > .nav-link.active *,
-        .nav-item.dropdown > .nav-link.active * {
+        .nav-item.dropdown:hover > .nav-link.show *,
+        .nav-item.dropdown.show > .nav-link *,
+        .nav-item.dropdown > .nav-link.active *,
+        .nav-pill-wrapper .nav-pill-link.active *,
+        .nav-pill-wrapper .nav-pill-link.show * {
             color: #0b1c2d !important;
+            -webkit-text-fill-color: #0b1c2d !important;
         }
 
         .nav-item.dropdown:hover > .nav-link.active::after,
-        .nav-item.dropdown > .nav-link.active::after {
+        .nav-item.dropdown:hover > .nav-link.show::after,
+        .nav-item.dropdown.show > .nav-link::after,
+        .nav-item.dropdown > .nav-link.active::after,
+        .nav-pill-wrapper .nav-pill-link.active.dropdown-toggle::after,
+        .nav-pill-wrapper .nav-pill-link.show.dropdown-toggle::after {
             border-top-color: #0b1c2d !important;
         }
     }
@@ -1167,10 +1048,6 @@
                     { opacity: 0, y: -20 },
                     { opacity: 1, y: 0, duration: 0.8, stagger: 0.1, delay: 0.4, ease: "power2.out", clearProps: "all" }
                 );
-                gsap.fromTo(".lang-dropdown",
-                    { opacity: 0, scale: 0.8 },
-                    { opacity: 1, scale: 1, duration: 0.8, delay: 0.45, ease: "power2.out", clearProps: "all" }
-                );
                 gsap.fromTo(".nav-contact-btn",
                     { opacity: 0, x: 30 },
                     { opacity: 1, x: 0, duration: 1, delay: 0.5, ease: "power2.out", clearProps: "all" }
@@ -1182,163 +1059,5 @@
             }
         });
 
-        /* ── Multi-Language Translation System ── */
-        const LANG_CONFIG = {
-            'en': { flag: '🇬🇧', code: 'EN', name: 'English' },
-            'de': { flag: '🇩🇪', code: 'DE', name: 'Deutsch' },
-            'fr': { flag: '🇫🇷', code: 'FR', name: 'Français' },
-            'es': { flag: '🇪🇸', code: 'ES', name: 'Español' },
-            'it': { flag: '🇮🇹', code: 'IT', name: 'Italiano' },
-            'ja': { flag: '🇯🇵', code: 'JA', name: '日本語' },
-            'zh-CN': { flag: '🇨🇳', code: 'ZH', name: '简体中文' },
-            'ar': { flag: '🇦🇪', code: 'AR', name: 'العربية' },
-            'ko': { flag: '🇰🇷', code: 'KO', name: '한국어' }
-        };
-
-        function getTransCookie(name) {
-            const v = document.cookie.match('(^|;) ?' + name + '=([^;]*)(;|$)');
-            return v ? v[2] : null;
-        }
-
-        function getCurrentLanguage() {
-            const cookieVal = getTransCookie('googtrans');
-            if (cookieVal) {
-                const parts = cookieVal.split('/');
-                const lang = parts[parts.length - 1];
-                if (lang && LANG_CONFIG[lang]) return lang;
-            }
-            const stored = localStorage.getItem('bmi_user_lang');
-            if (stored && LANG_CONFIG[stored]) return stored;
-            return 'en';
-        }
-
-        function updateLangUI(lang) {
-            const data = LANG_CONFIG[lang] || LANG_CONFIG['en'];
-            const flagEl = document.getElementById('activeLangFlag');
-            const codeEl = document.getElementById('activeLangCode');
-            const mobileBadge = document.getElementById('mobileActiveLangBadge');
-
-            if (flagEl) flagEl.textContent = data.flag;
-            if (codeEl) codeEl.textContent = data.code;
-            if (mobileBadge) mobileBadge.textContent = data.flag + ' ' + data.name;
-
-            document.querySelectorAll('.lang-option, .sb-lang-btn').forEach(function (el) {
-                if (el.getAttribute('data-lang') === lang) {
-                    el.classList.add('active');
-                } else {
-                    el.classList.remove('active');
-                }
-            });
-
-            if (lang === 'ar') {
-                document.documentElement.setAttribute('dir', 'rtl');
-            } else {
-                document.documentElement.setAttribute('dir', 'ltr');
-            }
-        }
-
-        function setLanguage(lang) {
-            const current = getCurrentLanguage();
-            if (lang === current && lang === 'en') return;
-
-            localStorage.setItem('bmi_user_lang', lang);
-
-            const domain = window.location.hostname;
-            const cookieStr = '/en/' + lang;
-
-            if (lang === 'en') {
-                document.cookie = 'googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
-                if (domain !== 'localhost' && domain !== '127.0.0.1') {
-                    document.cookie = 'googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=' + domain + ';';
-                }
-                document.cookie = 'googtrans=/en/en; path=/;';
-            } else {
-                document.cookie = 'googtrans=' + cookieStr + '; path=/;';
-                if (domain !== 'localhost' && domain !== '127.0.0.1') {
-                    document.cookie = 'googtrans=' + cookieStr + '; path=/; domain=' + domain + ';';
-                }
-            }
-
-            updateLangUI(lang);
-
-            const combo = document.querySelector('.goog-te-combo');
-            if (combo) {
-                combo.value = lang;
-                combo.dispatchEvent(new Event('change'));
-            } else {
-                window.location.reload();
-            }
-        }
-
-        // Initialize UI immediately
-        const initialLang = getCurrentLanguage();
-        updateLangUI(initialLang);
-
-        // Bind click events
-        document.querySelectorAll('.lang-option, .sb-lang-btn').forEach(function (btn) {
-            btn.addEventListener('click', function (e) {
-                e.preventDefault();
-                const selected = this.getAttribute('data-lang');
-                if (selected) {
-                    setLanguage(selected);
-                }
-            });
-        });
-
-        /* ── Continuous Google Top Banner Killer ── */
-        function killGoogleBanner() {
-            if (document.body) {
-                if (document.body.style.top && document.body.style.top !== '0px') {
-                    document.body.style.setProperty('top', '0px', 'important');
-                }
-                if (document.body.style.position && document.body.style.position !== 'static') {
-                    document.body.style.setProperty('position', 'static', 'important');
-                }
-            }
-            if (document.documentElement) {
-                if (document.documentElement.style.top && document.documentElement.style.top !== '0px') {
-                    document.documentElement.style.setProperty('top', '0px', 'important');
-                }
-            }
-            const banners = document.querySelectorAll(
-                '.VIpgJd-ZVi9od-ORHb-OEVmcd, .VIpgJd-ZVi9od-xl07Ob-OEVmcd, iframe[class*="VIpgJd"], iframe.skiptranslate, .goog-te-banner-frame, iframe[id*=":"]'
-            );
-            banners.forEach(function (el) {
-                el.style.setProperty('display', 'none', 'important');
-                el.style.setProperty('visibility', 'hidden', 'important');
-                el.style.setProperty('height', '0px', 'important');
-                el.style.setProperty('top', '-99999px', 'important');
-                el.style.setProperty('opacity', '0', 'important');
-                el.style.setProperty('pointer-events', 'none', 'important');
-            });
-        }
-
-        const bannerObserver = new MutationObserver(killGoogleBanner);
-        bannerObserver.observe(document.documentElement, {
-            attributes: true,
-            attributeFilter: ['style', 'class'],
-            childList: true,
-            subtree: true
-        });
-        killGoogleBanner();
-        window.addEventListener('load', killGoogleBanner);
-        setInterval(killGoogleBanner, 300);
-
     })();
 </script>
-
-<!-- Hidden container for Google Translate Widget -->
-<div id="google_translate_element" style="display:none;" aria-hidden="true"></div>
-
-<!-- Google Translate Loader -->
-<script type="text/javascript">
-    function googleTranslateElementInit() {
-        new google.translate.TranslateElement({
-            pageLanguage: 'en',
-            includedLanguages: 'en,de,fr,es,it,ja,zh-CN,ar,ko',
-            layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
-            autoDisplay: false
-        }, 'google_translate_element');
-    }
-</script>
-<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" async defer></script>
