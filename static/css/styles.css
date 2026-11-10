@@ -297,10 +297,11 @@ img {
 /* Nav links inside pill */
 .nav-pill-link {
     font-family: var(--font);
-    font-size: 0.875rem;
+    font-size: 0.85rem;
     font-weight: 600;
     border-radius: 100px;
     color: rgba(255, 255, 255, 0.72) !important;
+    padding: 0.35rem 0.7rem !important;
     transition: background 0.2s ease, color 0.2s ease;
 }
 
