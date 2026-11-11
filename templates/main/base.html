@@ -497,5 +497,6 @@
         // Safety net: if the page is still loading after 5 seconds (slow hosting), force dismiss
         setTimeout(dismissPreloader, 5000);
     </script>
-    </body>
+    {% block extra_scripts %}{% endblock %}
+</body>
 </html>
