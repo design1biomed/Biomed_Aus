@@ -1,0 +1,212 @@
+[
+{
+  "model": "main.accreditation",
+  "pk": 4,
+  "fields": {
+    "name": "FDA",
+    "image": "accreditations/FDA.png",
+    "order": 1,
+    "category": "Quality & GMP",
+    "certificate_no": null,
+    "issuing_body": null,
+    "validity": null,
+    "scope": null,
+    "certificate_file": "accreditations/certificates/fda.pdf"
+  }
+},
+{
+  "model": "main.accreditation",
+  "pk": 5,
+  "fields": {
+    "name": "EU organic",
+    "image": "accreditations/EU_organic.png",
+    "order": 2,
+    "category": "Quality & GMP",
+    "certificate_no": null,
+    "issuing_body": null,
+    "validity": null,
+    "scope": null,
+    "certificate_file": "accreditations/certificates/eu_organic.pdf"
+  }
+},
+{
+  "model": "main.accreditation",
+  "pk": 6,
+  "fields": {
+    "name": "FSSAI",
+    "image": "accreditations/FSSAI.png",
+    "order": 3,
+    "category": "Quality & GMP",
+    "certificate_no": null,
+    "issuing_body": null,
+    "validity": null,
+    "scope": null,
+    "certificate_file": "accreditations/certificates/fssai.pdf"
+  }
+},
+{
+  "model": "main.accreditation",
+  "pk": 7,
+  "fields": {
+    "name": "FSSC 22000",
+    "image": "accreditations/FSSC_22000.png",
+    "order": 4,
+    "category": "Quality & GMP",
+    "certificate_no": null,
+    "issuing_body": null,
+    "validity": null,
+    "scope": null,
+    "certificate_file": "accreditations/certificates/fssc_22000.pdf"
+  }
+},
+{
+  "model": "main.accreditation",
+  "pk": 8,
+  "fields": {
+    "name": "GMP",
+    "image": "accreditations/GMP.png",
+    "order": 5,
+    "category": "Quality & GMP",
+    "certificate_no": null,
+    "issuing_body": null,
+    "validity": null,
+    "scope": null,
+    "certificate_file": "accreditations/certificates/gmp.pdf"
+  }
+},
+{
+  "model": "main.accreditation",
+  "pk": 9,
+  "fields": {
+    "name": "India halal",
+    "image": "accreditations/India_halal.png",
+    "order": 6,
+    "category": "Quality & GMP",
+    "certificate_no": null,
+    "issuing_body": null,
+    "validity": null,
+    "scope": null,
+    "certificate_file": "accreditations/certificates/india_halal.pdf"
+  }
+},
+{
+  "model": "main.accreditation",
+  "pk": 10,
+  "fields": {
+    "name": "India Organic",
+    "image": "accreditations/India_Organic.png",
+    "order": 7,
+    "category": "Quality & GMP",
+    "certificate_no": null,
+    "issuing_body": null,
+    "validity": null,
+    "scope": null,
+    "certificate_file": "accreditations/certificates/india_organic.pdf"
+  }
+},
+{
+  "model": "main.accreditation",
+  "pk": 11,
+  "fields": {
+    "name": "ISO 9001 2015",
+    "image": "accreditations/ISO_9001_2015.png",
+    "order": 8,
+    "category": "Quality & GMP",
+    "certificate_no": null,
+    "issuing_body": null,
+    "validity": null,
+    "scope": null,
+    "certificate_file": "accreditations/certificates/iso_9001_2015.pdf"
+  }
+},
+{
+  "model": "main.accreditation",
+  "pk": 12,
+  "fields": {
+    "name": "ISO 9001",
+    "image": "accreditations/ISO_9001.png",
+    "order": 9,
+    "category": "Quality & GMP",
+    "certificate_no": null,
+    "issuing_body": null,
+    "validity": null,
+    "scope": null,
+    "certificate_file": "accreditations/certificates/iso_9001.pdf"
+  }
+},
+{
+  "model": "main.accreditation",
+  "pk": 13,
+  "fields": {
+    "name": "KLBD",
+    "image": "accreditations/KLBD.png",
+    "order": 10,
+    "category": "Quality & GMP",
+    "certificate_no": null,
+    "issuing_body": null,
+    "validity": null,
+    "scope": null,
+    "certificate_file": "accreditations/certificates/klbd.pdf"
+  }
+},
+{
+  "model": "main.accreditation",
+  "pk": 14,
+  "fields": {
+    "name": "Kosher",
+    "image": "accreditations/Kosher.png",
+    "order": 11,
+    "category": "Quality & GMP",
+    "certificate_no": null,
+    "issuing_body": null,
+    "validity": null,
+    "scope": null,
+    "certificate_file": "accreditations/certificates/kosher.pdf"
+  }
+},
+{
+  "model": "main.accreditation",
+  "pk": 15,
+  "fields": {
+    "name": "SGS GMP",
+    "image": "accreditations/SGS_GMP.png",
+    "order": 12,
+    "category": "Quality & GMP",
+    "certificate_no": null,
+    "issuing_body": null,
+    "validity": null,
+    "scope": null,
+    "certificate_file": "accreditations/certificates/sgs_gmp.pdf"
+  }
+},
+{
+  "model": "main.accreditation",
+  "pk": 16,
+  "fields": {
+    "name": "spice board",
+    "image": "accreditations/spice_board.png",
+    "order": 13,
+    "category": "Quality & GMP",
+    "certificate_no": null,
+    "issuing_body": null,
+    "validity": null,
+    "scope": null,
+    "certificate_file": "accreditations/certificates/spice_board.pdf"
+  }
+},
+{
+  "model": "main.accreditation",
+  "pk": 17,
+  "fields": {
+    "name": "USDA organic",
+    "image": "accreditations/USDA_organic.png",
+    "order": 14,
+    "category": "Quality & GMP",
+    "certificate_no": null,
+    "issuing_body": null,
+    "validity": null,
+    "scope": null,
+    "certificate_file": "accreditations/certificates/usda_organic.pdf"
+  }
+}
+]

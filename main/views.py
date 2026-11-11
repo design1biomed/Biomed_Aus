@@ -28,7 +28,17 @@ def index(request):
     })
 
 def accreditations_page(request):
-    accreditations_list = Accreditation.objects.all()
+    accreditations_list = list(Accreditation.objects.all())
+    # Ensure all certificates link to their official original PDF if available
+    for item in accreditations_list:
+        if not item.certificate_file:
+            clean_name = item.name.lower().replace(' ', '_') + '.pdf'
+            pdf_rel = f'accreditations/certificates/{clean_name}'
+            full_path = os.path.join(settings.MEDIA_ROOT, pdf_rel)
+            if os.path.exists(full_path):
+                Accreditation.objects.filter(id=item.id).update(certificate_file=pdf_rel)
+                item.certificate_file = pdf_rel
+
     # Check session for verified certificate viewing access
     access_granted = request.session.get('accreditations_unlocked', False)
     
