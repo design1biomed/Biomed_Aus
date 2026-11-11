@@ -180,10 +180,16 @@ class IndexPageForm(forms.ModelForm):
 class AccreditationForm(forms.ModelForm):
     class Meta:
         model = Accreditation
-        fields = ['name', 'image', 'order']
+        fields = ['name', 'category', 'image', 'certificate_file', 'certificate_no', 'issuing_body', 'validity', 'scope', 'order']
         widgets = {
-            'name': forms.TextInput(attrs={'class': 'form-control'}),
+            'name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'e.g. ISO 9001:2015, WHO-GMP, USDA Organic'}),
+            'category': forms.Select(attrs={'class': 'form-select'}),
             'image': forms.ClearableFileInput(attrs={'class': 'form-control'}),
+            'certificate_file': forms.ClearableFileInput(attrs={'class': 'form-control'}),
+            'certificate_no': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'e.g. BMI-ISO-9001-2024'}),
+            'issuing_body': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'e.g. SGS / Bureau Veritas / US FDA'}),
+            'validity': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'e.g. Valid Through Dec 2026'}),
+            'scope': forms.Textarea(attrs={'class': 'form-control', 'rows': 3, 'placeholder': 'Scope of manufacturing & export certified under this standard'}),
             'order': forms.NumberInput(attrs={'class': 'form-control'}),
         }
 

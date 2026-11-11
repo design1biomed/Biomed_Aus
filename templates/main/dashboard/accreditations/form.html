@@ -7,35 +7,94 @@
     <div class="card-body p-4 p-md-5">
         <form method="post" enctype="multipart/form-data">
             {% csrf_token %}
-            <div class="mb-3">
-                <label for="{{ form.name.id_for_label }}" class="form-label text-muted small fw-bold text-uppercase">Name</label>
-                {{ form.name }}
-                {% if form.name.errors %}
-                <div class="text-danger small mt-1">{{ form.name.errors }}</div>
-                {% endif %}
+            
+            <h6 class="fw-bold text-success text-uppercase mb-3" style="letter-spacing: 1px;">1. Basic Accreditation Info</h6>
+            <div class="row g-3 mb-4">
+                <div class="col-md-7">
+                    <label for="{{ form.name.id_for_label }}" class="form-label text-muted small fw-bold text-uppercase">Accreditation Name *</label>
+                    {{ form.name }}
+                    {% if form.name.errors %}
+                    <div class="text-danger small mt-1">{{ form.name.errors }}</div>
+                    {% endif %}
+                </div>
+                <div class="col-md-5">
+                    <label for="{{ form.category.id_for_label }}" class="form-label text-muted small fw-bold text-uppercase">Category</label>
+                    {{ form.category }}
+                    {% if form.category.errors %}
+                    <div class="text-danger small mt-1">{{ form.category.errors }}</div>
+                    {% endif %}
+                </div>
+                <div class="col-md-8">
+                    <label for="{{ form.image.id_for_label }}" class="form-label text-muted small fw-bold text-uppercase">Badge / Logo Image *</label>
+                    {{ form.image }}
+                    {% if form.image.errors %}
+                    <div class="text-danger small mt-1">{{ form.image.errors }}</div>
+                    {% endif %}
+                    <div class="form-text">Transparent PNG or WebP badge for website marquee and card display.</div>
+                </div>
+                <div class="col-md-4">
+                    <label for="{{ form.order.id_for_label }}" class="form-label text-muted small fw-bold text-uppercase">Display Order</label>
+                    {{ form.order }}
+                    {% if form.order.errors %}
+                    <div class="text-danger small mt-1">{{ form.order.errors }}</div>
+                    {% endif %}
+                    <div class="form-text">Lower numbers appear first.</div>
+                </div>
             </div>
 
-            <div class="mb-3">
-                <label for="{{ form.image.id_for_label }}" class="form-label text-muted small fw-bold text-uppercase">Image</label>
-                {{ form.image }}
-                {% if form.image.errors %}
-                <div class="text-danger small mt-1">{{ form.image.errors }}</div>
-                {% endif %}
-                <div class="form-text">Upload a transparent PNG or WebP for best results.</div>
+            <hr class="my-4 text-muted opacity-25">
+
+            <h6 class="fw-bold text-success text-uppercase mb-3" style="letter-spacing: 1px;">2. Certificate & Audit Dossier Details</h6>
+            <p class="text-muted small mb-3">These details appear in the Interactive Certificate Viewer when pharma and audit teams verify this accreditation.</p>
+
+            <div class="row g-3 mb-4">
+                <div class="col-md-6">
+                    <label for="{{ form.certificate_no.id_for_label }}" class="form-label text-muted small fw-bold text-uppercase">Certificate / Registration ID</label>
+                    {{ form.certificate_no }}
+                    {% if form.certificate_no.errors %}
+                    <div class="text-danger small mt-1">{{ form.certificate_no.errors }}</div>
+                    {% endif %}
+                    <div class="form-text">e.g. ISO-9001-2015-IN-98214 or FDA-REG-1948201</div>
+                </div>
+                <div class="col-md-6">
+                    <label for="{{ form.issuing_body.id_for_label }}" class="form-label text-muted small fw-bold text-uppercase">Certifying Authority / Board</label>
+                    {{ form.issuing_body }}
+                    {% if form.issuing_body.errors %}
+                    <div class="text-danger small mt-1">{{ form.issuing_body.errors }}</div>
+                    {% endif %}
+                    <div class="form-text">e.g. SGS / Bureau Veritas / US FDA / Halal India</div>
+                </div>
+
+                <div class="col-md-6">
+                    <label for="{{ form.validity.id_for_label }}" class="form-label text-muted small fw-bold text-uppercase">Validity / Renewal Cycle</label>
+                    {{ form.validity }}
+                    {% if form.validity.errors %}
+                    <div class="text-danger small mt-1">{{ form.validity.errors }}</div>
+                    {% endif %}
+                    <div class="form-text">e.g. Valid Through Dec 2026 · Annual Surveillance Cleared</div>
+                </div>
+                <div class="col-md-6">
+                    <label for="{{ form.certificate_file.id_for_label }}" class="form-label text-muted small fw-bold text-uppercase">Official Certificate File (PDF / High-Res)</label>
+                    {{ form.certificate_file }}
+                    {% if form.certificate_file.errors %}
+                    <div class="text-danger small mt-1">{{ form.certificate_file.errors }}</div>
+                    {% endif %}
+                    <div class="form-text">Upload official scanned certificate or PDF for direct download.</div>
+                </div>
+
+                <div class="col-12">
+                    <label for="{{ form.scope.id_for_label }}" class="form-label text-muted small fw-bold text-uppercase">Certified Manufacturing & Export Scope</label>
+                    {{ form.scope }}
+                    {% if form.scope.errors %}
+                    <div class="text-danger small mt-1">{{ form.scope.errors }}</div>
+                    {% endif %}
+                    <div class="form-text">Audit scope description (e.g. Standardized botanical extracts, phytochemicals, herbal powders).</div>
+                </div>
             </div>
 
-            <div class="mb-4">
-                <label for="{{ form.order.id_for_label }}" class="form-label text-muted small fw-bold text-uppercase">Order</label>
-                {{ form.order }}
-                {% if form.order.errors %}
-                <div class="text-danger small mt-1">{{ form.order.errors }}</div>
-                {% endif %}
-                <div class="form-text">Lower numbers appear first in the marquee.</div>
-            </div>
-
-            <div class="d-flex gap-3">
-                <button type="submit" class="btn btn-success px-4">Save</button>
-                <a href="{% url 'manage_accreditations' %}" class="btn btn-outline-secondary px-4">Cancel</a>
+            <div class="d-flex gap-3 pt-2">
+                <button type="submit" class="btn btn-success px-4 py-2 fw-semibold">Save Accreditation</button>
+                <a href="{% url 'manage_accreditations' %}" class="btn btn-outline-secondary px-4 py-2">Cancel</a>
             </div>
         </form>
     </div>

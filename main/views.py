@@ -29,17 +29,47 @@ def index(request):
 
 def accreditations_page(request):
     accreditations_list = Accreditation.objects.all()
-    # Simple session check for unlocking PDFs
+    # Check session for verified certificate viewing access
     access_granted = request.session.get('accreditations_unlocked', False)
     
     if request.method == 'POST':
-        name = request.POST.get('name')
-        email = request.POST.get('email')
+        name = request.POST.get('name', '').strip()
+        email = request.POST.get('email', '').strip()
+        organization = request.POST.get('organization', '').strip()
+        phone = request.POST.get('phone', '').strip()
+        target_id = request.POST.get('target_id', '').strip()
+        
         if name and email:
-            # Unlock the PDFs for this user session
+            # Unlock the certificates for this user session
             request.session['accreditations_unlocked'] = True
             access_granted = True
-            messages.success(request, 'Thank you! You now have access to view our accreditation documents.')
+            
+            # Record lead in B2B Leads Manager
+            try:
+                Enquiry.objects.create(
+                    full_name=name,
+                    email=email,
+                    company=organization or 'Auditor / Procurement',
+                    product_name='Accreditation Certificate Access',
+                    message=f'User requested verified access to view accreditation certificates. Organization: {organization or "N/A"}, Phone: {phone or "N/A"}'
+                )
+            except Exception:
+                pass
+            
+            if request.headers.get('x-requested-with') == 'XMLHttpRequest' or request.POST.get('ajax') == '1':
+                from django.http import JsonResponse
+                return JsonResponse({
+                    'success': True,
+                    'message': 'Access verified. Certificate unlocked.',
+                    'target_id': target_id
+                })
+
+            messages.success(request, 'Thank you! You now have verified access to inspect our official accreditation documents.')
+            return redirect('accreditations')
+        else:
+            if request.headers.get('x-requested-with') == 'XMLHttpRequest' or request.POST.get('ajax') == '1':
+                from django.http import JsonResponse
+                return JsonResponse({'success': False, 'message': 'Please enter both your name and business email.'}, status=400)
             
     return render(request, 'main/accreditations.html', {
         'accreditations_list': accreditations_list,

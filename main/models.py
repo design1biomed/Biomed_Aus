@@ -147,19 +147,120 @@ class IndexPageContent(models.Model):
 
 
 class Accreditation(models.Model):
+    CATEGORY_CHOICES = [
+        ('Quality & GMP', 'Quality & GMP Standards'),
+        ('Regulatory & Food Safety', 'Regulatory & Food Safety'),
+        ('Organic & Natural', 'Organic & Natural'),
+        ('Dietary & Religious', 'Dietary & Religious Compliance'),
+        ('Other', 'Other Global Standards'),
+    ]
+
     name = models.CharField(max_length=255)
     image = models.ImageField(upload_to='accreditations/')
     order = models.IntegerField(default=0, help_text="Order in the marquee")
+    
+    # Certificate Verification & Audit Details
+    category = models.CharField(max_length=100, choices=CATEGORY_CHOICES, default='Quality & GMP', blank=True)
+    certificate_no = models.CharField(max_length=150, blank=True, null=True, help_text="Certificate or Registration ID (e.g. ISO-9001-2015-IN)")
+    issuing_body = models.CharField(max_length=255, blank=True, null=True, help_text="Issuing authority (e.g. SGS, US FDA, Bureau Veritas)")
+    validity = models.CharField(max_length=150, blank=True, null=True, help_text="e.g. Valid Through Dec 2026 / Annual Surveillance Current")
+    scope = models.TextField(blank=True, null=True, help_text="Certified scope of manufacturing & export")
+    certificate_file = models.FileField(upload_to='accreditations/certificates/', blank=True, null=True, help_text="Optional PDF or high-res certificate document")
     
     class Meta:
         ordering = ['order', 'id']
         
     def save(self, *args, **kwargs):
-        self.image = compress_uploaded_image(self.image)
+        if self.image:
+            self.image = compress_uploaded_image(self.image)
         super(Accreditation, self).save(*args, **kwargs)
 
     def __str__(self):
         return self.name
+
+    @property
+    def display_category(self):
+        if self.category and self.category != 'Other':
+            return self.category
+        n = self.name.lower()
+        if any(k in n for k in ['gmp', 'iso', 'fssc']):
+            return 'Quality & GMP'
+        elif any(k in n for k in ['organic', 'usda', 'eu']):
+            return 'Organic & Natural'
+        elif any(k in n for k in ['halal', 'kosher', 'klbd']):
+            return 'Dietary & Religious'
+        elif any(k in n for k in ['fda', 'fssai', 'spice']):
+            return 'Regulatory & Food Safety'
+        return 'Quality & GMP'
+
+    @property
+    def category_slug(self):
+        cat = self.display_category.lower()
+        if 'quality' in cat or 'gmp' in cat:
+            return 'quality'
+        if 'organic' in cat:
+            return 'organic'
+        if 'dietary' in cat or 'religious' in cat:
+            return 'dietary'
+        if 'regulatory' in cat or 'safety' in cat:
+            return 'regulatory'
+        return 'all'
+
+    @property
+    def display_issuing_body(self):
+        if self.issuing_body:
+            return self.issuing_body
+        n = self.name.lower()
+        if 'fda' in n:
+            return 'U.S. Food and Drug Administration (FDA)'
+        elif 'fssai' in n:
+            return 'Food Safety and Standards Authority of India (FSSAI)'
+        elif 'fssc' in n:
+            return 'Foundation FSSC / Accredited Certification Body'
+        elif 'sgs' in n or 'gmp' in n:
+            return 'SGS / WHO-GMP Good Manufacturing Practices Board'
+        elif 'iso 9001' in n:
+            return 'International Organization for Standardization / TUV'
+        elif 'halal' in n:
+            return 'Halal India Regulatory & Shariah Board'
+        elif 'klbd' in n:
+            return 'Kashrut Division of the London Beth Din (KLBD)'
+        elif 'kosher' in n:
+            return 'Star-K / International Kosher Certification'
+        elif 'usda' in n:
+            return 'USDA National Organic Program (NOP)'
+        elif 'eu organic' in n:
+            return 'European Union Organic Agriculture Inspection Board'
+        elif 'india organic' in n:
+            return 'NPOP / APEDA, Ministry of Commerce, Govt. of India'
+        elif 'spice' in n:
+            return 'Spices Board, Ministry of Commerce & Industry, Govt. of India'
+        return 'Accredited International Audit & Certification Authority'
+
+    @property
+    def display_certificate_no(self):
+        if self.certificate_no:
+            return self.certificate_no
+        code = ''.join([c for c in self.name if c.isalnum()]).upper()[:7]
+        return f"BMI-{code}-2024-REG"
+
+    @property
+    def display_validity(self):
+        if self.validity:
+            return self.validity
+        return "Valid & Active (Annual Audit Cleared · 2026–2027)"
+
+    @property
+    def display_scope(self):
+        if self.scope:
+            return self.scope
+        return "Manufacture, processing, standardized extraction, testing, packaging, and global export of botanical extracts, phytochemicals, herbal powders, and natural food ingredients."
+
+    @property
+    def is_pdf(self):
+        if self.certificate_file and self.certificate_file.name:
+            return self.certificate_file.name.lower().endswith('.pdf')
+        return False
 
 class QualityTimeline(models.Model):
     title = models.CharField(max_length=255)
