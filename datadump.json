@@ -3,7 +3,7 @@
   "model": "auth.user",
   "fields": {
     "password": "pbkdf2_sha256$1200000$cFNzLa0I3BVrjvPINwRQJT$T/JOJVjvd7sgJkWf3hX8O1A2aF1XElgb0asI1wegl4Q=",
-    "last_login": "2026-11-07T08:13:49.822Z",
+    "last_login": "2026-11-10T09:55:44.313Z",
     "is_superuser": true,
     "username": "Adminaus",
     "first_name": "",
@@ -178,6 +178,14 @@
 },
 {
   "model": "sessions.session",
+  "pk": "oqvnivsx6u86wg3tjpup66o382y3wh82",
+  "fields": {
+    "session_data": "eyJhY2NyZWRpdGF0aW9uc191bmxvY2tlZCI6dHJ1ZX0:1xQzWz:PZzX0dSIs9_gaYw2vgXDbcyF_sKf30ZiArb575wFh9U",
+    "expire_date": "2026-11-25T04:01:53.408Z"
+  }
+},
+{
+  "model": "sessions.session",
   "pk": "p15vb6xzyidnc4j9urnfh45jpw9k2r3y",
   "fields": {
     "session_data": ".eJxVjMsOgjAQAP9lz6aBvmg5evcbmt1t16IGEgon478bEg56nZnMGxLuW017K2uaMozQw-WXEfKzzIfID5zvi-Jl3taJ1JGo0zZ1W3J5Xc_2b1CxVRhBdBDmnglFrDFDIcudhOg1su2ieGKKznUeJbD2xgSnBa3QgNFqy_D5Ag7iOJc:1wtdiz:LzQmjE9kqPWkQMS1djgtgwNHwhv1Ic4riWWS5el6N9o",
@@ -234,10 +242,10 @@
 },
 {
   "model": "sessions.session",
-  "pk": "w3hjn1t4h1yp4b1js4ibep163xcba2su",
+  "pk": "urpoxu5u3zffcyf464sryodbauw6ab3o",
   "fields": {
-    "session_data": ".eJxVjMsKwjAQAP9lzxLyzrZH735DyG4SU5UWmvYk_rsUetDrzDBviGnfWtx7WeOUYQQFl19GiZ9lPkR-pPm-CF7mbZ1IHIk4bRe3JZfX9Wz_Bi31BiOQRfbVaccahyqDq-S4-mI4oDKBDDKhJY0YpEkqy2y1rkkNgzUqGw-fL9x_N0w:1xPbEL:_WYjF4vMc2Xpalp-o-2mJquNNPwNhU1xZpNGYtVQyxI",
-    "expire_date": "2026-11-21T07:52:53.213Z"
+    "session_data": "eyJhY2NyZWRpdGF0aW9uc191bmxvY2tlZCI6dHJ1ZX0:1xQzXi:rZ0_f0KFBagmZqtLSENhuO_lCoUWHmQEw62isGrQEgs",
+    "expire_date": "2026-11-25T04:02:38.222Z"
   }
 },
 {
@@ -265,12 +273,20 @@
   }
 },
 {
+  "model": "sessions.session",
+  "pk": "zip3utcbgv4psd9aj3gcaz32rb9dw0qw",
+  "fields": {
+    "session_data": ".eJxVjLsOwyAMAP_FcxRBXoSM3fsNyNhOQ1OBBGSq-u9VpAztene6Nzg86uaOItkFhgU0NL_MI-0ST8FPjI_UUoo1B9-eSXvZ0t4Ty-t2tX-DDcsGC6wDjzh1ZsJO93ogJaNHtWruPfteTWJmbbRV67BqSyP7sSc9Ky9eGUuzhQaQKAuHijWkWNwRX4l2YVhqPuTzBVYsQ6s:1xR27U:Z67PTs4R92WS8Phne4tFlzqxretuxeNvAKYxZtJo5Js",
+    "expire_date": "2026-11-25T06:47:44.800Z"
+  }
+},
+{
   "model": "main.indexpagecontent",
   "pk": 1,
   "fields": {
     "hero_title": "We Integrate<br><span class=\"text-accent-gold\">technology with nature.</span>",
     "hero_subtitle": "Catering to the nutraceutical, cosmeceutical, pharmaceutical and food industries. Suppliers of organically and naturally produced herbal & spice extracts, plant extracts and oleoresins.",
-    "hero_image": "hero/hero_nr2YxNz.jpg",
+    "hero_image": "hero/hero.webp",
     "about_title": "Bio Med Ingredients Australia",
     "about_subtitle": "WHO WE ARE",
     "about_text": "Bio Med Ingredients is committed towards GOOD HEALTH and PROTECTION OF THE ENVIRONMENT.\r\nWhen Bio Med Ingredients was born in 2015, our mission has been to manufacture and supply organically produced medicinal plants to the nutritional, cosmetic, pharmaceutical and food industries.\r\n\r\nAt Bio Med Ingredients, we are providing premium quality nutraceuticals, herbal extracts, and natural food colors & flavors. With a commitment to innovation, sustainability, and scientific excellence, we empower industries to create products that enhance health, well-being, and sensory experiences.",
@@ -310,7 +326,13 @@
   "fields": {
     "name": "FDA",
     "image": "accreditations/FDA.png",
-    "order": 1
+    "order": 1,
+    "category": "Quality & GMP",
+    "certificate_no": null,
+    "issuing_body": null,
+    "validity": null,
+    "scope": null,
+    "certificate_file": "accreditations/certificates/fda.pdf"
   }
 },
 {
@@ -319,7 +341,13 @@
   "fields": {
     "name": "EU organic",
     "image": "accreditations/EU_organic.png",
-    "order": 2
+    "order": 2,
+    "category": "Quality & GMP",
+    "certificate_no": null,
+    "issuing_body": null,
+    "validity": null,
+    "scope": null,
+    "certificate_file": "accreditations/certificates/eu_organic.pdf"
   }
 },
 {
@@ -328,7 +356,13 @@
   "fields": {
     "name": "FSSAI",
     "image": "accreditations/FSSAI.png",
-    "order": 3
+    "order": 3,
+    "category": "Quality & GMP",
+    "certificate_no": null,
+    "issuing_body": null,
+    "validity": null,
+    "scope": null,
+    "certificate_file": "accreditations/certificates/fssai.pdf"
   }
 },
 {
@@ -337,7 +371,13 @@
   "fields": {
     "name": "FSSC 22000",
     "image": "accreditations/FSSC_22000.png",
-    "order": 4
+    "order": 4,
+    "category": "Quality & GMP",
+    "certificate_no": null,
+    "issuing_body": null,
+    "validity": null,
+    "scope": null,
+    "certificate_file": "accreditations/certificates/fssc_22000.pdf"
   }
 },
 {
@@ -346,7 +386,13 @@
   "fields": {
     "name": "GMP",
     "image": "accreditations/GMP.png",
-    "order": 5
+    "order": 5,
+    "category": "Quality & GMP",
+    "certificate_no": null,
+    "issuing_body": null,
+    "validity": null,
+    "scope": null,
+    "certificate_file": "accreditations/certificates/gmp.pdf"
   }
 },
 {
@@ -355,7 +401,13 @@
   "fields": {
     "name": "India halal",
     "image": "accreditations/India_halal.png",
-    "order": 6
+    "order": 6,
+    "category": "Quality & GMP",
+    "certificate_no": null,
+    "issuing_body": null,
+    "validity": null,
+    "scope": null,
+    "certificate_file": "accreditations/certificates/india_halal.pdf"
   }
 },
 {
@@ -364,7 +416,13 @@
   "fields": {
     "name": "India Organic",
     "image": "accreditations/India_Organic.png",
-    "order": 7
+    "order": 7,
+    "category": "Quality & GMP",
+    "certificate_no": null,
+    "issuing_body": null,
+    "validity": null,
+    "scope": null,
+    "certificate_file": "accreditations/certificates/india_organic.pdf"
   }
 },
 {
@@ -373,7 +431,13 @@
   "fields": {
     "name": "ISO 9001 2015",
     "image": "accreditations/ISO_9001_2015.png",
-    "order": 8
+    "order": 8,
+    "category": "Quality & GMP",
+    "certificate_no": null,
+    "issuing_body": null,
+    "validity": null,
+    "scope": null,
+    "certificate_file": "accreditations/certificates/iso_9001_2015.pdf"
   }
 },
 {
@@ -382,7 +446,13 @@
   "fields": {
     "name": "ISO 9001",
     "image": "accreditations/ISO_9001.png",
-    "order": 9
+    "order": 9,
+    "category": "Quality & GMP",
+    "certificate_no": null,
+    "issuing_body": null,
+    "validity": null,
+    "scope": null,
+    "certificate_file": "accreditations/certificates/iso_9001.pdf"
   }
 },
 {
@@ -391,7 +461,13 @@
   "fields": {
     "name": "KLBD",
     "image": "accreditations/KLBD.png",
-    "order": 10
+    "order": 10,
+    "category": "Quality & GMP",
+    "certificate_no": null,
+    "issuing_body": null,
+    "validity": null,
+    "scope": null,
+    "certificate_file": "accreditations/certificates/klbd.pdf"
   }
 },
 {
@@ -400,7 +476,13 @@
   "fields": {
     "name": "Kosher",
     "image": "accreditations/Kosher.png",
-    "order": 11
+    "order": 11,
+    "category": "Quality & GMP",
+    "certificate_no": null,
+    "issuing_body": null,
+    "validity": null,
+    "scope": null,
+    "certificate_file": "accreditations/certificates/kosher.pdf"
   }
 },
 {
@@ -409,7 +491,13 @@
   "fields": {
     "name": "SGS GMP",
     "image": "accreditations/SGS_GMP.png",
-    "order": 12
+    "order": 12,
+    "category": "Quality & GMP",
+    "certificate_no": null,
+    "issuing_body": null,
+    "validity": null,
+    "scope": null,
+    "certificate_file": "accreditations/certificates/sgs_gmp.pdf"
   }
 },
 {
@@ -418,7 +506,13 @@
   "fields": {
     "name": "spice board",
     "image": "accreditations/spice_board.png",
-    "order": 13
+    "order": 13,
+    "category": "Quality & GMP",
+    "certificate_no": null,
+    "issuing_body": null,
+    "validity": null,
+    "scope": null,
+    "certificate_file": "accreditations/certificates/spice_board.pdf"
   }
 },
 {
@@ -427,7 +521,13 @@
   "fields": {
     "name": "USDA organic",
     "image": "accreditations/USDA_organic.png",
-    "order": 14
+    "order": 14,
+    "category": "Quality & GMP",
+    "certificate_no": null,
+    "issuing_body": null,
+    "validity": null,
+    "scope": null,
+    "certificate_file": "accreditations/certificates/usda_organic.pdf"
   }
 },
 {
@@ -455,6 +555,42 @@
     "title": "Commitment",
     "description": "Our philosophy is to achieve good health and wellness the natural way. Our products are therefore safe, and bestows holistic cure.",
     "order": 3
+  }
+},
+{
+  "model": "main.qualitytimeline",
+  "pk": 4,
+  "fields": {
+    "title": "2015 - Foundation of Bio Med",
+    "description": "Founded with a core mission to manufacture and supply organically produced medicinal plants and premium herbal extracts globally.",
+    "order": 1
+  }
+},
+{
+  "model": "main.qualitytimeline",
+  "pk": 5,
+  "fields": {
+    "title": "2018 - Global Certifications",
+    "description": "Achieved major quality benchmarks including GMP, ISO, KOSHER, HALAL, and ORGANIC certifications.",
+    "order": 2
+  }
+},
+{
+  "model": "main.qualitytimeline",
+  "pk": 6,
+  "fields": {
+    "title": "2021 - R&D Facility Expansion",
+    "description": "Opened a new state-of-the-art laboratory for advanced extraction and natural food colors development.",
+    "order": 3
+  }
+},
+{
+  "model": "main.qualitytimeline",
+  "pk": 7,
+  "fields": {
+    "title": "2024 & Beyond - Present Day",
+    "description": "Exporting to over 30 countries and pioneering sustainable agriculture across our supply chain.",
+    "order": 4
   }
 },
 {
@@ -510,6 +646,56 @@
     "description": "Staple ingredients targeted at cognitive support, memory, and daily energy.",
     "image": "extracts/marigold.webp",
     "order": 6
+  }
+},
+{
+  "model": "main.corepromise",
+  "pk": 2,
+  "fields": {
+    "title": "Quality Improvement",
+    "description": "We relentlessly pursue quality enhancement, refining every process to ensure unparalleled purity and potency in our ingredients.",
+    "icon_class": "bi-check-circle",
+    "order": 1
+  }
+},
+{
+  "model": "main.corepromise",
+  "pk": 3,
+  "fields": {
+    "title": "Consistency",
+    "description": "Our rigorous standards guarantee that every batch meets the exact specifications, providing reliable results you can trust.",
+    "icon_class": "bi-arrow-repeat",
+    "order": 2
+  }
+},
+{
+  "model": "main.corepromise",
+  "pk": 4,
+  "fields": {
+    "title": "Commitment",
+    "description": "We are deeply committed to sustainable practices and ethical sourcing, fostering long-term partnerships.",
+    "icon_class": "bi-heart",
+    "order": 3
+  }
+},
+{
+  "model": "main.corepromise",
+  "pk": 5,
+  "fields": {
+    "title": "Reliable Global Supply Chain",
+    "description": "Our robust logistics network supports timely, damage-free delivery to nutraceutical, pharmaceutical, and food industry partners across domestic and international markets. Our warehousing and distribution teams ensure product integrity at every stage.",
+    "icon_class": "bi-truck",
+    "order": 4
+  }
+},
+{
+  "model": "main.corepromise",
+  "pk": 6,
+  "fields": {
+    "title": "Competitive Value Without Quality Compromise",
+    "description": "We offer market-driven pricing designed to help supplement brands and formulators achieve strong margins — without sacrificing ingredient quality or regulatory compliance.",
+    "icon_class": "bi-truck",
+    "order": 5
   }
 },
 {
@@ -610,6 +796,18 @@
     "product_name": "Coenzyme Q10",
     "message": "I am interested in Coenzyme Q10 product details.",
     "created_at": "2026-08-22T09:45:09.322Z"
+  }
+},
+{
+  "model": "main.enquiry",
+  "pk": 7,
+  "fields": {
+    "full_name": "Ajomon Thomas",
+    "company": "WEWTWT",
+    "email": "design1@biomedingredients.com",
+    "product_name": "Accreditation Certificate Access",
+    "message": "User requested verified access to view accreditation certificates. Organization: WEWTWT, Phone: 9746373633",
+    "created_at": "2026-11-11T06:47:44.793Z"
   }
 },
 {
@@ -748,7 +946,7 @@
     "name": "Mr. Sebastian Thomas",
     "primary_designation": "Managing Director & Chairman",
     "secondary_designation": "MANAGING DIRECTOR\r\nCHAIRMAN",
-    "bio": "Mr. Sebastian Thomas is an entrepreneur and business leader whose professional journey reflects a blend of industry experience and entrepreneurial vision. Originally from Kerala and currently based in Goa, he holds a degree in Business Management. His career began with Toyota Kirloskar in Bengaluru, followed by professional assignments with Sami Labs, Deutsch India, ABB and Pentair Water. In 2016, he established Bio Med Ingredients Private Limited in Goa, marking an important milestone in his entrepreneurial career. His professional interests include business development, international trade and the evolving field of natural botanical ingredients. Beyond his professional commitments, Mr. Sebastian has a keen interest in organic farming, sustainable agriculture and environmentally responsible farming practices. He is also associated with several organisations engaged in social welfare and community development initiatives.",
+    "bio": "Leading Bio Med Ingredients with decades of experience in botanical extracts, nutraceuticals, and global business development. By embracing a mindful lifestyle rooted in the transformative power of premium botanical ingredients, you actively choose to nourish your body with pure natural essences.",
     "image_upload": "team/Sebastian.webp",
     "alignment": "left",
     "order": 1
@@ -760,9 +958,9 @@
   "fields": {
     "name": "Mrs. Savitha B Pillai",
     "primary_designation": "Founder & Director",
-    "secondary_designation": "FOUNDER\r\nDIRECTOR",
-    "bio": "Mrs. Savitha B. Pillai is an entrepreneur with an academic background in Economics, professional experience in education and a keen interest in nature and natural products. She holds a Bachelor’s and postgraduate degree in Economics from Madras Christian College, Tambaram, along with a Bachelor of Education (B.Ed.). Her appreciation for nature and interest in the potential of natural ingredients led her to explore entrepreneurship. In 2016, she co-founded Bio Med Ingredients Private Limited alongside Mr. Sebastian Thomas. She currently serves as the company’s full-time Director, contributing to its management and development. She brings a clear sense of purpose to her role, with a strong commitment to organisational growth, responsible leadership and the long-term vision of the enterprise.",
-    "image_upload": "team/Savitha.png",
+    "secondary_designation": "FOUNDER\nDIRECTOR",
+    "bio": "Leading Bio Med Ingredients with decades of experience in botanical extracts, nutraceuticals, and global business development, creating a sustainable foundation for vibrant health, radiant energy, and a deeply balanced daily routine that honors the timeless wisdom.",
+    "image_upload": "",
     "alignment": "right",
     "order": 2
   }
@@ -774,10 +972,101 @@
     "name": "Mrs. Ania Martian",
     "primary_designation": "CEO - Europe",
     "secondary_designation": "CEO EUROPE",
-    "bio": "Ania Martian is the Founder and CEO of BM Ingredients Europe GmbH. With extensive international experience in sales, import and export, customer development, and botanical ingredients, she leads the company’s commercial strategy and international growth. Her strong product knowledge, multilingual background, and hands-on approach enable her to build lasting relationships with customers, suppliers, and partners across global markets. Ania is focused on combining reliable service, market expertise, and long-term partnerships to create sustainable growth for BM Ingredients Europe and its customers.",
-    "image_upload": "team/Ania2x.png",
+    "bio": "Leading Bio Med Ingredients with decades of experience in botanical extracts, nutraceuticals, and global business development. By embracing a mindful lifestyle rooted in the transformative power of premium botanical ingredients, you actively choose to nourish your body with pure natural essences.",
+    "image_upload": "",
     "alignment": "left",
     "order": 3
+  }
+},
+{
+  "model": "main.teammember",
+  "pk": 4,
+  "fields": {
+    "name": "K. J. Thomas",
+    "primary_designation": "CEO - Australia",
+    "secondary_designation": "CEO - Australia",
+    "bio": "Leading Bio Med Ingredients with decades of experience in botanical extracts, nutraceuticals, and global business development. By embracing a mindful lifestyle rooted in the transformative power of premium botanical ingredients, you actively choose to nourish your body with pure natural essences.",
+    "image_upload": "team/KJthomas.webp",
+    "alignment": "right",
+    "order": 4
+  }
+},
+{
+  "model": "main.teammember",
+  "pk": 5,
+  "fields": {
+    "name": "Thomas Pampackel",
+    "primary_designation": "CFO - Australia",
+    "secondary_designation": "CFO - Australia",
+    "bio": "Leading Bio Med Ingredients with decades of experience in botanical extracts, nutraceuticals, and global business development. By embracing a mindful lifestyle rooted in the transformative power of premium botanical ingredients, you actively choose to nourish your body with pure natural essences.",
+    "image_upload": "team/Thomas.webp",
+    "alignment": "left",
+    "order": 5
+  }
+},
+{
+  "model": "main.teammember",
+  "pk": 6,
+  "fields": {
+    "name": "Mr. MoazzAhmad Alkik",
+    "primary_designation": "CEO - Jordan",
+    "secondary_designation": "CEO - Jordan",
+    "bio": "Leading Bio Med Ingredients with decades of experience in botanical extracts, nutraceuticals, and global business development. By embracing a mindful lifestyle rooted in the transformative power of premium botanical ingredients, you actively choose to nourish your body with pure natural essences.",
+    "image_upload": "team/moazz.webp",
+    "alignment": "right",
+    "order": 6
+  }
+},
+{
+  "model": "main.operationteammember",
+  "pk": 1,
+  "fields": {
+    "name": "Dr. Saji Vasudevan",
+    "primary_designation": "Senior Vice President - Operational Excellence",
+    "secondary_designation": "S V P - Operational \r\nExcellence",
+    "bio": "Leading Bio Med Ingredients with decades of experience in botanical extracts, nutraceuticals, and global business development. By embracing a mindful lifestyle rooted in the transformative power of premium botanical ingredients, you actively choose to nourish your body with pure natural essences.",
+    "image_upload": "operation_team/Dr._Saji.webp",
+    "alignment": "left",
+    "order": 1
+  }
+},
+{
+  "model": "main.operationteammember",
+  "pk": 2,
+  "fields": {
+    "name": "Dr. Srikrishna L.P.",
+    "primary_designation": "VP - Sales & Marketing",
+    "secondary_designation": "VP - Sales & Marketing",
+    "bio": "Leading Bio Med Ingredients with decades of experience in botanical extracts, nutraceuticals, and global business development. By embracing a mindful lifestyle rooted in the transformative power of premium botanical ingredients, you actively choose to nourish your body with pure natural essences.",
+    "image_upload": "operation_team/krishna.webp",
+    "alignment": "right",
+    "order": 2
+  }
+},
+{
+  "model": "main.operationteammember",
+  "pk": 3,
+  "fields": {
+    "name": "Mr. Shibu kurian",
+    "primary_designation": "General Manager - Operation",
+    "secondary_designation": "G M - Operation",
+    "bio": "Leading Bio Med Ingredients with decades of experience in botanical extracts, nutraceuticals, and global business development. By embracing a mindful lifestyle rooted in the transformative power of premium botanical ingredients, you actively choose to nourish your body with pure natural essences.",
+    "image_upload": "operation_team/shibu.webp",
+    "alignment": "left",
+    "order": 3
+  }
+},
+{
+  "model": "main.operationteammember",
+  "pk": 4,
+  "fields": {
+    "name": "Dr. Shweta Narshimha",
+    "primary_designation": "Senior Scientist - R&D",
+    "secondary_designation": "Senior Scientist - R&D",
+    "bio": "Leading Bio Med Ingredients with decades of experience in botanical extracts, nutraceuticals, and global business development. By embracing a mindful lifestyle rooted in the transformative power of premium botanical ingredients, you actively choose to nourish your body with pure natural essences.",
+    "image_upload": "operation_team/shweta.webp",
+    "alignment": "right",
+    "order": 4
   }
 },
 {
@@ -790,13 +1079,13 @@
     "farming_text_1": "We always start from the basic. so we start from cultivation and thus we connected with farmers. In many parts of the world, people depended on rain, rich soil, and the environment around them; farmers have a deep understanding and connection to nature.",
     "farming_text_2": "To ensure the seamless supply chain of products Bio Med Ingredients directly connected with farmers for all kind of herbs which grows in India. When raw material are seasonal and usage of pesticides uncontrollable vertical integration with farmers gives wings to Bio Med to fly high.",
     "farming_text_3": "While farming is important for a number of reasons, it is equally important for farmers and agriculture organizations to collect data. Having an understanding of the plant and to have an understanding of the type of plant that is being grown and a means to track the good, and bad, produce from seed to store.",
-    "farming_img_upload": "",
+    "farming_img_upload": "infrastructure_page/340A5018.webp",
     "services_badge": "Capabilities & Support",
     "services_heading": "Our Services",
     "services_text_1": "Since inception of our brand, we have tried to gain the customer reliance by offering them solutions to their requirements at affordable prices with unbeatable qualities which lead to unbeatable growth of our company. Our pioneering products are the origin of new finished formulation in the dietary supplement market. We are the first point of discussion among manufacturers and marketers on designing new formation for finished formulation. Our ability to supply customary designed herbal extract formulation helps finished formulation companies to have better product in the market that one can boast of.",
     "services_text_2": "We are the one manufacturer you can trust and turn to for everything from an ingredient and product development to time sensitive delivery. Whatever the challenge, we move beyond the trodden path always with an eye on delivering best ever effects. That is why BMI is the ingredient premier manufacturer supplier, and the only source you'll ever need. Whether we work together to create custom blends or develop production efficiencies, B M I's value-added ingredient services will help streamline your operations, generate cost savings, and even create new profit centers. This level of expertise, rarely found in a raw material supplier, has set new standards for our industry and can do the same for that of yours.",
     "services_text_3": "When you work with BMI, we'll not only deliver premium ingredients at reasonable prices, our state-of-the-art quality controls will also ensure that each ingredient meets your standards for uniqueness, purity, strength, consistency, and reliability. Our technical and commercial expertize can even help you guide, suggest and manufacture new ingredients and upgrade those you're using already. Besides, we'll extend expert technical support to your manufacturing group that can help your company improve efficiencies, minimize waste, and optimize productivity. So you only have to bank on one sole supplier instead of going for five. It will be better for you to test one sample instead of many. At BMI, manufacturing solutions and great customer service",
-    "services_img_upload": "",
+    "services_img_upload": "infrastructure_page/vlcsnap-2026-04-13-14h21m47s536.webp",
     "quality_badge": "Structured & Science-Led Framework",
     "quality_heading": "Quality Assurance for Botanical Ingredients",
     "quality_text_1": "Quality at Bio Med Ingredients is guided by a structured, science-led framework. It is upheld through disciplined sourcing, controlled manufacturing systems and evidence-based evaluation. Our focus is to ensure that every ingredient we supply meets defined standards of identity, purity and performance.\r\n\r\nWe work with trusted cultivation and raw material partners who follow responsible agricultural and post-harvest practices. All incoming materials undergo authentication and verification before processing, ensuring consistency and traceability from the point of origin.",
@@ -805,11 +1094,11 @@
     "quality_text_highlight": "Production is carried out in controlled environments with standardised operating procedures...",
     "quality_text_4": "Documentation, batch traceability and specification transparency form a critical part...",
     "quality_text_5": "For Bio Med Ingredients, quality is not an isolated function. It is an organisational discipline...",
-    "quality_img_upload": "",
+    "quality_img_upload": "infrastructure_page/vlcsnap-2023-08-01-17h58m20s282.webp",
     "standards_heading": "International Standards",
     "standards_text_1": "Premium ingredients tested by us as per international standards...",
     "standards_text_2": "State-of-the-art quality controls and quality assurance systems to meet out cGMP and ISO standards.",
-    "standards_img_upload": ""
+    "standards_img_upload": "infrastructure_page/IMG-9321_copy.webp"
   }
 },
 {
@@ -819,10 +1108,88 @@
     "title": "A Review of Highly Potential Antioxidant Ingredient Quercetin: A Bioactive Flavonoid",
     "slug": "a-review-of-highly-potential-antioxidant-ingredient-quercetin-a-bioactive-flavonoid",
     "description": "Antioxidants are chemicals that have the potential to shield cells from harm from unstable molecules like free radicals.",
-    "image_upload": "research/IMG_4902.webp",
+    "image_upload": "research/lab2.webp",
     "image_path": "",
-    "pdf_upload": "research_pdfs/Berberine_Liposome_copy.pdf",
+    "pdf_upload": "research_pdfs/NATURAL_CAFFEINE_-668d2389c860e_IJAR-47202.pdf",
     "order": 1
+  }
+},
+{
+  "model": "main.researcharea",
+  "pk": 2,
+  "fields": {
+    "title": "Extraction and Standardization of BioJoin Trademark Product for Joint Health and Muscle Strength",
+    "slug": "extraction-and-standardization-of-biojoin-trademark-product-for-joint-health-and-muscle-strength",
+    "description": "Boswellic acids are naturally present in gum extrudes of Boswellia serrate tree. Boswellic acids has promising activity on joint pain...",
+    "image_upload": "research/lab1.webp",
+    "image_path": "",
+    "pdf_upload": "",
+    "order": 2
+  }
+},
+{
+  "model": "main.researcharea",
+  "pk": 3,
+  "fields": {
+    "title": "Standardisation of Curcuminoids into More Bioavailable form (CurcuminAura™) and Its Pharmaco",
+    "slug": "standardisation-of-curcuminoids-into-more-bioavailable-form-curcuminauratm-and-its-pharmaco",
+    "description": "[Curcuminoids are naturally occurring phytocompound extracted from the turmeric rhizome Curcuma longa, a member of the...",
+    "image_upload": "research/lab3.webp",
+    "image_path": "",
+    "pdf_upload": "",
+    "order": 3
+  }
+},
+{
+  "model": "main.researcharea",
+  "pk": 4,
+  "fields": {
+    "title": "Natural Caffeine, Sources, Extraction, Usage, and Effect of Caffeine on Human Health",
+    "slug": "natural-caffeine-sources-extraction-usage-and-effect-of-caffeine-on-human-health",
+    "description": "The primary method of absorbing natural caffeine (1,3,7 trimethylxanthine) is through the consumption of coffee...",
+    "image_upload": "research/lab4.webp",
+    "image_path": "",
+    "pdf_upload": "",
+    "order": 4
+  }
+},
+{
+  "model": "main.researcharea",
+  "pk": 5,
+  "fields": {
+    "title": "Extraction And Standardization Of Saffron Extract For Usage In Food, Beverage And Pharmacological Activities",
+    "slug": "extraction-and-standardization-of-saffron-extract-for-usage-in-food-beverage-and-pharmacological-activities",
+    "description": "Saffron (Crocus sativus L.) has been widely used as a drug to promote health and fight disease from ancient times. In countries like....",
+    "image_upload": "research/lab5.webp",
+    "image_path": "",
+    "pdf_upload": "",
+    "order": 5
+  }
+},
+{
+  "model": "main.researcharea",
+  "pk": 6,
+  "fields": {
+    "title": "Phytochemistry and Pharmacology of Coleus Forskohlii",
+    "slug": "phytochemistry-and-pharmacology-of-coleus-forskohlii",
+    "description": "C forskolin is an important medicinal plant native to India. The herbaceous species grows in subtropical warm climates of India, Nepal, Myanmar, and Sri Lanka...",
+    "image_upload": "research/lab5_NA1p04I.webp",
+    "image_path": "",
+    "pdf_upload": "",
+    "order": 6
+  }
+},
+{
+  "model": "main.researcharea",
+  "pk": 7,
+  "fields": {
+    "title": "Total Chlorogenic acids standardized to more effective and absorptive form and branded as PureBeanFit®",
+    "slug": "total-chlorogenic-acids-standardized-to-more-effective-and-absorptive-form-and-branded-as-purebeanfit",
+    "description": "Coffee is a member of the genus Coffea and of the family Rubiacea. Due to its antidiabetic activity, numerous investigations have been...",
+    "image_upload": "research/field2.webp",
+    "image_path": "",
+    "pdf_upload": "",
+    "order": 7
   }
 },
 {
@@ -835,6 +1202,60 @@
   }
 },
 {
+  "model": "main.researchcorearealink",
+  "pk": 2,
+  "fields": {
+    "title": "Biojoin trademark",
+    "target_url": "/research/extraction-and-standardization-of-biojoin-trademark-product-for-joint-health-and-muscle-strength/",
+    "order": 2
+  }
+},
+{
+  "model": "main.researchcorearealink",
+  "pk": 3,
+  "fields": {
+    "title": "Curcuminoids",
+    "target_url": "/research/standardisation-of-curcuminoids-into-more-bioavailable-form-curcuminauratm-and-its-pharmaco/",
+    "order": 3
+  }
+},
+{
+  "model": "main.researchcorearealink",
+  "pk": 4,
+  "fields": {
+    "title": "Natural Caffeine",
+    "target_url": "/research/natural-caffeine-sources-extraction-usage-and-effect-of-caffeine-on-human-health/",
+    "order": 4
+  }
+},
+{
+  "model": "main.researchcorearealink",
+  "pk": 5,
+  "fields": {
+    "title": "Saffron Extract",
+    "target_url": "/research/extraction-and-standardization-of-saffron-extract-for-usage-in-food-beverage-and-pharmacological-activities/",
+    "order": 5
+  }
+},
+{
+  "model": "main.researchcorearealink",
+  "pk": 6,
+  "fields": {
+    "title": "Coleus Forskohlii",
+    "target_url": "/research/phytochemistry-and-pharmacology-of-coleus-forskohlii/",
+    "order": 6
+  }
+},
+{
+  "model": "main.researchcorearealink",
+  "pk": 7,
+  "fields": {
+    "title": "PureBeanFit®",
+    "target_url": "/research/total-chlorogenic-acids-standardized-to-more-effective-and-absorptive-form-and-branded-as-purebeanfit/",
+    "order": 7
+  }
+},
+{
   "model": "main.galleryimage",
   "pk": 1,
   "fields": {
@@ -842,6 +1263,66 @@
     "image_upload": "gallery/leaves-on-a-branch-of-a-moringa-plant-in-the-blurr-2026-03-18-12-16-44-utc.webp",
     "order": 1,
     "created_at": "2026-08-10T04:18:43.455Z"
+  }
+},
+{
+  "model": "main.galleryimage",
+  "pk": 2,
+  "fields": {
+    "title": "eeee",
+    "image_upload": "gallery/340A4759.webp",
+    "order": 1,
+    "created_at": "2026-11-18T04:45:33.467Z"
+  }
+},
+{
+  "model": "main.galleryimage",
+  "pk": 3,
+  "fields": {
+    "title": "rrrr",
+    "image_upload": "gallery/IMG_4787.webp",
+    "order": 2,
+    "created_at": "2026-11-18T04:45:33.472Z"
+  }
+},
+{
+  "model": "main.galleryimage",
+  "pk": 4,
+  "fields": {
+    "title": "fff",
+    "image_upload": "gallery/340A4933.webp",
+    "order": 3,
+    "created_at": "2026-11-18T04:45:33.477Z"
+  }
+},
+{
+  "model": "main.galleryimage",
+  "pk": 5,
+  "fields": {
+    "title": "asdd",
+    "image_upload": "gallery/IMG_4901.webp",
+    "order": 4,
+    "created_at": "2026-11-18T04:45:33.481Z"
+  }
+},
+{
+  "model": "main.galleryimage",
+  "pk": 6,
+  "fields": {
+    "title": "gfhfigbb",
+    "image_upload": "gallery/340A4484.webp",
+    "order": 0,
+    "created_at": "2026-11-18T04:45:33.489Z"
+  }
+},
+{
+  "model": "main.galleryimage",
+  "pk": 7,
+  "fields": {
+    "title": "jgg",
+    "image_upload": "gallery/340A4516_USKSCHN.webp",
+    "order": 0,
+    "created_at": "2026-11-18T04:45:33.493Z"
   }
 },
 {
@@ -857,12 +1338,12 @@
     "logo_path": "",
     "logo_upload": "brands/brand10.webp",
     "layer_image_upload": "brands/layers/PureBeanFit_.webp",
-    "bg_image_upload": "brands/backgrounds/PureBeanFit_.webp",
+    "bg_image_upload": "brands/backgrounds/coffee-beans-coffee-green-leaves-wooden-background-fresh-coffee-bean_ZyJJeVi.webp",
     "health_benefits": "",
     "recommended_daily_dose": "500mg Capsules 2 C/Day",
     "detailed_description": "Green Coffee extract contains Chlorogenic acids which thereby act by inhibiting and improving insulin resistance and thereby ensure diabetic control.Diabetes mellitus, a very common and multifaceted metabolic disorder is considered as one of the fastest growing public health problems in the world. It is characterized by hyperglycemia, a condition with high glucose level in the blood plasma resulting from defects in insulin secretion or its action and in some cases both the impairment in secretion and also action of insulin coexist. Thereby the Green coffee extract present in PureBeanFit®, acts as a great influence on blood sugar management as it helps in reduction of blood glucose levels by the following.",
     "mechanism": "Green Coffee extract contains Chlorogenic acids which thereby act by inhibiting and improving insulin resistance and thereby ensure diabetic control.Diabetes mellitus, a very common and multifaceted metabolic disorder is considered as one of the fastest growing public health problems in the world. It is characterized by hyperglycemia, a condition with high glucose level in the blood plasma resulting from defects in insulin secretion or its action and in some cases both the impairment in secretion and also action of insulin coexist. Thereby the Green coffee extract present in PureBeanFit®, acts as a great influence on blood sugar management as it helps in reduction of blood glucose levels by the following.",
-    "structure_img_upload": "",
+    "structure_img_upload": "brands/structures/DSIR.webp",
     "family": "Rubiaceae",
     "botanical_name": "Coffea Arabica",
     "plant_part": "Beans",
@@ -871,6 +1352,296 @@
     "solubility": "Water Soluble",
     "preclinical_studies": "Pre-clinical studies were conducted for PureBeanFit® in comparison to normal marketed green coffee bean extract at PRADO Pune. The objective of this study is to evaluate the efficacy of the Extract in Streptozotocin induced diabetes in Sprague Dawley Rats when administered by Oral route. The animals were kept for overnight fasting for approximately 16-14 hours. The streptozotocin (60 mg/kg IP) was injected by intraperitoneal route as a single dose on day 1 to induce diabetes. Animals will be screened for development of hyperglycaemia (fasting blood glucose >250 mg/kg) for 5 days after streptozotocin injection. The dose volume will not be exceeding 10 ml/kg body weight and actual volume to be administered were calculated based on the body weights of each animal.",
     "pdf_upload": "brands/pdfs/PureBeanFit.pdf"
+  }
+},
+{
+  "model": "main.brand",
+  "pk": 2,
+  "fields": {
+    "name": "SerattaPure™",
+    "trademark": "6751519",
+    "ingredient": "Total Boswellic acids",
+    "dose": "250mg/day",
+    "description": "Preclinical studies confirm 2.37× higher bioavailability than reference standard, with peak absorption at 1-hour post-dose.",
+    "applications": "Joint health, anti-inflammatory, respiratory support.",
+    "logo_path": "images/brands/brand13.webp",
+    "logo_upload": "brands/brand13.webp",
+    "layer_image_upload": "brands/layers/Serrata_Pure.webp",
+    "bg_image_upload": "brands/backgrounds/envato-TDZP7QE-original.webp",
+    "health_benefits": "Bioavailability studies, Anti-inflammatory, Joint pain",
+    "recommended_daily_dose": "210 mg x 2 C/Day",
+    "detailed_description": "SerattaPure™ is the Boswellia Serrata extract standardised to 20% Boswellic acid content and formulated to enhance the bioavailability of the Boswellic acid. This product has been tested in Rats. The comparison studies are evident that SerattaPure™ has 2.37 times higher bioavailability than the reference standard. Also, in this study it is shown that the maximum absorption happens in the timeline of 1 hr after feeding the drug. Pre -Clinical studies are completed and results obtained are graphically represented below.",
+    "mechanism": "Acetyl-11-keto-\u001f-boswellic acid (AKBA) is a compound in Boswellia serrata that can increase free\r\ncytoplasmic calcium levels in human polymorphonuclear leukocyte (PMNL) cells. This increase may be due to\r\nendoplasmic reticulum leakage. Hence AKBA may be beneficial against bone loss during osteoporosis.",
+    "structure_img_upload": "",
+    "family": "",
+    "botanical_name": "",
+    "plant_part": "",
+    "shelf_life": "",
+    "moq": "",
+    "solubility": "",
+    "preclinical_studies": "Pre-clinical studies were conducted for SerattaPure™ manufactured, formulated and marketed by Bio-Med Ingredients Pvt. Ltd with regular Marketed Boswellia Serrata Extract 65%. The objective of this study is to evaluate the Comparative Pharmacokinetic Study of SerattaPure™ with Boswellia Serrata Extract 65% in Sprague Dawley Rats by Oral Route. Based on the results obtained in the present study conditions, it can be concluded that the maximum absorption of SerattaPure™ has 2.37 times higher bioavailability than the reference standard and the maximum absorption happens in the timeline of 1 hr after administration of the drug.",
+    "pdf_upload": "brands/pdfs/SerratePure.pdf"
+  }
+},
+{
+  "model": "main.brand",
+  "pk": 3,
+  "fields": {
+    "name": "CurcuminAura®",
+    "trademark": "6751486",
+    "ingredient": "Curcumin extract 95%",
+    "dose": "150mg/day",
+    "description": "Standardized to 60% curcuminoids with proprietary bioavailability enhancement technology. Preclinical studies demonstrate 3.8× higher bioavailability vs. standard curcumin reference. Applications: Anti-inflammatory, antioxidant, joint health, immune support.",
+    "applications": "Anti-inflammatory, antioxidant, joint health, immune support.",
+    "logo_path": "images/brands/brand5.webp",
+    "logo_upload": "brands/brand5.webp",
+    "layer_image_upload": "brands/layers/Curcuminaura_.webp",
+    "bg_image_upload": "brands/backgrounds/turmeric-crops-from-farm-or-plantation-2023-11-27-05-03-06-utc.webp",
+    "health_benefits": "Antioxidant, Anti-inflammatory, Liver-care.",
+    "recommended_daily_dose": "150mg x 2 C or 300mg C/Day",
+    "detailed_description": "CurcuminAura™ is our turmeric extract standardised to 60% curcuminoids content and formulated to enhance the bioavailability of the curcuminoids. This Bioavailability has been studied in animals. We compared the regular curcuminoids 95% with CurcuminAura™ (60% Curcuminoids) which has shown 3.8 times higher bioavailability than the regular curcuminoids 95%.",
+    "mechanism": "Curcumin, the active compound in turmeric, has poor bioavailability due to its low solubility in water, Poor absorption, Rapid metabolism, and quick systemic elimination making it difficult to absorb in the aqueous environment of the body. By incorporating Curcumin into phospholipid complexes, it becomes more readily dissolved and absorbed.",
+    "structure_img_upload": "",
+    "family": "Zingiberaceae",
+    "botanical_name": "Curcuma longa",
+    "plant_part": "",
+    "shelf_life": "",
+    "moq": "",
+    "solubility": "Water Soluble",
+    "preclinical_studies": "Pre-clinical studies were carried out to evaluate the absorption of the active ingredient curcuminoids of CurcuminAura™ in comparison with regular curcuminoids 95% in Sprague Dawley Rats by Oral Route. Based on the results obtained by the animal studies, CurcuminAura ™ has 3.8 times higher bioavailability than the regular marketed Curcuminoids 95.0%.",
+    "pdf_upload": "brands/pdfs/CurcumiAura.pdf"
+  }
+},
+{
+  "model": "main.brand",
+  "pk": 4,
+  "fields": {
+    "name": "BioSaffern™",
+    "trademark": "6068445 / 6070090",
+    "ingredient": "Saffron Extract (2% Crocin, 1% Safranal by HPLC)",
+    "dose": "15mg/day",
+    "description": "Premium saffron ingredient standardized by HPLC for mood enhancement, stress relief, sleep quality, and antioxidant protection. Clinical and preclinical studies in progress.",
+    "applications": "Mood support, stress relief, sleep wellness, antioxidant.",
+    "logo_path": "",
+    "logo_upload": "brands/brand3.webp",
+    "layer_image_upload": "brands/layers/Biosaffern.webp",
+    "bg_image_upload": "brands/backgrounds/pile-saffron-spices-saffron-flower-white-background-copyspace-place-_6ldCocd.webp",
+    "health_benefits": "Antioxidant activity, Mood enhancement, Skin care, eye care, Anti inflammatory",
+    "recommended_daily_dose": "250mg x 1Capsules /Day.\r\nContains (15mg of saffron extract concentrate)",
+    "detailed_description": "BioSaffern™ is a premium saffron ingredient standardized to 2.0% Crocin and 0.5% safranal by HPLC, which\r\nis responsible for the beneficial properties and organoleptic properties of BioSaffernTM. It improves mood in healthy consumers with occasional stress and uneasiness and improves sleeplessness. Additional benefits are antioxidant, anti-inflammatory, reduces oxidative stress, reduces hypertension and\r\nstomach disorders, improves learning & memory.",
+    "mechanism": "The key active Ingredients is crocin, which has more than 14 isomers of crocin .Crocin is also responsible for the bright vibrant yellowish red colour of saffron stigma. This crocin is responsible for reducing stress and anxiety by reducing cortisol levels.",
+    "structure_img_upload": "",
+    "family": "",
+    "botanical_name": "",
+    "plant_part": "",
+    "shelf_life": "",
+    "moq": "",
+    "solubility": "",
+    "preclinical_studies": "",
+    "pdf_upload": "brands/pdfs/Biosaffern.pdf"
+  }
+},
+{
+  "model": "main.brand",
+  "pk": 5,
+  "fields": {
+    "name": "LeanVerve®",
+    "trademark": "6131942",
+    "ingredient": "Green Tea Extract + Chicory Extract + Vitamin C",
+    "dose": "500mg/day",
+    "description": "A synergistic weight management formula combining green tea polyphenols with chicory fiber and Vitamin C.",
+    "applications": "Weight management, metabolic health, antioxidants, liver care.",
+    "logo_path": "images/brands/brand9.webp",
+    "logo_upload": "brands/brand9.webp",
+    "layer_image_upload": "brands/layers/Leanverve.webp",
+    "bg_image_upload": "brands/backgrounds/AdobeStock_33463195-topaz-enhance-4x.webp",
+    "health_benefits": "Weight Loss, Antioxidant potential, Immunity, Anti-Diabetic activity, liver care.",
+    "recommended_daily_dose": "500 mg x 2 C/Day",
+    "detailed_description": "LeanVerve® has been standardized by using Green Tea Extract, prebiotic Chicory root extract and Vitamin C. This is a proprietary blend product with highly effective ingredients enriched with essential vitamins.",
+    "mechanism": "Green Tea Extract contains high potential antioxidants that helps protect the cells from damage. It protects the body against radicals by binding with them and thus removing toxins from the body.",
+    "structure_img_upload": "brands/structures/bg.webp",
+    "family": "",
+    "botanical_name": "",
+    "plant_part": "",
+    "shelf_life": "",
+    "moq": "",
+    "solubility": "",
+    "preclinical_studies": "Pre-clinical studies were conducted for LeanVerve® in comparison to normal marketed Green Tea Extract at PRADO Pune. The objective of this study is to evaluate the efficacy of Green Tea Extract in Streptozotocin induced diabetes in Sprague Dawley Rats when administered by Oral route. The animals were kept for overnight fasting for approximately 14 16 hours. The streptozotocin (60 mg/kg IP) was injected by intraperitoneal route as a single dose on day 1 to induce diabetes. Animals were screened for development of hyperglycaemia (fasting blood glucose >250 mg/kg) for 5 days after streptozotocin injection. The dose volume will not be exceeding 10 ml/kg body weight and actual volume to be administered were calculated based on the body weights of each animal.",
+    "pdf_upload": "brands/pdfs/LeanVerve.pdf"
+  }
+},
+{
+  "model": "main.brand",
+  "pk": 6,
+  "fields": {
+    "name": "Forskolix™",
+    "trademark": "6754370",
+    "ingredient": "Coleus Extract (Forskolin)",
+    "dose": "500mg/day",
+    "description": "Standardized from Coleus forskohlii roots for metabolic, cardiovascular, and respiratory applications.",
+    "applications": "Weight management, blood pressure support, respiratory/asthma wellness, eye care.",
+    "logo_path": "images/brands/brand7.webp",
+    "logo_upload": "brands/brand7.webp",
+    "layer_image_upload": "brands/layers/Forskolix.webp",
+    "bg_image_upload": "brands/backgrounds/340A4565.webp",
+    "health_benefits": "Anti-diabetic, Weight management, helps in the treatment of Congestive heart function, treatment of hypertrophic cardiomyopathy.",
+    "recommended_daily_dose": "500 mg x 2 C/Day",
+    "detailed_description": "Forskolix™ is extracted and standardised by Coleus forskolin roots. Coleus forskohlii, a plant used in traditional medicine, contains a compound called Forskolin, which is thought\r\nto have various effects on metabolism and glucose regulation. Forskolin has an efficacy of lowering blood pressure, improving blood circulation and heart function and helps in reducing respiratory tract infections, cough and restlessness. Also, Forskolin is used in stinging of the eyes and enlarging of blood vessels in the eyes. Coleus extract improved insulin sensitivity in people with Type 2 diabetes.",
+    "mechanism": "Activation of Adenylyl Cyclase (cAMP Pathway): Forskolin activates an enzyme called adenylyl cyclase, which increases levels of cyclic AMP (cAMP) in cells. This can have several effects, including promoting the activity of protein kinase A (PKA), which influences various metabolic processes, including glucose metabolism and modulates various cardiovascular functions. Insulin Sensitivity: Some studies suggest that forskolin may help increase insulin sensitivity by improving the function of insulin receptors and the effectiveness of insulin signalling. This could potentially help reduce insulin resistance, a key factor in type 2 diabetes. Increased Lipolysis: Forskolin may also promote the breakdown of fats (lipolysis), which could help improve insulin sensitivity. When fat cells are reduced or more efficiently utilized, insulin becomes more effective in regulating blood sugar levels.",
+    "structure_img_upload": "",
+    "family": "",
+    "botanical_name": "",
+    "plant_part": "",
+    "shelf_life": "",
+    "moq": "",
+    "solubility": "",
+    "preclinical_studies": "Pre-clinical studies were conducted for Forskolix™ in comparison to normal Coleus extract at PRADO Pune. The objective of this study is to evaluate the efficacy of Forskolix™ in Streptozotocin induced diabetes in Sprague Dawley Rats when administered by Oral route. The animals were kept for overnight fasting for approximately 14-16 hours. The streptozotocin (60 mg/kg IP) was injected by intraperitoneal route as a single dose on day 1 to induce diabetes. Animals will be screened for development of hyperglycaemia (fasting blood glucose >250 mg/kg) for 5 days after streptozotocin injection. The dose volume will not be exceeding 10 ml/kg body weight and actual volume to be administered were calculated based on the body weights of each animal.",
+    "pdf_upload": "brands/pdfs/Forskolix.pdf"
+  }
+},
+{
+  "model": "main.brand",
+  "pk": 7,
+  "fields": {
+    "name": "FenuraBlend™",
+    "trademark": "6754372",
+    "ingredient": "Fenugreek, Jamun Seed, Oxalis corniculata",
+    "dose": "500mg/day",
+    "description": "A multi-botanical formulation combining fenugreek saponins with Jamun seed extract and Oxalis polyphenols for blood glucose management and immune support.",
+    "applications": "Diabetes management, blood sugar control, immunity.",
+    "logo_path": "images/brands/brand6.webp",
+    "logo_upload": "brands/brand6.webp",
+    "layer_image_upload": "brands/layers/Fenurablend_.webp",
+    "bg_image_upload": "brands/backgrounds/fenura.webp",
+    "health_benefits": "Anti-Diabetic",
+    "recommended_daily_dose": "500 mg x 2 C/Day",
+    "detailed_description": "FenuraBlend™ is a formulated product which has Fenugreek saponins and other polyphenols derived from Amla extract and Jamun seed extract, that is specially formulated to treat Diabetes. Also, this product is loaded with essential nutrients to increase the efficacy of the product. This product helps in reducing blood sugar level & also works as an Immunity booster.",
+    "mechanism": "Fenugreek extract helps in managing blood sugar levels as the soluble fibres and alkaloids in fenugreek help to improve insulin sensitivity. Also, Jamun seed extract can regulate blood sugar levels as it has the ability to reduce glucose absorption and improve insulin function. Combining both these ingredients together, it can be a powerful medium for blood sugar regulation. Fenugreek contains compounds that may inhibit alpha-amylase, an enzyme responsible for breaking down carbohydrates into sugar. By inhibiting this enzyme, Fenugreek can reduce the rate at which carbohydrates are converted into glucose, leading to lower blood sugar levels after meals. Also, Fenugreek may help enhance the uptake of glucose into cells, particularly muscle cells, where it can be used for energy. Fenugreek has been found to lower postprandial (after meal) blood sugar levels. This effect is likely related to the high fiber content and its ability to slow the absorption of glucose from the digestive tract.",
+    "structure_img_upload": "",
+    "family": "",
+    "botanical_name": "",
+    "plant_part": "",
+    "shelf_life": "",
+    "moq": "",
+    "solubility": "",
+    "preclinical_studies": "Pre-clinical studies were conducted for FenuraBlend™ in comparison to regular marketed Fenugreek extract at PRADO Pune. The objective of this study is to evaluate the efficacy of FenuraBlend™ and Fenugreek extract in Streptozotocin induced Diabetes in Sprague Dawley Rats when administered by Oral route. The animals were kept for overnight fasting for approximately 14-16 hours. The streptozotocin (60 mg/kg IP) was injected by intraperitoneal route as a single dose on day 1 to induce diabetes. Animals were screened for\r\ndevelopment of hyperglycaemia (fasting blood glucose >250 mg/kg) for 5 days after streptozotocin injection. The dose volume will not be exceeding 10 ml/kg body weight and actual volume to be administered were calculated based on the body weights of each animal.",
+    "pdf_upload": "brands/pdfs/Fenurablend.pdf"
+  }
+},
+{
+  "model": "main.brand",
+  "pk": 8,
+  "fields": {
+    "name": "PeppRx™",
+    "trademark": "6276848",
+    "ingredient": "Piperine 95%",
+    "dose": "50mg/day",
+    "description": "High-purity piperine extracted from black pepper for use as a natural bioavailability enhancer in combination nutraceutical formulations.",
+    "applications": "Nutrient absorption enhancer, anti-inflammatory, insulin sensitivity support.",
+    "logo_path": "",
+    "logo_upload": "brands/Asset_52x-8.webp",
+    "layer_image_upload": "brands/layers/Asset_52x-8.webp",
+    "bg_image_upload": "brands/backgrounds/fresh-pepper-plant-raw-pepper-on-green-leaf-backg-2024-11-30-14-19-26-utc.webp",
+    "health_benefits": "Bio-absorptive, efficacy increase of any ingredient.",
+    "recommended_daily_dose": "",
+    "detailed_description": "PeppRx™ is a standardised branded product standardised from, high purity Piperine from black pepper extract. It has an efficacy of reduction of insulin resistance, anti inflammatory effects and also enhances the bioavailability of any active ingredients. Pre-Clinical and Clinical studies under trial. Application : Enhancing the absorption of the active ingredients. This ingredient should be used along with any other nutraceutical ingredient, hence it increases the absorption and efficiency of the active ingredients.",
+    "mechanism": "Bioavailability Enhancer: Piperine binds with the active ingredient and works as drug delivery system. Hence the more absorption and efficiency of ingredient will be increased.Piperine is well-known for enhancing the bioavailability of various drugs and nutrients. It achieves this by inhibiting certain enzymes in the liver (such as cytochrome P450 enzymes) and the intestinal wall, which typically metabolize drugs or nutrients, reducing their absorption. By inhibiting these enzymes, piperine can increase the absorption of other compounds, such as curcumin (from turmeric) and certain vitamins and minerals, making them more effective.",
+    "structure_img_upload": "",
+    "family": "",
+    "botanical_name": "",
+    "plant_part": "",
+    "shelf_life": "",
+    "moq": "",
+    "solubility": "",
+    "preclinical_studies": "Black pepper, often called the \"king of spices,\" offers a range of potential health benefits beyond its flavor-enhancing properties. Many of these benefits are attributed to piperine, its main bioactive compound.",
+    "pdf_upload": "brands/pdfs/PeppRx.pdf"
+  }
+},
+{
+  "model": "main.brand",
+  "pk": 9,
+  "fields": {
+    "name": "Biojoin",
+    "trademark": "74655676",
+    "ingredient": "Curcumin extract 95%",
+    "dose": "250mg/day",
+    "description": "SAZDHbTS",
+    "applications": "General applications",
+    "logo_path": "",
+    "logo_upload": "brands/brand2.webp",
+    "layer_image_upload": "brands/layers/Bio_join_YsF8tUh.webp",
+    "bg_image_upload": "brands/backgrounds/envato-8FW83KU-original.webp",
+    "health_benefits": "",
+    "recommended_daily_dose": "",
+    "detailed_description": "",
+    "mechanism": "",
+    "structure_img_upload": "",
+    "family": "",
+    "botanical_name": "",
+    "plant_part": "",
+    "shelf_life": "",
+    "moq": "",
+    "solubility": "",
+    "preclinical_studies": "",
+    "pdf_upload": "brands/pdfs/Biojoin_Brochure_copy.pdf"
+  }
+},
+{
+  "model": "main.brand",
+  "pk": 10,
+  "fields": {
+    "name": "Himalith",
+    "trademark": "6131988",
+    "ingredient": "Boswellia serrata extract",
+    "dose": "250mg/day",
+    "description": "qRrqrr",
+    "applications": "arfARAR",
+    "logo_path": "",
+    "logo_upload": "brands/brand8.webp",
+    "layer_image_upload": "brands/layers/Himalith.webp",
+    "bg_image_upload": "brands/backgrounds/snow-capped-mountain-peak-with-blue-sky-above-2026-03-20-00-22-17-utc.webp",
+    "health_benefits": "",
+    "recommended_daily_dose": "",
+    "detailed_description": "",
+    "mechanism": "",
+    "structure_img_upload": "",
+    "family": "",
+    "botanical_name": "",
+    "plant_part": "",
+    "shelf_life": "",
+    "moq": "",
+    "solubility": "",
+    "preclinical_studies": "",
+    "pdf_upload": "brands/pdfs/BM_Flavor_Brochure_.pdf"
+  }
+},
+{
+  "model": "main.brand",
+  "pk": 11,
+  "fields": {
+    "name": "Ashwarelief™",
+    "trademark": "6131941",
+    "ingredient": "Ashwagandha Extract (Withanolides)",
+    "dose": "500mg/day",
+    "description": "Standardized ashwagandha extract for evidence-based adaptogenic applications — targeting stress, anxiety, sleep quality, fatigue, and anti-aging.",
+    "applications": "Applications: Stress relief, sleep support, fatigue management, anti-aging.",
+    "logo_path": "",
+    "logo_upload": "brands/brand1_W8WCbJ8.webp",
+    "layer_image_upload": "brands/layers/Ashwarelief_gEIC6Wn.webp",
+    "bg_image_upload": "brands/backgrounds/Ashwagandha_5_lIcZ5t4.webp",
+    "health_benefits": "",
+    "recommended_daily_dose": "",
+    "detailed_description": "",
+    "mechanism": "",
+    "structure_img_upload": "",
+    "family": "",
+    "botanical_name": "",
+    "plant_part": "",
+    "shelf_life": "",
+    "moq": "",
+    "solubility": "",
+    "preclinical_studies": "",
+    "pdf_upload": ""
   }
 },
 {
@@ -3797,22 +4568,2777 @@
   }
 },
 {
+  "model": "main.product",
+  "pk": 178,
+  "fields": {
+    "category": "herbal_extracts",
+    "sub_category": null,
+    "name": "Garcinia Cambogia Extract",
+    "code": null,
+    "description": "Hydroxy citric acid / Hydroxy citric acid calcium salt / Water Soluble\r\nAvailable in : Powder form",
+    "image_path": "images/products/1.jpg",
+    "image_upload": "products/garcinia.webp",
+    "pdf_path": "",
+    "pdf_upload": "",
+    "pdf_title": ""
+  }
+},
+{
+  "model": "main.product",
+  "pk": 179,
+  "fields": {
+    "category": "herbal_extracts",
+    "sub_category": null,
+    "name": "Berberine Extract",
+    "code": null,
+    "description": "Polyphenol / Tannins\r\n\r\nAvailable in : Powder form",
+    "image_path": "images/products/2.jpg",
+    "image_upload": "products/barberry-berries-on-a-branch-on-a-natural-backgrou-2025-10-11-11-27-33-utc.webp",
+    "pdf_path": "",
+    "pdf_upload": "",
+    "pdf_title": ""
+  }
+},
+{
+  "model": "main.product",
+  "pk": 180,
+  "fields": {
+    "category": "herbal_extracts",
+    "sub_category": null,
+    "name": "Ashwagandha Extract",
+    "code": null,
+    "description": "Withania somnifera\r\nAvailable in : Powder form",
+    "image_path": "images/products/3.jpg",
+    "image_upload": "products/Ashwagandha_5.webp",
+    "pdf_path": "images/products/FPSB00 Ashwagandha Extract 1.5% HPLC.pdf",
+    "pdf_upload": "",
+    "pdf_title": "Ashwagandha 1.5%"
+  }
+},
+{
+  "model": "main.product",
+  "pk": 181,
+  "fields": {
+    "category": "herbal_extracts",
+    "sub_category": null,
+    "name": "Bacopa Extract",
+    "code": null,
+    "description": "Bacopa Monnieri\r\nBacosides 20 % - 50.0% (HPLC)\r\nMemory Support / Eye Health",
+    "image_path": "",
+    "image_upload": "products/flowered-brahmi-1024x683.webp",
+    "pdf_path": "",
+    "pdf_upload": "",
+    "pdf_title": ""
+  }
+},
+{
+  "model": "main.product",
+  "pk": 182,
+  "fields": {
+    "category": "herbal_extracts",
+    "sub_category": null,
+    "name": "Curry Leaf Extract",
+    "code": null,
+    "description": "Murraya koenigii",
+    "image_path": "",
+    "image_upload": "products/340A4746.webp",
+    "pdf_path": "",
+    "pdf_upload": "",
+    "pdf_title": ""
+  }
+},
+{
+  "model": "main.product",
+  "pk": 183,
+  "fields": {
+    "category": "herbal_extracts",
+    "sub_category": null,
+    "name": "Banaba Extracts",
+    "code": null,
+    "description": "Lagerstroemia speciosa\r\nCorosolic Acid 1%\r\nBlood Sugar Control",
+    "image_path": "",
+    "image_upload": "products/Banaba-57ace3da3df78cd39c7d7382.webp",
+    "pdf_path": "",
+    "pdf_upload": "",
+    "pdf_title": ""
+  }
+},
+{
+  "model": "main.product",
+  "pk": 184,
+  "fields": {
+    "category": "herbal_extracts",
+    "sub_category": null,
+    "name": "Fenugreek Extract",
+    "code": null,
+    "description": "Trigonella Foenum graecum\r\n4 Hydroxy Isoleucine 40%\r\n70% Fenusaponins\r\nWeight Management / Blood Sugar Control / Antioxidant / General Health",
+    "image_path": "",
+    "image_upload": "products/fenugreek-seeds-with-green-leaves-white.webp",
+    "pdf_path": "",
+    "pdf_upload": "",
+    "pdf_title": ""
+  }
+},
+{
+  "model": "main.product",
+  "pk": 185,
+  "fields": {
+    "category": "herbal_extracts",
+    "sub_category": null,
+    "name": "Ginger Extracts",
+    "code": null,
+    "description": "Zingiber officinalis Gingerols 5% to 15% Powder Oleoresin 5% to 20% Weight Management / Blood Sugar Control / Antioxidant",
+    "image_path": "",
+    "image_upload": "products/Ginger.webp",
+    "pdf_path": "",
+    "pdf_upload": "",
+    "pdf_title": ""
+  }
+},
+{
+  "model": "main.product",
+  "pk": 186,
+  "fields": {
+    "category": "herbal_extracts",
+    "sub_category": null,
+    "name": "Green Tea Extracts",
+    "code": null,
+    "description": "Camellia sinensis\r\nPolyphenols 80% EGCG 40%\r\nWeight Management / Antioxidant / Anti ageing / General Health",
+    "image_path": "",
+    "image_upload": "products/GREEN_TEA.webp",
+    "pdf_path": "",
+    "pdf_upload": "",
+    "pdf_title": ""
+  }
+},
+{
+  "model": "main.product",
+  "pk": 187,
+  "fields": {
+    "category": "herbal_extracts",
+    "sub_category": null,
+    "name": "Bamboo Extracts",
+    "code": null,
+    "description": "Bambusa vulgaris",
+    "image_path": "",
+    "image_upload": "products/shoot-bamboo-forest.webp",
+    "pdf_path": "",
+    "pdf_upload": "",
+    "pdf_title": ""
+  }
+},
+{
+  "model": "main.product",
+  "pk": 188,
+  "fields": {
+    "category": "herbal_extracts",
+    "sub_category": null,
+    "name": "Coleus Extract",
+    "code": null,
+    "description": "Coleus forskohlii",
+    "image_path": "",
+    "image_upload": "products/340A4565_jhzlpar.webp",
+    "pdf_path": "",
+    "pdf_upload": "",
+    "pdf_title": ""
+  }
+},
+{
+  "model": "main.product",
+  "pk": 189,
+  "fields": {
+    "category": "herbal_extracts",
+    "sub_category": null,
+    "name": "Mangosteen Extract",
+    "code": null,
+    "description": "Garcinia mangostana\r\nMangosteen 10%\r\nAntioxidant /\r\nGeneral Health",
+    "image_path": "",
+    "image_upload": "products/mangosteen-fruit-still-life-on-a-wooden-surface-2026-03-24-10-17-06-utc.webp",
+    "pdf_path": "",
+    "pdf_upload": "",
+    "pdf_title": ""
+  }
+},
+{
+  "model": "main.product",
+  "pk": 190,
+  "fields": {
+    "category": "herbal_extracts",
+    "sub_category": null,
+    "name": "Momordica Extract",
+    "code": null,
+    "description": "momordica charantia\r\nBitter 10% charantin 3%\r\nBlood Sugar Control / General Health",
+    "image_path": "",
+    "image_upload": "products/goya-bitter-mellon-growing-in-backyard-garden-2023-11-27-04-50-20-utc.webp",
+    "pdf_path": "",
+    "pdf_upload": "",
+    "pdf_title": ""
+  }
+},
+{
+  "model": "main.product",
+  "pk": 191,
+  "fields": {
+    "category": "herbal_extracts",
+    "sub_category": null,
+    "name": "Moringa Extract moringa oleifera",
+    "code": null,
+    "description": "Proteins 10% and 0.1% alkaloids\r\nAntioxidant / General Health",
+    "image_path": "",
+    "image_upload": "products/leaves-on-a-branch-of-a-moringa-plant-in-the-blurr-2026-03-18-12-16-44-utc.webp",
+    "pdf_path": "",
+    "pdf_upload": "",
+    "pdf_title": ""
+  }
+},
+{
+  "model": "main.product",
+  "pk": 192,
+  "fields": {
+    "category": "herbal_extracts",
+    "sub_category": null,
+    "name": "Mucuna Extract",
+    "code": null,
+    "description": "mucuna pruriens\r\nL-DOPA 20% to 95%\r\nBlood Sugar Control / Antioxidant /\r\nMens Health",
+    "image_path": "",
+    "image_upload": "products/Mucuna_pruriens_L._DC._50659744832.webp",
+    "pdf_path": "",
+    "pdf_upload": "",
+    "pdf_title": ""
+  }
+},
+{
+  "model": "main.product",
+  "pk": 193,
+  "fields": {
+    "category": "herbal_extracts",
+    "sub_category": null,
+    "name": "Tulsi/HolyBasil",
+    "code": null,
+    "description": "occimum sanctum\r\nursolic acid 2%\r\nEye health / Antioxidant /\r\nGeneral Healthvv",
+    "image_path": "",
+    "image_upload": "products/Tulsi_Plant.webp",
+    "pdf_path": "",
+    "pdf_upload": "",
+    "pdf_title": ""
+  }
+},
+{
+  "model": "main.product",
+  "pk": 194,
+  "fields": {
+    "category": "herbal_extracts",
+    "sub_category": null,
+    "name": "Marigold Extract",
+    "code": null,
+    "description": "Lutein Esters/ Free Lutein / Zeaxanthin\r\nLutein + Zeaxanthin\r\nAvailable in : Powder / Oil Suspension / Granules / Beadlets / CWS/ CWD",
+    "image_path": "",
+    "image_upload": "products/340A5387.webp",
+    "pdf_path": "",
+    "pdf_upload": "",
+    "pdf_title": ""
+  }
+},
+{
+  "model": "main.product",
+  "pk": 195,
+  "fields": {
+    "category": "herbal_extracts",
+    "sub_category": null,
+    "name": "Turmeric Extract",
+    "code": null,
+    "description": "Curcumin Extracts / Curcumin 95%\r\nCustom grades / Ethanol Extracts\r\nAvailable in : Powder / Granules CWS / CWD",
+    "image_path": "",
+    "image_upload": "products/turmeric-roots-basket-wooden-table.webp",
+    "pdf_path": "",
+    "pdf_upload": "",
+    "pdf_title": ""
+  }
+},
+{
+  "model": "main.product",
+  "pk": 196,
+  "fields": {
+    "category": "nutritional_fine_chemicals",
+    "sub_category": null,
+    "name": "Beta Carotene",
+    "code": null,
+    "description": "Beata Carotene\r\nOil form 10% to 30%\r\nPowder 1% to 20%\r\nAntioxidant / Food Coloring",
+    "image_path": "",
+    "image_upload": "products/beta_Carotene_back_hLJ7Xn1.webp",
+    "pdf_path": "",
+    "pdf_upload": "",
+    "pdf_title": ""
+  }
+},
+{
+  "model": "main.product",
+  "pk": 197,
+  "fields": {
+    "category": "herbal_extracts",
+    "sub_category": null,
+    "name": "Black Pepper",
+    "code": null,
+    "description": "Piper nigrum\r\nPiperine 95%\r\nWeight Management / Anti Oxidant",
+    "image_path": "",
+    "image_upload": "products/fresh-pepper-plant-raw-pepper-on-green-leaf-backg-2024-11-30-14-19-26-utc.webp",
+    "pdf_path": "",
+    "pdf_upload": "",
+    "pdf_title": ""
+  }
+},
+{
+  "model": "main.product",
+  "pk": 198,
+  "fields": {
+    "category": "herbal_extracts",
+    "sub_category": null,
+    "name": "Andrographis",
+    "code": null,
+    "description": "Andrographis Paniculata\r\nAndrographolides 1% to 90%\r\nAntioxidant /\r\nGeneral Health",
+    "image_path": "",
+    "image_upload": "products/thai-herbs-king-of-bitter-andrographis-paniculate-2026-01-08-07-50-25-utc_OXcrJgJ.webp",
+    "pdf_path": "",
+    "pdf_upload": "",
+    "pdf_title": ""
+  }
+},
+{
+  "model": "main.product",
+  "pk": 199,
+  "fields": {
+    "category": "nutritional_fine_chemicals",
+    "sub_category": null,
+    "name": "Astaxanthin",
+    "code": null,
+    "description": "Haematococus Pulvialis\r\nAstaxanthin 2.5%\r\nMemory Support / Antioxidant /\r\nAnti ageing / General Health",
+    "image_path": "",
+    "image_upload": "products/C0207099-Haematococcus_algae_light_micrograph.webp",
+    "pdf_path": "",
+    "pdf_upload": "",
+    "pdf_title": ""
+  }
+},
+{
+  "model": "main.product",
+  "pk": 200,
+  "fields": {
+    "category": "herbal_extracts",
+    "sub_category": null,
+    "name": "Boswellia Extracts",
+    "code": null,
+    "description": "Boswellia serrata\r\nBoswellic Acid 10% to 40%\r\n(HPLC)\r\nBoswellic Acid 10% to 70% (GM)",
+    "image_path": "",
+    "image_upload": "products/envato-TDZP7QE-original.webp",
+    "pdf_path": "",
+    "pdf_upload": "",
+    "pdf_title": ""
+  }
+},
+{
+  "model": "main.product",
+  "pk": 201,
+  "fields": {
+    "category": "herbal_extracts",
+    "sub_category": null,
+    "name": "Centella Extract",
+    "code": null,
+    "description": "Centella asiatica\r\nAsiaticosides 20% to 40%\r\nEye Health / Memory Support /\r\nAnti oxidant / General Health",
+    "image_path": "",
+    "image_upload": "products/Centella_asiatica_থনকন_3_mqe6mCO.webp",
+    "pdf_path": "",
+    "pdf_upload": "",
+    "pdf_title": ""
+  }
+},
+{
+  "model": "main.product",
+  "pk": 202,
+  "fields": {
+    "category": "herbal_extracts",
+    "sub_category": null,
+    "name": "Coffee Bean Extract",
+    "code": null,
+    "description": "Coffea arabica\r\nChlorogenic Acid 50% and 60% 5 Caffeine\r\nWeight Management / Memory Support Anti Oxidant / General Health",
+    "image_path": "",
+    "image_upload": "products/coffee-beans-coffee-green-leaves-wooden-background-fresh-coffee-beans-wooden-b_g6i1pFb.webp",
+    "pdf_path": "",
+    "pdf_upload": "",
+    "pdf_title": ""
+  }
+},
+{
+  "model": "main.product",
+  "pk": 203,
+  "fields": {
+    "category": "herbal_extracts",
+    "sub_category": null,
+    "name": "Grape Seed Extract",
+    "code": null,
+    "description": "Vitis vinifera\r\nPolyphenols - 95%\r\nBlood Sugar Control / Antioxidant /\r\nAnti ageing / General Health",
+    "image_path": "",
+    "image_upload": "products/340A4363.webp",
+    "pdf_path": "",
+    "pdf_upload": "",
+    "pdf_title": ""
+  }
+},
+{
+  "model": "main.product",
+  "pk": 204,
+  "fields": {
+    "category": "herbal_extracts",
+    "sub_category": null,
+    "name": "Licorice Extract",
+    "code": null,
+    "description": "Glycyrrhiza glabra\r\nGlycyrrhizic Acid 20%\r\nDGL / Glabridin 40% / MAG\r\nGeneral health",
+    "image_path": "",
+    "image_upload": "products/licorice-candy-and-licorice-root-still-life-2026-04-15-15-59-42-utc.webp",
+    "pdf_path": "",
+    "pdf_upload": "",
+    "pdf_title": ""
+  }
+},
+{
+  "model": "main.product",
+  "pk": 205,
+  "fields": {
+    "category": "herbal_extracts",
+    "sub_category": null,
+    "name": "Gymenma Extract",
+    "code": null,
+    "description": "Gymnema Sylvestre Gymnemic Acid 25% and 75% Weight Management / Blood Sugar Control",
+    "image_path": "",
+    "image_upload": "products/Gemini_Generated_Image_tgdee6tgdee6tgde.webp",
+    "pdf_path": "",
+    "pdf_upload": "",
+    "pdf_title": ""
+  }
+},
+{
+  "model": "main.product",
+  "pk": 206,
+  "fields": {
+    "category": "herbal_extracts",
+    "sub_category": null,
+    "name": "Lycopene Extract",
+    "code": null,
+    "description": "Solanum lycopersicum\r\nLycopene 5% to 20% Powder\r\nLycopene soft 20%\r\nEye Health / Memory support",
+    "image_path": "",
+    "image_upload": "products/ripe-juicy-red-tomatoes-greenhouse-generate-ai.webp",
+    "pdf_path": "",
+    "pdf_upload": "",
+    "pdf_title": ""
+  }
+},
+{
+  "model": "main.product",
+  "pk": 207,
+  "fields": {
+    "category": "herbal_extracts",
+    "sub_category": null,
+    "name": "Mango Leaf Extract",
+    "code": null,
+    "description": "Mangifera Indica\r\nMangiferin 50% to 75%\r\nBlood Sugar Management / Antioxidant\r\nAnti ageing",
+    "image_path": "",
+    "image_upload": "products/green-nature-background-raw-mango-fruit-is-hanging-2026-01-05-04-58-15-utc.webp",
+    "pdf_path": "",
+    "pdf_upload": "",
+    "pdf_title": ""
+  }
+},
+{
+  "model": "main.product",
+  "pk": 208,
+  "fields": {
+    "category": "herbal_extracts",
+    "sub_category": null,
+    "name": "Wheat Germ",
+    "code": null,
+    "description": "Triticum sativum",
+    "image_path": "",
+    "image_upload": "products/golden-wheat-grains-in-a-wooden-bowl-on-a-table-2026-05-07-20-11-43-utc.webp",
+    "pdf_path": "",
+    "pdf_upload": "",
+    "pdf_title": ""
+  }
+},
+{
+  "model": "main.product",
+  "pk": 209,
+  "fields": {
+    "category": "herbal_extracts",
+    "sub_category": null,
+    "name": "Saw Palmetto",
+    "code": null,
+    "description": "Serenoa repens\r\nTotal Fatty Acids 85% to 90%\r\nGeneral Health",
+    "image_path": "",
+    "image_upload": "products/orange-fruit-and-green-leaves-of-fan-palm-scient-2026-03-26-22-53-55-utc.webp",
+    "pdf_path": "",
+    "pdf_upload": "",
+    "pdf_title": ""
+  }
+},
+{
+  "model": "main.product",
+  "pk": 210,
+  "fields": {
+    "category": "herbal_extracts",
+    "sub_category": null,
+    "name": "Soya Extract",
+    "code": null,
+    "description": "Glycine max\r\nIsoflavone 80%\r\nWeight Management / Womens health",
+    "image_path": "",
+    "image_upload": "products/soybeans-in-a-scoop-with-dried-pods-2026-03-17-06-49-25-utc.webp",
+    "pdf_path": "",
+    "pdf_upload": "",
+    "pdf_title": ""
+  }
+},
+{
+  "model": "main.product",
+  "pk": 211,
+  "fields": {
+    "category": "herbal_extracts",
+    "sub_category": null,
+    "name": "Tribulus Extract h",
+    "code": null,
+    "description": "Tribulus terrestris\r\nSaponins 40%\r\nGeneral Healt",
+    "image_path": "",
+    "image_upload": "products/Tribulus_terrestris_flower.webp",
+    "pdf_path": "",
+    "pdf_upload": "",
+    "pdf_title": ""
+  }
+},
+{
+  "model": "main.product",
+  "pk": 212,
+  "fields": {
+    "category": "herbal_extracts",
+    "sub_category": null,
+    "name": "Guggul Extract",
+    "code": null,
+    "description": "Rosemary officinalis\r\nUrsolic acid 30% to 50%\r\nRosemarinic acid 30% to 90%\r\nAntioxidant / anti ageing",
+    "image_path": "",
+    "image_upload": "products/Guggul-natural-resina-enhance-4x.webp",
+    "pdf_path": "",
+    "pdf_upload": "",
+    "pdf_title": ""
+  }
+},
+{
+  "model": "main.product",
+  "pk": 213,
+  "fields": {
+    "category": "nutritional_fine_chemicals",
+    "sub_category": null,
+    "name": "Zeaxanthin",
+    "code": null,
+    "description": "Tagetes erecta",
+    "image_path": "",
+    "image_upload": "products/340A5400.webp",
+    "pdf_path": "",
+    "pdf_upload": "",
+    "pdf_title": ""
+  }
+},
+{
+  "model": "main.product",
+  "pk": 214,
+  "fields": {
+    "category": "herbal_extracts",
+    "sub_category": null,
+    "name": "Rosemary Extract",
+    "code": null,
+    "description": "Rosemary officinalis\r\nUrsolic acid 30% to 50%\r\nRosemarinic acid 30% to 90%\r\nAntioxidant / anti ageing",
+    "image_path": "",
+    "image_upload": "products/340A4802.webp",
+    "pdf_path": "",
+    "pdf_upload": "",
+    "pdf_title": ""
+  }
+},
+{
+  "model": "main.product",
+  "pk": 215,
+  "fields": {
+    "category": "organic_product_list",
+    "sub_category": null,
+    "name": "Custom Products",
+    "code": null,
+    "description": "Many products are done on\r\ncustomer requirement .\r\nPlease feel to contact us.",
+    "image_path": "",
+    "image_upload": "products/herbal-essence-alternative-healthy-medicine.webp",
+    "pdf_path": "",
+    "pdf_upload": "",
+    "pdf_title": ""
+  }
+},
+{
+  "model": "main.product",
+  "pk": 216,
+  "fields": {
+    "category": "spices_and_oleoresins",
+    "sub_category": null,
+    "name": "Oleoresin paprika 80000 CU",
+    "code": null,
+    "description": "",
+    "image_path": "",
+    "image_upload": "",
+    "pdf_path": "",
+    "pdf_upload": "",
+    "pdf_title": ""
+  }
+},
+{
+  "model": "main.product",
+  "pk": 217,
+  "fields": {
+    "category": "spices_and_oleoresins",
+    "sub_category": null,
+    "name": "Oleoresin Paprika WS 40000CU",
+    "code": null,
+    "description": "",
+    "image_path": "",
+    "image_upload": "",
+    "pdf_path": "",
+    "pdf_upload": "",
+    "pdf_title": ""
+  }
+},
+{
+  "model": "main.product",
+  "pk": 218,
+  "fields": {
+    "category": "spices_and_oleoresins",
+    "sub_category": null,
+    "name": "Oleoresin Paprika OS 50000CU",
+    "code": null,
+    "description": "",
+    "image_path": "",
+    "image_upload": "",
+    "pdf_path": "",
+    "pdf_upload": "",
+    "pdf_title": ""
+  }
+},
+{
+  "model": "main.product",
+  "pk": 219,
+  "fields": {
+    "category": "spices_and_oleoresins",
+    "sub_category": null,
+    "name": "Oleoresin Paprika WS 50000CU",
+    "code": null,
+    "description": "",
+    "image_path": "",
+    "image_upload": "",
+    "pdf_path": "",
+    "pdf_upload": "",
+    "pdf_title": ""
+  }
+},
+{
+  "model": "main.product",
+  "pk": 220,
+  "fields": {
+    "category": "spices_and_oleoresins",
+    "sub_category": null,
+    "name": "Oleoresin Capsicum WS 1.0 Mill SHU",
+    "code": null,
+    "description": "",
+    "image_path": "",
+    "image_upload": "",
+    "pdf_path": "",
+    "pdf_upload": "",
+    "pdf_title": ""
+  }
+},
+{
+  "model": "main.product",
+  "pk": 221,
+  "fields": {
+    "category": "spices_and_oleoresins",
+    "sub_category": null,
+    "name": "Oleoresin Capsicum WS 1.5 Mill SHU",
+    "code": null,
+    "description": "",
+    "image_path": "",
+    "image_upload": "",
+    "pdf_path": "",
+    "pdf_upload": "",
+    "pdf_title": ""
+  }
+},
+{
+  "model": "main.product",
+  "pk": 222,
+  "fields": {
+    "category": "spices_and_oleoresins",
+    "sub_category": null,
+    "name": "Oleoresin Capsicum OS 500,000 SHU",
+    "code": null,
+    "description": "",
+    "image_path": "",
+    "image_upload": "",
+    "pdf_path": "",
+    "pdf_upload": "",
+    "pdf_title": ""
+  }
+},
+{
+  "model": "main.product",
+  "pk": 223,
+  "fields": {
+    "category": "spices_and_oleoresins",
+    "sub_category": null,
+    "name": "Oleoresin Capsicum WS 500,000 SHU",
+    "code": null,
+    "description": "",
+    "image_path": "",
+    "image_upload": "",
+    "pdf_path": "",
+    "pdf_upload": "",
+    "pdf_title": ""
+  }
+},
+{
+  "model": "main.product",
+  "pk": 224,
+  "fields": {
+    "category": "spices_and_oleoresins",
+    "sub_category": null,
+    "name": "Nutmeg Oil",
+    "code": null,
+    "description": "",
+    "image_path": "",
+    "image_upload": "",
+    "pdf_path": "",
+    "pdf_upload": "",
+    "pdf_title": ""
+  }
+},
+{
+  "model": "main.product",
+  "pk": 225,
+  "fields": {
+    "category": "spices_and_oleoresins",
+    "sub_category": null,
+    "name": "Turmeric Oleoresin 25%",
+    "code": null,
+    "description": "",
+    "image_path": "",
+    "image_upload": "",
+    "pdf_path": "",
+    "pdf_upload": "",
+    "pdf_title": ""
+  }
+},
+{
+  "model": "main.product",
+  "pk": 226,
+  "fields": {
+    "category": "raw_herbal_powders",
+    "sub_category": null,
+    "name": "ddddddddddddddd",
+    "code": null,
+    "description": "dddddddddddddddddddddddd",
+    "image_path": "",
+    "image_upload": "",
+    "pdf_path": "",
+    "pdf_upload": "",
+    "pdf_title": ""
+  }
+},
+{
   "model": "main.naturalfoodcolor",
   "pk": 1,
   "fields": {
     "name": "Annato 20% (Oil soluble )",
-    "color_hex": "#e8b254",
+    "color_hex": "#f4a261",
     "order": 1
+  }
+},
+{
+  "model": "main.naturalfoodcolor",
+  "pk": 2,
+  "fields": {
+    "name": "Annato Red WSP",
+    "color_hex": "#e63946",
+    "order": 1
+  }
+},
+{
+  "model": "main.naturalfoodcolor",
+  "pk": 3,
+  "fields": {
+    "name": "Beat root powder (pink)",
+    "color_hex": "#e63946",
+    "order": 2
+  }
+},
+{
+  "model": "main.naturalfoodcolor",
+  "pk": 4,
+  "fields": {
+    "name": "Beat root powder (red)",
+    "color_hex": "#e63946",
+    "order": 3
+  }
+},
+{
+  "model": "main.naturalfoodcolor",
+  "pk": 5,
+  "fields": {
+    "name": "Beet Red WSP",
+    "color_hex": "#e63946",
+    "order": 4
+  }
+},
+{
+  "model": "main.naturalfoodcolor",
+  "pk": 6,
+  "fields": {
+    "name": "Beetroot granules 3060",
+    "color_hex": "#e63946",
+    "order": 5
+  }
+},
+{
+  "model": "main.naturalfoodcolor",
+  "pk": 7,
+  "fields": {
+    "name": "Berry Red",
+    "color_hex": "#e63946",
+    "order": 6
+  }
+},
+{
+  "model": "main.naturalfoodcolor",
+  "pk": 8,
+  "fields": {
+    "name": "Beta Carotene 10% Powder - Synthetic",
+    "color_hex": "#e9c46a",
+    "order": 7
+  }
+},
+{
+  "model": "main.naturalfoodcolor",
+  "pk": 9,
+  "fields": {
+    "name": "Beta carotene 30% Oil suspension (Synthetic) - Sunflower oil",
+    "color_hex": "#e9c46a",
+    "order": 8
+  }
+},
+{
+  "model": "main.naturalfoodcolor",
+  "pk": 10,
+  "fields": {
+    "name": "Beta Carotene NMC Powder 1% CWD",
+    "color_hex": "#e9c46a",
+    "order": 9
+  }
+},
+{
+  "model": "main.naturalfoodcolor",
+  "pk": 11,
+  "fields": {
+    "name": "Beta Carotene NMC Powder 3% CWD",
+    "color_hex": "#e9c46a",
+    "order": 10
+  }
+},
+{
+  "model": "main.naturalfoodcolor",
+  "pk": 12,
+  "fields": {
+    "name": "BetaCarotene 1% CWD",
+    "color_hex": "#e9c46a",
+    "order": 11
+  }
+},
+{
+  "model": "main.naturalfoodcolor",
+  "pk": 13,
+  "fields": {
+    "name": "BetaCarotene 2% CWD",
+    "color_hex": "#e9c46a",
+    "order": 12
+  }
+},
+{
+  "model": "main.naturalfoodcolor",
+  "pk": 14,
+  "fields": {
+    "name": "Bixin 5%",
+    "color_hex": "#f4a261",
+    "order": 13
+  }
+},
+{
+  "model": "main.naturalfoodcolor",
+  "pk": 15,
+  "fields": {
+    "name": "Bixin 8%",
+    "color_hex": "#f4a261",
+    "order": 14
+  }
+},
+{
+  "model": "main.naturalfoodcolor",
+  "pk": 16,
+  "fields": {
+    "name": "Brown Orange",
+    "color_hex": "#f4a261",
+    "order": 15
+  }
+},
+{
+  "model": "main.naturalfoodcolor",
+  "pk": 17,
+  "fields": {
+    "name": "Caesalpinia sappan Extract",
+    "color_hex": "#e0e0e0",
+    "order": 16
+  }
+},
+{
+  "model": "main.naturalfoodcolor",
+  "pk": 18,
+  "fields": {
+    "name": "Caramel E150D SS Powder",
+    "color_hex": "#bc6c25",
+    "order": 17
+  }
+},
+{
+  "model": "main.naturalfoodcolor",
+  "pk": 19,
+  "fields": {
+    "name": "Carmine 7% Oil suspension",
+    "color_hex": "#e63946",
+    "order": 18
+  }
+},
+{
+  "model": "main.naturalfoodcolor",
+  "pk": 20,
+  "fields": {
+    "name": "Carmine Red",
+    "color_hex": "#e63946",
+    "order": 19
+  }
+},
+{
+  "model": "main.naturalfoodcolor",
+  "pk": 21,
+  "fields": {
+    "name": "Carmine Red 1% OSP",
+    "color_hex": "#e63946",
+    "order": 20
+  }
+},
+{
+  "model": "main.naturalfoodcolor",
+  "pk": 22,
+  "fields": {
+    "name": "Carmine Red 1% WSP",
+    "color_hex": "#e63946",
+    "order": 21
+  }
+},
+{
+  "model": "main.naturalfoodcolor",
+  "pk": 23,
+  "fields": {
+    "name": "Carmine WS 7%",
+    "color_hex": "#e63946",
+    "order": 22
+  }
+},
+{
+  "model": "main.naturalfoodcolor",
+  "pk": 24,
+  "fields": {
+    "name": "Carnosine",
+    "color_hex": "#e0e0e0",
+    "order": 23
+  }
+},
+{
+  "model": "main.naturalfoodcolor",
+  "pk": 25,
+  "fields": {
+    "name": "Coffee Brown",
+    "color_hex": "#bc6c25",
+    "order": 24
+  }
+},
+{
+  "model": "main.naturalfoodcolor",
+  "pk": 26,
+  "fields": {
+    "name": "Copper chlorophyllin liquid",
+    "color_hex": "#2a9d8f",
+    "order": 25
+  }
+},
+{
+  "model": "main.naturalfoodcolor",
+  "pk": 27,
+  "fields": {
+    "name": "Coral Orange",
+    "color_hex": "#f4a261",
+    "order": 26
+  }
+},
+{
+  "model": "main.naturalfoodcolor",
+  "pk": 28,
+  "fields": {
+    "name": "Curcuma Longa extract 10% WD",
+    "color_hex": "#e0e0e0",
+    "order": 27
+  }
+},
+{
+  "model": "main.naturalfoodcolor",
+  "pk": 29,
+  "fields": {
+    "name": "Curcuma Longa extract WD",
+    "color_hex": "#e0e0e0",
+    "order": 28
+  }
+},
+{
+  "model": "main.naturalfoodcolor",
+  "pk": 30,
+  "fields": {
+    "name": "Curcumin 1% Water soluble",
+    "color_hex": "#e9c46a",
+    "order": 29
+  }
+},
+{
+  "model": "main.naturalfoodcolor",
+  "pk": 31,
+  "fields": {
+    "name": "Curcumin 5% Water soluble",
+    "color_hex": "#e9c46a",
+    "order": 30
+  }
+},
+{
+  "model": "main.naturalfoodcolor",
+  "pk": 32,
+  "fields": {
+    "name": "Curcumin soft 10% OS",
+    "color_hex": "#e9c46a",
+    "order": 31
+  }
+},
+{
+  "model": "main.naturalfoodcolor",
+  "pk": 33,
+  "fields": {
+    "name": "Dark Orchid",
+    "color_hex": "#e63946",
+    "order": 32
+  }
+},
+{
+  "model": "main.naturalfoodcolor",
+  "pk": 34,
+  "fields": {
+    "name": "Dark Red",
+    "color_hex": "#e63946",
+    "order": 33
+  }
+},
+{
+  "model": "main.naturalfoodcolor",
+  "pk": 35,
+  "fields": {
+    "name": "Emerald green",
+    "color_hex": "#2a9d8f",
+    "order": 34
+  }
+},
+{
+  "model": "main.naturalfoodcolor",
+  "pk": 36,
+  "fields": {
+    "name": "Fire brick red",
+    "color_hex": "#e63946",
+    "order": 35
+  }
+},
+{
+  "model": "main.naturalfoodcolor",
+  "pk": 37,
+  "fields": {
+    "name": "Golden Yellow",
+    "color_hex": "#e9c46a",
+    "order": 36
+  }
+},
+{
+  "model": "main.naturalfoodcolor",
+  "pk": 38,
+  "fields": {
+    "name": "Green Plus WSP",
+    "color_hex": "#2a9d8f",
+    "order": 37
+  }
+},
+{
+  "model": "main.naturalfoodcolor",
+  "pk": 39,
+  "fields": {
+    "name": "Lemon Yellow",
+    "color_hex": "#e9c46a",
+    "order": 38
+  }
+},
+{
+  "model": "main.naturalfoodcolor",
+  "pk": 40,
+  "fields": {
+    "name": "Lutein 0.4%",
+    "color_hex": "#e9c46a",
+    "order": 39
+  }
+},
+{
+  "model": "main.naturalfoodcolor",
+  "pk": 41,
+  "fields": {
+    "name": "Lutein soft 10%",
+    "color_hex": "#e9c46a",
+    "order": 40
+  }
+},
+{
+  "model": "main.naturalfoodcolor",
+  "pk": 42,
+  "fields": {
+    "name": "Marigold Extract (Lutein 10%) CWD",
+    "color_hex": "#e9c46a",
+    "order": 41
+  }
+},
+{
+  "model": "main.naturalfoodcolor",
+  "pk": 43,
+  "fields": {
+    "name": "Marigold Extract (Lutein 5%) CWD",
+    "color_hex": "#e9c46a",
+    "order": 42
+  }
+},
+{
+  "model": "main.naturalfoodcolor",
+  "pk": 44,
+  "fields": {
+    "name": "Natural Beta carotene 1% Powder CWD",
+    "color_hex": "#e9c46a",
+    "order": 43
+  }
+},
+{
+  "model": "main.naturalfoodcolor",
+  "pk": 45,
+  "fields": {
+    "name": "Natural Beta Carotene 10% Beadlets",
+    "color_hex": "#e9c46a",
+    "order": 44
+  }
+},
+{
+  "model": "main.naturalfoodcolor",
+  "pk": 46,
+  "fields": {
+    "name": "Natural Beta carotene 10% Oil suspension",
+    "color_hex": "#e9c46a",
+    "order": 45
+  }
+},
+{
+  "model": "main.naturalfoodcolor",
+  "pk": 47,
+  "fields": {
+    "name": "Natural Beta carotene 10% Powder CWD",
+    "color_hex": "#e9c46a",
+    "order": 46
+  }
+},
+{
+  "model": "main.naturalfoodcolor",
+  "pk": 48,
+  "fields": {
+    "name": "Natural Beta carotene 20% Oil suspension",
+    "color_hex": "#e9c46a",
+    "order": 47
+  }
+},
+{
+  "model": "main.naturalfoodcolor",
+  "pk": 49,
+  "fields": {
+    "name": "Natural Beta carotene 25% Oil suspension",
+    "color_hex": "#e9c46a",
+    "order": 48
+  }
+},
+{
+  "model": "main.naturalfoodcolor",
+  "pk": 50,
+  "fields": {
+    "name": "Natural Beta carotene 3% Oil suspension",
+    "color_hex": "#e9c46a",
+    "order": 49
+  }
+},
+{
+  "model": "main.naturalfoodcolor",
+  "pk": 51,
+  "fields": {
+    "name": "Natural Beta carotene 30% Oil suspension (Algae) - Sunflower oil",
+    "color_hex": "#e9c46a",
+    "order": 50
+  }
+},
+{
+  "model": "main.naturalfoodcolor",
+  "pk": 52,
+  "fields": {
+    "name": "Natural Beta carotene 30% Oil suspension (Fungus) - Sunflower oil",
+    "color_hex": "#e9c46a",
+    "order": 51
+  }
+},
+{
+  "model": "main.naturalfoodcolor",
+  "pk": 53,
+  "fields": {
+    "name": "Natural Beta carotene 30% Oil suspension (palm) - Sunflower oil",
+    "color_hex": "#e9c46a",
+    "order": 52
+  }
+},
+{
+  "model": "main.naturalfoodcolor",
+  "pk": 54,
+  "fields": {
+    "name": "Natural Beta carotene 5% Oil suspension",
+    "color_hex": "#e9c46a",
+    "order": 53
+  }
+},
+{
+  "model": "main.naturalfoodcolor",
+  "pk": 55,
+  "fields": {
+    "name": "Natural Beta carotene 5% Powder",
+    "color_hex": "#e9c46a",
+    "order": 54
+  }
+},
+{
+  "model": "main.naturalfoodcolor",
+  "pk": 56,
+  "fields": {
+    "name": "Natural Beta carotene 5% Powder CWD",
+    "color_hex": "#e9c46a",
+    "order": 55
+  }
+},
+{
+  "model": "main.naturalfoodcolor",
+  "pk": 57,
+  "fields": {
+    "name": "NATURAL BETA CAROTENE CWD 10% BEADLETS",
+    "color_hex": "#e9c46a",
+    "order": 56
+  }
+},
+{
+  "model": "main.naturalfoodcolor",
+  "pk": 58,
+  "fields": {
+    "name": "Natural Betacarotene 1% Powder",
+    "color_hex": "#e9c46a",
+    "order": 57
+  }
+},
+{
+  "model": "main.naturalfoodcolor",
+  "pk": 59,
+  "fields": {
+    "name": "Natural Betacarotene 1.5% Powder",
+    "color_hex": "#e9c46a",
+    "order": 58
+  }
+},
+{
+  "model": "main.naturalfoodcolor",
+  "pk": 60,
+  "fields": {
+    "name": "Natural Betacarotene 10% Powder",
+    "color_hex": "#e9c46a",
+    "order": 59
+  }
+},
+{
+  "model": "main.naturalfoodcolor",
+  "pk": 61,
+  "fields": {
+    "name": "Natural Betacarotene 10% Powder - Algae",
+    "color_hex": "#e9c46a",
+    "order": 60
+  }
+},
+{
+  "model": "main.naturalfoodcolor",
+  "pk": 62,
+  "fields": {
+    "name": "Natural Betacarotene 10% Powder - palm",
+    "color_hex": "#e9c46a",
+    "order": 61
+  }
+},
+{
+  "model": "main.naturalfoodcolor",
+  "pk": 63,
+  "fields": {
+    "name": "Natural Betacarotene 2% Powder",
+    "color_hex": "#e9c46a",
+    "order": 62
+  }
+},
+{
+  "model": "main.naturalfoodcolor",
+  "pk": 64,
+  "fields": {
+    "name": "Natural Betacarotene 2.5% Powder",
+    "color_hex": "#e9c46a",
+    "order": 63
+  }
+},
+{
+  "model": "main.naturalfoodcolor",
+  "pk": 65,
+  "fields": {
+    "name": "Natural Betacarotene 20% Powder",
+    "color_hex": "#e9c46a",
+    "order": 64
+  }
+},
+{
+  "model": "main.naturalfoodcolor",
+  "pk": 66,
+  "fields": {
+    "name": "Natural Betacarotene 3% Powder",
+    "color_hex": "#e9c46a",
+    "order": 65
+  }
+},
+{
+  "model": "main.naturalfoodcolor",
+  "pk": 67,
+  "fields": {
+    "name": "Natural Carmine red CR WSP",
+    "color_hex": "#e63946",
+    "order": 66
+  }
+},
+{
+  "model": "main.naturalfoodcolor",
+  "pk": 68,
+  "fields": {
+    "name": "Natural green",
+    "color_hex": "#2a9d8f",
+    "order": 67
+  }
+},
+{
+  "model": "main.naturalfoodcolor",
+  "pk": 69,
+  "fields": {
+    "name": "Natural lemon yellow clear",
+    "color_hex": "#e9c46a",
+    "order": 68
+  }
+},
+{
+  "model": "main.naturalfoodcolor",
+  "pk": 70,
+  "fields": {
+    "name": "Natural Norbixin 15% WSP",
+    "color_hex": "#f4a261",
+    "order": 69
+  }
+},
+{
+  "model": "main.naturalfoodcolor",
+  "pk": 71,
+  "fields": {
+    "name": "Natural Norbixin WSP",
+    "color_hex": "#f4a261",
+    "order": 70
+  }
+},
+{
+  "model": "main.naturalfoodcolor",
+  "pk": 72,
+  "fields": {
+    "name": "Natural Orange 1.0",
+    "color_hex": "#f4a261",
+    "order": 71
+  }
+},
+{
+  "model": "main.naturalfoodcolor",
+  "pk": 73,
+  "fields": {
+    "name": "Natural Orange 2.5",
+    "color_hex": "#f4a261",
+    "order": 72
+  }
+},
+{
+  "model": "main.naturalfoodcolor",
+  "pk": 74,
+  "fields": {
+    "name": "Natural Orange LC WSP",
+    "color_hex": "#f4a261",
+    "order": 73
+  }
+},
+{
+  "model": "main.naturalfoodcolor",
+  "pk": 75,
+  "fields": {
+    "name": "Natural Pap Red WSP",
+    "color_hex": "#e63946",
+    "order": 74
+  }
+},
+{
+  "model": "main.naturalfoodcolor",
+  "pk": 76,
+  "fields": {
+    "name": "Natural Pink",
+    "color_hex": "#e63946",
+    "order": 75
+  }
+},
+{
+  "model": "main.naturalfoodcolor",
+  "pk": 77,
+  "fields": {
+    "name": "Natural Red WSP",
+    "color_hex": "#e63946",
+    "order": 76
+  }
+},
+{
+  "model": "main.naturalfoodcolor",
+  "pk": 78,
+  "fields": {
+    "name": "Natural Yellow 0.5",
+    "color_hex": "#e9c46a",
+    "order": 77
+  }
+},
+{
+  "model": "main.naturalfoodcolor",
+  "pk": 79,
+  "fields": {
+    "name": "Natural Yellow 1.0",
+    "color_hex": "#e9c46a",
+    "order": 78
+  }
+},
+{
+  "model": "main.naturalfoodcolor",
+  "pk": 80,
+  "fields": {
+    "name": "Olive green",
+    "color_hex": "#2a9d8f",
+    "order": 79
+  }
+},
+{
+  "model": "main.naturalfoodcolor",
+  "pk": 81,
+  "fields": {
+    "name": "Orange red",
+    "color_hex": "#e63946",
+    "order": 80
+  }
+},
+{
+  "model": "main.naturalfoodcolor",
+  "pk": 82,
+  "fields": {
+    "name": "Paprika Orange",
+    "color_hex": "#f4a261",
+    "order": 81
+  }
+},
+{
+  "model": "main.naturalfoodcolor",
+  "pk": 83,
+  "fields": {
+    "name": "Paprika Powder",
+    "color_hex": "#f4a261",
+    "order": 82
+  }
+},
+{
+  "model": "main.naturalfoodcolor",
+  "pk": 84,
+  "fields": {
+    "name": "Pinkish red",
+    "color_hex": "#e63946",
+    "order": 83
+  }
+},
+{
+  "model": "main.naturalfoodcolor",
+  "pk": 85,
+  "fields": {
+    "name": "Red",
+    "color_hex": "#e63946",
+    "order": 84
+  }
+},
+{
+  "model": "main.naturalfoodcolor",
+  "pk": 86,
+  "fields": {
+    "name": "Red carmine colour 7% liquid",
+    "color_hex": "#e63946",
+    "order": 85
+  }
+},
+{
+  "model": "main.naturalfoodcolor",
+  "pk": 87,
+  "fields": {
+    "name": "Spinach Extract Powder",
+    "color_hex": "#2a9d8f",
+    "order": 86
+  }
+},
+{
+  "model": "main.naturalfoodcolor",
+  "pk": 88,
+  "fields": {
+    "name": "Sunshine Yellow",
+    "color_hex": "#e9c46a",
+    "order": 87
+  }
+},
+{
+  "model": "main.naturalfoodcolor",
+  "pk": 89,
+  "fields": {
+    "name": "Violet red",
+    "color_hex": "#e63946",
+    "order": 88
+  }
+},
+{
+  "model": "main.naturalfoodcolor",
+  "pk": 90,
+  "fields": {
+    "name": "Yolk Yellow",
+    "color_hex": "#e9c46a",
+    "order": 89
   }
 },
 {
   "model": "main.naturalflavour",
   "pk": 1,
   "fields": {
+    "name": "Black Currant",
+    "category": "Fruit Based Flavour",
+    "color_hex": "#e0e0e0",
+    "order": 1
+  }
+},
+{
+  "model": "main.naturalflavour",
+  "pk": 2,
+  "fields": {
+    "name": "Banana",
+    "category": "Fruit Based Flavour",
+    "color_hex": "#e0e0e0",
+    "order": 2
+  }
+},
+{
+  "model": "main.naturalflavour",
+  "pk": 3,
+  "fields": {
+    "name": "Ripe Strawberry",
+    "category": "Fruit Based Flavour",
+    "color_hex": "#e0e0e0",
+    "order": 3
+  }
+},
+{
+  "model": "main.naturalflavour",
+  "pk": 4,
+  "fields": {
+    "name": "Mango Ripe",
+    "category": "Fruit Based Flavour",
+    "color_hex": "#e0e0e0",
+    "order": 4
+  }
+},
+{
+  "model": "main.naturalflavour",
+  "pk": 5,
+  "fields": {
+    "name": "Lychee",
+    "category": "Fruit Based Flavour",
+    "color_hex": "#e0e0e0",
+    "order": 5
+  }
+},
+{
+  "model": "main.naturalflavour",
+  "pk": 6,
+  "fields": {
+    "name": "Passion Fruit",
+    "category": "Fruit Based Flavour",
+    "color_hex": "#e0e0e0",
+    "order": 6
+  }
+},
+{
+  "model": "main.naturalflavour",
+  "pk": 7,
+  "fields": {
+    "name": "Green Mango",
+    "category": "Fruit Based Flavour",
+    "color_hex": "#e0e0e0",
+    "order": 7
+  }
+},
+{
+  "model": "main.naturalflavour",
+  "pk": 8,
+  "fields": {
+    "name": "Pineapple Fresh",
+    "category": "Fruit Based Flavour",
+    "color_hex": "#e0e0e0",
+    "order": 8
+  }
+},
+{
+  "model": "main.naturalflavour",
+  "pk": 9,
+  "fields": {
+    "name": "Strawberry (Oil Soluble)",
+    "category": "Fruit Based Flavour",
+    "color_hex": "#e0e0e0",
+    "order": 9
+  }
+},
+{
+  "model": "main.naturalflavour",
+  "pk": 10,
+  "fields": {
+    "name": "Watermelon",
+    "category": "Fruit Based Flavour",
+    "color_hex": "#e0e0e0",
+    "order": 10
+  }
+},
+{
+  "model": "main.naturalflavour",
+  "pk": 11,
+  "fields": {
+    "name": "Cola",
+    "category": "Fruit Based Flavour",
+    "color_hex": "#e0e0e0",
+    "order": 11
+  }
+},
+{
+  "model": "main.naturalflavour",
+  "pk": 12,
+  "fields": {
+    "name": "Pineapple Natural",
+    "category": "Fruit Based Flavour",
+    "color_hex": "#e0e0e0",
+    "order": 12
+  }
+},
+{
+  "model": "main.naturalflavour",
+  "pk": 13,
+  "fields": {
+    "name": "Peach Flavour",
+    "category": "Fruit Based Flavour",
+    "color_hex": "#e0e0e0",
+    "order": 13
+  }
+},
+{
+  "model": "main.naturalflavour",
+  "pk": 14,
+  "fields": {
+    "name": "Green Apple",
+    "category": "Fruit Based Flavour",
+    "color_hex": "#e0e0e0",
+    "order": 14
+  }
+},
+{
+  "model": "main.naturalflavour",
+  "pk": 15,
+  "fields": {
+    "name": "Double Apple",
+    "category": "Fruit Based Flavour",
+    "color_hex": "#e0e0e0",
+    "order": 15
+  }
+},
+{
+  "model": "main.naturalflavour",
+  "pk": 16,
+  "fields": {
+    "name": "Mango Alphonso",
+    "category": "Fruit Based Flavour",
+    "color_hex": "#e0e0e0",
+    "order": 16
+  }
+},
+{
+  "model": "main.naturalflavour",
+  "pk": 17,
+  "fields": {
+    "name": "Blueberry Mint",
+    "category": "Fruit Based Flavour",
+    "color_hex": "#e0e0e0",
+    "order": 17
+  }
+},
+{
+  "model": "main.naturalflavour",
+  "pk": 18,
+  "fields": {
+    "name": "Tomato Ripe SD",
+    "category": "Fruit Based Flavour",
+    "color_hex": "#e0e0e0",
+    "order": 18
+  }
+},
+{
+  "model": "main.naturalflavour",
+  "pk": 19,
+  "fields": {
+    "name": "Tomato SD",
+    "category": "Fruit Based Flavour",
+    "color_hex": "#e0e0e0",
+    "order": 19
+  }
+},
+{
+  "model": "main.naturalflavour",
+  "pk": 20,
+  "fields": {
+    "name": "Tomato SD Natural",
+    "category": "Fruit Based Flavour",
+    "color_hex": "#e0e0e0",
+    "order": 20
+  }
+},
+{
+  "model": "main.naturalflavour",
+  "pk": 21,
+  "fields": {
+    "name": "Jackfruit SD Flavour",
+    "category": "Fruit Based Flavour",
+    "color_hex": "#e0e0e0",
+    "order": 21
+  }
+},
+{
+  "model": "main.naturalflavour",
+  "pk": 22,
+  "fields": {
+    "name": "Tamarind",
+    "category": "Fruit Based Flavour",
+    "color_hex": "#e0e0e0",
+    "order": 22
+  }
+},
+{
+  "model": "main.naturalflavour",
+  "pk": 23,
+  "fields": {
+    "name": "Apple",
+    "category": "Fruit Based Flavour",
+    "color_hex": "#e0e0e0",
+    "order": 23
+  }
+},
+{
+  "model": "main.naturalflavour",
+  "pk": 24,
+  "fields": {
+    "name": "Cherry",
+    "category": "Fruit Based Flavour",
+    "color_hex": "#e0e0e0",
+    "order": 24
+  }
+},
+{
+  "model": "main.naturalflavour",
+  "pk": 25,
+  "fields": {
+    "name": "Mixed Fruit",
+    "category": "Fruit Based Flavour",
+    "color_hex": "#e0e0e0",
+    "order": 25
+  }
+},
+{
+  "model": "main.naturalflavour",
+  "pk": 26,
+  "fields": {
+    "name": "Tomato",
+    "category": "Fruit Based Flavour",
+    "color_hex": "#e0e0e0",
+    "order": 26
+  }
+},
+{
+  "model": "main.naturalflavour",
+  "pk": 27,
+  "fields": {
+    "name": "Lemon Flavour Natural",
+    "category": "Fruit Based Flavour",
+    "color_hex": "#e0e0e0",
+    "order": 27
+  }
+},
+{
+  "model": "main.naturalflavour",
+  "pk": 28,
+  "fields": {
+    "name": "Pear Flavour",
+    "category": "Fruit Based Flavour",
+    "color_hex": "#e0e0e0",
+    "order": 28
+  }
+},
+{
+  "model": "main.naturalflavour",
+  "pk": 29,
+  "fields": {
     "name": "Mixed Berry",
     "category": "Additional Fruit Based Flavours",
-    "color_hex": "#ebebeb",
-    "order": 1
+    "color_hex": "#e0e0e0",
+    "order": 29
+  }
+},
+{
+  "model": "main.naturalflavour",
+  "pk": 30,
+  "fields": {
+    "name": "Dewberry",
+    "category": "Additional Fruit Based Flavours",
+    "color_hex": "#e0e0e0",
+    "order": 30
+  }
+},
+{
+  "model": "main.naturalflavour",
+  "pk": 31,
+  "fields": {
+    "name": "Jackfruit",
+    "category": "Additional Fruit Based Flavours",
+    "color_hex": "#e0e0e0",
+    "order": 31
+  }
+},
+{
+  "model": "main.naturalflavour",
+  "pk": 32,
+  "fields": {
+    "name": "Mango",
+    "category": "Additional Fruit Based Flavours",
+    "color_hex": "#e0e0e0",
+    "order": 32
+  }
+},
+{
+  "model": "main.naturalflavour",
+  "pk": 33,
+  "fields": {
+    "name": "Cranberry",
+    "category": "Additional Fruit Based Flavours",
+    "color_hex": "#e0e0e0",
+    "order": 33
+  }
+},
+{
+  "model": "main.naturalflavour",
+  "pk": 34,
+  "fields": {
+    "name": "Cranberry Crush",
+    "category": "Additional Fruit Based Flavours",
+    "color_hex": "#e0e0e0",
+    "order": 34
+  }
+},
+{
+  "model": "main.naturalflavour",
+  "pk": 35,
+  "fields": {
+    "name": "Raspberry",
+    "category": "Additional Fruit Based Flavours",
+    "color_hex": "#e0e0e0",
+    "order": 35
+  }
+},
+{
+  "model": "main.naturalflavour",
+  "pk": 36,
+  "fields": {
+    "name": "Peach",
+    "category": "Additional Fruit Based Flavours",
+    "color_hex": "#e0e0e0",
+    "order": 36
+  }
+},
+{
+  "model": "main.naturalflavour",
+  "pk": 37,
+  "fields": {
+    "name": "Pineapple Freshcut",
+    "category": "Additional Fruit Based Flavours",
+    "color_hex": "#e0e0e0",
+    "order": 37
+  }
+},
+{
+  "model": "main.naturalflavour",
+  "pk": 38,
+  "fields": {
+    "name": "Fruit Biscuit",
+    "category": "Additional Fruit Based Flavours",
+    "color_hex": "#e0e0e0",
+    "order": 38
+  }
+},
+{
+  "model": "main.naturalflavour",
+  "pk": 39,
+  "fields": {
+    "name": "Green Mango",
+    "category": "Additional Fruit Based Flavours",
+    "color_hex": "#e0e0e0",
+    "order": 39
+  }
+},
+{
+  "model": "main.naturalflavour",
+  "pk": 40,
+  "fields": {
+    "name": "Orange",
+    "category": "Additional Fruit Based Flavours",
+    "color_hex": "#e0e0e0",
+    "order": 40
+  }
+},
+{
+  "model": "main.naturalflavour",
+  "pk": 41,
+  "fields": {
+    "name": "Pomegranate",
+    "category": "Additional Fruit Based Flavours",
+    "color_hex": "#e0e0e0",
+    "order": 41
+  }
+},
+{
+  "model": "main.naturalflavour",
+  "pk": 42,
+  "fields": {
+    "name": "Guava Chili",
+    "category": "Additional Fruit Based Flavours",
+    "color_hex": "#e0e0e0",
+    "order": 42
+  }
+},
+{
+  "model": "main.naturalflavour",
+  "pk": 43,
+  "fields": {
+    "name": "Guava Red",
+    "category": "Additional Fruit Based Flavours",
+    "color_hex": "#e0e0e0",
+    "order": 43
+  }
+},
+{
+  "model": "main.naturalflavour",
+  "pk": 44,
+  "fields": {
+    "name": "Pineapple Slicy",
+    "category": "Additional Fruit Based Flavours",
+    "color_hex": "#e0e0e0",
+    "order": 44
+  }
+},
+{
+  "model": "main.naturalflavour",
+  "pk": 45,
+  "fields": {
+    "name": "Strawberry Banana",
+    "category": "Additional Fruit Based Flavours",
+    "color_hex": "#e0e0e0",
+    "order": 45
+  }
+},
+{
+  "model": "main.naturalflavour",
+  "pk": 46,
+  "fields": {
+    "name": "Tutti Fruity",
+    "category": "Additional Fruit Based Flavours",
+    "color_hex": "#e0e0e0",
+    "order": 46
+  }
+},
+{
+  "model": "main.naturalflavour",
+  "pk": 47,
+  "fields": {
+    "name": "Cardamom",
+    "category": "Spice Based Flavour",
+    "color_hex": "#e0e0e0",
+    "order": 47
+  }
+},
+{
+  "model": "main.naturalflavour",
+  "pk": 48,
+  "fields": {
+    "name": "Vanilla",
+    "category": "Spice Based Flavour",
+    "color_hex": "#e0e0e0",
+    "order": 48
+  }
+},
+{
+  "model": "main.naturalflavour",
+  "pk": 49,
+  "fields": {
+    "name": "Cinnamon",
+    "category": "Spice Based Flavour",
+    "color_hex": "#e0e0e0",
+    "order": 49
+  }
+},
+{
+  "model": "main.naturalflavour",
+  "pk": 50,
+  "fields": {
+    "name": "Ginger",
+    "category": "Spice Based Flavour",
+    "color_hex": "#e0e0e0",
+    "order": 50
+  }
+},
+{
+  "model": "main.naturalflavour",
+  "pk": 51,
+  "fields": {
+    "name": "Clove SD",
+    "category": "Spice Based Flavour",
+    "color_hex": "#e0e0e0",
+    "order": 51
+  }
+},
+{
+  "model": "main.naturalflavour",
+  "pk": 52,
+  "fields": {
+    "name": "Roasted Jeera",
+    "category": "Spice Based Flavour",
+    "color_hex": "#e0e0e0",
+    "order": 52
+  }
+},
+{
+  "model": "main.naturalflavour",
+  "pk": 53,
+  "fields": {
+    "name": "Ginger Ale",
+    "category": "Spice Based Flavour",
+    "color_hex": "#e0e0e0",
+    "order": 53
+  }
+},
+{
+  "model": "main.naturalflavour",
+  "pk": 54,
+  "fields": {
+    "name": "Pistachio",
+    "category": "Nut Based Flavour",
+    "color_hex": "#e0e0e0",
+    "order": 54
+  }
+},
+{
+  "model": "main.naturalflavour",
+  "pk": 55,
+  "fields": {
+    "name": "Hazelnut",
+    "category": "Nut Based Flavour",
+    "color_hex": "#e0e0e0",
+    "order": 55
+  }
+},
+{
+  "model": "main.naturalflavour",
+  "pk": 56,
+  "fields": {
+    "name": "Coffee Hazelnut",
+    "category": "Nut Based Flavour",
+    "color_hex": "#e0e0e0",
+    "order": 56
+  }
+},
+{
+  "model": "main.naturalflavour",
+  "pk": 57,
+  "fields": {
+    "name": "Almond",
+    "category": "Nut Based Flavour",
+    "color_hex": "#e0e0e0",
+    "order": 57
+  }
+},
+{
+  "model": "main.naturalflavour",
+  "pk": 58,
+  "fields": {
+    "name": "Pink Vodka",
+    "category": "Alcohol Based Flavour",
+    "color_hex": "#e0e0e0",
+    "order": 58
+  }
+},
+{
+  "model": "main.naturalflavour",
+  "pk": 59,
+  "fields": {
+    "name": "Rum",
+    "category": "Alcohol Based Flavour",
+    "color_hex": "#e0e0e0",
+    "order": 59
+  }
+},
+{
+  "model": "main.naturalflavour",
+  "pk": 60,
+  "fields": {
+    "name": "Gin",
+    "category": "Alcohol Based Flavour",
+    "color_hex": "#e0e0e0",
+    "order": 60
+  }
+},
+{
+  "model": "main.naturalflavour",
+  "pk": 61,
+  "fields": {
+    "name": "Fruit Beer",
+    "category": "Alcohol Based Flavour",
+    "color_hex": "#e0e0e0",
+    "order": 61
+  }
+},
+{
+  "model": "main.naturalflavour",
+  "pk": 62,
+  "fields": {
+    "name": "Cinnamon Whisky",
+    "category": "Alcohol Based Flavour",
+    "color_hex": "#e0e0e0",
+    "order": 62
+  }
+},
+{
+  "model": "main.naturalflavour",
+  "pk": 63,
+  "fields": {
+    "name": "Malt",
+    "category": "Alcohol Based Flavour",
+    "color_hex": "#e0e0e0",
+    "order": 63
+  }
+},
+{
+  "model": "main.naturalflavour",
+  "pk": 64,
+  "fields": {
+    "name": "Scotch Whisky",
+    "category": "Alcohol Based Flavour",
+    "color_hex": "#e0e0e0",
+    "order": 64
+  }
+},
+{
+  "model": "main.naturalflavour",
+  "pk": 65,
+  "fields": {
+    "name": "Scotch Whisky Conc",
+    "category": "Alcohol Based Flavour",
+    "color_hex": "#e0e0e0",
+    "order": 65
+  }
+},
+{
+  "model": "main.naturalflavour",
+  "pk": 66,
+  "fields": {
+    "name": "Beer",
+    "category": "Alcohol Based Flavour",
+    "color_hex": "#e0e0e0",
+    "order": 66
+  }
+},
+{
+  "model": "main.naturalflavour",
+  "pk": 67,
+  "fields": {
+    "name": "Red Wine",
+    "category": "Alcohol Based Flavour",
+    "color_hex": "#e0e0e0",
+    "order": 67
+  }
+},
+{
+  "model": "main.naturalflavour",
+  "pk": 68,
+  "fields": {
+    "name": "Rum Jamaica",
+    "category": "Alcohol Based Flavour",
+    "color_hex": "#e0e0e0",
+    "order": 68
+  }
+},
+{
+  "model": "main.naturalflavour",
+  "pk": 69,
+  "fields": {
+    "name": "Vodka ABS",
+    "category": "Alcohol Based Flavour",
+    "color_hex": "#e0e0e0",
+    "order": 69
+  }
+},
+{
+  "model": "main.naturalflavour",
+  "pk": 70,
+  "fields": {
+    "name": "Vodka",
+    "category": "Alcohol Based Flavour",
+    "color_hex": "#e0e0e0",
+    "order": 70
+  }
+},
+{
+  "model": "main.naturalflavour",
+  "pk": 71,
+  "fields": {
+    "name": "Gin D Cour",
+    "category": "Alcohol Based Flavour",
+    "color_hex": "#e0e0e0",
+    "order": 71
+  }
+},
+{
+  "model": "main.naturalflavour",
+  "pk": 72,
+  "fields": {
+    "name": "London Gin",
+    "category": "Alcohol Based Flavour",
+    "color_hex": "#e0e0e0",
+    "order": 72
+  }
+},
+{
+  "model": "main.naturalflavour",
+  "pk": 73,
+  "fields": {
+    "name": "Vodka Crystal",
+    "category": "Alcohol Based Flavour",
+    "color_hex": "#e0e0e0",
+    "order": 73
+  }
+},
+{
+  "model": "main.naturalflavour",
+  "pk": 74,
+  "fields": {
+    "name": "Whisky RC",
+    "category": "Alcohol Based Flavour",
+    "color_hex": "#e0e0e0",
+    "order": 74
+  }
+},
+{
+  "model": "main.naturalflavour",
+  "pk": 75,
+  "fields": {
+    "name": "Rum Caribbean",
+    "category": "Alcohol Based Flavour",
+    "color_hex": "#e0e0e0",
+    "order": 75
+  }
+},
+{
+  "model": "main.naturalflavour",
+  "pk": 76,
+  "fields": {
+    "name": "Rum Gold",
+    "category": "Alcohol Based Flavour",
+    "color_hex": "#e0e0e0",
+    "order": 76
+  }
+},
+{
+  "model": "main.naturalflavour",
+  "pk": 77,
+  "fields": {
+    "name": "Rum G 15",
+    "category": "Alcohol Based Flavour",
+    "color_hex": "#e0e0e0",
+    "order": 77
+  }
+},
+{
+  "model": "main.naturalflavour",
+  "pk": 78,
+  "fields": {
+    "name": "Whisky Mac",
+    "category": "Alcohol Based Flavour",
+    "color_hex": "#e0e0e0",
+    "order": 78
+  }
+},
+{
+  "model": "main.naturalflavour",
+  "pk": 79,
+  "fields": {
+    "name": "Chocolate",
+    "category": "Brownie / Chocolate Based Flavour",
+    "color_hex": "#e0e0e0",
+    "order": 79
+  }
+},
+{
+  "model": "main.naturalflavour",
+  "pk": 80,
+  "fields": {
+    "name": "Vanilla Natural",
+    "category": "Brownie / Chocolate Based Flavour",
+    "color_hex": "#e0e0e0",
+    "order": 80
+  }
+},
+{
+  "model": "main.naturalflavour",
+  "pk": 81,
+  "fields": {
+    "name": "Cocoa Butter",
+    "category": "Brownie / Chocolate Based Flavour",
+    "color_hex": "#e0e0e0",
+    "order": 81
+  }
+},
+{
+  "model": "main.naturalflavour",
+  "pk": 82,
+  "fields": {
+    "name": "Butter SD",
+    "category": "Brownie / Chocolate Based Flavour",
+    "color_hex": "#e0e0e0",
+    "order": 82
+  }
+},
+{
+  "model": "main.naturalflavour",
+  "pk": 83,
+  "fields": {
+    "name": "Cola SD",
+    "category": "Brownie / Chocolate Based Flavour",
+    "color_hex": "#e0e0e0",
+    "order": 83
+  }
+},
+{
+  "model": "main.naturalflavour",
+  "pk": 84,
+  "fields": {
+    "name": "Coffee",
+    "category": "Brownie / Chocolate Based Flavour",
+    "color_hex": "#e0e0e0",
+    "order": 84
+  }
+},
+{
+  "model": "main.naturalflavour",
+  "pk": 85,
+  "fields": {
+    "name": "Liquid Type IV",
+    "category": "Brownie / Chocolate Based Flavour",
+    "color_hex": "#e0e0e0",
+    "order": 85
+  }
+},
+{
+  "model": "main.naturalflavour",
+  "pk": 86,
+  "fields": {
+    "name": "Caramel",
+    "category": "Brownie / Chocolate Based Flavour",
+    "color_hex": "#e0e0e0",
+    "order": 86
+  }
+},
+{
+  "model": "main.naturalflavour",
+  "pk": 87,
+  "fields": {
+    "name": "Choco Hazelnut",
+    "category": "Brownie / Chocolate Based Flavour",
+    "color_hex": "#e0e0e0",
+    "order": 87
+  }
+},
+{
+  "model": "main.naturalflavour",
+  "pk": 88,
+  "fields": {
+    "name": "Creamy Vanilla",
+    "category": "Brownie / Chocolate Based Flavour",
+    "color_hex": "#e0e0e0",
+    "order": 88
+  }
+},
+{
+  "model": "main.naturalflavour",
+  "pk": 89,
+  "fields": {
+    "name": "Butter Cookies",
+    "category": "Brownie / Chocolate Based Flavour",
+    "color_hex": "#e0e0e0",
+    "order": 89
+  }
+},
+{
+  "model": "main.naturalflavour",
+  "pk": 90,
+  "fields": {
+    "name": "Butter Baker Lite",
+    "category": "Brownie / Chocolate Based Flavour",
+    "color_hex": "#e0e0e0",
+    "order": 90
+  }
+},
+{
+  "model": "main.naturalflavour",
+  "pk": 91,
+  "fields": {
+    "name": "Butter Delight",
+    "category": "Brownie / Chocolate Based Flavour",
+    "color_hex": "#e0e0e0",
+    "order": 91
+  }
+},
+{
+  "model": "main.naturalflavour",
+  "pk": 92,
+  "fields": {
+    "name": "Bergamot Flavour",
+    "category": "Flowery / Herbal Flavour",
+    "color_hex": "#e0e0e0",
+    "order": 92
+  }
+},
+{
+  "model": "main.naturalflavour",
+  "pk": 93,
+  "fields": {
+    "name": "Jasmine Flavour",
+    "category": "Flowery / Herbal Flavour",
+    "color_hex": "#e0e0e0",
+    "order": 93
+  }
+},
+{
+  "model": "main.naturalflavour",
+  "pk": 94,
+  "fields": {
+    "name": "Olive",
+    "category": "Vegetable Flavour",
+    "color_hex": "#e0e0e0",
+    "order": 94
+  }
+},
+{
+  "model": "main.naturalflavour",
+  "pk": 95,
+  "fields": {
+    "name": "Coriander",
+    "category": "Vegetable Flavour",
+    "color_hex": "#e0e0e0",
+    "order": 95
+  }
+},
+{
+  "model": "main.naturalflavour",
+  "pk": 96,
+  "fields": {
+    "name": "Peppermint",
+    "category": "Mint Flavour",
+    "color_hex": "#e0e0e0",
+    "order": 96
+  }
+},
+{
+  "model": "main.naturalflavour",
+  "pk": 97,
+  "fields": {
+    "name": "Mint F1",
+    "category": "Mint Flavour",
+    "color_hex": "#e0e0e0",
+    "order": 97
+  }
+},
+{
+  "model": "main.naturalflavour",
+  "pk": 98,
+  "fields": {
+    "name": "Cool Mint Magic",
+    "category": "Mint Flavour",
+    "color_hex": "#e0e0e0",
+    "order": 98
+  }
+},
+{
+  "model": "main.naturalflavour",
+  "pk": 99,
+  "fields": {
+    "name": "Mint Cool",
+    "category": "Mint Flavour",
+    "color_hex": "#e0e0e0",
+    "order": 99
+  }
+},
+{
+  "model": "main.naturalflavour",
+  "pk": 100,
+  "fields": {
+    "name": "Chocolate Mint",
+    "category": "Mint Flavour",
+    "color_hex": "#e0e0e0",
+    "order": 100
+  }
+},
+{
+  "model": "main.naturalflavour",
+  "pk": 101,
+  "fields": {
+    "name": "Lemon",
+    "category": "Citrus Flavour",
+    "color_hex": "#e0e0e0",
+    "order": 101
+  }
+},
+{
+  "model": "main.naturalflavour",
+  "pk": 102,
+  "fields": {
+    "name": "Lime Lemon",
+    "category": "Citrus Flavour",
+    "color_hex": "#e0e0e0",
+    "order": 102
+  }
+},
+{
+  "model": "main.naturalflavour",
+  "pk": 103,
+  "fields": {
+    "name": "Orange Emulsion",
+    "category": "Citrus Flavour",
+    "color_hex": "#e0e0e0",
+    "order": 103
+  }
+},
+{
+  "model": "main.naturalflavour",
+  "pk": 104,
+  "fields": {
+    "name": "Clear Lemon",
+    "category": "Citrus Flavour",
+    "color_hex": "#e0e0e0",
+    "order": 104
+  }
+},
+{
+  "model": "main.naturalflavour",
+  "pk": 105,
+  "fields": {
+    "name": "Orange Flav Fantop",
+    "category": "Citrus Flavour",
+    "color_hex": "#e0e0e0",
+    "order": 105
+  }
+},
+{
+  "model": "main.naturalflavour",
+  "pk": 106,
+  "fields": {
+    "name": "Orange SYM",
+    "category": "Citrus Flavour",
+    "color_hex": "#e0e0e0",
+    "order": 106
+  }
+},
+{
+  "model": "main.naturalflavour",
+  "pk": 107,
+  "fields": {
+    "name": "Lemon n Lime",
+    "category": "Citrus Flavour",
+    "color_hex": "#e0e0e0",
+    "order": 107
+  }
+},
+{
+  "model": "main.naturalflavour",
+  "pk": 108,
+  "fields": {
+    "name": "Biryani",
+    "category": "Traditional Indian Flavour",
+    "color_hex": "#e0e0e0",
+    "order": 108
+  }
+},
+{
+  "model": "main.naturalflavour",
+  "pk": 109,
+  "fields": {
+    "name": "Desi Ghee",
+    "category": "Traditional Indian Flavour",
+    "color_hex": "#e0e0e0",
+    "order": 109
+  }
+},
+{
+  "model": "main.naturalflavour",
+  "pk": 110,
+  "fields": {
+    "name": "Jaljeera",
+    "category": "Traditional Indian Flavour",
+    "color_hex": "#e0e0e0",
+    "order": 110
+  }
+},
+{
+  "model": "main.naturalflavour",
+  "pk": 111,
+  "fields": {
+    "name": "Jeru Soda",
+    "category": "Traditional Indian Flavour",
+    "color_hex": "#e0e0e0",
+    "order": 111
+  }
+},
+{
+  "model": "main.naturalflavour",
+  "pk": 112,
+  "fields": {
+    "name": "Lassi",
+    "category": "Traditional Indian Flavour",
+    "color_hex": "#e0e0e0",
+    "order": 112
+  }
+},
+{
+  "model": "main.naturalflavour",
+  "pk": 113,
+  "fields": {
+    "name": "Gulab Spl",
+    "category": "Traditional Indian Flavour",
+    "color_hex": "#e0e0e0",
+    "order": 113
+  }
+},
+{
+  "model": "main.naturalflavour",
+  "pk": 114,
+  "fields": {
+    "name": "Liquid Type IV",
+    "category": "Traditional Indian Flavour",
+    "color_hex": "#e0e0e0",
+    "order": 114
+  }
+},
+{
+  "model": "main.naturalflavour",
+  "pk": 115,
+  "fields": {
+    "name": "Fish",
+    "category": "Meat Flavour",
+    "color_hex": "#e0e0e0",
+    "order": 115
+  }
+},
+{
+  "model": "main.naturalflavour",
+  "pk": 116,
+  "fields": {
+    "name": "Chicken Flesh",
+    "category": "Meat Flavour",
+    "color_hex": "#e0e0e0",
+    "order": 116
+  }
+},
+{
+  "model": "main.naturalflavour",
+  "pk": 117,
+  "fields": {
+    "name": "Chicken Stewed",
+    "category": "Meat Flavour",
+    "color_hex": "#e0e0e0",
+    "order": 117
+  }
+},
+{
+  "model": "main.naturalflavour",
+  "pk": 118,
+  "fields": {
+    "name": "Chicken",
+    "category": "Meat Flavour",
+    "color_hex": "#e0e0e0",
+    "order": 118
   }
 },
 {
@@ -3820,11 +7346,335 @@
   "pk": 1,
   "fields": {
     "title": "CORPORATE BROCHURE",
-    "image_upload": "",
+    "image_upload": "brochures/images/coffee.webp",
     "image_path": "",
     "pdf_upload": "brochures/pdfs/Brand_Products.pdf",
     "pdf_path": "",
     "order": 1
+  }
+},
+{
+  "model": "main.productbrochure",
+  "pk": 2,
+  "fields": {
+    "title": "FLAVOR BROCHURE",
+    "image_upload": "brochures/images/340A5387.webp",
+    "image_path": "",
+    "pdf_upload": "brochures/pdfs/BM_Flavor_Brochure_.pdf",
+    "pdf_path": "",
+    "order": 2
+  }
+},
+{
+  "model": "main.productbrochure",
+  "pk": 3,
+  "fields": {
+    "title": "NATURAL COLORS",
+    "image_upload": "",
+    "image_path": "",
+    "pdf_upload": "brochures/pdfs/BM_color_chart.pdf",
+    "pdf_path": "",
+    "order": 3
+  }
+},
+{
+  "model": "main.productbrochure",
+  "pk": 4,
+  "fields": {
+    "title": "ASHWAGANDA EXTRACT",
+    "image_upload": "brochures/images/Ashwagandha_5.webp",
+    "image_path": "",
+    "pdf_upload": "brochures/pdfs/Ashwagandha_26.pdf",
+    "pdf_path": "",
+    "order": 4
+  }
+},
+{
+  "model": "main.productbrochure",
+  "pk": 5,
+  "fields": {
+    "title": "BERBERINE EXTRACT",
+    "image_upload": "brochures/images/340A4565.webp",
+    "image_path": "",
+    "pdf_upload": "brochures/pdfs/Berberine_26.pdf",
+    "pdf_path": "",
+    "order": 5
+  }
+},
+{
+  "model": "main.productbrochure",
+  "pk": 6,
+  "fields": {
+    "title": "BETA CAROTENE EXTRACT",
+    "image_upload": "brochures/images/pile-turmeric-table.webp",
+    "image_path": "",
+    "pdf_upload": "brochures/pdfs/Beta_Carotene_26.pdf",
+    "pdf_path": "",
+    "order": 6
+  }
+},
+{
+  "model": "main.productbrochure",
+  "pk": 7,
+  "fields": {
+    "title": "BITTER MELLON EXTRACT",
+    "image_upload": "",
+    "image_path": "",
+    "pdf_upload": "brochures/pdfs/Bitter_Mellon_26.pdf",
+    "pdf_path": "",
+    "order": 7
+  }
+},
+{
+  "model": "main.productbrochure",
+  "pk": 8,
+  "fields": {
+    "title": "BOSWELLIA SERRATA EXTRACT",
+    "image_upload": "brochures/images/envato-TDZP7QE-original.webp",
+    "image_path": "",
+    "pdf_upload": "brochures/pdfs/Boswellia_serrata_26.pdf",
+    "pdf_path": "",
+    "order": 8
+  }
+},
+{
+  "model": "main.productbrochure",
+  "pk": 9,
+  "fields": {
+    "title": "COLEUS FORSKOHLII EXTRACT",
+    "image_upload": "brochures/images/coleus-forskohlii-blog.webp",
+    "image_path": "",
+    "pdf_upload": "brochures/pdfs/Coleus_Forskohlii_26.pdf",
+    "pdf_path": "",
+    "order": 9
+  }
+},
+{
+  "model": "main.productbrochure",
+  "pk": 10,
+  "fields": {
+    "title": "CURCUMIN EXTRACT",
+    "image_upload": "",
+    "image_path": "",
+    "pdf_upload": "brochures/pdfs/Curcumin_26.pdf",
+    "pdf_path": "",
+    "order": 10
+  }
+},
+{
+  "model": "main.productbrochure",
+  "pk": 11,
+  "fields": {
+    "title": "GARCINIA CAMBOGIA EXTRACT",
+    "image_upload": "",
+    "image_path": "",
+    "pdf_upload": "brochures/pdfs/Garcinia_Cambogia_26.pdf",
+    "pdf_path": "",
+    "order": 11
+  }
+},
+{
+  "model": "main.productbrochure",
+  "pk": 12,
+  "fields": {
+    "title": "GREEN COFFEE BEAN EXTRACT",
+    "image_upload": "brochures/images/coffee-beans-coffee-green-leaves-wooden-background-fresh-cof.webp",
+    "image_path": "",
+    "pdf_upload": "brochures/pdfs/Green_Coffee_Bean_26.pdf",
+    "pdf_path": "",
+    "order": 12
+  }
+},
+{
+  "model": "main.productbrochure",
+  "pk": 13,
+  "fields": {
+    "title": "GREEN TEA EXTRACT",
+    "image_upload": "brochures/images/bg.webp",
+    "image_path": "",
+    "pdf_upload": "brochures/pdfs/Green_Tea_26.pdf",
+    "pdf_path": "",
+    "order": 14
+  }
+},
+{
+  "model": "main.productbrochure",
+  "pk": 14,
+  "fields": {
+    "title": "L-THEANINE",
+    "image_upload": "",
+    "image_path": "",
+    "pdf_upload": "brochures/pdfs/L-Theanine_26.pdf",
+    "pdf_path": "",
+    "order": 13
+  }
+},
+{
+  "model": "main.productbrochure",
+  "pk": 15,
+  "fields": {
+    "title": "LYCOPENE EXTRACT",
+    "image_upload": "",
+    "image_path": "",
+    "pdf_upload": "brochures/pdfs/Lycopene_26.pdf",
+    "pdf_path": "",
+    "order": 21
+  }
+},
+{
+  "model": "main.productbrochure",
+  "pk": 16,
+  "fields": {
+    "title": "NATURAL CAFFEINE EXTRACT",
+    "image_upload": "",
+    "image_path": "",
+    "pdf_upload": "brochures/pdfs/Natural_Caffeine_26.pdf",
+    "pdf_path": "",
+    "order": 15
+  }
+},
+{
+  "model": "main.productbrochure",
+  "pk": 17,
+  "fields": {
+    "title": "NUTMEG ESSENTIAL OIL EXTRACT",
+    "image_upload": "",
+    "image_path": "",
+    "pdf_upload": "brochures/pdfs/Nutmeg_Essential_Oil_26.pdf",
+    "pdf_path": "",
+    "order": 16
+  }
+},
+{
+  "model": "main.productbrochure",
+  "pk": 18,
+  "fields": {
+    "title": "SAFFRON EXTRACT",
+    "image_upload": "",
+    "image_path": "",
+    "pdf_upload": "brochures/pdfs/saffron_26.pdf",
+    "pdf_path": "",
+    "order": 17
+  }
+},
+{
+  "model": "main.productbrochure",
+  "pk": 19,
+  "fields": {
+    "title": "SESAME EXTRACT",
+    "image_upload": "",
+    "image_path": "",
+    "pdf_upload": "brochures/pdfs/sesame_26.pdf",
+    "pdf_path": "",
+    "order": 18
+  }
+},
+{
+  "model": "main.productbrochure",
+  "pk": 20,
+  "fields": {
+    "title": "VEG COLLAGEN EXTRACT",
+    "image_upload": "",
+    "image_path": "",
+    "pdf_upload": "brochures/pdfs/Veg_Collagen_26.pdf",
+    "pdf_path": "",
+    "order": 19
+  }
+},
+{
+  "model": "main.productbrochure",
+  "pk": 21,
+  "fields": {
+    "title": "WHITE KIDNEY BEANS EXTRACT",
+    "image_upload": "",
+    "image_path": "",
+    "pdf_upload": "brochures/pdfs/White_Kidney_Beans_26.pdf",
+    "pdf_path": "",
+    "order": 20
+  }
+},
+{
+  "model": "main.productbrochure",
+  "pk": 22,
+  "fields": {
+    "title": "BACOPA EXTRACT",
+    "image_upload": "",
+    "image_path": "",
+    "pdf_upload": "brochures/pdfs/Bacopa.pdf",
+    "pdf_path": "",
+    "order": 22
+  }
+},
+{
+  "model": "main.productbrochure",
+  "pk": 23,
+  "fields": {
+    "title": "BLACK PEPPER EXTRACT",
+    "image_upload": "",
+    "image_path": "",
+    "pdf_upload": "brochures/pdfs/Bamboo_extract.pdf",
+    "pdf_path": "",
+    "order": 23
+  }
+},
+{
+  "model": "main.productbrochure",
+  "pk": 24,
+  "fields": {
+    "title": "BROMELAIN EXTRACT",
+    "image_upload": "",
+    "image_path": "",
+    "pdf_upload": "brochures/pdfs/Bromelain_Literature.pdf",
+    "pdf_path": "",
+    "order": 24
+  }
+},
+{
+  "model": "main.productbrochure",
+  "pk": 25,
+  "fields": {
+    "title": "CURRY LEAF EXTRACT",
+    "image_upload": "",
+    "image_path": "",
+    "pdf_upload": "brochures/pdfs/BM_Curry_Leaf.pdf",
+    "pdf_path": "",
+    "order": 25
+  }
+},
+{
+  "model": "main.productbrochure",
+  "pk": 26,
+  "fields": {
+    "title": "BERBERINE LYPOSOME",
+    "image_upload": "",
+    "image_path": "",
+    "pdf_upload": "brochures/pdfs/Berberine_Liposome_copy.pdf",
+    "pdf_path": "",
+    "order": 26
+  }
+},
+{
+  "model": "main.productbrochure",
+  "pk": 27,
+  "fields": {
+    "title": "FROZEN PULPS",
+    "image_upload": "",
+    "image_path": "",
+    "pdf_upload": "brochures/pdfs/Froen_Pulp_copy_copy.pdf",
+    "pdf_path": "",
+    "order": 27
+  }
+},
+{
+  "model": "main.productbrochure",
+  "pk": 28,
+  "fields": {
+    "title": "MAKHANA",
+    "image_upload": "",
+    "image_path": "",
+    "pdf_upload": "brochures/pdfs/makhana_brochure_copy_compressed.pdf",
+    "pdf_path": "",
+    "order": 28
   }
 },
 {
@@ -3938,9 +7788,93 @@
     "name": "Ashwagandha",
     "category": 9,
     "image": "product_documents/images/Ashwagandha_5.webp",
-    "pdfs": "product_documents/pdfs/Ashwagandha 26.pdf,product_documents/pdfs/BMI20230688_PA report Ashwagandha_Extract_5.0__.pdf,product_documents/pdfs/BMI20230688_PAH report Ashwagandha_Extract_5.0__.pdf,product_documents/pdfs/BMI20230753 Ashwagandha EXTRACT 10.0_ AssayReport.pdf,product_documents/pdfs/BMI20230753 Ashwagandha EXTRACT 10.0_ hm Report.pdf,product_documents/pdfs/BMI20230753 Ashwagandha EXTRACT 10.0_ Micro Report.pdf,product_documents/pdfs/BMI20230753 Ashwagandha EXTRACT 10.0_ pesticide Report.pdf,product_documents/pdfs/BMI20230753 Ashwagandha_Extract_10.0__ RS.pdf,product_documents/pdfs/BMI20230753 COA Ashwagandha extract 10.0_ grav.pdf,product_documents/pdfs/FPSB01 Ashwagandha Extract 10.0_ Grav Root.pdf,product_documents/pdfs/ICC Ashwagandha extract 10.0_.pdf,product_documents/pdfs/MSDS  Ashwagandha Extract 10.0_.pdf,product_documents/pdfs/Nutritional values Ashwagandha Extract.pdf,product_documents/pdfs/TDS Ashwagandha Extract 10.0_.pdf",
+    "pdfs": "product_documents/Ashwagandha 26.pdf, product_documents/BMI20230688_PA report Ashwagandha_Extract_5.0__.pdf, product_documents/BMI20230688_PAH report Ashwagandha_Extract_5.0__.pdf, product_documents/BMI20230753 Ashwagandha EXTRACT 10.0_ AssayReport.pdf, product_documents/BMI20230753 Ashwagandha EXTRACT 10.0_ hm Report.pdf, product_documents/BMI20230753 Ashwagandha EXTRACT 10.0_ Micro Report.pdf, product_documents/BMI20230753 Ashwagandha EXTRACT 10.0_ pesticide Report.pdf, product_documents/BMI20230753 Ashwagandha_Extract_10.0__ RS.pdf, product_documents/BMI20230753 COA Ashwagandha extract 10.0_ grav.pdf, product_documents/FPSB01 Ashwagandha Extract 10.0_ Grav Root.pdf, product_documents/ICC Ashwagandha extract 10.0_.pdf, product_documents/MSDS  Ashwagandha Extract 10.0_.pdf, product_documents/Nutritional values Ashwagandha Extract.pdf, product_documents/TDS Ashwagandha Extract 10.0_.pdf",
     "created_at": "2026-08-11T05:33:03.998Z",
-    "updated_at": "2026-08-11T05:33:03.998Z"
+    "updated_at": "2026-11-18T04:45:33.302Z"
+  }
+},
+{
+  "model": "main.productdocument",
+  "pk": 2,
+  "fields": {
+    "name": "Aloe Vera",
+    "category": 9,
+    "image": "product_documents/images/aloe-vera-plantation-close-up-on-fresh-leaf-of-al-2024-11-02-2_WOlhu7s.webp",
+    "pdfs": "product_documents/Aloe Vera brochure-compressed.pdf, product_documents/BMIQCFP0085 Aloe Vera 200.pdf, product_documents/FPSB01 Aloe vera 100-1.pdf, product_documents/FPSB01 Aloe vera 200-1.pdf, product_documents/FPSB01 Aloe vera extract 20.0_.pdf, product_documents/FPSB01 Aloe vera extract 200X -10ppm Aloin.pdf, product_documents/FPSB01 Aloe vera extract 200X Bifurcation.pdf, product_documents/FPSB01 Aloe vera liquid extract.pdf, product_documents/ICC Aloe vera extract 200-1.pdf, product_documents/ICC Aloe vera extract 200x.pdf, product_documents/MFC Aloe Vera Extract.pdf, product_documents/MSDS Aloe Vera 200x.pdf",
+    "created_at": "2026-11-18T04:45:33.273Z",
+    "updated_at": "2026-11-18T04:45:33.273Z"
+  }
+},
+{
+  "model": "main.productdocument",
+  "pk": 3,
+  "fields": {
+    "name": "Anti Hangover",
+    "category": 1,
+    "image": "",
+    "pdfs": "product_documents/ANTI  HANGOVER.pdf, product_documents/FPSB01 Antihangover premix powder.pdf",
+    "created_at": "2026-11-18T04:45:33.310Z",
+    "updated_at": "2026-11-18T04:45:33.311Z"
+  }
+},
+{
+  "model": "main.productdocument",
+  "pk": 4,
+  "fields": {
+    "name": "Berberine",
+    "category": 9,
+    "image": "product_documents/images/barberry-berries-on-a-branch-on-a-natural-backgrou-2025-10-11-_LT5OkiU.webp",
+    "pdfs": "product_documents/Berberine 26.pdf",
+    "created_at": "2026-11-18T04:45:33.318Z",
+    "updated_at": "2026-11-18T04:45:33.318Z"
+  }
+},
+{
+  "model": "main.productdocument",
+  "pk": 5,
+  "fields": {
+    "name": "Bitter Melon",
+    "category": 9,
+    "image": "product_documents/images/queen-s-flower-2025-03-21-00-13-55-utc.webp",
+    "pdfs": "product_documents/Bitter Mellon 26.pdf, product_documents/FPSB01 Bitter Melon Extract 2.5_.pdf",
+    "created_at": "2026-11-18T04:45:33.327Z",
+    "updated_at": "2026-11-18T04:45:33.327Z"
+  }
+},
+{
+  "model": "main.productdocument",
+  "pk": 6,
+  "fields": {
+    "name": "Boswellia",
+    "category": 9,
+    "image": "",
+    "pdfs": "product_documents/258-2022-06007615_Boswellia_Serrata_Extract_.pdf, product_documents/258-2022-07000595_Boswellia_Serrata_extract_65__ Assay.pdf, product_documents/258-2023-01005175_Boswellia_Serrata_Extract_65__ETO.pdf, product_documents/BMI20230381A  Boswellia Serrata 65.0_ HM.pdf, product_documents/BMI20230381A  Boswellia Serrata 65.0_ Pest.pdf, product_documents/BMI20230381B Boswellia Serrata 65.0_ Citric Acid test.pdf, product_documents/BMI20230381B RS Report Boswellia_Serrata_Extract_65.0_.pdf, product_documents/BMI20230842 COA Boswellia Serrata Extract 65_.pdf, product_documents/BMI20240129 COA Boswellia Serrata Extract 85.0_.pdf, product_documents/Boswellia serrata 26.pdf, product_documents/FPSB01 Boswellia Serrata Extract 65_ Ethanol.pdf, product_documents/FPSB01 Boswellia Serrata Extract 85_.pdf, product_documents/ICC Boswellia Serrata Extract 65.0_.pdf, product_documents/Nutritional value BOSWELLIA SERRATTA EXTRACT 65_.pdf, product_documents/TDS Boswellia Serrata Extract 65.0_.pdf, product_documents/TDS Boswellia Serrata Extract 85.0_.pdf",
+    "created_at": "2026-11-18T04:45:33.355Z",
+    "updated_at": "2026-11-18T04:45:33.355Z"
+  }
+},
+{
+  "model": "main.productdocument",
+  "pk": 7,
+  "fields": {
+    "name": "Coleus",
+    "category": 9,
+    "image": "",
+    "pdfs": "product_documents/BMI20230928 COA Coleus extract 10.0_.pdf, product_documents/BMI20240074 Assay Report Coleus Extract.pdf, product_documents/BMI20240074 ETO Report Coleus Forskohlii Extract 10.0_.pdf, product_documents/BMI20240074 HM Report Coleus Extract.pdf, product_documents/BMI20240074 Micro Report Coleus_Extract_.pdf, product_documents/BMI20240074 PA Report Coleus_Extract.pdf, product_documents/BMI20240074 RS Report Coleus_Extract.pdf, product_documents/BMI20240074C COA Coleus Forskohlii Extract.pdf, product_documents/BMI20250060(B) Coleus Forskohlii Extract  Assay report.pdf, product_documents/Coleus Forskohlii 26.pdf, product_documents/FPSB01 Coleus extract  10_ Ethanol.pdf, product_documents/ICC Coleus 10_.pdf, product_documents/MSDS Coleus extract 10.0_.pdf, product_documents/Nutritional value Coleus Extract 10.0_.pdf, product_documents/TDS - Coleus Forskohlii Extract 10.0_.pdf",
+    "created_at": "2026-11-18T04:45:33.383Z",
+    "updated_at": "2026-11-18T04:45:33.383Z"
+  }
+},
+{
+  "model": "main.productdocument",
+  "pk": 8,
+  "fields": {
+    "name": "Colors",
+    "category": 10,
+    "image": "",
+    "pdfs": "product_documents/BM color chart l.pdf, product_documents/BMI20230458 COA Natural Green Powder WS.pdf, product_documents/BMI20230459 COA Natural Pink Powder WS.pdf, product_documents/BMI20230460 COA Natural Mango Yellow Powder WS.pdf, product_documents/BMI20230467 COA Natural Dark blue Powder WS.pdf, product_documents/BMI20230468 COA Natural Blue Powder WS.pdf, product_documents/BMI20230470 COA Natural Orange Powder WS.pdf, product_documents/BMI20230475 COA Natural Yellow Powder WS.pdf, product_documents/BMI20230476 COA Natural Orange red Powder WS.pdf, product_documents/BMI20230492 COA Natural Wine Red Powder WS.pdf, product_documents/BMI20230641 COA Natural Purple Powder WS.pdf, product_documents/BMIS20230637 COA Natural Brown Powder WS.pdf, product_documents/BMIS20240124 COA Natural Lemon Yellow Powder WS.pdf",
+    "created_at": "2026-11-18T04:45:33.405Z",
+    "updated_at": "2026-11-18T04:45:33.405Z"
   }
 },
 {
@@ -4037,6 +7971,66 @@
   }
 },
 {
+  "model": "main.instagrampost",
+  "pk": 3,
+  "fields": {
+    "image_upload": "instagram_posts/Screenshot_2026-07-23_143610.webp",
+    "caption": "We're excited to showcase our premium range of herbal extracts, nutraceutical ingredients, natural food colors, flavors, and botanical solutions.\r\n\r\n? Booth: B21\r\n? July 26–29, 2026\r\n? Australia\r\n\r\nLet's connect, collaborate, and create innovative solutions for the future of health and nutrition.",
+    "link": "https://www.instagram.com/p/DbFQP-ojKjl/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
+    "is_visible": true,
+    "order": 1,
+    "created_at": "2026-11-18T04:45:33.677Z"
+  }
+},
+{
+  "model": "main.instagrampost",
+  "pk": 4,
+  "fields": {
+    "image_upload": "instagram_posts/coffee.webp",
+    "caption": "atrbrvsfds",
+    "link": "",
+    "is_visible": true,
+    "order": 2,
+    "created_at": "2026-11-18T04:45:33.681Z"
+  }
+},
+{
+  "model": "main.instagrampost",
+  "pk": 5,
+  "fields": {
+    "image_upload": "instagram_posts/marigold2.webp",
+    "caption": "ewweewrwr",
+    "link": "",
+    "is_visible": true,
+    "order": 3,
+    "created_at": "2026-11-18T04:45:33.686Z"
+  }
+},
+{
+  "model": "main.instagrampost",
+  "pk": 6,
+  "fields": {
+    "image_upload": "instagram_posts/lab5.webp",
+    "caption": "aWRarfaedsarESrstssgg",
+    "link": "",
+    "is_visible": true,
+    "order": 4,
+    "created_at": "2026-11-18T04:45:33.691Z"
+  }
+},
+{
+  "model": "main.instagrampost",
+  "pk": 7,
+  "fields": {
+    "image_upload": "instagram_posts/lab1.webp",
+    "caption": "dhgdhhhhhfgddgdg",
+    "link": "",
+    "is_visible": true,
+    "order": 5,
+    "created_at": "2026-11-18T04:45:33.695Z"
+  }
+},
+{
   "model": "main.jobopening",
   "pk": 1,
   "fields": {
@@ -4053,6 +8047,139 @@
     "color_theme": "success",
     "link": "#fffaerarawrwrwrwrwrwrr",
     "order": 1
+  }
+},
+{
+  "model": "main.jobopening",
+  "pk": 2,
+  "fields": {
+    "title": "Senior Manager - Production",
+    "category": "Manufacturing Operations",
+    "description": "Leading large-scale manufacturing operations with precision, efficiency, and a results-driven mindset...",
+    "academic_excellence": "Ph.D. in Life Sciences (Pharmacy / Food Technology / Biotechnology / Chemical Engineering) with strong knowledge of formulation science, manufacturing processes, and industrial operations. Certified in GMP, HACCP, and ISO standards.",
+    "professional_expertise": "Extensive experience in managing end-to-end production operations across nutraceutical, pharmaceutical, and food manufacturing facilities. Proven track record in optimizing production efficiency while maintaining strict compliance with FSSAI, WHO-GMP, ISO, and HACCP guidelines.",
+    "core_responsibilities": "Overseeing daily production operations (tablets, capsules, powders, liquids) Driving production planning, scheduling, and capacity optimization Ensuring adherence to GMP and regulatory compliance standards Managing manpower, machinery, and material flow for seamless operations Implementing process improvements to enhance productivity and reduce costs Coordinating with QA/QC, R&D, and supply chain teams Monitoring equipment performance, maintenance, and downtime reduction Leading scale-up, technology transfer, and new product manufacturing",
+    "core_competencies": "Production Management | Process Optimization | GMP Compliance | Capacity Planning | Cost Control | Lean Manufacturing | Team Leadership",
+    "professional_edge": "Combining PhD-driven technical expertise with hands-on production leadership, this role ensures efficient, scalable, and compliant manufacturing operations aligned with global standards.",
+    "commitment_statement": "Committed to delivering consistent quality, operational excellence, and high-performance manufacturing in the nutraceutical industry.",
+    "icon": "fa-briefcase",
+    "color_theme": "success",
+    "link": "#",
+    "order": 1
+  }
+},
+{
+  "model": "main.jobopening",
+  "pk": 3,
+  "fields": {
+    "title": "Senior Manager - QA & QC",
+    "category": "Nutraceutical Manufacturing",
+    "description": "Driving excellence in quality with a strong scientific foundation and over 15+ years of industry experience, ensuring compliance and operational efficiency.",
+    "academic_excellence": "",
+    "professional_expertise": "",
+    "core_responsibilities": "",
+    "core_competencies": "",
+    "professional_edge": "",
+    "commitment_statement": "",
+    "icon": "fa-microscope",
+    "color_theme": "success",
+    "link": "#",
+    "order": 2
+  }
+},
+{
+  "model": "main.jobopening",
+  "pk": 4,
+  "fields": {
+    "title": "Production Supervisor / Executive",
+    "category": "Nutraceutical Industry",
+    "description": "A dynamic early-career professional role designed for individuals with 1-2 years of hands-on experience in manufacturing operations.",
+    "academic_excellence": "",
+    "professional_expertise": "",
+    "core_responsibilities": "",
+    "core_competencies": "",
+    "professional_edge": "",
+    "commitment_statement": "",
+    "icon": "fa-cogs",
+    "color_theme": "info",
+    "link": "#",
+    "order": 3
+  }
+},
+{
+  "model": "main.jobopening",
+  "pk": 5,
+  "fields": {
+    "title": "Purchase Head",
+    "category": "Procurement",
+    "description": "Lead procurement and sourcing activities to ensure timely and cost-effective acquisition of materials, focusing on supplier management.",
+    "academic_excellence": "",
+    "professional_expertise": "",
+    "core_responsibilities": "",
+    "core_competencies": "",
+    "professional_edge": "",
+    "commitment_statement": "",
+    "icon": "fa-shopping-cart",
+    "color_theme": "warning",
+    "link": "#",
+    "order": 4
+  }
+},
+{
+  "model": "main.jobopening",
+  "pk": 6,
+  "fields": {
+    "title": "Logistics Head",
+    "category": "Supply Chain",
+    "description": "Optimize transportation, warehousing, inventory movement, and distribution operations while ensuring timely delivery and compliance.",
+    "academic_excellence": "",
+    "professional_expertise": "",
+    "core_responsibilities": "",
+    "core_competencies": "",
+    "professional_edge": "",
+    "commitment_statement": "",
+    "icon": "fa-truck",
+    "color_theme": "danger",
+    "link": "#",
+    "order": 5
+  }
+},
+{
+  "model": "main.jobopening",
+  "pk": 7,
+  "fields": {
+    "title": "Marketing Head",
+    "category": "Marketing & Sales",
+    "description": "Develop and execute marketing strategies that drive brand awareness, lead generation, customer engagement, and business growth.",
+    "academic_excellence": "",
+    "professional_expertise": "",
+    "core_responsibilities": "",
+    "core_competencies": "",
+    "professional_edge": "",
+    "commitment_statement": "",
+    "icon": "fa-bullhorn",
+    "color_theme": "primary",
+    "link": "#",
+    "order": 6
+  }
+},
+{
+  "model": "main.jobopening",
+  "pk": 8,
+  "fields": {
+    "title": "QC Executive",
+    "category": "Quality Control",
+    "description": "Conduct quality control activities, ensuring compliance with standards, laboratory testing, and maintaining accurate documentation.",
+    "academic_excellence": "",
+    "professional_expertise": "",
+    "core_responsibilities": "",
+    "core_competencies": "",
+    "professional_edge": "",
+    "commitment_statement": "",
+    "icon": "fa-vial",
+    "color_theme": "success",
+    "link": "#",
+    "order": 7
   }
 },
 {

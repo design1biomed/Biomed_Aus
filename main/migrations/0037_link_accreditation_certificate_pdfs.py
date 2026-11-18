@@ -36,3 +36,4 @@ class Migration(migrations.Migration):
     operations = [
         migrations.RunPython(link_pdfs, reverse_link_pdfs),
     ]
+
